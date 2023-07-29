@@ -5,7 +5,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Lato", "sans-serif";
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 23px;
 }
 
 :root {
@@ -25,4 +26,23 @@ button {
     font-family: "Space Grotesk", "sans-serif";
     font-weight: var(--bold);
     cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* React modal transition styles */
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
 }

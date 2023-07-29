@@ -1,6 +1,8 @@
+import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
 import NavbarCSS from "./Navbar.module.css";
 import cisLogo from "../../assets/cis_logo.svg";
 import Searchbar from "./NavSearchbar";
+import Button from "../../components/ui/Button/Button";
 
 const Navbar = () => {
   return (
@@ -14,10 +16,9 @@ const Navbar = () => {
           <Searchbar />
         </div>
         <div className={NavbarCSS["nav-right"]}>
-          <button className={NavbarCSS["ios-app-btn"]}>iOS App</button>
+          <Button type={"blackOutline"} text={"iOS App"} />
           <span className={NavbarCSS.separator}></span>
-          <button className={NavbarCSS["register-btn"]}>Register</button>
-          <button className={NavbarCSS["login-btn"]}>Login</button>
+          <AuthWidget />
         </div>
       </div>
       <div className={NavbarCSS["nav-bottom"]}>

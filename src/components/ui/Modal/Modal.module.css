@@ -1,0 +1,17 @@
+.modal-top, .modal-bottom {
+    padding: 20px 27px;
+}
+
+.modal-top {
+    border-bottom: 1px solid var(--primary-border-color)
+}
+
+.modal-title {
+    font-size: 1.3rem;
+    width: 100%;
+    text-align: center;
+}
+
+.modal-bottom p {
+    font-size: 0.9rem;
+}

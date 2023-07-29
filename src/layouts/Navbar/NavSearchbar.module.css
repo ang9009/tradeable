@@ -45,6 +45,10 @@
     place-items: center;
 }
 
+.clear-search-btn {
+    cursor: pointer;
+}
+
 .search-btn {
     background: var(--shareable-beige);
     border-radius: 0 5px 5px 0;

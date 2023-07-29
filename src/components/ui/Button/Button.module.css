@@ -1,0 +1,22 @@
+.gray-outline-btn {
+    background: #fff;
+    border: 1px solid var(--primary-border-color);
+}
+
+.gray-outline-btn:hover {
+    border: 1px solid #000;
+}
+
+.filled-black-btn {
+    background: #000;
+    color: #fff;
+}
+
+.filled-black-btn:hover {
+    background: #373737;
+}
+
+.black-outline-btn {
+    background: #fff;
+    border: 1px solid #000;
+}
