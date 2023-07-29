@@ -1,0 +1,31 @@
+.navbar {
+    height: var(--navbar-height);
+}
+
+.nav-top {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--primary-border-color);
+    padding: 0 111px;
+    list-style: none;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 75px;
+    background: var(--shareable-burgundy);
+    padding: 15px;
+}
+
+.logo h1 {
+    font-size: 0.938rem;
+    margin-left: 20px;
+    font-family: "Space Grotesk", "sans-serif";
+    font-weight: bold;
+}
