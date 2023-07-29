@@ -1,13 +1,18 @@
+import { useState } from "react";
 import NavSearchbarCSS from "./NavSearchbar.module.css";
-import { FiSearch } from "react-icons/fi";
+import { BiSearch } from "react-icons/bi";
 
 const Searchbar = () => {
   return (
     <div className={NavSearchbarCSS.searchbar}>
-      <FiSearch className={NavSearchbarCSS["search-icon"]} />
-      <input type="text" placeholder={"Search for items"} />
+      <BiSearch size={"16px"} className={NavSearchbarCSS["search-icon"]} />
+      <input
+        type="text"
+        className={NavSearchbarCSS.input}
+        placeholder={"Search for items"}
+      />
       <button className={NavSearchbarCSS["search-btn"]}>
-        <FiSearch className={NavSearchbarCSS["search-icon"]} />
+        <BiSearch size={"16px"} />
       </button>
     </div>
   );

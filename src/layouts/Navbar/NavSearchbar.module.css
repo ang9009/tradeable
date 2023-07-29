@@ -4,28 +4,39 @@
     border-radius: 5px;
     display: flex;
     align-items: center;
+    height: 42px;
 }
 
 .searchbar input {
     border: none;
-    width: 100%;
+    width: auto;
     height: 100%;
     padding: 12px 0;
     background: none;
     margin-left: 5px;
 }
 
-.searchbar input:focus {
+.input:focus {
     outline: none;
 }
 
+.input:focus + .searchbar {
+    border: 2px solid var(--input-focus-color);
+    background: red;
+}
+
 .search-icon {
-    display: flex;
-    place-items: center;
+    height: 20px;
+    margin: 0 10px;
 }
 
 .search-btn {
     background: var(--shareable-beige);
+    border-radius: 0 5px 5px 0;
     border: none;
     height: 100%;
+    padding: 10px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
 }
