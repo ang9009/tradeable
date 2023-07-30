@@ -1,22 +1,37 @@
 import React, { useState } from "react";
-import AuthWidgetCSS from "./AuthWidget.module.css";
-import LoginModal from "../LoginModal/LoginModal";
 import Button from "../../../../components/ui/Button/Button";
+import AuthModal from "../AuthModal/AuthModal";
 
-const AuthWidget = () => {
-  const [loginModalIsOpen, setLoginModalIsOpen] = useState(false);
+function AuthWidget() {
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState("");
 
   return (
     <>
-      <Button type={"blackFilled"} text={"Register"} />
       <Button
-        type={"grayOutline"}
-        onClick={() => setLoginModalIsOpen(true)}
+        type={"black-filled"}
+        text={"Register"}
+        onClick={() => {
+          setIsAuthModalOpen(true);
+          setIsLogin(false);
+        }}
+      />
+      <Button
+        type={"gray-outline"}
+        onClick={() => {
+          setIsAuthModalOpen(true);
+          setIsLogin(true);
+        }}
         text={"Login"}
       />
-      <LoginModal isOpen={loginModalIsOpen} setIsOpen={setLoginModalIsOpen} />
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        setIsOpen={setIsAuthModalOpen}
+        isLogin={isLogin}
+        setIsLogin={setIsLogin}
+      />
     </>
   );
-};
+}
 
 export default AuthWidget;

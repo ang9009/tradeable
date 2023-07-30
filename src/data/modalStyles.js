@@ -1,4 +1,4 @@
-export const loginModalStyles = {
+export const modalStyles = {
   content: {
     top: "50%",
     left: "50%",
@@ -7,8 +7,7 @@ export const loginModalStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     border: "none",
-    width: "25vw",
-    height: "45vh",
+    width: "27vw",
     padding: "0",
     borderRadius: "5px",
   },

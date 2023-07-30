@@ -10,13 +10,13 @@ const Navbar = () => {
       <div className={NavbarCSS["nav-top"]}>
         <div className={NavbarCSS["nav-left"]}>
           <div className={NavbarCSS.logo}>
-            <img src={cisLogo} alt="" className={NavbarCSS.logo} />
+            <img src={cisLogo} className={NavbarCSS.logo} draggable={false} />
             <h1>shareable</h1>
           </div>
           <Searchbar />
         </div>
         <div className={NavbarCSS["nav-right"]}>
-          <Button type={"blackOutline"} text={"iOS App"} />
+          <Button type={"black-outline"} text={"iOS App"} />
           <span className={NavbarCSS.separator}></span>
           <AuthWidget />
         </div>

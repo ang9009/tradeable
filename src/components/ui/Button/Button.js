@@ -1,24 +1,14 @@
 import ButtonCSS from "./Button.module.css";
 
-const Button = ({ type, onClick, text }) => {
-  let buttonClass = "";
-
-  switch (type) {
-    case "grayOutline":
-      buttonClass = "gray-outline-btn";
-      break;
-    case "blackFilled":
-      buttonClass = "filled-black-btn";
-      break;
-    case "blackOutline":
-      buttonClass = "black-outline-btn";
-  }
-
+function Button({ type, onClick, text }) {
   return (
-    <button className={ButtonCSS[buttonClass]} onClick={onClick}>
+    <button
+      className={`${ButtonCSS[type]} ${ButtonCSS["all-btns"]}`}
+      onClick={onClick}
+    >
       {text}
     </button>
   );
-};
+}
 
 export default Button;

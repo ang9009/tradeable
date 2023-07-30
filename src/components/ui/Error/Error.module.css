@@ -1,0 +1,13 @@
+.error-msg {
+  padding: 15px;
+  background: var(--warning-red);
+  width: 100%;
+  border-radius: 5px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.error-msg p {
+  margin-left: 10px;
+}

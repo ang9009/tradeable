@@ -1,17 +1,33 @@
-.modal-top, .modal-bottom {
-    padding: 20px 27px;
+.modal-top {
+  padding: 25px;
+}
+
+.modal-bottom {
+  padding: 30px 30px;
 }
 
 .modal-top {
-    border-bottom: 1px solid var(--primary-border-color)
+  border-bottom: 1px solid var(--primary-border-color);
 }
 
 .modal-title {
-    font-size: 1.3rem;
-    width: 100%;
-    text-align: center;
+  font-size: 1.3rem;
+  width: 100%;
+  text-align: center;
 }
 
 .modal-bottom p {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.modal-content p {
+  width: 100%;
+  text-align: left;
 }

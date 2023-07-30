@@ -1,22 +1,40 @@
-.gray-outline-btn {
+.all-btns {
+    padding: 5px 11px;
+    border: none;
+    border-radius: 3px;
+    font-family: "Space Grotesk", "sans-serif";
+    font-weight: var(--bold);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.all-btns:focus {
+    outline: none;
+}
+
+.gray-outline {
     background: #fff;
     border: 1px solid var(--primary-border-color);
 }
 
-.gray-outline-btn:hover {
+.gray-outline:hover {
     border: 1px solid #000;
 }
 
-.filled-black-btn {
+.black-filled {
     background: #000;
     color: #fff;
 }
 
-.filled-black-btn:hover {
+.black-filled:hover {
     background: #373737;
 }
 
-.black-outline-btn {
+.black-outline {
     background: #fff;
     border: 1px solid #000;
+}
+
+.black-outline:hover {
+    background: #f6f6f6;
 }
