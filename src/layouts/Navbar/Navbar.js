@@ -1,4 +1,4 @@
-import cisLogo from "../../assets/cis_logo.svg";
+import Logo from "./../../components/ui/Logo/Logo";
 import Button from "../../components/ui/Button/Button";
 import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
 import Searchbar from "./NavSearchbar";
@@ -9,10 +9,7 @@ const Navbar = () => {
     <nav className={NavbarCSS.navbar}>
       <div className={NavbarCSS["nav-top"]}>
         <div className={NavbarCSS["nav-left"]}>
-          <div className={NavbarCSS.logo}>
-            <img src={cisLogo} className={NavbarCSS.logo} draggable={false} />
-            <h1>shareable</h1>
-          </div>
+          <Logo />
           <Searchbar />
         </div>
         <div className={NavbarCSS["nav-right"]}>
@@ -36,3 +33,12 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+function undefined({ cisLogo }) {
+  return (
+    <div className={NavbarCSS.logo}>
+      <img src={cisLogo} className={NavbarCSS.logo} draggable={false} />
+      <h1>shareable</h1>
+    </div>
+  );
+}

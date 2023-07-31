@@ -21,6 +21,11 @@
   --secondary-text-color: #737373;
 }
 
+.page-container {
+  min-height: calc(100vh - var(--navbar-height));
+  padding: 0 111px;
+}
+
 /* Global text styles */
 .separator {
   width: 100%;

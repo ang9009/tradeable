@@ -1,0 +1,21 @@
+.logo {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 75px;
+  background: var(--shareable-burgundy);
+  padding: 15px;
+}
+
+.logo h1 {
+  font-size: 1rem;
+  margin-left: 20px;
+  font-family: "Space Grotesk", "sans-serif";
+  font-weight: 530;
+}
