@@ -44,10 +44,6 @@
   width: 122.49px;
 }
 
-.select-content {
-  width: 100%;
-}
-
 .select-item:last-child {
   color: var(--secondary-text-color);
 }

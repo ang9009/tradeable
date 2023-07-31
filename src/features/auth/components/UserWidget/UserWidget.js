@@ -1,47 +1,45 @@
 import { useUser } from "../../../../context/UserContext";
 import UserWidgetCSS from "./UserWidget.module.css";
 import { FiChevronDown } from "react-icons/fi";
-import * as Select from "@radix-ui/react-select";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { auth } from "../../../../lib/firebase";
 
 function UserWidget() {
   const user = useUser();
 
   return (
-    <Select.Root value={option} onValueChange={setOption}>
+    <DropdownMenu.Root>
       {/* The user widget you click on */}
-      <Select.Trigger className={UserWidgetCSS["widget-container"]}>
+      <DropdownMenu.Trigger className={UserWidgetCSS["widget-container"]}>
         <img src={user.photoURL} alt="" />
         <div className={UserWidgetCSS.username}>{user.displayName}</div>
-        <Select.Icon className={UserWidgetCSS["down-chevron"]}>
+        <div className={UserWidgetCSS["down-chevron"]}>
           <FiChevronDown />
-        </Select.Icon>
-      </Select.Trigger>
+        </div>
+      </DropdownMenu.Trigger>
       {/* The dropdown menu */}
-      <Select.Content className={UserWidgetCSS["select-menu"]}>
-        <Select.Viewport className={UserWidgetCSS["select-content"]}>
-          <Select.Item className={UserWidgetCSS["select-item"]}>
-            Profile
-          </Select.Item>
-          <Select.Item className={UserWidgetCSS["select-item"]}>
-            Settings
-          </Select.Item>
-          <Select.Item className={UserWidgetCSS["select-item"]}>
-            Messages
-          </Select.Item>
-          <Select.Item className={UserWidgetCSS["select-item"]}>
-            Favorites
-          </Select.Item>
-          <Select.Separator className={UserWidgetCSS["select-separator"]} />
-          <Select.Item
-            className={UserWidgetCSS["select-item"]}
-            onClick={() => console.log("test")}
-          >
-            Sign out
-          </Select.Item>
-        </Select.Viewport>
-      </Select.Content>
-    </Select.Root>
+      <DropdownMenu.Content className={UserWidgetCSS["select-menu"]}>
+        <DropdownMenu.Item className={UserWidgetCSS["select-item"]}>
+          Profile
+        </DropdownMenu.Item>
+        <DropdownMenu.Item className={UserWidgetCSS["select-item"]}>
+          Settings
+        </DropdownMenu.Item>
+        <DropdownMenu.Item className={UserWidgetCSS["select-item"]}>
+          Messages
+        </DropdownMenu.Item>
+        <DropdownMenu.Item className={UserWidgetCSS["select-item"]}>
+          Favorites
+        </DropdownMenu.Item>
+        <DropdownMenu.Separator className={UserWidgetCSS["select-separator"]} />
+        <DropdownMenu.Item
+          className={UserWidgetCSS["select-item"]}
+          onSelect={() => auth.signOut()}
+        >
+          Sign out
+        </DropdownMenu.Item>
+      </DropdownMenu.Content>
+    </DropdownMenu.Root>
   );
 }
 

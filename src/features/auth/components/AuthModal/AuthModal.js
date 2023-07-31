@@ -4,20 +4,20 @@ import useLogin from "../../hooks/useLogin";
 import SignInButton from "../SignInButton/SignInButton";
 import AuthModalCSS from "./AuthModal.module.css";
 
-function AuthModal({ isOpen, setIsOpen, setIsAuthModalOpen }) {
+function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
   const { login, error } = useLogin({ setIsAuthModalOpen });
 
   return (
     <Modal
-      isOpen={isOpen}
-      handleClose={() => setIsOpen(false)}
+      isOpen={isAuthModalOpen}
+      handleClose={() => setIsAuthModalOpen(false)}
       title={"Register/sign in"}
     >
       <p>
         Sign in to shareable using your CIS Gmail account. No registration
         required!
       </p>
-      <SignInButton signIn={() => login(setIsAuthModalOpen)} />
+      <SignInButton signIn={() => login()} />
       {error !== "" && <Error message={error} />}
       <div className="separator"></div>
       <div id={AuthModalCSS["terms-text"]}>

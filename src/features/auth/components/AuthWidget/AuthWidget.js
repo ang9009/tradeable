@@ -35,7 +35,10 @@ function AuthWidget() {
           </>
         )}
       </div>
-      <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
+      <AuthModal
+        isAuthModalOpen={isAuthModalOpen}
+        setIsAuthModalOpen={setIsAuthModalOpen}
+      />
     </>
   );
 }
