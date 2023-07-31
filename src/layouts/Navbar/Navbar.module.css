@@ -21,7 +21,7 @@
 
 /* Nav left */
 .nav-left {
-  width: 55vw;
+  width: 53vw;
 }
 
 .logo {
@@ -54,7 +54,7 @@
   width: 1px;
   background: var(--primary-border-color);
   height: 100%;
-  margin-left: 25px;
+  margin-left: 22px;
 }
 
 /* Nav bottom */
@@ -75,4 +75,5 @@
 
 .nav-bottom ul li {
   font-weight: var(--bold);
+  cursor: pointer;
 }

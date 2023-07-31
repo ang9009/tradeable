@@ -1,40 +1,47 @@
 .all-btns {
-    padding: 5px 11px;
-    border: none;
-    border-radius: 3px;
-    font-family: "Space Grotesk", "sans-serif";
-    font-weight: var(--bold);
-    cursor: pointer;
-    transition: all 0.2s;
+  padding: 5px 11px;
+  border: none;
+  border-radius: 3px;
+  font-family: "Space Grotesk", "sans-serif";
+  font-weight: var(--bold);
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .all-btns:focus {
-    outline: none;
+  outline: none;
 }
 
 .gray-outline {
-    background: #fff;
-    border: 1px solid var(--primary-border-color);
+  background: #fff;
+  border: 1px solid var(--primary-border-color);
 }
 
 .gray-outline:hover {
-    border: 1px solid #000;
+  border: 1px solid #000;
 }
 
 .black-filled {
-    background: #000;
-    color: #fff;
+  background: #000;
+  color: #fff;
 }
 
 .black-filled:hover {
-    background: #373737;
+  background: #373737;
 }
 
 .black-outline {
-    background: #fff;
-    border: 1px solid #000;
+  background: #fff;
+  border: 1px solid #000;
 }
 
 .black-outline:hover {
-    background: #f6f6f6;
+  background: #f6f6f6;
+}
+
+.icon {
+  background: none;
+  display: grid;
+  place-items: center;
+  padding: 0;
 }

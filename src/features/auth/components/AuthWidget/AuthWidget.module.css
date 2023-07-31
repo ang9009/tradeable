@@ -1,3 +1,13 @@
-.widget-container {
-  margin-left: 25px;
+.auth-widget-container {
+  display: flex;
+  align-items: center;
+}
+
+.sign-in-btn {
+  margin-left: 22px;
+}
+
+.auth-widget-skeleton {
+  height: 35px;
+  margin-left: 22px;
 }

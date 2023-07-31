@@ -1,10 +1,9 @@
 import ButtonCSS from "./Button.module.css";
 
-function Button({ type, onClick, text, styles }) {
+function Button({ type, onClick, text, className }) {
   return (
     <button
-      style={styles}
-      className={`${ButtonCSS[type]} ${ButtonCSS["all-btns"]}`}
+      className={`${ButtonCSS[type]} ${ButtonCSS["all-btns"]}  ${className}`}
       onClick={onClick}
     >
       {text}

@@ -1,0 +1,7 @@
+.user-actions-widget-container > * {
+  margin-left: 22px;
+}
+
+.user-actions-widget-container {
+  display: flex;
+}

@@ -1,6 +1,6 @@
 import { useUser } from "../../../../context/UserContext";
 import UserWidgetCSS from "./UserWidget.module.css";
-import { FiChevronDown } from "react-icons/fi";
+import { AiFillCaretDown } from "react-icons/ai";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { auth } from "../../../../lib/firebase";
 
@@ -14,7 +14,7 @@ function UserWidget() {
         <img src={user.photoURL} alt="" />
         <div className={UserWidgetCSS.username}>{user.displayName}</div>
         <div className={UserWidgetCSS["down-chevron"]}>
-          <FiChevronDown />
+          <AiFillCaretDown size={"12px"} />
         </div>
       </DropdownMenu.Trigger>
       {/* The dropdown menu */}
@@ -24,6 +24,9 @@ function UserWidget() {
         </DropdownMenu.Item>
         <DropdownMenu.Item className={UserWidgetCSS["select-item"]}>
           Settings
+        </DropdownMenu.Item>
+        <DropdownMenu.Item className={UserWidgetCSS["select-item"]}>
+          Create listing
         </DropdownMenu.Item>
         <DropdownMenu.Item className={UserWidgetCSS["select-item"]}>
           Messages

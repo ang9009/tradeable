@@ -5,6 +5,7 @@
   height: 100%;
   background: none;
   border: none;
+  margin-left: 22px;
 }
 
 .widget-container:focus {
@@ -20,6 +21,10 @@
   margin-left: 10px;
   font-weight: var(--bold);
   font-family: "Space Grotesk", "sans-serif";
+  max-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .down-chevron {
@@ -42,6 +47,10 @@
   border-radius: 3px;
   padding: 12px 15px;
   width: 122.49px;
+}
+
+.select-item {
+  transition: all 0.2s;
 }
 
 .select-item:last-child {

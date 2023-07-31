@@ -11,11 +11,11 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
     <Modal
       isOpen={isAuthModalOpen}
       handleClose={() => setIsAuthModalOpen(false)}
-      title={"Register/sign in"}
+      title={"Sign in"}
     >
       <p>
         Sign in to shareable using your CIS Gmail account. No registration
-        required!
+        required.
       </p>
       <SignInButton signIn={() => login()} />
       {error !== "" && <Error message={error} />}

@@ -1,8 +1,8 @@
-import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
-import NavbarCSS from "./Navbar.module.css";
 import cisLogo from "../../assets/cis_logo.svg";
-import Searchbar from "./NavSearchbar";
 import Button from "../../components/ui/Button/Button";
+import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
+import Searchbar from "./NavSearchbar";
+import NavbarCSS from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
