@@ -21,7 +21,7 @@
   margin-left: 10px;
   font-weight: var(--bold);
   font-family: "Space Grotesk", "sans-serif";
-  max-width: 70px;
+  max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

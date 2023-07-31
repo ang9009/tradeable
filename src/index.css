@@ -15,18 +15,13 @@
   --shareable-burgundy: #851d40;
   --shareable-beige: #f7ddc3;
   --input-focus-color: #015ecc;
+  --input-focus-border: 2px solid var(--input-focus-color);
   --primary-icon-color: #9a9a9a;
-  --bold: 520;
+  --bold: 505;
   --warning-red: #e33e32;
   --secondary-text-color: #737373;
 }
 
-.page-container {
-  min-height: calc(100vh - var(--navbar-height));
-  padding: 0 111px;
-}
-
-/* Global text styles */
 .separator {
   width: 100%;
   height: 1px;
@@ -34,6 +29,12 @@
   margin-top: 30px;
 }
 
+/* Global containers */
+.form-section-container {
+  margin-top: 22px;
+}
+
+/* Global text styles */
 .link {
   text-decoration: underline;
   cursor: pointer;
@@ -41,6 +42,17 @@
 
 .bold {
   font-weight: var(--bold);
+}
+
+.page-title {
+  font-weight: var(--bold);
+  font-size: 2rem;
+}
+
+.subtitle {
+  font-weight: var(--bold);
+  font-size: 1.3rem;
+  margin-top: 50px;
 }
 
 /* Global modal styles */
@@ -55,4 +67,24 @@
 
 .ReactModal__Overlay--before-close {
   opacity: 0;
+}
+
+/* Global input styles */
+.input-container {
+  display: grid;
+}
+
+.input {
+  margin-top: 11px;
+  border: 1px solid var(--primary-border-color);
+  border-radius: 5px;
+  padding: 10px 12px;
+}
+
+.input-label {
+  font-weight: normal;
+}
+
+.input:focus {
+  border: var(--input-focus-border);
 }

@@ -1,8 +1,10 @@
+import PageContainer from "../layouts/PageContainer/PageContainer";
+
 function Home() {
   return (
-    <div className="page-container">
+    <PageContainer type={"wide"}>
       <h1>Home</h1>
-    </div>
+    </PageContainer>
   );
 }
 

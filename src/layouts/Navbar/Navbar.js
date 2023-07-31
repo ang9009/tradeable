@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className={NavbarCSS.navbar}>
       <div className={NavbarCSS["nav-top"]}>
         <div className={NavbarCSS["nav-left"]}>
-          <Logo />
+          <Logo color={"#000"} />
           <Searchbar />
         </div>
         <div className={NavbarCSS["nav-right"]}>

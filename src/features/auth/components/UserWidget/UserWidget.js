@@ -3,9 +3,11 @@ import UserWidgetCSS from "./UserWidget.module.css";
 import { AiFillCaretDown } from "react-icons/ai";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { auth } from "../../../../lib/firebase";
+import { useNavigate } from "react-router-dom";
 
 function UserWidget() {
   const user = useUser();
+  const navigate = useNavigate();
 
   return (
     <DropdownMenu.Root>
@@ -25,7 +27,10 @@ function UserWidget() {
         <DropdownMenu.Item className={UserWidgetCSS["select-item"]}>
           Settings
         </DropdownMenu.Item>
-        <DropdownMenu.Item className={UserWidgetCSS["select-item"]}>
+        <DropdownMenu.Item
+          className={UserWidgetCSS["select-item"]}
+          onSelect={() => navigate("/create-listing")}
+        >
           Create listing
         </DropdownMenu.Item>
         <DropdownMenu.Item className={UserWidgetCSS["select-item"]}>

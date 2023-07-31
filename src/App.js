@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import { Route, Routes } from "react-router";
 import Home from "./pages/Home";
 import Footer from "./layouts/Footer/Footer";
-import CreateListing from "./pages/CreateListing";
+import CreateListing from "./pages/CreateListing/CreateListing";
 
 // Library CSS files
 import "react-loading-skeleton/dist/skeleton.css";

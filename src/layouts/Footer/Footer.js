@@ -10,7 +10,7 @@ function Footer() {
         <li>Terms & Conditions</li>
         <li>iOS App</li>
       </ul>
-      <Logo />
+      <Logo color={"#fff"} />
     </div>
   );
 }
