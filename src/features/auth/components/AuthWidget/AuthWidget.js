@@ -1,46 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../../../../components/ui/Button/Button";
+import { useIsFetchingUser, useUser } from "../../../../context/UserContext";
 import AuthModal from "../AuthModal/AuthModal";
-import { useUser, useUserUpdate } from "../../../../context/UserContext";
 import UserWidget from "../UserWidget/UserWidget";
+import Skeleton from "react-loading-skeleton";
+import AuthWidgetCSS from "./AuthWidget.module.css";
 
 function AuthWidget() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState("");
   const user = useUser();
+  const isFetchingUser = useIsFetchingUser();
 
   return (
     <>
-      {user ? (
-        <UserWidget />
-      ) : (
-        <>
-          <Button
-            styles={{ marginLeft: "25px" }}
-            type={"black-filled"}
-            text={"Register"}
-            onClick={() => {
-              setIsAuthModalOpen(true);
-              setIsLogin(false);
-            }}
-          />
-          <Button
-            styles={{ marginLeft: "25px" }}
-            type={"gray-outline"}
-            onClick={() => {
-              setIsAuthModalOpen(true);
-              setIsLogin(true);
-            }}
-            text={"Login"}
-          />
-        </>
-      )}
-      <AuthModal
-        isOpen={isAuthModalOpen}
-        setIsOpen={setIsAuthModalOpen}
-        isLogin={isLogin}
-        setIsLogin={setIsLogin}
-      />
+      {/* Display skeleton if user is still being fetched, otherwise show user widget/buttons */}
+      <div className={AuthWidgetCSS["widget-container"]}>
+        {isFetchingUser ? (
+          <Skeleton height={"35px"} width={"98.66px"} />
+        ) : (
+          <>
+            {user ? (
+              <UserWidget />
+            ) : (
+              <>
+                <Button
+                  type={"black-filled"}
+                  text={"Register/Login"}
+                  onClick={() => {
+                    setIsAuthModalOpen(true);
+                  }}
+                />
+              </>
+            )}
+          </>
+        )}
+      </div>
+      <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
     </>
   );
 }
