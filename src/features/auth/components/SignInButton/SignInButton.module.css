@@ -1,24 +1,23 @@
-
 .sign-in-btn {
-    margin: 20px 0;
-    width: 100%;
-    text-align: left;
-    border: 1px solid var(--primary-border-color);
-    background: #fff;
-    font-weight: var(--bold);
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    transition: all 0.2s;
+  margin-top: 20px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--primary-border-color);
+  background: #fff;
+  font-weight: var(--bold);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
 }
 
 .sign-in-btn:hover {
-    background: #f6f6f6;
+  background: #f6f6f6;
 }
 
 .sign-in-btn p {
-    margin-left: 10px;
-    font-weight: var(--bold);
+  margin-left: 10px;
+  font-weight: var(--bold);
 }

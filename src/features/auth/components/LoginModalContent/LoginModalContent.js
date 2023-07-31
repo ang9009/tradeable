@@ -1,13 +1,10 @@
 import SignInButton from "../SignInButton/SignInButton";
-import { signIn } from "../../../../lib/firebase";
 import Error from "../../../../components/ui/Error/Error";
-import { useState } from "react";
+import useLogin from "../../hooks/useLogin";
+import LoginModalContentCSS from "./LoginModalContent.module.css";
 
 function LoginModalContent({ setIsLogin, setIsAuthModalOpen }) {
-  const [errorMsg, setErrorMsg] = useState("");
-  function handleSignIn() {
-    signIn(setIsAuthModalOpen).catch((error) => setErrorMsg(error.message));
-  }
+  const { login, error } = useLogin({ setIsAuthModalOpen });
 
   return (
     <>
@@ -15,10 +12,10 @@ function LoginModalContent({ setIsLogin, setIsAuthModalOpen }) {
         Sign in to shareable using a pre-existing account. Please use your CIS
         email to access this website.
       </p>
-      <SignInButton signIn={handleSignIn} />
-      {errorMsg !== "" && <Error message={errorMsg} />}
+      <SignInButton signIn={() => login()} />
+      {error !== "" && <Error message={error} />}
       <div className="separator"></div>
-      <p>
+      <p className={LoginModalContentCSS["sign-up-text"]}>
         {"Don't have an account? "}
         <span className="link" onClick={() => setIsLogin(false)}>
           Sign up

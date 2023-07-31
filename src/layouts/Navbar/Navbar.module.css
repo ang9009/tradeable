@@ -1,81 +1,78 @@
 .navbar {
-    width: 100vw;
-    height: var(--navbar-height);
+  width: 100vw;
+  height: var(--navbar-height);
 }
 
 .nav-top {
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--primary-border-color);
-    padding: 0 111px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--primary-border-color);
+  padding: 0 111px;
 }
 
-.nav-left, .nav-right {
-    display: flex;
-    align-items: center;
-    height: 100%;
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
-
 
 /* Nav left */
 .nav-left {
-    width: 55vw;
+  width: 55vw;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    user-select: none;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
 }
 
 .logo img {
-    height: 75px;
-    background: var(--shareable-burgundy);
-    padding: 15px;
+  height: 75px;
+  background: var(--shareable-burgundy);
+  padding: 15px;
 }
 
 .logo h1 {
-    font-size: 1rem;
-    margin-left: 20px;
-    font-family: "Space Grotesk", "sans-serif";
-    font-weight: 530;
+  font-size: 1rem;
+  margin-left: 20px;
+  font-family: "Space Grotesk", "sans-serif";
+  font-weight: 530;
 }
 
 /* Nav right */
-.nav-right * {
-    margin-left: 25px;
-}
-
 .ios-app-btn {
-    border: 1px solid #000;
-    background: none;
+  border: 1px solid #000;
+  background: none;
 }
 
 .separator {
-    width: 1px;
-    background: var(--primary-border-color);
-    height: 100%;
+  width: 1px;
+  background: var(--primary-border-color);
+  height: 100%;
+  margin-left: 25px;
 }
 
 /* Nav bottom */
 .nav-bottom {
-    height: 53px;
-    border-bottom: 1px solid var(--primary-border-color);
+  height: 53px;
+  border-bottom: 1px solid var(--primary-border-color);
 }
 
 .nav-bottom ul {
-    list-style: none;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 111px;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 111px;
 }
 
 .nav-bottom ul li {
-    font-weight: var(--bold);
+  font-weight: var(--bold);
 }

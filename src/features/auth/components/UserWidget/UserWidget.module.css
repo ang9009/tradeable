@@ -1,0 +1,18 @@
+.widget-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  margin-left: 25px;
+}
+
+.widget-container img {
+  height: 35px;
+  border-radius: 50%;
+}
+
+.username {
+  margin-left: 10px;
+  font-weight: var(--bold);
+  font-family: "Space Grotesk", "sans-serif";
+}

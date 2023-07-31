@@ -1,11 +1,14 @@
 import "./App.css";
+import { UserProvider } from "./context/UserContext";
 import Navbar from "./layouts/Navbar/Navbar";
 import Modal from "react-modal";
 
 function App() {
   return (
     <div id="#root">
-      <Navbar />
+      <UserProvider>
+        <Navbar />
+      </UserProvider>
     </div>
   );
 }

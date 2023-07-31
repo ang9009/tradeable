@@ -6,7 +6,7 @@ import { useRef } from "react";
 
 const Searchbar = () => {
   const [isFocused, setIsFocused] = useState(false);
-  const inputRef = useRef(0);
+  const inputRef = useRef(null);
 
   return (
     <div
