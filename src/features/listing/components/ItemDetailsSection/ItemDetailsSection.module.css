@@ -1,0 +1,14 @@
+.condition-input {
+  position: relative;
+}
+
+.description-input {
+  grid-column: 1 / 3;
+}
+
+.item-details-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: var(--input-margin-top);
+}

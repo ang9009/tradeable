@@ -15,7 +15,7 @@ function useLogin({ setIsAuthModalOpen }) {
       });
   }
 
-  return { login, error };
+  return { login, error, setError };
 }
 
 export default useLogin;

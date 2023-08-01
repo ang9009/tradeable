@@ -1,37 +1,34 @@
-import TextInput from "../../components/form/TextInput/TextInput";
-import PageContainer from "../../layouts/PageContainer/PageContainer";
 import * as Form from "@radix-ui/react-form";
-import CreateListingCSS from "./CreateListing.module.css";
-import SelectInput from "../../components/form/SelectInput/SelectInput";
-import Button from "../../components/ui/Button/Button";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import Button from "../../components/ui/Button/Button";
+import ItemDetailsSection from "../../features/listing/components/ItemDetailsSection/ItemDetailsSection";
+import PageContainer from "../../layouts/PageContainer/PageContainer";
+import CreateListingCSS from "./CreateListing.module.css";
 
 function CreateListing() {
   const { register, control, handleSubmit } = useForm();
 
+  // TODO: move to firebase.js later (facade pattern)
+  function submitListing(data) {
+    console.log(JSON.stringify(data));
+  }
+
   return (
-    <PageContainer type={"centered"}>
-      <h1 className="page-title">Create a new listing</h1>
-      <div className="page-section-container">
+    <PageContainer
+      type={"centered"}
+      onSubmit={handleSubmit((data) => submitListing(data))}
+    >
+      <Form.Root onSubmit={handleSubmit((data) => console.log(data))}>
+        <h1 className="page-title">Create a new listing</h1>
         <div className="subtitle">Item details</div>
-      </div>
-      <Form.Root
-        className={`form-section-container ${CreateListingCSS["item-details-container"]}`}
-        onSubmit={handleSubmit((data) => console.log(data))}
-      >
-        <TextInput
-          register={register}
-          label={"Name"}
-          placeholder={"Enter item name"}
-        />
-        <SelectInput
-          label={"Condition"}
-          placeholder={"Select condition"}
-          register={register}
-        />
+        <ItemDetailsSection register={register} control={control} />
+        <div className="subtitle">Photos</div>
         <Form.Submit asChild>
-          <Button type={"black-filled"} text={"Submit"} />
+          <Button
+            type={"black-filled"}
+            text={"Submit"}
+            className={CreateListingCSS["submit-btn"]}
+          />
         </Form.Submit>
       </Form.Root>
     </PageContainer>

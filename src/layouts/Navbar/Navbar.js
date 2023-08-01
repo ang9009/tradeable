@@ -6,8 +6,8 @@ import NavbarCSS from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
-    <>
-      <nav className={NavbarCSS["nav-top"]}>
+    <nav className={NavbarCSS["nav-container"]}>
+      <div className={NavbarCSS["nav-top"]}>
         <div className={NavbarCSS["nav-left"]}>
           <Logo color={"#000"} />
           <Searchbar />
@@ -17,7 +17,7 @@ const Navbar = () => {
           <span className={NavbarCSS.separator}></span>
           <AuthWidget />
         </div>
-      </nav>
+      </div>
       <div className={NavbarCSS["nav-bottom"]}>
         <ul>
           <li>Donated</li>
@@ -28,7 +28,7 @@ const Navbar = () => {
           <li>Miscellaneous</li>
         </ul>
       </div>
-    </>
+    </nav>
   );
 };
 

@@ -1,6 +1,10 @@
-.nav-top {
-  height: 75px;
+.nav-container > * {
   background: #fff;
+}
+
+.nav-top {
+  z-index: 1;
+  height: 75px;
   position: fixed;
   top: 0;
   width: 100%;

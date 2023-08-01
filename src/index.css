@@ -7,6 +7,7 @@
   font-family: "Lato", "sans-serif";
   font-size: 0.93rem;
   line-height: 23px;
+  background-clip: border-box;
 }
 
 :root {
@@ -15,7 +16,8 @@
   --shareable-burgundy: #851d40;
   --shareable-beige: #f7ddc3;
   --input-focus-color: #015ecc;
-  --input-focus-border: 2px solid var(--input-focus-color);
+  --input-focus-border: 1.5px solid var(--input-focus-color);
+  --input-margin-top: 13px;
   --primary-icon-color: #9a9a9a;
   --bold: 505;
   --warning-red: #e33e32;
@@ -70,15 +72,20 @@
 }
 
 /* Global input styles */
-.input-container {
+.input-field-container {
   display: grid;
 }
 
 .input {
-  margin-top: 11px;
-  border: 1px solid var(--primary-border-color);
+  margin-top: var(--input-margin-top);
+  outline: 1px solid var(--primary-border-color);
+  border: none;
   border-radius: 5px;
   padding: 10px 12px;
+}
+
+.input::placeholder {
+  color: var(--secondary-text-color);
 }
 
 .input-label {
@@ -86,5 +93,5 @@
 }
 
 .input:focus {
-  border: var(--input-focus-border);
+  outline: var(--input-focus-border);
 }

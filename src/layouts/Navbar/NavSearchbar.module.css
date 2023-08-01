@@ -1,6 +1,7 @@
 .searchbar {
   margin-left: 30px;
-  border: 1px solid black;
+  outline: 1px solid black;
+  border: none;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -10,18 +11,7 @@
 
 /* Searchbar focus styles */
 .searchbar-focus {
-  border: var(--input-focus-border);
-  /* Change in margin stops input from moving with added border */
-  margin-left: 29px;
-}
-
-.searchbar-focus .search-btn {
-  width: 41px;
-}
-
-.searchbar-focus .btn-search-icon {
-  /*Again, offsets border change */
-  transform: translateX(0.5px);
+  outline: var(--input-focus-border);
 }
 
 /* Everything else */
@@ -35,6 +25,10 @@
 
 .input:focus {
   outline: none;
+}
+
+.input::placeholder {
+  color: var(--secondary-text-color);
 }
 
 .placeholder-icon {

@@ -1,10 +1,10 @@
-import { useUser } from "../../../../context/UserContext";
-import UserWidgetCSS from "./UserWidget.module.css";
-import { AiFillCaretDown } from "react-icons/ai";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { auth } from "../../../../lib/firebase";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../../../context/UserContext";
+import { auth } from "../../../../lib/firebase";
+import UserWidgetCSS from "./UserWidget.module.css";
 
 function UserWidget() {
   const [showMenu, setShowMenu] = useState(false);
@@ -22,7 +22,7 @@ function UserWidget() {
         <img src={user.photoURL} alt="" />
         <div className={UserWidgetCSS.username}>{user.displayName}</div>
         <div className={UserWidgetCSS["down-chevron"]}>
-          <AiFillCaretDown size={"12px"} />
+          <FiChevronDown size={"12px"} />
         </div>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content

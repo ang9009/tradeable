@@ -1,0 +1,4 @@
+.text-area {
+  overflow-y: auto;
+  height: 150px;
+}

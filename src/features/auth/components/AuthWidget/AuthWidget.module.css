@@ -4,11 +4,11 @@
   height: 100%;
 }
 
-.sign-in-btn {
+.auth-widget-container > * {
   margin-left: 22px;
 }
 
-.auth-widget-skeleton {
+.auth-widget-skeleton-1 {
+  width: 48px;
   height: 35px;
-  margin-left: 22px;
 }

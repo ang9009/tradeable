@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Error from "../../../../components/ui/Error/Error";
 import Modal from "../../../../components/ui/Modal/Modal";
 import useLogin from "../../hooks/useLogin";
@@ -5,7 +6,13 @@ import SignInButton from "../SignInButton/SignInButton";
 import AuthModalCSS from "./AuthModal.module.css";
 
 function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
-  const { login, error } = useLogin({ setIsAuthModalOpen });
+  const { login, error, setError } = useLogin({ setIsAuthModalOpen });
+
+  useEffect(() => {
+    if (!isAuthModalOpen) {
+      setError("");
+    }
+  }, [isAuthModalOpen]);
 
   return (
     <Modal

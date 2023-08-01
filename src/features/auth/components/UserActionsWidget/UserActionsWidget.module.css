@@ -1,4 +1,5 @@
-.user-actions-widget-container > * {
+/* AuthWidget already applies 22px of margin left to children*/
+.user-actions-widget-container > *:not(:first-child) {
   margin-left: 22px;
 }
 

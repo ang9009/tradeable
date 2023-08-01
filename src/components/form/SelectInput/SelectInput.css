@@ -1,0 +1,19 @@
+.react-select__option:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+.react-select__option:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
+.react-select__option:not(:last-child) {
+  border-bottom: 1px solid var(--primary-border-color);
+}
+
+.select-hint {
+  position: absolute;
+  top: 80px;
+  left: 12px;
+  font-size: 0.8rem;
+  color: var(--secondary-text-color);
+}

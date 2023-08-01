@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import Button from "../../../../components/ui/Button/Button";
+import { useState } from "react";
+import Skeleton from "react-loading-skeleton";
 import { useIsFetchingUser, useUser } from "../../../../context/UserContext";
 import AuthModal from "../AuthModal/AuthModal";
-import UserWidget from "../UserWidget/UserWidget";
-import Skeleton from "react-loading-skeleton";
+import { AuthWidgetButtons } from "./../AuthWidgetButtons/AuthWidgetButtons";
 import AuthWidgetCSS from "./AuthWidget.module.css";
-import UserActionsWidget from "../UserActionsWidget/UserActionsWidget";
 
 function AuthWidget() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -14,35 +12,17 @@ function AuthWidget() {
 
   return (
     <>
-      {/* Display skeleton if user is still being fetched, otherwise show user widget/buttons */}
       <div className={AuthWidgetCSS["auth-widget-container"]}>
         {isFetchingUser ? (
-          // TODO: figure this out idk why the styles aren't applying
-          <Skeleton
-            className={AuthWidgetCSS["auth-widget-skeleton"]}
-            width={"98.66px"}
-          />
-        ) : (
-          // TODO: move to new component
           <>
-            {user ? (
-              <>
-                <UserActionsWidget />
-                <UserWidget />
-              </>
-            ) : (
-              <>
-                <Button
-                  type={"black-filled"}
-                  text={"Sign in"}
-                  className={AuthWidgetCSS["sign-in-btn"]}
-                  onClick={() => {
-                    setIsAuthModalOpen(true);
-                  }}
-                />
-              </>
-            )}
+            <Skeleton circle width={"35px"} height={"35px"} />
+            <Skeleton width={"90px"} height={"35px"} />
           </>
+        ) : (
+          <AuthWidgetButtons
+            user={user}
+            setIsAuthModalOpen={setIsAuthModalOpen}
+          />
         )}
       </div>
       <AuthModal

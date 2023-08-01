@@ -47,7 +47,7 @@
   animation-duration: 300ms;
   animation-name: slideDownAndFade;
   transform: translateY(-12px);
-  padding: 12px 17px;
+  padding: 12px 15px;
 }
 
 /* Dropdown items */

@@ -1,15 +1,17 @@
 import React from "react";
 import * as Form from "@radix-ui/react-form";
+import TextAreaCSS from "./TextArea.module.css";
 import { toCamelCase } from "../../../utils/toCamelCase";
 
-function TextInput({ className, label, placeholder, register }) {
+function TextArea({ className, label, placeholder, register }) {
   return (
     <Form.Field className={`input-field-container ${className}`}>
       <Form.Label className={"input-label"}>{label}</Form.Label>
       <Form.Control className={"input"} asChild>
-        <input
+        <textarea
+          maxLength="500"
           {...register(toCamelCase(label))}
-          type={"text"}
+          className={TextAreaCSS["text-area"]}
           placeholder={placeholder}
           required
         />
@@ -18,4 +20,4 @@ function TextInput({ className, label, placeholder, register }) {
   );
 }
 
-export default TextInput;
+export default TextArea;
