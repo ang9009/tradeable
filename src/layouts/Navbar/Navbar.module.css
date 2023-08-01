@@ -1,7 +1,7 @@
 .nav-top {
   height: 75px;
   background: #fff;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   display: flex;
@@ -38,6 +38,7 @@
 
 /* Nav bottom */
 .nav-bottom {
+  margin-top: 75px;
   width: 100%;
   height: 53px;
   border-bottom: 1px solid var(--primary-border-color);
@@ -55,4 +56,9 @@
 .nav-bottom ul li {
   font-weight: var(--bold);
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-bottom ul li:hover {
+  color: var(--input-focus-color);
 }

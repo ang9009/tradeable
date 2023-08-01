@@ -23,6 +23,7 @@ function AuthWidget() {
             width={"98.66px"}
           />
         ) : (
+          // TODO: move to new component
           <>
             {user ? (
               <>

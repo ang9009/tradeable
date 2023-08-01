@@ -14,7 +14,7 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
       title={"Sign in"}
     >
       <p>
-        Sign in to shareable using your CIS Gmail account. No registration
+        Use your CIS gmail account to log in to shareable. No registration
         required.
       </p>
       <SignInButton signIn={() => login()} />
