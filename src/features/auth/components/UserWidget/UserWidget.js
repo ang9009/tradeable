@@ -25,51 +25,56 @@ function UserWidget() {
           <FiChevronDown size={"12px"} />
         </div>
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content
-        className={UserWidgetCSS["select-menu"]}
-        onMouseOver={() => setShowMenu(true)}
-        onMouseLeave={() => setShowMenu(false)}
-      >
-        <DropdownMenu.Item
-          className={UserWidgetCSS["select-item"]}
-          onClick={() => setShowMenu(false)}
+      <DropdownMenu.Portal>
+        <DropdownMenu.Content
+          className={UserWidgetCSS["select-menu"]}
+          onMouseOver={() => setShowMenu(true)}
+          onMouseLeave={() => setShowMenu(false)}
+          align={"end"}
         >
-          Profile
-        </DropdownMenu.Item>
-        <DropdownMenu.Item
-          className={UserWidgetCSS["select-item"]}
-          onClick={() => setShowMenu(false)}
-        >
-          Settings
-        </DropdownMenu.Item>
-        <DropdownMenu.Item
-          className={UserWidgetCSS["select-item"]}
-          onSelect={() => navigate("/create-listing")}
-          onClick={() => setShowMenu(false)}
-        >
-          Create listing
-        </DropdownMenu.Item>
-        <DropdownMenu.Item
-          className={UserWidgetCSS["select-item"]}
-          onClick={() => setShowMenu(false)}
-        >
-          Messages
-        </DropdownMenu.Item>
-        <DropdownMenu.Item
-          className={UserWidgetCSS["select-item"]}
-          onClick={() => setShowMenu(false)}
-        >
-          Favorites
-        </DropdownMenu.Item>
-        <DropdownMenu.Separator className={UserWidgetCSS["select-separator"]} />
-        <DropdownMenu.Item
-          className={UserWidgetCSS["select-item"]}
-          onClick={() => setShowMenu(false)}
-          onSelect={() => auth.signOut()}
-        >
-          Sign out
-        </DropdownMenu.Item>
-      </DropdownMenu.Content>
+          <DropdownMenu.Item
+            className={UserWidgetCSS["select-item"]}
+            onClick={() => setShowMenu(false)}
+          >
+            Profile
+          </DropdownMenu.Item>
+          <DropdownMenu.Item
+            className={UserWidgetCSS["select-item"]}
+            onClick={() => setShowMenu(false)}
+          >
+            Settings
+          </DropdownMenu.Item>
+          <DropdownMenu.Item
+            className={UserWidgetCSS["select-item"]}
+            onSelect={() => navigate("/create-listing")}
+            onClick={() => setShowMenu(false)}
+          >
+            Create listing
+          </DropdownMenu.Item>
+          <DropdownMenu.Item
+            className={UserWidgetCSS["select-item"]}
+            onClick={() => setShowMenu(false)}
+          >
+            Messages
+          </DropdownMenu.Item>
+          <DropdownMenu.Item
+            className={UserWidgetCSS["select-item"]}
+            onClick={() => setShowMenu(false)}
+          >
+            Favorites
+          </DropdownMenu.Item>
+          <DropdownMenu.Separator
+            className={UserWidgetCSS["select-separator"]}
+          />
+          <DropdownMenu.Item
+            className={UserWidgetCSS["select-item"]}
+            onClick={() => setShowMenu(false)}
+            onSelect={() => auth.signOut()}
+          >
+            Sign out
+          </DropdownMenu.Item>
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
     </DropdownMenu.Root>
   );
 }
