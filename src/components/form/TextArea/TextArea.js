@@ -13,6 +13,7 @@ function TextArea({ className, label, placeholder, register }) {
           {...register(toCamelCase(label))}
           className={TextAreaCSS["text-area"]}
           placeholder={placeholder}
+          autoComplete="off"
           required
         />
       </Form.Control>

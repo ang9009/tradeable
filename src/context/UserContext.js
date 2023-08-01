@@ -39,7 +39,7 @@ function UserProvider({ children }) {
     );
 
     return () => unsubscribe();
-  });
+  }, []);
 
   return (
     <UserContext.Provider value={currUser}>

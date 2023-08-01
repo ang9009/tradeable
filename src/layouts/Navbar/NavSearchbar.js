@@ -26,6 +26,7 @@ const Searchbar = () => {
       <input
         type="text"
         className={NavSearchbarCSS.input}
+        autoComplete="off"
         placeholder={"Search for items"}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}

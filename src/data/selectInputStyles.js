@@ -20,6 +20,7 @@ export const selectInputStyles = {
     borderRadius: "5px",
     transform: "translateY(12px)",
     background: "#fff",
+    boxShadow: "var(--box-shadow)",
   }),
   option: (_, state) => ({
     padding: "12px",

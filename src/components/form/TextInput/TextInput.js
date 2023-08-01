@@ -11,6 +11,7 @@ function TextInput({ className, label, placeholder, register }) {
           {...register(toCamelCase(label))}
           type={"text"}
           placeholder={placeholder}
+          autoComplete="off"
           required
         />
       </Form.Control>

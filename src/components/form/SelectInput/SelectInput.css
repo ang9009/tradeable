@@ -12,8 +12,8 @@
 
 .select-hint {
   position: absolute;
-  top: 80px;
-  left: 12px;
+  right: 0;
+  top: 0;
   font-size: 0.8rem;
   color: var(--secondary-text-color);
 }
