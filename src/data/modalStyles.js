@@ -13,5 +13,7 @@ export const modalStyles = {
   },
   overlay: {
     background: "rgba(0, 0, 0, 0.6)",
+    // TODO: lmao
+    zIndex: "9999",
   },
 };
