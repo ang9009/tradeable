@@ -1,17 +1,9 @@
-.all-containers {
-  min-height: calc(100vh - var(--navbar-height));
-}
-
 .wide {
   padding: 60px 111px;
 }
 
 .centered {
-  display: flex;
-  justify-content: center;
-}
-
-.centered-inner-container {
   width: 60vw;
   padding: 64px 0;
+  margin: auto;
 }

@@ -1,0 +1,11 @@
+#terms-text {
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+/* TODO: the span won't inherit the font size for some reason... */
+#terms-text span {
+  font-size: 0.75rem;
+}

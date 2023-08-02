@@ -1,4 +1,4 @@
-import PageContainer from "../layouts/PageContainer/PageContainer";
+import PageContainer from "../../layouts/PageContainer/PageContainer";
 
 function Home() {
   return (

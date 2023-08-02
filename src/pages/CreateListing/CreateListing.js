@@ -1,7 +1,7 @@
+import { PhotosSection, ItemDetailsSection } from "../../features/listing";
 import * as Form from "@radix-ui/react-form";
 import { useForm } from "react-hook-form";
 import Button from "../../components/ui/Button/Button";
-import ItemDetailsSection from "../../features/listing/components/ItemDetailsSection/ItemDetailsSection";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import CreateListingCSS from "./CreateListing.module.css";
 
@@ -20,9 +20,8 @@ function CreateListing() {
     >
       <Form.Root onSubmit={handleSubmit((data) => console.log(data))}>
         <h1 className="page-title">Create a new listing</h1>
-        <div className="subtitle">Item details</div>
         <ItemDetailsSection register={register} control={control} />
-        <div className="subtitle">Photos</div>
+        <PhotosSection />
         <Form.Submit asChild>
           <Button
             type={"black-filled"}

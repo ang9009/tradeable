@@ -2,17 +2,13 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../../lib/firebase";
 import { useState } from "react";
 
-function useLogin({ setIsAuthModalOpen }) {
+function useLogin() {
   const [error, setError] = useState("");
 
   async function login() {
-    await signInWithPopup(auth, provider)
-      .then(() => {
-        setIsAuthModalOpen(false);
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
+    await signInWithPopup(auth, provider).catch((error) => {
+      setError(error.message);
+    });
   }
 
   return { login, error, setError };

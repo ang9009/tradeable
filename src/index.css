@@ -37,6 +37,10 @@
   margin-top: 22px;
 }
 
+.page-section-container {
+  margin-top: 50px;
+}
+
 /* Global text styles */
 .link {
   text-decoration: underline;
@@ -55,7 +59,6 @@
 .subtitle {
   font-weight: var(--bold);
   font-size: 1.3rem;
-  margin-top: 50px;
 }
 
 /* Global modal styles */

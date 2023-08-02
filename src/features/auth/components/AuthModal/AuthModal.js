@@ -1,18 +1,23 @@
 import { useEffect } from "react";
-import Error from "../../../../components/ui/Error/Error";
 import Modal from "../../../../components/ui/Modal/Modal";
 import useLogin from "../../hooks/useLogin";
-import SignInButton from "../SignInButton/SignInButton";
-import AuthModalCSS from "./AuthModal.module.css";
+import AuthModalContent from "../AuthModalContent/AuthModalContent";
 
 function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
-  const { login, error, setError } = useLogin({ setIsAuthModalOpen });
+  const { login, error, setError } = useLogin();
 
+  // TODO: seems inefficient?
   useEffect(() => {
     if (!isAuthModalOpen) {
       setError("");
     }
   }, [isAuthModalOpen]);
+
+  function handleLogin() {
+    login().then(() => {
+      setIsAuthModalOpen(false);
+    });
+  }
 
   return (
     <Modal
@@ -20,18 +25,7 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
       handleClose={() => setIsAuthModalOpen(false)}
       title={"Sign in"}
     >
-      <p>
-        Use your CIS gmail account to log in to shareable. No registration
-        required.
-      </p>
-      <SignInButton signIn={() => login()} />
-      {error !== "" && <Error message={error} />}
-      <div className="separator"></div>
-      <div id={AuthModalCSS["terms-text"]}>
-        By signing into shareable, I agree to its
-        <span className="bold"> Terms & Conditions</span>. To view our terms,
-        please click <span className="link">here</span>.
-      </div>
+      <AuthModalContent error={error} login={handleLogin} />
     </Modal>
   );
 }

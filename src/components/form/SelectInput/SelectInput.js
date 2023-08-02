@@ -2,9 +2,9 @@ import * as Form from "@radix-ui/react-form";
 import { FiChevronDown } from "react-icons/fi";
 import Select, { components } from "react-select";
 import { selectInputStyles } from "../../../data/selectInputStyles";
-import getConditionHint from "../../../features/listing/utils/getConditionHint";
-import { Controller } from "react-hook-form";
+import { getConditionHint } from "../../../features/listing";
 import { toCamelCase } from "../../../utils/toCamelCase";
+import { Controller } from "react-hook-form";
 import "./SelectInput.css";
 
 const DropdownIndicator = (props) => {
