@@ -1,14 +1,19 @@
 import SelectInput from "../../../../components/form/SelectInput/SelectInput";
 import TextArea from "../../../../components/form/TextArea/TextArea";
 import TextInput from "../../../../components/form/TextInput/TextInput";
-import ItemDetailsSectionCSS from "./ItemDetailsSection.module.css";
-import { conditionOptions } from "../../data/conditionOptions";
-import { categoryOptions } from "../../data/categoryOptions";
+import {
+  categoryInputOptions,
+  conditionInputOptions,
+  descriptionInputOptions,
+  nameInputOptions,
+  priceInputOptions,
+} from "../../data/ItemDetailsInputOptions";
 import PriceInput from "../PriceInput/PriceInput";
+import ItemDetailsSectionCSS from "./ItemDetailsSection.module.css";
 
-function ItemDetailsSection({ register, control, errors, watch }) {
-  const price = watch("price");
-
+function ItemDetailsSection({
+  formData: { register, control, errors, watch },
+}) {
   return (
     <>
       <div className="page-section-container">
@@ -17,42 +22,24 @@ function ItemDetailsSection({ register, control, errors, watch }) {
           className={`form-section-container ${ItemDetailsSectionCSS["item-details-container"]}`}
         >
           <TextInput
-            register={register}
-            label={"Name"}
-            placeholder={"Item name"}
-            errors={errors}
-            max={60}
+            options={nameInputOptions}
+            formData={{ register, errors }}
           />
           <SelectInput
-            label={"Condition"}
-            placeholder={"Select condition"}
-            control={control}
-            options={conditionOptions}
-            errors={errors}
-            hasConditionHint
+            options={conditionInputOptions}
+            formData={{ errors, control }}
           />
           <TextArea
-            register={register}
-            label={"Description"}
-            placeholder={
-              "Describe the item’s condition, past usage, original price, meet-up preferences, etc"
-            }
-            className={ItemDetailsSectionCSS["description-input"]}
-            max={1000}
-            errors={errors}
+            options={descriptionInputOptions}
+            formData={{ register, errors }}
           />
           <SelectInput
-            label={"Category"}
-            placeholder={"Select item category"}
-            control={control}
-            errors={errors}
-            options={categoryOptions}
+            options={categoryInputOptions}
+            formData={{ errors, control }}
           />
           <PriceInput
-            register={register}
-            errors={errors}
-            max={99999}
-            price={price}
+            options={priceInputOptions}
+            formData={{ register, errors, watch }}
           />
         </div>
       </div>

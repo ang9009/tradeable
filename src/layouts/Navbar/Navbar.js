@@ -13,7 +13,7 @@ const Navbar = () => {
           <Searchbar />
         </div>
         <div className={NavbarCSS["nav-right"]}>
-          <Button type={"black-outline"} text={"iOS App"} />
+          <Button options={{ type: "black-outline", text: "iOS App" }} />
           <span className={NavbarCSS.separator}></span>
           <AuthWidget />
         </div>

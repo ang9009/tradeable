@@ -17,12 +17,8 @@ const DropdownIndicator = (props) => {
 };
 
 function SelectInput({
-  label,
-  placeholder,
-  errors,
-  hasConditionHint,
-  control,
-  options,
+  options: { label, placeholder, selectOptions, hasConditionHint },
+  formData: { errors, control },
 }) {
   // ! the "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
   function handleOutline(state) {
@@ -34,6 +30,14 @@ function SelectInput({
       ? "var(--input-focus-border)"
       : "1px solid var(--primary-border-color)";
   }
+
+  const styles = {
+    ...selectInputStyles,
+    control: (_, state) => ({
+      ...selectInputControlStyles,
+      outline: handleOutline(state),
+    }),
+  };
 
   return (
     <Form.Field className={"input-field-container"}>
@@ -48,16 +52,8 @@ function SelectInput({
               {...field}
               placeholder={placeholder}
               components={{ DropdownIndicator }}
-              classNamePrefix="react-select"
-              // TODO: if possible, find alternative to this
-              styles={{
-                ...selectInputStyles,
-                control: (_, state) => ({
-                  ...selectInputControlStyles,
-                  outline: handleOutline(state),
-                }),
-              }}
-              options={options}
+              styles={styles}
+              options={selectOptions}
               isSearchable={false}
               unstyled
             />

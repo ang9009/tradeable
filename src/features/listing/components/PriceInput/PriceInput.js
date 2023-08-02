@@ -3,7 +3,12 @@ import InputMessage from "../../../../components/form/InputMessage/InputMessage"
 import { handleEPaste } from "../../utils/handleEPaste";
 import PriceInputCSS from "./PriceInput.module.css";
 
-function PriceInput({ register, errors, max, price }) {
+function PriceInput({
+  options: { max },
+  formData: { register, errors, watch },
+}) {
+  const price = watch("price");
+
   return (
     <Form.Field className={"input-field-container"}>
       <Form.Label className={"input-label"}>Price</Form.Label>

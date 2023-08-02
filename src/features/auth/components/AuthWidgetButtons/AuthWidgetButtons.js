@@ -12,8 +12,7 @@ export function AuthWidgetButtons({ user, setIsAuthModalOpen }) {
   return (
     <>
       <Button
-        type={"gray-outline"}
-        text={"Sell"}
+        options={{ type: "gray-outline", text: "Sell" }}
         onClick={() => {
           user ? navigate("/create-listing") : setIsAuthModalOpen(true);
         }}
@@ -25,8 +24,7 @@ export function AuthWidgetButtons({ user, setIsAuthModalOpen }) {
         </>
       ) : (
         <Button
-          type={"black-filled"}
-          text={"Sign in"}
+          options={{ type: "black-filled", text: "Sign in" }}
           onClick={() => {
             setIsAuthModalOpen(true);
           }}

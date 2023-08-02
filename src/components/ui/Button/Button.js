@@ -1,6 +1,6 @@
 import ButtonCSS from "./Button.module.css";
 
-function Button({ type, onClick, text, className }) {
+function Button({ options: { type, text, className }, onClick }) {
   return (
     <button
       className={`${ButtonCSS[type]} ${ButtonCSS["all-btns"]}  ${className}`}

@@ -20,24 +20,18 @@ function CreateListing() {
   }
 
   return (
-    <PageContainer
-      type={"centered"}
-      onSubmit={handleSubmit((data) => onSubmitListing(data))}
-    >
-      <Form.Root onSubmit={handleSubmit((data) => console.log(data))}>
+    <PageContainer type={"centered"}>
+      <Form.Root onSubmit={handleSubmit((data) => onSubmitListing(data))}>
         <h1 className="page-title">Create a new listing</h1>
-        <ItemDetailsSection
-          register={register}
-          control={control}
-          errors={errors}
-          watch={watch}
-        />
+        <ItemDetailsSection formData={{ register, control, errors, watch }} />
         <PhotosSection />
         <Form.Submit asChild>
           <Button
-            type={"black-filled"}
-            text={"Submit"}
-            className={CreateListingCSS["submit-btn"]}
+            options={{
+              type: "black-filled",
+              text: "Submit",
+              className: CreateListingCSS["submit-btn"],
+            }}
           />
         </Form.Submit>
       </Form.Root>
