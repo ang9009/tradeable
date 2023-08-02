@@ -22,7 +22,7 @@ function UserWidget() {
         <img src={user.photoURL} alt="" />
         <div className={UserWidgetCSS.username}>{user.displayName}</div>
         <div className={UserWidgetCSS["down-chevron"]}>
-          <FiChevronDown size={"12px"} />
+          <FiChevronDown size={"15px"} />
         </div>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>

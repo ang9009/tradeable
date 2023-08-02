@@ -7,6 +7,7 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
   const { login, error, setError } = useLogin();
 
   // TODO: seems inefficient?
+  // TODO: error should also display banned message
   useEffect(() => {
     if (!isAuthModalOpen) {
       setError("");

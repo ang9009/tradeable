@@ -1,29 +1,37 @@
 import * as Form from "@radix-ui/react-form";
 import { handleEPaste } from "../../utils/handleEPaste";
 import PriceInputCSS from "./PriceInput.module.css";
+import InputMessage from "../../../../components/form/InputMessage/InputMessage";
 
-function PriceInput({ className, register }) {
+function PriceInput({ className, register, errors, max }) {
   return (
     <Form.Field className={`input-field-container ${className}`}>
       <Form.Label className={"input-label"}>Price</Form.Label>
-      <Form.Control className={"input"} asChild>
-        <input
-          {...register("price")}
-          className={PriceInputCSS["price-input"]}
-          type="number"
-          min="0"
-          max="9999"
-          placeholder={"Enter item price (HKD)"}
-          // The number input accepts "e" for exponents so this must be prevented
-          onKeyDown={(e) =>
-            ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
-          }
-          autoComplete="off"
-          onPaste={(e) => handleEPaste(e)}
-          // Disables default scrolling
-          onWheel={(e) => e.target.blur()}
-          required
-        />
+      <Form.Control asChild>
+        <>
+          <input
+            {...register("price", {
+              required: "This input is required",
+              max: {
+                value: max,
+                message: `Maximum price is $${max}`,
+              },
+            })}
+            className={`${PriceInputCSS["price-input"]} input`}
+            type="number"
+            placeholder={"Enter item price (HKD)"}
+            onKeyDown={(e) =>
+              ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
+            }
+            autoComplete="off"
+            onPaste={(e) => handleEPaste(e)}
+            onWheel={(e) => e.target.blur()}
+            style={{
+              outline: errors["price"] && "var(--input-warning-border)",
+            }}
+          />
+          <InputMessage message={errors.price?.message} isError />
+        </>
       </Form.Control>
     </Form.Field>
   );

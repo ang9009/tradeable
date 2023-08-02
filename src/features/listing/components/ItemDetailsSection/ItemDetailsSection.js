@@ -6,7 +6,7 @@ import { conditionOptions } from "../../data/conditionOptions";
 import { categoryOptions } from "../../data/categoryOptions";
 import PriceInput from "../PriceInput/PriceInput";
 
-function ItemDetailsSection({ register, control }) {
+function ItemDetailsSection({ register, control, errors }) {
   return (
     <>
       <div className="page-section-container">
@@ -18,15 +18,16 @@ function ItemDetailsSection({ register, control }) {
             register={register}
             label={"Name"}
             placeholder={"Item name"}
-            type={"text"}
+            errors={errors}
+            max={60}
           />
           <SelectInput
             label={"Condition"}
             placeholder={"Select condition"}
             control={control}
-            className={ItemDetailsSectionCSS["condition-input"]}
-            hasConditionHint={true}
             options={conditionOptions}
+            errors={errors}
+            hasConditionHint
           />
           <TextArea
             register={register}
@@ -34,16 +35,17 @@ function ItemDetailsSection({ register, control }) {
             placeholder={
               "Describe the item’s condition, past usage, original price, meet-up preferences, etc"
             }
-            type={"textarea"}
             className={ItemDetailsSectionCSS["description-input"]}
+            errors={errors}
           />
           <SelectInput
             label={"Category"}
             placeholder={"Select item category"}
             control={control}
+            errors={errors}
             options={categoryOptions}
           />
-          <PriceInput register={register} />
+          <PriceInput register={register} errors={errors} max={99999} />
         </div>
       </div>
     </>

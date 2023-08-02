@@ -16,11 +16,12 @@
   --shareable-burgundy: #851d40;
   --shareable-beige: #f7ddc3;
   --input-focus-color: #015ecc;
+  --warning-red: #e33e32;
   --input-focus-border: 1.5px solid var(--input-focus-color);
+  --input-warning-border: 1.5px solid var(--warning-red);
   --input-margin-top: 13px;
   --primary-icon-color: #9a9a9a;
   --bold: 505;
-  --warning-red: #e33e32;
   --secondary-text-color: #737373;
   --box-shadow: rgba(99, 99, 99, 0.1) 0px 1px 4px;
 }
@@ -78,6 +79,8 @@
 /* Global input styles */
 .input-field-container {
   display: grid;
+  /* For error messages */
+  position: relative;
 }
 
 .input {

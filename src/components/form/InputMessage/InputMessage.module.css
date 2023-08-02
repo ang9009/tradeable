@@ -1,0 +1,12 @@
+.input-message {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.error-icon {
+  margin-right: 5px;
+}
