@@ -16,7 +16,7 @@ function CreateListing() {
 
   // TODO: move to firebase.js later (facade pattern)
   function onSubmitListing(data) {
-    console.log(JSON.stringify(data));
+    console.log(data);
   }
 
   return (
@@ -24,7 +24,7 @@ function CreateListing() {
       <Form.Root onSubmit={handleSubmit((data) => onSubmitListing(data))}>
         <h1 className="page-title">Create a new listing</h1>
         <ItemDetailsSection formData={{ register, control, errors, watch }} />
-        <PhotosSection />
+        <PhotosSection formData={{ control, errors, watch, register }} />
         <Form.Submit asChild>
           <Button
             options={{

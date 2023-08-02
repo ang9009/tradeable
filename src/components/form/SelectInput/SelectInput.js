@@ -20,7 +20,8 @@ function SelectInput({
   options: { label, placeholder, selectOptions, hasConditionHint },
   formData: { errors, control },
 }) {
-  // ! the "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
+  // The "required" prop from Radix conflicts with the error object from react-hook-form, so don't add it
+
   function handleOutline(state) {
     if (errors[toCamelCase(label)]) {
       return "var(--input-warning-border)";

@@ -7,7 +7,8 @@ function TextInput({
   options: { className, label, placeholder, max },
   formData: { register, errors },
 }) {
-  // ! the "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
+  // The "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
+
   const registerSettings = {
     ...register(toCamelCase(label), {
       required: "This input is required",
