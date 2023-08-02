@@ -6,7 +6,9 @@ import { conditionOptions } from "../../data/conditionOptions";
 import { categoryOptions } from "../../data/categoryOptions";
 import PriceInput from "../PriceInput/PriceInput";
 
-function ItemDetailsSection({ register, control, errors }) {
+function ItemDetailsSection({ register, control, errors, watch }) {
+  const price = watch("price");
+
   return (
     <>
       <div className="page-section-container">
@@ -36,6 +38,7 @@ function ItemDetailsSection({ register, control, errors }) {
               "Describe the item’s condition, past usage, original price, meet-up preferences, etc"
             }
             className={ItemDetailsSectionCSS["description-input"]}
+            max={1000}
             errors={errors}
           />
           <SelectInput
@@ -45,7 +48,12 @@ function ItemDetailsSection({ register, control, errors }) {
             errors={errors}
             options={categoryOptions}
           />
-          <PriceInput register={register} errors={errors} max={99999} />
+          <PriceInput
+            register={register}
+            errors={errors}
+            max={99999}
+            price={price}
+          />
         </div>
       </div>
     </>

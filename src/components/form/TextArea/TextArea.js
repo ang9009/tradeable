@@ -4,7 +4,7 @@ import TextAreaCSS from "./TextArea.module.css";
 import { toCamelCase } from "../../../utils/toCamelCase";
 import InputMessage from "../InputMessage/InputMessage";
 
-function TextArea({ className, label, placeholder, register, errors }) {
+function TextArea({ className, label, placeholder, register, errors, max }) {
   // ! the "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
 
   return (
@@ -15,6 +15,10 @@ function TextArea({ className, label, placeholder, register, errors }) {
           <textarea
             {...register(toCamelCase(label), {
               required: "This input is required",
+              maxLength: {
+                value: max,
+                message: `Must be ${max} characters or less`,
+              },
             })}
             className={`${TextAreaCSS["text-area"]} input`}
             placeholder={placeholder}

@@ -1,11 +1,11 @@
 import * as Form from "@radix-ui/react-form";
+import InputMessage from "../../../../components/form/InputMessage/InputMessage";
 import { handleEPaste } from "../../utils/handleEPaste";
 import PriceInputCSS from "./PriceInput.module.css";
-import InputMessage from "../../../../components/form/InputMessage/InputMessage";
 
-function PriceInput({ className, register, errors, max }) {
+function PriceInput({ register, errors, max, price }) {
   return (
-    <Form.Field className={`input-field-container ${className}`}>
+    <Form.Field className={"input-field-container"}>
       <Form.Label className={"input-label"}>Price</Form.Label>
       <Form.Control asChild>
         <>
@@ -23,14 +23,19 @@ function PriceInput({ className, register, errors, max }) {
             onKeyDown={(e) =>
               ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
             }
-            autoComplete="off"
             onPaste={(e) => handleEPaste(e)}
             onWheel={(e) => e.target.blur()}
+            autoComplete="off"
             style={{
               outline: errors["price"] && "var(--input-warning-border)",
             }}
           />
           <InputMessage message={errors.price?.message} isError />
+          {price === "0" && (
+            <InputMessage
+              message={"Your item will appear in the donated category"}
+            />
+          )}
         </>
       </Form.Control>
     </Form.Field>

@@ -1,5 +1,4 @@
 export const categoryOptions = [
-  { value: "donated", label: "Donated" },
   { value: "textbooks", label: "Textbooks" },
   { value: "uniforms", label: "Uniforms" },
   { value: "electronics", label: "Electronics" },

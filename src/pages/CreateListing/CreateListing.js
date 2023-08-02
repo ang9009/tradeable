@@ -4,13 +4,13 @@ import { useForm } from "react-hook-form";
 import Button from "../../components/ui/Button/Button";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import CreateListingCSS from "./CreateListing.module.css";
-import { useEffect } from "react";
 
 function CreateListing() {
   const {
     register,
     control,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
 
@@ -30,6 +30,7 @@ function CreateListing() {
           register={register}
           control={control}
           errors={errors}
+          watch={watch}
         />
         <PhotosSection />
         <Form.Submit asChild>
