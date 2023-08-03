@@ -7,8 +7,6 @@ import PhotosSectionCSS from "./PhotosSection.module.css";
 function PhotosSection() {
   const {
     formState: { errors },
-    control,
-    watch,
   } = useFormContext();
 
   return (
