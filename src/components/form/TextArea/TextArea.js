@@ -1,4 +1,3 @@
-import * as Form from "@radix-ui/react-form";
 import { useFormContext } from "react-hook-form";
 import { toCamelCase } from "../../../utils/toCamelCase";
 import InputMessage from "../InputMessage/InputMessage";
@@ -22,29 +21,24 @@ function TextArea({ options: { className, label, placeholder, max } }) {
   };
 
   return (
-    <Form.Field className={`input-field-container ${className}`}>
-      <Form.Label className={"input-label"}>{label}</Form.Label>
-      <Form.Control asChild>
-        <>
-          <textarea
-            {...registerSettings}
-            className={`${TextAreaCSS["text-area"]} input`}
-            placeholder={placeholder}
-            autoComplete="off"
-            style={{
-              outline:
-                errors[toCamelCase(label)] && "var(--input-warning-border)",
-            }}
-          />
-          {errors[toCamelCase(label)] && (
-            <InputMessage
-              message={errors[toCamelCase(label)]?.message}
-              isError
-            />
-          )}
-        </>
-      </Form.Control>
-    </Form.Field>
+    <div className={`input-field-container ${className}`}>
+      <label className={"input-label"} htmlFor={toCamelCase(label)}>
+        {label}
+      </label>
+      <textarea
+        {...registerSettings}
+        id={toCamelCase(label)}
+        className={`${TextAreaCSS["text-area"]} input`}
+        placeholder={placeholder}
+        autoComplete="off"
+        style={{
+          outline: errors[toCamelCase(label)] && "var(--input-warning-border)",
+        }}
+      />
+      {errors[toCamelCase(label)] && (
+        <InputMessage message={errors[toCamelCase(label)]?.message} isError />
+      )}
+    </div>
   );
 }
 

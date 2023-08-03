@@ -1,4 +1,3 @@
-import * as Form from "@radix-ui/react-form";
 import { useFormContext } from "react-hook-form";
 import InputMessage from "../../../../components/form/InputMessage/InputMessage";
 import preventE from "../../utils/preventE";
@@ -25,30 +24,29 @@ function PriceInput({ options: { max } }) {
   };
 
   return (
-    <Form.Field className={"input-field-container"}>
-      <Form.Label className={"input-label"}>Price</Form.Label>
-      <Form.Control asChild>
-        <>
-          <input
-            {...registerSettings}
-            {...preventE}
-            className={`${PriceInputCSS["price-input"]} input`}
-            type="number"
-            placeholder={"Enter item price (HKD)"}
-            autoComplete="off"
-            style={{
-              outline: errors["price"] && "var(--input-warning-border)",
-            }}
-          />
-          <InputMessage message={errors.price?.message} isError />
-          {price === 0 && (
-            <InputMessage
-              message={"Your item will appear in the donated category"}
-            />
-          )}
-        </>
-      </Form.Control>
-    </Form.Field>
+    <div className={"input-field-container"}>
+      <label className={"input-label"} htmlFor={"price"}>
+        Price
+      </label>
+      <input
+        {...registerSettings}
+        {...preventE}
+        id={"price"}
+        className={`${PriceInputCSS["price-input"]} input`}
+        type="number"
+        placeholder={"Enter item price (HKD)"}
+        autoComplete="off"
+        style={{
+          outline: errors["price"] && "var(--input-warning-border)",
+        }}
+      />
+      <InputMessage message={errors.price?.message} isError />
+      {price === 0 && (
+        <InputMessage
+          message={"Your item will appear in the donated category"}
+        />
+      )}
+    </div>
   );
 }
 

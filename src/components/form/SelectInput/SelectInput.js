@@ -1,4 +1,3 @@
-import * as Form from "@radix-ui/react-form";
 import { Controller, useFormContext } from "react-hook-form";
 import { FiChevronDown } from "react-icons/fi";
 import Select, { components } from "react-select";
@@ -44,8 +43,10 @@ function SelectInput({
   };
 
   return (
-    <Form.Field className={"input-field-container"}>
-      <Form.Label className={"input-label"}>{label}</Form.Label>
+    <div className={"input-field-container"}>
+      <label htmlFor={toCamelCase(label)} className={"input-label"}>
+        {label}
+      </label>
       <Controller
         control={control}
         rules={{ required: "This input is required" }}
@@ -54,6 +55,7 @@ function SelectInput({
           <>
             <Select
               {...field}
+              inputId={toCamelCase(label)}
               placeholder={placeholder}
               components={{ DropdownIndicator }}
               styles={styles}
@@ -71,7 +73,7 @@ function SelectInput({
           </>
         )}
       />
-    </Form.Field>
+    </div>
   );
 }
 

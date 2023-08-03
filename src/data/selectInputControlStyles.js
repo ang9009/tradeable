@@ -1,5 +1,5 @@
 export const selectInputControlStyles = {
-  marginTop: "11px",
+  marginTop: "var(--input-margin-top)",
   padding: "10px 12px",
   borderRadius: "5px",
   height: "fit-content",
