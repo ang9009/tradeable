@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Modal from "../../../../components/ui/Modal/Modal";
 import useLogin from "../../hooks/useLogin";
 import AuthModalContent from "../AuthModalContent/AuthModalContent";
@@ -8,11 +7,6 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
 
   // TODO: seems inefficient?
   // TODO: error should also display banned message
-  useEffect(() => {
-    if (!isAuthModalOpen) {
-      setError("");
-    }
-  }, [isAuthModalOpen]);
 
   function handleLogin() {
     login().then(() => {

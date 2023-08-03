@@ -1,19 +1,17 @@
-import { useDropzone } from "react-dropzone";
+import * as Form from "@radix-ui/react-form";
+import { useFormContext } from "react-hook-form";
+import Error from "../../../../components/ui/Error/Error";
+import PhotosDropzone from "../PhotosDropzone/PhotosDropzone";
 
 function PhotosInput() {
-  // TODO: refer to straker
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: { "image/*": [] },
-  });
+  const { control } = useFormContext();
 
   return (
     <>
-      <div className="container">
-        <div {...getRootProps({ style })}>
-          <input {...getInputProps()} />
-          <p>Drag 'n' drop some files here, or click to select files</p>
-        </div>
-      </div>
+      <Form.Field className={"input-field-container"}>
+        <Error message="hi" />
+        <PhotosDropzone control={control} />
+      </Form.Field>
     </>
   );
 }

@@ -8,7 +8,7 @@ import UserWidgetCSS from "./UserWidget.module.css";
 
 function UserWidget() {
   const [showMenu, setShowMenu] = useState(false);
-  const user = useUser();
+  const { user } = useUser();
   const navigate = useNavigate();
 
   return (

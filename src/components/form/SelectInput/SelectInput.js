@@ -4,7 +4,7 @@ import Select, { components } from "react-select";
 import { selectInputStyles } from "../../../data/selectInputStyles";
 import { getConditionHint } from "../../../features/listing";
 import { toCamelCase } from "../../../utils/toCamelCase";
-import { Controller } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import { selectInputControlStyles } from "../../../data/selectInputControlStyles";
 import InputMessage from "../InputMessage/InputMessage";
 
@@ -18,9 +18,13 @@ const DropdownIndicator = (props) => {
 
 function SelectInput({
   options: { label, placeholder, selectOptions, hasConditionHint },
-  formData: { errors, control },
 }) {
-  // ! the "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
+  // The "required" prop from Radix conflicts with the error object from react-hook-form, so don't add it
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
+
   function handleOutline(state) {
     if (errors[toCamelCase(label)]) {
       return "var(--input-warning-border)";

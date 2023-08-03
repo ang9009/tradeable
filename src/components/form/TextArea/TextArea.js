@@ -3,12 +3,14 @@ import * as Form from "@radix-ui/react-form";
 import TextAreaCSS from "./TextArea.module.css";
 import { toCamelCase } from "../../../utils/toCamelCase";
 import InputMessage from "../InputMessage/InputMessage";
+import { useFormContext } from "react-hook-form";
 
-function TextArea({
-  options: { className, label, placeholder, max },
-  formData: { register, errors },
-}) {
-  // ! the "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
+function TextArea({ options: { className, label, placeholder, max } }) {
+  // The "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   const registerSettings = {
     ...register(toCamelCase(label), {

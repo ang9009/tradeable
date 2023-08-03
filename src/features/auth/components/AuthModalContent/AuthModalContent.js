@@ -10,7 +10,11 @@ function AuthModalContent({ error, login }) {
         required.
       </p>
       <SignInButton signIn={() => login()} />
-      {error !== "" && <Error message={error} />}
+      <Error
+        message={error}
+        show={error !== ""}
+        className={AuthModalContentCSS["sign-in-error"]}
+      />
       <div className="separator"></div>
       <div id={AuthModalContentCSS["terms-text"]}>
         By signing into shareable, I agree to its

@@ -28,7 +28,3 @@ export const descriptionInputOptions = {
   className: ItemDetailsSectionCSS["description-input"],
   max: 1000,
 };
-
-export const priceInputOptions = {
-  max: 99999,
-};

@@ -9,3 +9,7 @@
 #terms-text span {
   font-size: 0.75rem;
 }
+
+.sign-in-error {
+  margin-top: 20px;
+}

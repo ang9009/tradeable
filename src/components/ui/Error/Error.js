@@ -1,12 +1,16 @@
-import ErrorCSS from "./Error.module.css";
 import { FiAlertOctagon } from "react-icons/fi";
+import ErrorCSS from "./Error.module.css";
 
-function Error({ message }) {
+function Error({ message, show, className }) {
   return (
-    <div className={ErrorCSS["error-msg"]}>
-      <FiAlertOctagon size={"20px"} />
-      <p>{message}</p>
-    </div>
+    <>
+      {show && (
+        <div className={`${ErrorCSS["error-msg"]} ${className}`}>
+          <FiAlertOctagon size={"20px"} />
+          <p>{message}</p>
+        </div>
+      )}
+    </>
   );
 }
 

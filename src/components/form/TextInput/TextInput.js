@@ -2,12 +2,15 @@ import React from "react";
 import * as Form from "@radix-ui/react-form";
 import { toCamelCase } from "../../../utils/toCamelCase";
 import InputMessage from "../InputMessage/InputMessage";
+import { useFormContext } from "react-hook-form";
 
-function TextInput({
-  options: { className, label, placeholder, max },
-  formData: { register, errors },
-}) {
-  // ! the "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
+function TextInput({ options: { className, label, placeholder, max } }) {
+  // The "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   const registerSettings = {
     ...register(toCamelCase(label), {
       required: "This input is required",

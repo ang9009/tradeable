@@ -1,4 +1,5 @@
-export function handleEPaste(e) {
+// Adapted from some Stackoverflow post
+function handleEPaste(e) {
   var clipboardData, pastedData;
 
   // Get pasted data via clipboard API
@@ -11,3 +12,13 @@ export function handleEPaste(e) {
     e.preventDefault();
   }
 }
+
+const preventE = {
+  onKeyDown: (e) => {
+    ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
+  },
+  onPaste: (e) => handleEPaste(e),
+  onWheel: (e) => e.target.blur(),
+};
+
+export default preventE;

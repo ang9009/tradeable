@@ -7,11 +7,10 @@ const IsFetchingUserContext = createContext();
 const UserUpdateContext = createContext();
 
 function useUser() {
-  return useContext(UserContext);
-}
-
-function useIsFetchingUser() {
-  return useContext(IsFetchingUserContext);
+  return {
+    user: useContext(UserContext),
+    isFetchingUser: useContext(IsFetchingUserContext),
+  };
 }
 
 // TODO: delete if unnecessary
@@ -52,4 +51,4 @@ function UserProvider({ children }) {
   );
 }
 
-export { UserProvider, useUser, useUserUpdate, useIsFetchingUser };
+export { UserProvider, useUser, useUserUpdate };

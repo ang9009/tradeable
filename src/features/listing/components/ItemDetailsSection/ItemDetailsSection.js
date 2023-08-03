@@ -6,14 +6,11 @@ import {
   conditionInputOptions,
   descriptionInputOptions,
   nameInputOptions,
-  priceInputOptions,
 } from "../../data/ItemDetailsInputOptions";
 import PriceInput from "../PriceInput/PriceInput";
 import ItemDetailsSectionCSS from "./ItemDetailsSection.module.css";
 
-function ItemDetailsSection({
-  formData: { register, control, errors, watch },
-}) {
+function ItemDetailsSection() {
   return (
     <>
       <div className="page-section-container">
@@ -21,26 +18,11 @@ function ItemDetailsSection({
         <div
           className={`form-section-container ${ItemDetailsSectionCSS["item-details-container"]}`}
         >
-          <TextInput
-            options={nameInputOptions}
-            formData={{ register, errors }}
-          />
-          <SelectInput
-            options={conditionInputOptions}
-            formData={{ errors, control }}
-          />
-          <TextArea
-            options={descriptionInputOptions}
-            formData={{ register, errors }}
-          />
-          <SelectInput
-            options={categoryInputOptions}
-            formData={{ errors, control }}
-          />
-          <PriceInput
-            options={priceInputOptions}
-            formData={{ register, errors, watch }}
-          />
+          <TextInput options={nameInputOptions} />
+          <SelectInput options={conditionInputOptions} />
+          <TextArea options={descriptionInputOptions} />
+          <SelectInput options={categoryInputOptions} />
+          <PriceInput options={{ max: 99999 }} />
         </div>
       </div>
     </>

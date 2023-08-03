@@ -1,13 +1,28 @@
 import * as Form from "@radix-ui/react-form";
+import { useFormContext } from "react-hook-form";
 import InputMessage from "../../../../components/form/InputMessage/InputMessage";
-import { handleEPaste } from "../../utils/handleEPaste";
+import preventE from "../../utils/preventE";
 import PriceInputCSS from "./PriceInput.module.css";
 
-function PriceInput({
-  options: { max },
-  formData: { register, errors, watch },
-}) {
+function PriceInput({ options: { max } }) {
+  const {
+    register,
+    watch,
+    formState: { errors },
+  } = useFormContext();
+
   const price = watch("price");
+
+  const registerSettings = {
+    ...register("price", {
+      required: "This input is required",
+      valueAsNumber: true,
+      max: {
+        value: max,
+        message: `Maximum price is ${max}`,
+      },
+    }),
+  };
 
   return (
     <Form.Field className={"input-field-container"}>
@@ -15,28 +30,18 @@ function PriceInput({
       <Form.Control asChild>
         <>
           <input
-            {...register("price", {
-              required: "This input is required",
-              max: {
-                value: max,
-                message: `Maximum price is $${max}`,
-              },
-            })}
+            {...registerSettings}
+            {...preventE}
             className={`${PriceInputCSS["price-input"]} input`}
             type="number"
             placeholder={"Enter item price (HKD)"}
-            onKeyDown={(e) =>
-              ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
-            }
-            onPaste={(e) => handleEPaste(e)}
-            onWheel={(e) => e.target.blur()}
             autoComplete="off"
             style={{
               outline: errors["price"] && "var(--input-warning-border)",
             }}
           />
           <InputMessage message={errors.price?.message} isError />
-          {price === "0" && (
+          {price === 0 && (
             <InputMessage
               message={"Your item will appear in the donated category"}
             />

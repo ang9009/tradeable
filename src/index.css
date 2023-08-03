@@ -35,6 +35,7 @@
 
 /* Global containers */
 .form-section-container {
+  /* Goes underneath subtitles */
   margin-top: 22px;
 }
 

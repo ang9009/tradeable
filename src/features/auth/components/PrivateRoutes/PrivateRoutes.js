@@ -1,9 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useIsFetchingUser, useUser } from "../../../../context/UserContext";
+import { useUser } from "../../../../context/UserContext";
 
 function PrivateRoutes() {
-  const user = useUser();
-  const isFetchingUser = useIsFetchingUser();
+  const { user, isFetchingUser } = useUser();
 
   return isFetchingUser ? (
     <></>

@@ -15,7 +15,8 @@ export const selectInputStyles = {
     background: state.isFocused && "#f6f6f6",
     transition: "all 0.2s",
     cursor: "pointer",
-    "&:first-child": {
+    // The same as first-child, just using it to get rid of a console warning
+    "&:first-of-type": {
       borderRadius: "5px 5px 0 0",
     },
     "&:last-child": {
