@@ -4,14 +4,14 @@ export const selectInputStyles = {
     color: "var(--secondary-text-color)",
   }),
   menuList: () => ({
-    border: "1px solid var(--primary-border-color)",
+    border: "var(--primary-border)",
     borderRadius: "5px",
     transform: "translateY(12px)",
     background: "#fff",
     boxShadow: "var(--box-shadow)",
   }),
   option: (_, state) => ({
-    padding: "12px",
+    padding: "10px 12px",
     background: state.isFocused && "#f6f6f6",
     transition: "all 0.2s",
     cursor: "pointer",
@@ -23,7 +23,7 @@ export const selectInputStyles = {
       borderRadius: "0 0 5px 5px",
     },
     "&:not(:last-child)": {
-      borderBottom: "1px solid var(--primary-border-color)",
+      borderBottom: "var(--primary-border)",
     },
   }),
 };

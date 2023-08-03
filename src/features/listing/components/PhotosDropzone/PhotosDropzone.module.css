@@ -1,3 +1,47 @@
-.photo-error-msg {
-  margin-bottom: 22px;
+.dropzone {
+  background: var(--primary-icon-bg-color);
+  color: var(--secondary-text-color);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px dashed var(--primary-border-color);
+  height: 100%;
+  width: 250;
+}
+
+.dropzone * {
+  display: grid;
+  place-items: center;
+}
+
+/* TODO: horrible, change later */
+.dropzone-content {
+  width: 200px;
+  text-align: center;
+}
+
+.dropzone-content p {
+  margin-top: 8px;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.grid-layout div {
+  border-radius: 5px;
+  cursor: pointer;
+  background-size: cover;
+  aspect-ratio: 1;
+}
+
+.photos-field-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  min-height: 274.47px;
 }

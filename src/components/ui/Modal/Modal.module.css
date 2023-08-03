@@ -7,7 +7,7 @@
 }
 
 .modal-top {
-  border-bottom: 1px solid var(--primary-border-color);
+  border-bottom: var(--primary-border);
 }
 
 .modal-title {

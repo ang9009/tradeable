@@ -12,18 +12,25 @@
 
 :root {
   --navbar-height: 128px;
-  --primary-border-color: #d8d8d8;
+  /* Colors */
   --shareable-burgundy: #851d40;
   --shareable-beige: #f7ddc3;
-  --input-focus-color: #015ecc;
   --warning-red: #e33e32;
+  /* Borders */
+  --primary-border-color: #d8d8d8;
+  --primary-border: 1px solid var(--primary-border-color);
+  /* Inputs and forms */
+  --input-focus-color: #015ecc;
   --input-focus-border: 1.5px solid var(--input-focus-color);
   --input-warning-border: 1.5px solid var(--warning-red);
   --input-margin-top: 13px;
-  --primary-icon-color: #9a9a9a;
-  --bold: 505;
-  --secondary-text-color: #737373;
+  --form-section-margin-top: 22px;
+  /* Stylistic elements */
+  --primary-icon-bg-color: #f6f6f6;
   --box-shadow: rgba(99, 99, 99, 0.1) 0px 1px 4px;
+  /* Text */
+  --bold: 505;
+  --secondary-text-color: #676767;
 }
 
 .separator {
@@ -36,7 +43,7 @@
 /* Global containers */
 .form-section-container {
   /* Goes underneath subtitles */
-  margin-top: 22px;
+  margin-top: var(--form-section-margin-top);
 }
 
 .page-section-container {
@@ -86,7 +93,7 @@
 
 .input {
   margin-top: var(--input-margin-top);
-  outline: 1px solid var(--primary-border-color);
+  outline: var(--primary-border);
   border: none;
   border-radius: 5px;
   padding: 10px 12px;

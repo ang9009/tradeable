@@ -1,11 +1,11 @@
 import * as Form from "@radix-ui/react-form";
+import { Controller, useFormContext } from "react-hook-form";
 import { FiChevronDown } from "react-icons/fi";
 import Select, { components } from "react-select";
+import { selectInputControlStyles } from "../../../data/selectInputControlStyles";
 import { selectInputStyles } from "../../../data/selectInputStyles";
 import { getConditionHint } from "../../../features/listing";
 import { toCamelCase } from "../../../utils/toCamelCase";
-import { Controller, useFormContext } from "react-hook-form";
-import { selectInputControlStyles } from "../../../data/selectInputControlStyles";
 import InputMessage from "../InputMessage/InputMessage";
 
 const DropdownIndicator = (props) => {
@@ -32,7 +32,7 @@ function SelectInput({
 
     return state.isFocused
       ? "var(--input-focus-border)"
-      : "1px solid var(--primary-border-color)";
+      : "var(--primary-border)";
   }
 
   const styles = {

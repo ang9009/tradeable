@@ -14,7 +14,7 @@
 
 .gray-outline {
   background: #fff;
-  border: 1px solid var(--primary-border-color);
+  border: var(--primary-border);
 }
 
 .gray-outline:hover {

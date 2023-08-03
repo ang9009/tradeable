@@ -1,16 +1,16 @@
-import { Route, Routes } from "react-router";
-import { PrivateRoutes } from "./features/auth";
-import { UserProvider } from "./context/UserContext";
 import Modal from "react-modal";
-import Navbar from "./layouts/Navbar/Navbar";
-import Home from "./pages/Home/Home";
-import Footer from "./layouts/Footer/Footer";
-import CreateListing from "./pages/CreateListing/CreateListing";
+import { Route, Routes } from "react-router";
 import "./App.css";
+import { UserProvider } from "./context/UserContext";
+import { PrivateRoutes } from "./features/auth";
+import Footer from "./layouts/Footer/Footer";
+import Navbar from "./layouts/Navbar/Navbar";
+import CreateListing from "./pages/CreateListing/CreateListing";
+import Home from "./pages/Home/Home";
+import SignIn from "./pages/SignIn/SignIn";
 
 // Library CSS files
 import "react-loading-skeleton/dist/skeleton.css";
-import SignIn from "./pages/SignIn/SignIn";
 
 function App() {
   return (
