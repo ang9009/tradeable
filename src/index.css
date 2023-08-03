@@ -24,13 +24,14 @@
   --input-focus-border: 1.5px solid var(--input-focus-color);
   --input-warning-border: 1.5px solid var(--warning-red);
   --input-margin-top: 13px;
-  --form-section-margin-top: 22px;
+  --form-section-margin-top: 30px;
   /* Stylistic elements */
   --primary-icon-bg-color: #f6f6f6;
   --box-shadow: rgba(99, 99, 99, 0.1) 0px 1px 4px;
   /* Text */
   --bold: 505;
   --secondary-text-color: #676767;
+  /* This is also used for icons */
 }
 
 .separator {

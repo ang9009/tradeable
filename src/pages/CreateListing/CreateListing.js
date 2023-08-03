@@ -1,6 +1,7 @@
 import { FormProvider, useForm } from "react-hook-form";
 import Button from "../../components/ui/Button/Button";
 import { ItemDetailsSection, PhotosSection } from "../../features/listing";
+import DescriptionSection from "../../features/listing/components/DescriptionSection/DescriptionSection";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import CreateListingCSS from "./CreateListing.module.css";
 
@@ -18,6 +19,7 @@ function CreateListing() {
         <form onSubmit={methods.handleSubmit((data) => onSubmitListing(data))}>
           <h1 className="page-title">Create a new listing</h1>
           <ItemDetailsSection />
+          <DescriptionSection />
           <PhotosSection />
           <Button
             options={{

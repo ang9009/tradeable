@@ -1,10 +1,8 @@
 import SelectInput from "../../../../components/form/SelectInput/SelectInput";
-import TextArea from "../../../../components/form/TextArea/TextArea";
 import TextInput from "../../../../components/form/TextInput/TextInput";
 import {
   categoryInputOptions,
   conditionInputOptions,
-  descriptionInputOptions,
   nameInputOptions,
 } from "../../data/ItemDetailsInputOptions";
 import PriceInput from "../PriceInput/PriceInput";
@@ -20,9 +18,8 @@ function ItemDetailsSection() {
         >
           <TextInput options={nameInputOptions} />
           <SelectInput options={conditionInputOptions} />
-          <TextArea options={descriptionInputOptions} />
-          <PriceInput options={{ max: 99999 }} />
           <SelectInput options={categoryInputOptions} />
+          <PriceInput options={{ max: 99999 }} />
         </div>
       </div>
     </>
