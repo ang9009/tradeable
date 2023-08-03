@@ -1,5 +1,5 @@
 import * as Form from "@radix-ui/react-form";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import Button from "../../components/ui/Button/Button";
 import { ItemDetailsSection, PhotosSection } from "../../features/listing";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
@@ -15,20 +15,24 @@ function CreateListing() {
 
   return (
     <PageContainer type={"centered"}>
-      <Form.Root onSubmit={handleSubmit((data) => onSubmitListing(data))}>
-        <h1 className="page-title">Create a new listing</h1>
-        <ItemDetailsSection formData={{ register, control, errors, watch }} />
-        <PhotosSection />
-        <Form.Submit asChild>
-          <Button
-            options={{
-              type: "black-filled",
-              text: "Submit",
-              className: CreateListingCSS["submit-btn"],
-            }}
-          />
-        </Form.Submit>
-      </Form.Root>
+      <FormProvider {...methods}>
+        <Form.Root
+          onSubmit={methods.handleSubmit((data) => onSubmitListing(data))}
+        >
+          <h1 className="page-title">Create a new listing</h1>
+          <ItemDetailsSection />
+          <PhotosSection />
+          <Form.Submit asChild>
+            <Button
+              options={{
+                type: "black-filled",
+                text: "Submit",
+                className: CreateListingCSS["submit-btn"],
+              }}
+            />
+          </Form.Submit>
+        </Form.Root>
+      </FormProvider>
     </PageContainer>
   );
 }
