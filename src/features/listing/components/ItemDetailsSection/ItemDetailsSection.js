@@ -20,9 +20,9 @@ function ItemDetailsSection() {
         >
           <TextInput options={nameInputOptions} />
           <SelectInput options={conditionInputOptions} />
-          <TextArea options={descriptionInputOptions} />
           <SelectInput options={categoryInputOptions} />
           <PriceInput options={{ max: 99999 }} />
+          <TextArea options={descriptionInputOptions} />
         </div>
       </div>
     </>
