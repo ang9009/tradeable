@@ -9,7 +9,7 @@ function DropzoneContent({ getRootProps, getInputProps }) {
         <div className={DropzoneContentCSS["dropzone"]}>
           <div className={DropzoneContentCSS["dropzone-content"]}>
             <FiCamera size={"25px"} />
-            <p>Drag and drop up to 6 photos here, or click to select</p>
+            <p>Drop up to 6 photos here, or click to select</p>
           </div>
         </div>
       </div>

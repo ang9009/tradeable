@@ -39,6 +39,11 @@ function PhotosGrid({ onChange, value }) {
           )}
         </>
       </ReactSortable>
+      {value && (
+        <p className={PhotosGridCSS["grid-hint"]}>
+          Drag and drop photos to rearrange
+        </p>
+      )}
       <div
         className={`${PhotosGridCSS["grid-layout"]} ${PhotosGridCSS["photo-frames-container"]}`}
       >

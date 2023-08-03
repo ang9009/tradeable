@@ -1,9 +1,6 @@
 .item-details-container {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-}
-
-.item-details-container > *:not(:first-child) {
-  margin-top: var(--input-margin-top);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: var(--input-margin-top);
 }
