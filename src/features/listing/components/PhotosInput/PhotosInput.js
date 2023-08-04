@@ -9,14 +9,11 @@ function PhotosInput() {
     <>
       <Controller
         control={control}
-        rules={{
-          required: "Please include at least one image",
-        }}
         name={"photos"}
         defaultValue={""}
         render={({ field: { onChange, value } }) => (
           <div className={PhotosInputCSS["photos-field-container"]}>
-            <PhotosDropzone onChange={onChange} />
+            <PhotosDropzone onChange={onChange} value={value} />
             <PhotosGrid onChange={onChange} value={value} />
           </div>
         )}

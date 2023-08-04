@@ -18,15 +18,19 @@ function FullscreenDropzone({ children }) {
       )}
       <Controller
         control={control}
-        rules={{
-          required: "Please include at least one image",
-        }}
         name={"photos"}
-        render={({ field: { onChange } }) => (
+        rules={{
+          required: "Please add at least one image",
+          validate: {
+            maxFiles: (value) =>
+              value.length <= 6 || "Maximum number of photos is 6",
+          },
+        }}
+        render={({ field: { onChange, value } }) => (
           <Dropzone
             noClick
             onDrop={(files) => {
-              handleOnDrop(files, onChange);
+              handleOnDrop(files, onChange, value);
               setShowOverlay(false);
             }}
             onDragEnter={() => setShowOverlay(true)}

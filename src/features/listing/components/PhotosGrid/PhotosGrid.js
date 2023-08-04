@@ -16,22 +16,24 @@ function PhotosGrid({ onChange, value }) {
       >
         {value &&
           value.map(({ _, url }, i) => (
-            <DraggablePhoto key={url} i={i} url={url} />
+            <DraggablePhoto
+              key={url}
+              displayValues={{ url, i }}
+              inputData={{ onChange, value }}
+            />
           ))}
       </ReactSortable>
-      {value.length !== 0 && (
-        <p className={PhotosGridCSS["grid-hint"]}>
-          Drag and drop photos to rearrange
-        </p>
-      )}
+      <p className={PhotosGridCSS["grid-hint"]}>
+        Drag and drop photos to rearrange, hover to delete
+      </p>
       <div
         className={`${PhotosGridCSS["grid-layout"]} ${PhotosGridCSS["photo-frames-container"]}`}
       >
-        {photoNums.map((num) => (
-          <div key={num} className={PhotosGridCSS["photo-frame"]}>
+        {Array(6 + (value?.length > 6 && value?.length - 6)).fill(
+          <div className={PhotosGridCSS["photo-frame"]}>
             <FiCamera size={"25px"} />
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
