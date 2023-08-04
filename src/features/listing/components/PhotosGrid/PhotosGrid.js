@@ -15,7 +15,9 @@ function PhotosGrid({ onChange, value }) {
         animation={200}
       >
         {value &&
-          value.map(({ _, url }, i) => <DraggablePhoto i={i} url={url} />)}
+          value.map(({ _, url }, i) => (
+            <DraggablePhoto key={url} i={i} url={url} />
+          ))}
       </ReactSortable>
       {value.length !== 0 && (
         <p className={PhotosGridCSS["grid-hint"]}>

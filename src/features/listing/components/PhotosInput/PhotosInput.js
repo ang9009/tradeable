@@ -5,15 +5,6 @@ import PhotosInputCSS from "./PhotosInput.module.css";
 
 function PhotosInput() {
   const { control } = useFormContext();
-
-  function handleDrop(acceptedFiles, onChange) {
-    onChange(
-      acceptedFiles.map((file) => {
-        return { file: file, url: URL.createObjectURL(file) };
-      })
-    );
-  }
-
   return (
     <>
       <Controller
@@ -25,7 +16,7 @@ function PhotosInput() {
         defaultValue={""}
         render={({ field: { onChange, value } }) => (
           <div className={PhotosInputCSS["photos-field-container"]}>
-            <PhotosDropzone handleDrop={handleDrop} onChange={onChange} />
+            <PhotosDropzone onChange={onChange} />
             <PhotosGrid onChange={onChange} value={value} />
           </div>
         )}

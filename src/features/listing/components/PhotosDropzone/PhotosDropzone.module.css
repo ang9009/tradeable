@@ -10,7 +10,6 @@
   cursor: pointer;
   border-radius: 5px;
   border: 1px dashed var(--primary-border-color);
-  height: 274.47px;
 }
 
 .dropzone * {
@@ -22,4 +21,15 @@
 .dropzone-content {
   width: 250px;
   text-align: center;
+}
+
+.fs-dropzone {
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  z-index: 99999;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
 }
