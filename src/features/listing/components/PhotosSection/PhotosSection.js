@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import Error from "../../../../components/ui/Error/Error";
-import PhotosDropzone from "../PhotosDropzone/PhotosDropzone";
+import PhotosInput from "../PhotosInput/PhotosInput";
 import PhotosSectionCSS from "./PhotosSection.module.css";
 
 function PhotosSection() {
@@ -18,7 +18,7 @@ function PhotosSection() {
             show={errors.photos}
             className={PhotosSectionCSS["photo-error-msg"]}
           />
-          <PhotosDropzone />
+          <PhotosInput />
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { FiCamera } from "react-icons/fi";
 import { ReactSortable } from "react-sortablejs";
+import DraggablePhoto from "../DraggablePhoto/DraggablePhoto";
 import PhotosGridCSS from "./PhotosGrid.module.css";
 
 function PhotosGrid({ onChange, value }) {
@@ -13,32 +14,14 @@ function PhotosGrid({ onChange, value }) {
         className={`${PhotosGridCSS["grid-layout"]}`}
         animation={200}
       >
-        <>
-          {value && (
-            <>
-              {value.map(({ _, url }, i) => (
-                <div className={PhotosGridCSS["grid-image-container"]}>
-                  {i === 0 && (
-                    <span className={PhotosGridCSS["cover-indicator"]}>
-                      COVER
-                    </span>
-                  )}
-                  <span className={PhotosGridCSS["grid-image-number"]}>
-                    {i + 1}
-                  </span>
-                  <div
-                    className={PhotosGridCSS["grid-image"]}
-                    key={url}
-                    style={{
-                      backgroundImage: `url(${url})`,
-                    }}
-                  ></div>
-                </div>
-              ))}
-            </>
-          )}
-        </>
+        {value &&
+          value.map(({ _, url }, i) => <DraggablePhoto i={i} url={url} />)}
       </ReactSortable>
+      {value.length !== 0 && (
+        <p className={PhotosGridCSS["grid-hint"]}>
+          Drag and drop photos to rearrange
+        </p>
+      )}
       <div
         className={`${PhotosGridCSS["grid-layout"]} ${PhotosGridCSS["photo-frames-container"]}`}
       >

@@ -1,6 +1,25 @@
-.photos-field-container {
+.dropzone-content p {
+  margin-top: 8px;
+}
+
+.dropzone {
+  background: var(--primary-icon-bg-color);
+  color: var(--secondary-text-color);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
-  min-height: 274.47px;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px dashed var(--primary-border-color);
+  height: 274.47px;
+}
+
+.dropzone * {
+  display: grid;
+  place-items: center;
+}
+
+/* TODO: not responsive at all */
+.dropzone-content {
+  width: 250px;
+  text-align: center;
 }
