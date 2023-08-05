@@ -2,5 +2,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
-  min-height: 266.66px;
+  position: relative;
+  margin-top: var(--input-margin-top);
 }

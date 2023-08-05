@@ -2,39 +2,31 @@
   position: relative;
 }
 
-.grid-layout {
+.photos-grid,
+.frames-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 20px;
+}
+
+/* TODO: NOT GOOD */
+.frames-container {
+  position: absolute;
+  top: 0;
+  z-index: -2;
   width: 100%;
 }
 
-.photo-frames-container > * {
+.frames-container > * {
   border-radius: 5px;
   cursor: pointer;
   aspect-ratio: 1;
   border: 1px solid var(--primary-border-color);
 }
 
-/* TODO: NOT GOOD */
-.photo-frames-container {
-  position: absolute;
-  top: 0;
-  z-index: -2;
-}
-
 .photo-frame {
   display: grid;
   place-items: center;
   color: var(--secondary-text-color);
-}
-
-.grid-hint {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 0.8rem;
-  color: var(--secondary-text-color);
-  transform: translateY(-35px);
 }

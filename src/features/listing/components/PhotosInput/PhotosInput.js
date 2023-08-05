@@ -1,23 +1,25 @@
 import { Controller, useFormContext } from "react-hook-form";
-import PhotosGrid from "../PhotosGrid/PhotosGrid";
+import photosInputRules from "../../data/photosInputRules";
 import { PhotosDropzone } from "./../PhotosDropzone/PhotosDropzone";
 import PhotosInputCSS from "./PhotosInput.module.css";
 
 function PhotosInput() {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
+
+  console.log(errors);
   return (
     <>
       <Controller
         control={control}
-        rules={{
-          required: "Please include at least one image",
-        }}
         name={"photos"}
-        defaultValue={""}
+        rules={photosInputRules}
+        defaultValue={[]}
         render={({ field: { onChange, value } }) => (
           <div className={PhotosInputCSS["photos-field-container"]}>
-            <PhotosDropzone onChange={onChange} />
-            <PhotosGrid onChange={onChange} value={value} />
+            <PhotosDropzone onChange={onChange} value={value} />
           </div>
         )}
       />

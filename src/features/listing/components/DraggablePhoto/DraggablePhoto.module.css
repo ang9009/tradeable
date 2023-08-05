@@ -2,7 +2,8 @@
   position: relative;
 }
 
-.grid-image-number {
+.image-number,
+.delete-btn {
   position: absolute;
   bottom: 5px;
   left: 5px;
@@ -19,7 +20,21 @@
   box-shadow: var(--box-shadow);
 }
 
-/* TODO: NOT GOOD (STATIC WIDTH)*/
+.grid-image-container:hover .image-number {
+  display: none;
+}
+
+.delete-btn {
+  display: none;
+  background: rgba(227, 62, 50, 0.8);
+}
+
+.grid-image-container:hover .delete-btn {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
 .cover-indicator {
   position: absolute;
   font-weight: var(--bold);
@@ -39,4 +54,5 @@
   cursor: pointer;
   aspect-ratio: 1;
   border-radius: 5px;
+  border: 1px solid var(--primary-border-color);
 }

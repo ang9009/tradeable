@@ -12,12 +12,16 @@ function PhotosSection() {
     <div className="page-section-container">
       <div className="subtitle">Photos</div>
       <div className="form-section-container">
-        <div className={`input-field-container`}>
-          <Error
-            message={errors.photos?.message}
-            show={errors.photos}
-            className={PhotosSectionCSS["photo-error-msg"]}
-          />
+        <Error
+          message={errors.photos?.message}
+          show={errors.photos}
+          className={PhotosSectionCSS["photo-error-msg"]}
+        />
+        <div className={"input-field-container"}>
+          <label className={"input-label"}>Photo dropzone</label>
+          <p className={PhotosSectionCSS["grid-hint"]}>
+            Drag and drop to rearrange, hover to delete
+          </p>
           <PhotosInput />
         </div>
       </div>
