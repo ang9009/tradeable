@@ -7,7 +7,7 @@ import PageContainer from "../../layouts/PageContainer/PageContainer";
 import CreateListingCSS from "./CreateListing.module.css";
 
 function CreateListing() {
-  const methods = useForm({ mode: "onChange", reValidateMode: "onChange" });
+  const methods = useForm({ mode: "onChange" });
 
   // TODO: move to firebase.js later (facade pattern)
   function onSubmitListing(data) {

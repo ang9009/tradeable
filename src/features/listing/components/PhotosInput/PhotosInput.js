@@ -4,12 +4,8 @@ import { PhotosDropzone } from "./../PhotosDropzone/PhotosDropzone";
 import PhotosInputCSS from "./PhotosInput.module.css";
 
 function PhotosInput() {
-  const {
-    control,
-    formState: { errors },
-  } = useFormContext();
+  const { control } = useFormContext();
 
-  console.log(errors);
   return (
     <>
       <Controller

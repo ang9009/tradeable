@@ -7,7 +7,6 @@ function PhotosSection() {
   const {
     formState: { errors },
   } = useFormContext();
-  console.log(errors);
 
   return (
     <div className="page-section-container">

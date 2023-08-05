@@ -1,13 +1,16 @@
 import { useState } from "react";
 import Dropzone from "react-dropzone";
-import { Controller, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { FiFile } from "react-icons/fi";
 import { handleOnDrop } from "../../utils/handleOnDrop";
 import FullscreenDropzoneCSS from "./FullscreenDropzone.module.css";
 
 function FullscreenDropzone({ children }) {
-  const { control } = useFormContext();
+  const { setValue, getValues } = useFormContext();
   const [showOverlay, setShowOverlay] = useState(false);
+  function onChange(value) {
+    setValue("photos", value, { shouldValidate: true });
+  }
 
   return (
     <>
@@ -16,30 +19,24 @@ function FullscreenDropzone({ children }) {
           <FiFile color={"#fff"} size={"100px"} />
         </div>
       )}
-      <Controller
-        control={control}
-        name={"photos"}
-        render={({ field: { onChange, value } }) => (
-          <Dropzone
-            noClick
-            onDrop={(files) => {
-              handleOnDrop(files, onChange, value);
-              setShowOverlay(false);
-            }}
-            onDragEnter={() => setShowOverlay(true)}
-            onDragLeave={() => setShowOverlay(false)}
-          >
-            {({ getRootProps, getInputProps }) => (
-              <section>
-                <div {...getRootProps()}>
-                  <input {...getInputProps()} />
-                  {children}
-                </div>
-              </section>
-            )}
-          </Dropzone>
+      <Dropzone
+        noClick
+        onDrop={(files) => {
+          handleOnDrop(files, onChange, getValues("photos"));
+          setShowOverlay(false);
+        }}
+        onDragEnter={() => setShowOverlay(true)}
+        onDragLeave={() => setShowOverlay(false)}
+      >
+        {({ getRootProps, getInputProps }) => (
+          <section>
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              {children}
+            </div>
+          </section>
         )}
-      />
+      </Dropzone>
     </>
   );
 }

@@ -15,7 +15,7 @@ function PhotosGrid({ onChange, value }) {
         >
           {value.map(({ _, url }, i) => (
             <DraggablePhoto
-              key={url}
+              key={i}
               displayValues={{ url, i }}
               inputData={{ onChange, value }}
             />
