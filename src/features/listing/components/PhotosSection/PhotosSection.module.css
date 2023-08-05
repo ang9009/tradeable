@@ -1,11 +1,3 @@
 .photo-error-msg {
-  margin-bottom: var(--input-margin-top);
-}
-
-.grid-hint {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 0.8rem;
-  color: var(--secondary-text-color);
+  margin-bottom: 22px;
 }
