@@ -1,5 +1,5 @@
 const photosInputRules = {
-  required: "This input is required",
+  required: "Please add at least one photo",
   validate: {
     maxPhotos: (value) => value?.length <= 6 || "Maximum number of photos is 6",
   },

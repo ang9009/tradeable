@@ -1,6 +1,7 @@
 import { FormProvider, useForm } from "react-hook-form";
 import Button from "../../components/ui/Button/Button";
 import { ItemDetailsSection, PhotosSection } from "../../features/listing";
+import DealingMethodsSection from "../../features/listing/components/DealingMethodsSection/DealingMethodsSection";
 import DescriptionSection from "../../features/listing/components/DescriptionSection/DescriptionSection";
 import FullscreenDropzone from "../../features/listing/components/FullscreenDropzone/FullscreenDropzone";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
@@ -25,6 +26,7 @@ function CreateListing() {
             <ItemDetailsSection />
             <DescriptionSection />
             <PhotosSection />
+            <DealingMethodsSection />
             <Button
               options={{
                 type: "black-filled",

@@ -1,0 +1,29 @@
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox[data-state="checked"] {
+  background: var(--checked-green);
+  color: #fff;
+  outline: none;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  outline: 1px solid var(--primary-border-color);
+  border: none;
+  border-radius: 3px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  margin-left: 10px;
+}
+
+.check {
+  display: grid;
+  place-items: center;
+}

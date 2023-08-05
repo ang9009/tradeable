@@ -22,8 +22,8 @@ export function PhotosDropzone({ onChange, value }) {
           <div className={PhotosDropzoneCSS["dropzone-content"]}>
             <FiCamera size={"25px"} />
             <p>
-              Add up to 6 photos by dropping them into your browser window, or
-              click to select
+              Drag and drop up to 6 photos into your browser window, or click to
+              select
             </p>
           </div>
         </div>

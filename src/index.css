@@ -24,6 +24,7 @@
   --input-focus-border: 1.5px solid var(--input-focus-color);
   --input-warning-border: 1.5px solid var(--warning-red);
   --input-margin-top: 13px;
+  --checked-green: #67a629;
   --form-section-margin-top: 30px;
   /* Stylistic elements */
   --primary-icon-bg-color: #f6f6f6;

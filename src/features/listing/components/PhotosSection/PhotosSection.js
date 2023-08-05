@@ -1,4 +1,5 @@
 import { useFormContext } from "react-hook-form";
+import InputMessage from "../../../../components/form/InputMessage/InputMessage";
 import Error from "../../../../components/ui/Error/Error";
 import PhotosInput from "../PhotosInput/PhotosInput";
 import PhotosSectionCSS from "./PhotosSection.module.css";
@@ -18,10 +19,10 @@ function PhotosSection() {
           className={PhotosSectionCSS["photo-error-msg"]}
         />
         <div className={"input-field-container"}>
-          <label className={"input-label"}>Photo dropzone</label>
-          <p className={PhotosSectionCSS["grid-hint"]}>
-            Drag and drop to rearrange, hover to delete
-          </p>
+          <label className={"input-label"}>Dropzone</label>
+          <InputMessage
+            message={"Drag and drop to rearrange, hover to delete"}
+          />
           <PhotosInput />
         </div>
       </div>

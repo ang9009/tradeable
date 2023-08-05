@@ -1,6 +1,6 @@
 .item-details-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-column-gap: 20px;
+  grid-column-gap: 50px;
   grid-row-gap: var(--input-margin-top);
 }
