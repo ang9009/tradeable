@@ -1,4 +1,4 @@
-import { Controller, useFormContext } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import { FiChevronDown } from "react-icons/fi";
 import Select, { components } from "react-select";
 import { selectInputControlStyles } from "../../../data/selectInputControlStyles";
@@ -17,12 +17,9 @@ const DropdownIndicator = (props) => {
 
 function SelectInput({
   options: { label, placeholder, selectOptions, hasConditionHint },
+  formData: { control, errors },
 }) {
   // The "required" prop from Radix conflicts with the error object from react-hook-form, so don't add it
-  const {
-    control,
-    formState: { errors },
-  } = useFormContext();
 
   function handleOutline(state) {
     if (errors[toCamelCase(label)]) {

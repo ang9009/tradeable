@@ -1,11 +1,9 @@
-import { Controller, useFormContext } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import photosInputRules from "../../data/photosInputRules";
-import { PhotosDropzone } from "./../PhotosDropzone/PhotosDropzone";
+import PhotosDropzone from "../PhotosDropzone/PhotosDropzone";
 import PhotosInputCSS from "./PhotosInput.module.css";
 
-function PhotosInput() {
-  const { control } = useFormContext();
-
+function PhotosInput({ control, errors }) {
   return (
     <>
       <Controller
@@ -13,9 +11,12 @@ function PhotosInput() {
         name={"photos"}
         rules={photosInputRules}
         defaultValue={[]}
-        render={({ field: { onChange, value } }) => (
+        render={({ field: { onChange, value, ref } }) => (
           <div className={PhotosInputCSS["photos-field-container"]}>
-            <PhotosDropzone onChange={onChange} value={value} />
+            <PhotosDropzone
+              props={{ onChange, value, isError: errors?.photos }}
+              ref={ref}
+            />
           </div>
         )}
       />

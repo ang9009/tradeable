@@ -1,15 +1,11 @@
-import { useFormContext } from "react-hook-form";
 import InputMessage from "../../../../components/form/InputMessage/InputMessage";
 import preventE from "../../utils/preventE";
 import PriceInputCSS from "./PriceInput.module.css";
 
-function PriceInput({ options: { max } }) {
-  const {
-    register,
-    watch,
-    formState: { errors },
-  } = useFormContext();
-
+function PriceInput({
+  options: { max },
+  formData: { register, watch, errors },
+}) {
   const price = watch("price");
 
   const registerSettings = {

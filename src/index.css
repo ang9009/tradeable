@@ -8,6 +8,7 @@
   font-size: 0.93rem;
   line-height: 23px;
   background-clip: border-box;
+  scroll-behavior: smooth;
 }
 
 :root {

@@ -9,6 +9,18 @@ import CreateListingCSS from "./CreateListing.module.css";
 
 function CreateListing() {
   const methods = useForm({ mode: "onChange" });
+  const [setFocus, errors] = [methods.setFocus, methods.formState.errors];
+
+  // TODO: move somewhere else
+  function onError() {
+    const firstError = Object.keys(errors).reduce((field, a) => {
+      return !!errors[field] ? field : a;
+    }, null);
+
+    if (firstError) {
+      setFocus("photos");
+    }
+  }
 
   // TODO: move to firebase.js later (facade pattern)
   function onSubmitListing(data) {
@@ -19,13 +31,11 @@ function CreateListing() {
     <FormProvider {...methods}>
       <FullscreenDropzone>
         <PageContainer type={"centered"}>
-          <form
-            onSubmit={methods.handleSubmit((data) => onSubmitListing(data))}
-          >
+          <form onSubmit={methods.handleSubmit(onSubmitListing, onError)}>
             <h1 className="page-title">Create a new listing</h1>
             <ItemDetailsSection />
-            <DescriptionSection />
             <PhotosSection />
+            <DescriptionSection />
             <DealingMethodsSection />
             <Button
               options={{

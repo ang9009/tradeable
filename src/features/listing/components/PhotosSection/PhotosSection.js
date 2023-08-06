@@ -6,6 +6,7 @@ import PhotosSectionCSS from "./PhotosSection.module.css";
 
 function PhotosSection() {
   const {
+    control,
     formState: { errors },
   } = useFormContext();
 
@@ -13,17 +14,17 @@ function PhotosSection() {
     <div className="page-section-container">
       <div className="subtitle">Photos</div>
       <div className="form-section-container">
-        <Error
-          message={errors.photos?.message}
-          show={errors.photos}
-          className={PhotosSectionCSS["photo-error-msg"]}
-        />
         <div className={"input-field-container"}>
           <label className={"input-label"}>Dropzone</label>
+          <Error
+            show={errors?.photos}
+            message={errors?.photos?.message}
+            className={PhotosSectionCSS["photo-error-msg"]}
+          />
           <InputMessage
             message={"Drag and drop to rearrange, hover to delete"}
           />
-          <PhotosInput />
+          <PhotosInput control={control} errors={errors} />
         </div>
       </div>
     </div>

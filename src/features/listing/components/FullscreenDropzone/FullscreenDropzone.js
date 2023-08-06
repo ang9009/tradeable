@@ -1,33 +1,37 @@
 import { useState } from "react";
 import Dropzone from "react-dropzone";
 import { useFormContext } from "react-hook-form";
-import { FiFile } from "react-icons/fi";
-import { handleOnDrop } from "../../utils/handleOnDrop";
+import { FiFilePlus } from "react-icons/fi";
+import ErrorToast from "../../../../components/ui/ErrorToast/ErrorToast";
+import getFsDropzoneOptions from "../../data/getFsDropzoneOptions";
 import FullscreenDropzoneCSS from "./FullscreenDropzone.module.css";
 
 function FullscreenDropzone({ children }) {
   const { setValue, getValues } = useFormContext();
   const [showOverlay, setShowOverlay] = useState(false);
-  function onChange(value) {
-    setValue("photos", value, { shouldValidate: true });
+  const [openToast, setOpenToast] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
+
+  function setToast(state, errMsg) {
+    setOpenToast(state);
+    setErrMsg(errMsg);
   }
+
+  const optionsFns = {
+    setShowOverlay,
+    getValues,
+    setValue,
+    setToast,
+  };
 
   return (
     <>
       {showOverlay && (
         <div className={FullscreenDropzoneCSS["dropzone-overlay"]}>
-          <FiFile color={"#fff"} size={"100px"} />
+          <FiFilePlus color={"#fff"} size={"100px"} />
         </div>
       )}
-      <Dropzone
-        noClick
-        onDrop={(files) => {
-          handleOnDrop(files, onChange, getValues("photos"));
-          setShowOverlay(false);
-        }}
-        onDragEnter={() => setShowOverlay(true)}
-        onDragLeave={() => setShowOverlay(false)}
-      >
+      <Dropzone {...getFsDropzoneOptions(optionsFns)}>
         {({ getRootProps, getInputProps }) => (
           <section>
             <div {...getRootProps()}>
@@ -37,6 +41,13 @@ function FullscreenDropzone({ children }) {
           </section>
         )}
       </Dropzone>
+      <ErrorToast
+        setState={{ open: openToast, setOpen: setOpenToast }}
+        options={{
+          duration: 4000,
+          message: errMsg,
+        }}
+      />
     </>
   );
 }

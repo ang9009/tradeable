@@ -1,20 +1,37 @@
+import { forwardRef, useImperativeHandle } from "react";
 import { useDropzone } from "react-dropzone";
 import { FiCamera } from "react-icons/fi";
 import { handleOnDrop } from "../../utils/handleOnDrop";
 import PhotosGrid from "../PhotosGrid/PhotosGrid";
 import PhotosDropzoneCSS from "./PhotosDropzone.module.css";
 
-export function PhotosDropzone({ onChange, value }) {
-  const { getRootProps, getInputProps } = useDropzone({
+const PhotosDropzone = forwardRef(function (
+  { props: { onChange, value, isError } },
+  ref
+) {
+  const { getRootProps, getInputProps, rootRef, isFocused } = useDropzone({
     noDrag: true,
     onDrop: (files) => handleOnDrop(files, onChange, value),
+    accept: {
+      "image/png": [],
+      "image/jpeg": [],
+    },
   });
+  // Required because react hook form doesn't allow custom refs...
+  useImperativeHandle(ref, () => rootRef.current, [rootRef]);
+
+  function borderColor() {
+    return isError
+      ? "1.5px dashed var(--warning-red)"
+      : isFocused && "1.5px dashed var(--input-focus-color)";
+  }
 
   return (
     <>
       <div
         {...getRootProps({
           className: PhotosDropzoneCSS["dropzone"],
+          style: { border: borderColor() },
         })}
       >
         <input {...getInputProps()} />
@@ -31,4 +48,6 @@ export function PhotosDropzone({ onChange, value }) {
       <PhotosGrid onChange={onChange} value={value} />
     </>
   );
-}
+});
+
+export default PhotosDropzone;

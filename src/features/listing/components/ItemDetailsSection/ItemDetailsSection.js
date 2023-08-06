@@ -1,3 +1,4 @@
+import { useFormContext } from "react-hook-form";
 import SelectInput from "../../../../components/form/SelectInput/SelectInput";
 import TextInput from "../../../../components/form/TextInput/TextInput";
 import {
@@ -9,6 +10,13 @@ import PriceInput from "../PriceInput/PriceInput";
 import ItemDetailsSectionCSS from "./ItemDetailsSection.module.css";
 
 function ItemDetailsSection() {
+  const {
+    register,
+    watch,
+    control,
+    formState: { errors },
+  } = useFormContext();
+
   return (
     <>
       <div className="page-section-container">
@@ -16,10 +24,22 @@ function ItemDetailsSection() {
         <div
           className={`form-section-container ${ItemDetailsSectionCSS["item-details-container"]}`}
         >
-          <TextInput options={nameInputOptions} />
-          <SelectInput options={conditionInputOptions} />
-          <PriceInput options={{ max: 99999 }} />
-          <SelectInput options={categoryInputOptions} />
+          <TextInput
+            options={nameInputOptions}
+            formData={{ register, errors }}
+          />
+          <SelectInput
+            options={conditionInputOptions}
+            formData={{ control, errors }}
+          />
+          <PriceInput
+            options={{ max: 99999 }}
+            formData={{ register, watch, errors }}
+          />
+          <SelectInput
+            options={categoryInputOptions}
+            formData={{ control, errors }}
+          />
         </div>
       </div>
     </>

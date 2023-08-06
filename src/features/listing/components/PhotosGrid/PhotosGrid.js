@@ -6,7 +6,7 @@ import PhotosGridCSS from "./PhotosGrid.module.css";
 function PhotosGrid({ onChange, value }) {
   return (
     <div className={PhotosGridCSS["photos-grid-container"]}>
-      {value.length !== 0 && (
+      {value && value.length !== 0 && (
         <ReactSortable
           setList={onChange}
           list={value}

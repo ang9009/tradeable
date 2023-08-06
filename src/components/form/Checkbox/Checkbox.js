@@ -9,7 +9,7 @@ function Checkbox({
   formData: { control, validate },
 }) {
   const {
-    field: { onChange, value },
+    field: { onChange, value, ref },
   } = useController({
     name,
     control,
@@ -22,6 +22,7 @@ function Checkbox({
   return (
     <div className={`${CheckboxCSS["input-container"]} ${className}`}>
       <RadixCheckbox.Root
+        ref={ref}
         className={CheckboxCSS["checkbox"]}
         id={toCamelCase(label)}
         name={name}

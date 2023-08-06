@@ -19,8 +19,8 @@ function DealingMethodsSection() {
         <div className="subtitle">Dealing methods</div>
         <div className="form-section-container">
           <Error
-            show={errors?.dealingMethod}
-            message={errors?.dealingMethod?.message}
+            show={errors?.dealingMethods}
+            message={errors?.dealingMethods?.message}
           />
           <p className={DealingMethodsSectionCSS["hint"]}>
             At least one dealing method must be picked
@@ -32,7 +32,7 @@ function DealingMethodsSection() {
                   key={method}
                   options={{
                     label: method,
-                    name: "dealingMethod",
+                    name: "dealingMethods",
                     className: DealingMethodsSectionCSS["checkbox"],
                   }}
                   formData={{
