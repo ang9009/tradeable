@@ -24,9 +24,9 @@ function getFsDropzoneOptions({
       const err = res[0].errors[0].code;
       const msg =
         err === "file-too-large"
-          ? "Please upload files under 5MB"
+          ? "Please upload files that are under 5MB"
           : "Only .jpg and .png files are supported";
-      setToast(true, msg);
+      setToast(true, 4000, msg);
     },
     accept: {
       "image/png": [],

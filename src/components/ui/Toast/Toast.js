@@ -1,8 +1,9 @@
 import * as RadixToast from "@radix-ui/react-toast";
 import { FiAlertOctagon, FiX } from "react-icons/fi";
-import ErrorToastCSS from "./ErrorToast.module.css";
+import ToastCSS from "./Toast.module.css";
 
-function ErrorToast({
+// Accessible using the toast context
+function Toast({
   setState: { open, setOpen },
   options: { duration, message },
 }) {
@@ -11,26 +12,26 @@ function ErrorToast({
       <RadixToast.Root
         open={open}
         onOpenChange={setOpen}
-        className={ErrorToastCSS["toast-root"]}
+        className={ToastCSS["toast-root"]}
         onEscapeKeyDown={() => setOpen(false)}
         duration={duration || 4000}
       >
-        <RadixToast.Description className={ErrorToastCSS["description"]}>
+        <RadixToast.Description className={ToastCSS["description"]}>
           <FiAlertOctagon size={"20px"} />
           <p>{message}</p>
         </RadixToast.Description>
         <RadixToast.Close
           onClick={() => setOpen(false)}
-          className={ErrorToastCSS["close-btn"]}
+          className={ToastCSS["close-btn"]}
           asChild
         >
           <FiX size={"20px"} />
         </RadixToast.Close>
       </RadixToast.Root>
 
-      <RadixToast.Viewport className={ErrorToastCSS["viewport"]} />
+      <RadixToast.Viewport className={ToastCSS["viewport"]} />
     </RadixToast.Provider>
   );
 }
 
-export default ErrorToast;
+export default Toast;

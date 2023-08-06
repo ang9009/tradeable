@@ -3,12 +3,3 @@
   color: var(--secondary-text-color);
   margin-top: var(--input-margin-top);
 }
-
-.checkboxes-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.checkboxes-container > .checkbox {
-  margin-top: var(--input-margin-top);
-}

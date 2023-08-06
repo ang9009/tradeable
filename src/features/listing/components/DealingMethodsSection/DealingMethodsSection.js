@@ -1,17 +1,12 @@
 import { useFormContext } from "react-hook-form";
 import Error from "../../../../components/ui/Error/Error";
-import Checkbox from "./../../../../components/form/Checkbox/Checkbox";
+import DealingMethodsInputs from "../DealingMethodsInputs/DealingMethodsInputs";
 import DealingMethodsSectionCSS from "./DealingMethodsSection.module.css";
 
 function DealingMethodsSection() {
   const {
-    control,
     formState: { errors },
   } = useFormContext();
-  const deliveryMethods = ["Meet up", "Delivery"];
-  function validate(v) {
-    return v.length !== 0 || "Please select at least one dealing method";
-  }
 
   return (
     <>
@@ -25,24 +20,7 @@ function DealingMethodsSection() {
           <p className={DealingMethodsSectionCSS["hint"]}>
             At least one dealing method must be picked
           </p>
-          <div className={DealingMethodsSectionCSS["checkboxes-container"]}>
-            {deliveryMethods.map((method) => {
-              return (
-                <Checkbox
-                  key={method}
-                  options={{
-                    label: method,
-                    name: "dealingMethods",
-                    className: DealingMethodsSectionCSS["checkbox"],
-                  }}
-                  formData={{
-                    control,
-                    validate,
-                  }}
-                />
-              );
-            })}
-          </div>
+          <DealingMethodsInputs />
         </div>
       </div>
     </>

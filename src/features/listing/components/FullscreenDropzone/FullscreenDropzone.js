@@ -2,20 +2,14 @@ import { useState } from "react";
 import Dropzone from "react-dropzone";
 import { useFormContext } from "react-hook-form";
 import { FiFilePlus } from "react-icons/fi";
-import ErrorToast from "../../../../components/ui/ErrorToast/ErrorToast";
+import { useSetToast } from "../../../../context/ToastContext";
 import getFsDropzoneOptions from "../../data/getFsDropzoneOptions";
 import FullscreenDropzoneCSS from "./FullscreenDropzone.module.css";
 
 function FullscreenDropzone({ children }) {
   const { setValue, getValues } = useFormContext();
   const [showOverlay, setShowOverlay] = useState(false);
-  const [openToast, setOpenToast] = useState(false);
-  const [errMsg, setErrMsg] = useState("");
-
-  function setToast(state, errMsg) {
-    setOpenToast(state);
-    setErrMsg(errMsg);
-  }
+  const setToast = useSetToast();
 
   const optionsFns = {
     setShowOverlay,
@@ -41,13 +35,6 @@ function FullscreenDropzone({ children }) {
           </section>
         )}
       </Dropzone>
-      <ErrorToast
-        setState={{ open: openToast, setOpen: setOpenToast }}
-        options={{
-          duration: 4000,
-          message: errMsg,
-        }}
-      />
     </>
   );
 }
