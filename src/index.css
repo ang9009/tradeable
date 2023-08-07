@@ -32,8 +32,9 @@
   --box-shadow: rgba(99, 99, 99, 0.1) 0px 1px 4px;
   /* Text */
   --bold: 505;
-  --secondary-text-color: #676767;
-  /* This is also used for icons */
+  --secondary-text-color: #676767; /* Also used for icons */
+  /* Animations */
+  --slide-down-and-fade: var();
 }
 
 .separator {

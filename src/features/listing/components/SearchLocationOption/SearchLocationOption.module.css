@@ -1,0 +1,9 @@
+.option-container {
+  display: flex;
+}
+
+.address {
+  margin-left: 5px;
+  color: var(--secondary-text-color);
+  font-size: 0.8rem;
+}
