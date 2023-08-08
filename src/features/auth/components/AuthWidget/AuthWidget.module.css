@@ -12,3 +12,10 @@
   width: 48px;
   height: 35px;
 }
+
+.separator {
+  width: 1px;
+  background: var(--primary-border-color);
+  height: 100%;
+  margin-left: 22px;
+}

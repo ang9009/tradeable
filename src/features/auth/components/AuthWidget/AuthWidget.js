@@ -11,6 +11,7 @@ function AuthWidget() {
 
   return (
     <>
+      {user && <div className={AuthWidgetCSS["separator"]}></div>}
       <div className={AuthWidgetCSS["auth-widget-container"]}>
         {isFetchingUser ? (
           <>
@@ -18,10 +19,7 @@ function AuthWidget() {
             <Skeleton width={"90px"} height={"35px"} />
           </>
         ) : (
-          <AuthWidgetButtons
-            user={user}
-            setIsAuthModalOpen={setIsAuthModalOpen}
-          />
+          <AuthWidgetButtons setIsAuthModalOpen={setIsAuthModalOpen} />
         )}
       </div>
       <AuthModal

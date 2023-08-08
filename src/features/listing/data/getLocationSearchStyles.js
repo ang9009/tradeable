@@ -1,4 +1,4 @@
-function getSearchLocationStyles() {
+function getLocationSearchStyles() {
   const styles = {
     indicatorSeparator: () => ({ display: "none" }),
     dropdownIndicator: (baseStyles) => ({
@@ -7,10 +7,7 @@ function getSearchLocationStyles() {
       pointerEvents: "none",
     }),
     clearIndicator: (baseStyles) => ({
-      ...baseStyles,
-      position: "absolute",
-      right: "12px",
-      cursor: "pointer",
+      display: "none",
     }),
     placeholder: (baseStyles) => ({
       ...baseStyles,
@@ -24,6 +21,7 @@ function getSearchLocationStyles() {
       boxShadow: "var(--box-shadow)",
       maxHeight: "180px",
       overflowY: "auto",
+      overflowX: "hidden",
     }),
     option: (_, state) => ({
       padding: "10px 12px",
@@ -33,10 +31,12 @@ function getSearchLocationStyles() {
       // The same as first-child, just using it to get rid of a console warning
     }),
     control: (_, state) => ({
-      flexDirection: "row-reverse",
-      outline: "var(--primary-border)",
-      marginTop: "var(--input-margin-top)",
       padding: "10px 12px",
+      outline: state.isFocused
+        ? "var(--input-focus-border)"
+        : "var(--primary-border)",
+      flexDirection: "row-reverse",
+      marginTop: "var(--input-margin-top)",
       borderRadius: "5px",
       height: "fit-content",
       display: "flex",
@@ -44,9 +44,20 @@ function getSearchLocationStyles() {
       alignItems: "center",
       position: "relative",
     }),
+    loadingIndicator: () => ({
+      display: "none",
+    }),
+    noOptionsMessage: () => ({
+      padding: "10px 12px",
+      color: "var(--secondary-text-color)",
+    }),
+    loadingMessage: () => ({
+      padding: "10px 12px",
+      color: "var(--secondary-text-color)",
+    }),
   };
 
   return { ...styles };
 }
 
-export default getSearchLocationStyles;
+export default getLocationSearchStyles;

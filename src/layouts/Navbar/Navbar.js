@@ -1,6 +1,6 @@
-import Logo from "./../../components/ui/Logo/Logo";
 import Button from "../../components/ui/Button/Button";
 import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
+import Logo from "./../../components/ui/Logo/Logo";
 import Searchbar from "./NavSearchbar";
 import NavbarCSS from "./Navbar.module.css";
 
@@ -14,7 +14,6 @@ const Navbar = () => {
         </div>
         <div className={NavbarCSS["nav-right"]}>
           <Button options={{ type: "black-outline", text: "iOS App" }} />
-          <span className={NavbarCSS.separator}></span>
           <AuthWidget />
         </div>
       </div>

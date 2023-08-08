@@ -1,9 +1,16 @@
 .option-container {
   display: flex;
+  max-width: 350px;
+}
+
+.location-name,
+.address {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .address {
-  margin-left: 5px;
   color: var(--secondary-text-color);
-  font-size: 0.8rem;
+  font-size: 0.84rem;
 }

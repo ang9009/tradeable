@@ -7,10 +7,6 @@
   margin-top: var(--input-margin-top);
 }
 
-.location-inputs-container > * {
-  margin-left: 40px;
-}
-
 .location-inputs-container {
   padding: var(--form-section-margin-top) 0;
   margin-bottom: var(--form-section-margin-top);

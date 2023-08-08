@@ -33,13 +33,6 @@
   background: none;
 }
 
-.separator {
-  width: 1px;
-  background: var(--primary-border-color);
-  height: 100%;
-  margin-left: 22px;
-}
-
 /* Nav bottom */
 .nav-bottom {
   margin-top: 75px;

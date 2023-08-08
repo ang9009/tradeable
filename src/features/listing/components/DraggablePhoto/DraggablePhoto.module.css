@@ -50,6 +50,7 @@
 }
 
 .grid-image {
+  background: #000;
   background-size: cover;
   cursor: pointer;
   aspect-ratio: 1;

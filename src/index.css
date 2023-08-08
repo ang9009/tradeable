@@ -33,8 +33,6 @@
   /* Text */
   --bold: 505;
   --secondary-text-color: #676767; /* Also used for icons */
-  /* Animations */
-  --slide-down-and-fade: var();
 }
 
 .separator {

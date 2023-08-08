@@ -12,8 +12,8 @@ function ToastProvider({ children }) {
   const [duration, setDuration] = useState(0);
   const [message, setMessage] = useState("");
 
-  function setToast(open, duration, message) {
-    setOpen(open);
+  function setToast(duration, message) {
+    setOpen(true);
     setDuration(duration);
     setMessage(message);
   }

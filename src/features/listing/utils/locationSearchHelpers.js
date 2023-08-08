@@ -5,4 +5,12 @@ const handleInputChange = (query, meta, setQuery) => {
   }
 };
 
-export { handleInputChange };
+const noOptionsMessage = (obj) => {
+  if (obj.inputValue.trim().length === 0) {
+    return null;
+  }
+
+  return "No locations found";
+};
+
+export { handleInputChange, noOptionsMessage };

@@ -1,31 +1,39 @@
-import { useState } from "react";
+import isEqual from "lodash.isequal";
+import { useEffect, useState } from "react";
 import Select from "react-select";
-import ClearIndicator from "../../../../components/ui/ClearIndicator/ClearIndicator";
 import SearchIndicator from "../../../../components/ui/SearchIndicator/SearchIndicator";
-import getSearchLocationStyles from "../../data/getSearchLocationStyles";
-import { handleInputChange } from "../../utils/locationSearchHelpers";
+import { useSetToast } from "../../../../context/ToastContext";
+import { getLocationAutocomplete } from "../../../../lib/geoapify";
+import getLocationSearchStyles from "../../data/getLocationSearchStyles";
+import {
+  handleInputChange,
+  noOptionsMessage,
+} from "../../utils/locationSearchHelpers";
 import SearchLocationOption from "../SearchLocationOption/SearchLocationOption";
 import LocationSearchBarCSS from "./LocationSearchBar.module.css";
 
 export function LocationSearchBar({ selected, setSelected }) {
   const [query, setQuery] = useState("");
-  const options = [
-    {
-      label: "Causeway Bay",
-      value: "causeway bay",
-      address: "Hong Kong Island, Hong Kong, China",
-    },
-    {
-      label: "North Point",
-      value: "north point",
-      address: "Hong Kong Island, Hong Kong, Europe",
-    },
-    {
-      label: "Pacific Place",
-      value: "pacific place",
-      address: "88 Queensway, Admiralty, Hong Kong, China",
-    },
-  ];
+  const [options, setOptions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const setToast = useSetToast();
+
+  useEffect(() => {
+    const delayDebounce = setTimeout(() => {
+      if (query.trim().length === 0) {
+        setOptions([]);
+        return;
+      }
+
+      setIsLoading(true);
+      getLocationAutocomplete(query).then((res) => {
+        setOptions(res);
+        setIsLoading(false);
+      });
+    }, 500);
+
+    return () => clearTimeout(delayDebounce);
+  }, [query]);
 
   return (
     <div
@@ -35,20 +43,29 @@ export function LocationSearchBar({ selected, setSelected }) {
         Search and add locations
       </label>
       <Select
+        value={""}
+        onChange={(option) => {
+          if (!option) return;
+
+          !selected?.some((select) => isEqual(option, select))
+            ? setSelected([...selected, option])
+            : setToast(4000, "You have already added this location");
+        }}
         inputValue={query}
-        placeholder={"Enter location..."}
+        isLoading={isLoading}
         onInputChange={(query, meta) =>
           handleInputChange(query, meta, setQuery)
         }
+        placeholder={"Enter location..."}
         options={options}
-        styles={getSearchLocationStyles()}
+        styles={getLocationSearchStyles()}
         isClearable
         menuPlacement="auto"
         components={{
-          ClearIndicator,
           DropdownIndicator: SearchIndicator,
         }}
         formatOptionLabel={SearchLocationOption}
+        noOptionsMessage={noOptionsMessage}
         unstyled
       />
     </div>
