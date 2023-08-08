@@ -24,7 +24,7 @@ function PhotosGrid({ onChange, value }) {
       )}
       <div className={`${PhotosGridCSS["frames-container"]}`}>
         {Array.from(
-          { length: 6 + (value?.length > 6 && value?.length - 6) },
+          { length: 6 + (value?.length > 6 && value.length - 6) },
           (_, i) => (
             <div key={i} className={PhotosGridCSS["photo-frame"]}>
               <FiCamera size={"25px"} />

@@ -1,4 +1,15 @@
-function getLocationSearchStyles() {
+function getLocationSearchStyles(errors) {
+  // TODO: questionable closure
+  function handleOutline(state) {
+    if (errors?.meetupLocations) {
+      return "var(--input-warning-border)";
+    }
+
+    return state.isFocused
+      ? "var(--input-focus-border)"
+      : "var(--primary-border)";
+  }
+
   const styles = {
     indicatorSeparator: () => ({ display: "none" }),
     dropdownIndicator: (baseStyles) => ({
@@ -32,9 +43,7 @@ function getLocationSearchStyles() {
     }),
     control: (_, state) => ({
       padding: "10px 12px",
-      outline: state.isFocused
-        ? "var(--input-focus-border)"
-        : "var(--primary-border)",
+      outline: handleOutline(state),
       flexDirection: "row-reverse",
       marginTop: "var(--input-margin-top)",
       borderRadius: "5px",

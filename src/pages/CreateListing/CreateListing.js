@@ -18,7 +18,7 @@ function CreateListing() {
     }, null);
 
     if (firstError) {
-      setFocus("photos");
+      setFocus(firstError);
     }
   }
 
@@ -31,7 +31,7 @@ function CreateListing() {
     <FormProvider {...methods}>
       <FullscreenDropzone>
         <PageContainer type={"centered"}>
-          <form onSubmit={methods.handleSubmit(onSubmitListing, onError)}>
+          <form onSubmit={methods.handleSubmit(onSubmitListing)``}>
             <h1 className="page-title">Create a new listing</h1>
             <ItemDetailsSection />
             <PhotosSection />

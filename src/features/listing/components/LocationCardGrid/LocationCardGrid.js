@@ -7,11 +7,12 @@ function LocationCardGrid({ locations }) {
   const { setValue } = useFormContext();
   function handleDelete(currLocation) {
     setValue(
-      "meetup-locations",
+      "meetupLocations",
       locations.filter((location) => !isEqual(location, currLocation)),
       { shouldValidate: true }
     );
   }
+  console.log(locations);
 
   return (
     <div className={LocationCardGridCSS["cards-grid-container"]}>

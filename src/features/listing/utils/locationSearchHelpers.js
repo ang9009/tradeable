@@ -1,16 +1,23 @@
 // Adapted from https://komelin.com/blog/developing-custom-search-box-with-react-select
-const handleInputChange = (query, meta, setQuery) => {
+function handleInputChange(query, meta, setQuery) {
   if (meta.action !== "input-blur" && meta.action !== "menu-close") {
     setQuery(query);
   }
-};
+}
 
-const noOptionsMessage = (obj) => {
+function noOptionsMessage(obj) {
   if (obj.inputValue.trim().length === 0) {
     return null;
   }
 
   return "No locations found";
-};
+}
 
-export { handleInputChange, noOptionsMessage };
+function validateLocations(v, getValues) {
+  const dealingMethods = getValues("dealingMethods");
+  if (dealingMethods.includes("meetUp")) {
+    return v.length !== 0 || "Please add at least one meet-up location";
+  }
+}
+
+export { handleInputChange, noOptionsMessage, validateLocations };
