@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useFormContext } from "react-hook-form";
 import LocationCardGrid from "../LocationCardGrid/LocationCardGrid";
 import { LocationSearchBar } from "../LocationSearchBar/LocationSearchBar";
 
 function SearchLocationInput() {
-  const [selected, setSelected] = useState([]);
+  const { control, watch } = useFormContext();
+  const locations = watch("meetup-locations");
 
   return (
     <>
-      {selected.length !== 0 && <LocationCardGrid locations={selected} />}
-      <LocationSearchBar selected={selected} setSelected={setSelected} />
+      {locations && locations.length !== 0 && (
+        <LocationCardGrid locations={locations} />
+      )}
+      <LocationSearchBar formData={{ control }} />
     </>
   );
 }

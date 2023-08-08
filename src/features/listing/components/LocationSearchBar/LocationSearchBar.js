@@ -1,5 +1,6 @@
 import isEqual from "lodash.isequal";
 import { useEffect, useState } from "react";
+import { Controller } from "react-hook-form";
 import Select from "react-select";
 import SearchIndicator from "../../../../components/ui/SearchIndicator/SearchIndicator";
 import { useSetToast } from "../../../../context/ToastContext";
@@ -12,7 +13,7 @@ import {
 import SearchLocationOption from "../SearchLocationOption/SearchLocationOption";
 import LocationSearchBarCSS from "./LocationSearchBar.module.css";
 
-export function LocationSearchBar({ selected, setSelected }) {
+export function LocationSearchBar({ formData: { control } }) {
   const [query, setQuery] = useState("");
   const [options, setOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,31 +43,38 @@ export function LocationSearchBar({ selected, setSelected }) {
       <label className={"input-label"} htmlFor={"search-location"}>
         Search and add locations
       </label>
-      <Select
-        value={""}
-        onChange={(option) => {
-          if (!option) return;
+      <Controller
+        control={control}
+        name={"meetup-locations"}
+        defaultValue={[]}
+        render={({ field: { onChange, value } }) => (
+          <Select
+            value={""}
+            onChange={(option) => {
+              if (!option) return;
 
-          !selected?.some((select) => isEqual(option, select))
-            ? setSelected([...selected, option])
-            : setToast(4000, "You have already added this location");
-        }}
-        inputValue={query}
-        isLoading={isLoading}
-        onInputChange={(query, meta) =>
-          handleInputChange(query, meta, setQuery)
-        }
-        placeholder={"Enter location..."}
-        options={options}
-        styles={getLocationSearchStyles()}
-        isClearable
-        menuPlacement="auto"
-        components={{
-          DropdownIndicator: SearchIndicator,
-        }}
-        formatOptionLabel={SearchLocationOption}
-        noOptionsMessage={noOptionsMessage}
-        unstyled
+              !value?.some((select) => isEqual(option, select))
+                ? onChange([...value, option])
+                : setToast(4000, "You have already added this location");
+            }}
+            inputValue={query}
+            isLoading={isLoading}
+            onInputChange={(query, meta) =>
+              handleInputChange(query, meta, setQuery)
+            }
+            placeholder={"Enter location..."}
+            options={options}
+            styles={getLocationSearchStyles()}
+            isClearable
+            menuPlacement="auto"
+            components={{
+              DropdownIndicator: SearchIndicator,
+            }}
+            formatOptionLabel={SearchLocationOption}
+            noOptionsMessage={noOptionsMessage}
+            unstyled
+          />
+        )}
       />
     </div>
   );
