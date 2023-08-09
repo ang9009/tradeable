@@ -109,6 +109,16 @@
   font-weight: normal;
 }
 
-.input:focus {
-  outline: var(--input-focus-border);
+.input-wrapper {
+  /* For inputs that have elements other than the main input */
+  margin-top: var(--input-margin-top);
+  outline: var(--primary-border);
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  padding: 10px 12px;
 }

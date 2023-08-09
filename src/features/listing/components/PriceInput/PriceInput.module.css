@@ -11,3 +11,16 @@
 .price-input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.price-input {
+  border: none;
+  width: 100%;
+}
+
+.price-input:focus {
+  outline: none;
+}
+
+.dollar-sign {
+  padding-left: 12px;
+}

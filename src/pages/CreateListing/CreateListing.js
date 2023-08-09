@@ -5,15 +5,12 @@ import DealingMethodsSection from "../../features/listing/components/DealingMeth
 import DescriptionSection from "../../features/listing/components/DescriptionSection/DescriptionSection";
 import FullscreenDropzone from "../../features/listing/components/FullscreenDropzone/FullscreenDropzone";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
+import { onSubmitListing } from "../../lib/firebase";
 import CreateListingCSS from "./CreateListing.module.css";
 
 function CreateListing() {
   const methods = useForm({ mode: "onChange" });
-
-  // TODO: move to firebase.js later (facade pattern)
-  function onSubmitListing(data) {
-    console.log(data);
-  }
+  console.log(methods.formState.isSubmitting);
 
   return (
     <FormProvider {...methods}>
@@ -31,6 +28,7 @@ function CreateListing() {
                 text: "Submit",
                 className: CreateListingCSS["submit-btn"],
               }}
+              disabled={methods.formState.isSubmitting}
             />
           </form>
         </PageContainer>

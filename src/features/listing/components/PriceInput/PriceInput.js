@@ -1,4 +1,6 @@
+import { useState } from "react";
 import InputMessage from "../../../../components/form/InputMessage/InputMessage";
+import handleOutline from "../../../../utils/handleOutline";
 import preventE from "../../utils/preventE";
 import PriceInputCSS from "./PriceInput.module.css";
 
@@ -7,6 +9,7 @@ function PriceInput({
   formData: { register, watch, errors, setValue },
 }) {
   const price = watch("price");
+  const [isFocused, setIsFocused] = useState(false);
 
   const registerSettings = {
     ...register("price", {
@@ -30,24 +33,31 @@ function PriceInput({
       <label className={"input-label"} htmlFor={"price"}>
         Price
       </label>
-      <input
-        {...registerSettings}
-        {...preventE}
-        id={"price"}
-        className={`${PriceInputCSS["price-input"]} input`}
-        type="number"
-        placeholder={"Enter item price (HKD)"}
-        autoComplete="off"
+      <div
+        className={"input-wrapper"}
         style={{
-          outline: errors["price"] && "var(--input-warning-border)",
+          outline: handleOutline(errors?.price, isFocused),
         }}
-      />
-      <InputMessage message={errors.price?.message} isError />
-      {price === 0 && (
-        <InputMessage
-          message={"Your item will appear in the donated category"}
+      >
+        <p className={PriceInputCSS["dollar-sign"]}>$</p>
+        <input
+          className={PriceInputCSS["price-input"]}
+          {...registerSettings}
+          {...preventE}
+          id={"price"}
+          type="number"
+          placeholder={"Enter item price (HKD)"}
+          autoComplete="off"
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         />
-      )}
+        <InputMessage message={errors.price?.message} isError />
+        {price === 0 && (
+          <InputMessage
+            message={"Your item will appear in the donated category"}
+          />
+        )}
+      </div>
     </div>
   );
 }

@@ -8,6 +8,10 @@
   transition: all 0.2s;
 }
 
+.all-btns:disabled {
+  cursor: not-allowed;
+}
+
 .all-btns:focus {
   outline: none;
 }

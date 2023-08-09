@@ -1,11 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import {
-  getAuth,
-  signInWithPopup,
-  onAuthStateChanged,
-  GoogleAuthProvider,
-} from "firebase/auth";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+import getId from "../utils/getId";
 
 // TODO: hide api key
 const firebaseConfig = {
@@ -22,5 +19,30 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
+const storage = getStorage();
 
-export { db, auth, provider };
+async function onSubmitListing(data) {
+  const listing = {
+    name: data.name,
+    condition: data.condition.value,
+    category: data.category.value,
+    price: data.price,
+    description: data.description,
+    dealingMethods: data.dealingMethods,
+    meetUpLocations: data.meetupLocations
+      ? data.meetupLocations.map((locationObj) => locationObj.value)
+      : null,
+  };
+
+  const listingId = getId();
+
+  await setDoc(doc(db, "listings", listingId), listing);
+
+  const photos = data.photos.map((photoObj) => photoObj.file);
+  photos.forEach(async (photo, i) => {
+    const photoRef = ref(storage, `${listingId}/${i + 1}`);
+    await uploadBytes(photoRef, photo);
+  });
+}
+
+export { auth, db, onSubmitListing, provider };
