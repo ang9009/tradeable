@@ -14,6 +14,7 @@ function ItemDetailsSection() {
     register,
     watch,
     control,
+    setValue,
     formState: { errors },
   } = useFormContext();
 
@@ -34,7 +35,7 @@ function ItemDetailsSection() {
           />
           <PriceInput
             options={{ max: 99999 }}
-            formData={{ register, watch, errors }}
+            formData={{ register, watch, errors, setValue }}
           />
           <SelectInput
             options={categoryInputOptions}

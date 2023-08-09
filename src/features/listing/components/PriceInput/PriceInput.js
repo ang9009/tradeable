@@ -4,13 +4,19 @@ import PriceInputCSS from "./PriceInput.module.css";
 
 function PriceInput({
   options: { max },
-  formData: { register, watch, errors },
+  formData: { register, watch, errors, setValue },
 }) {
   const price = watch("price");
 
   const registerSettings = {
     ...register("price", {
       required: "This input is required",
+      onBlur: (e) => {
+        if (e.target?.value.toString().includes(".")) {
+          const fixed = parseFloat(e.target.value).toFixed(2);
+          setValue("price", fixed);
+        }
+      },
       valueAsNumber: true,
       max: {
         value: max,

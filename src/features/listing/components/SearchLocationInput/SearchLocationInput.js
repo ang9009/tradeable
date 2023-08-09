@@ -13,10 +13,10 @@ function SearchLocationInput() {
 
   return (
     <>
+      <LocationSearchBar formData={{ control, errors, getValues }} />
       {locations && locations.length !== 0 && (
         <LocationCardGrid locations={locations} />
       )}
-      <LocationSearchBar formData={{ control, errors, getValues }} />
     </>
   );
 }

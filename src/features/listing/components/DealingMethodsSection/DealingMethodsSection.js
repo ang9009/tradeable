@@ -1,7 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import Error from "../../../../components/ui/Error/Error";
 import DealingMethodsInputs from "../DealingMethodsInputs/DealingMethodsInputs";
-import DealingMethodsSectionCSS from "./DealingMethodsSection.module.css";
 
 function DealingMethodsSection() {
   const {
@@ -17,9 +16,6 @@ function DealingMethodsSection() {
             show={errors?.dealingMethods}
             message={errors?.dealingMethods?.message}
           />
-          <p className={DealingMethodsSectionCSS["hint"]}>
-            At least one dealing method must be picked
-          </p>
           <DealingMethodsInputs />
         </div>
       </div>

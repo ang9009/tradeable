@@ -12,13 +12,12 @@ function LocationCardGrid({ locations }) {
       { shouldValidate: true }
     );
   }
-  console.log(locations);
 
   return (
     <div className={LocationCardGridCSS["cards-grid-container"]}>
-      {locations.map((location) => {
+      {locations.map((location, i) => {
         return (
-          <div className={LocationCardGridCSS["card-container"]}>
+          <div className={LocationCardGridCSS["card-container"]} key={i}>
             <FiX
               size={"17px"}
               className={LocationCardGridCSS["delete-btn"]}

@@ -57,3 +57,18 @@
   border-radius: 5px;
   border: 1px solid var(--primary-border-color);
 }
+
+.drag-indicator {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.2));
+}
+
+.grid-image-container:hover .drag-indicator {
+  display: initial;
+}
