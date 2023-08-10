@@ -1,5 +1,7 @@
+import { useQuery } from "@tanstack/react-query";
+import debounce from "lodash.debounce";
 import isEqual from "lodash.isequal";
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Controller } from "react-hook-form";
 import Select from "react-select";
 import InputMessage from "../../../../components/form/InputMessage/InputMessage";
@@ -8,7 +10,6 @@ import { useSetToast } from "../../../../context/ToastContext";
 import { getLocationAutocomplete } from "../../../../lib/geoapify";
 import getLocationSearchStyles from "../../data/getLocationSearchStyles";
 import {
-  handleInputChange,
   noOptionsMessage,
   validateLocations,
 } from "../../utils/locationSearchHelpers";
@@ -18,27 +19,50 @@ import LocationSearchBarCSS from "./LocationSearchBar.module.css";
 export function LocationSearchBar({
   formData: { control, errors, getValues },
 }) {
-  const [query, setQuery] = useState("");
+  // Used to automatically update input
+  const [inputText, setInputText] = useState("");
+  // Used to update search query
+  const [searchText, setSearchText] = useState("");
   const [options, setOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const setToast = useSetToast();
 
-  useEffect(() => {
-    const delayDebounce = setTimeout(() => {
-      if (query.trim().length === 0) {
-        setOptions([]);
-        return;
-      }
+  function handleInputChange(inputText, meta) {
+    if (meta.action !== "input-blur" && meta.action !== "menu-close") {
+      setInputText(inputText);
+      handleSearchDebounce(inputText);
+    }
+  }
 
-      setIsLoading(true);
-      getLocationAutocomplete(query).then((res) => {
-        setOptions(res);
-        setIsLoading(false);
-      });
-    }, 500);
+  const handleSearchDebounce = useCallback(
+    debounce((searchText) => {
+      setSearchText(searchText);
+    }, 300),
+    []
+  );
 
-    return () => clearTimeout(delayDebounce);
-  }, [query]);
+  useQuery(
+    searchText ? ["locationsData", searchText] : ["locationsData"],
+    async () => await search(searchText),
+    {
+      enabled: !!searchText,
+    }
+  );
+
+  async function search(searchText) {
+    if (searchText.trim().length === 0) {
+      setOptions([]);
+      return;
+    }
+    setIsLoading(true);
+
+    const res = await getLocationAutocomplete(searchText).catch((err) => {
+      setToast(3000, `Error: ${err.message}, please contact a site admin`);
+    });
+    setOptions(res);
+    setIsLoading(false);
+    return res;
+  }
 
   return (
     <div
@@ -63,10 +87,10 @@ export function LocationSearchBar({
                 ? onChange([...value, option])
                 : setToast(4000, "You have already added this location");
             }}
-            inputValue={query}
+            inputValue={inputText}
             isLoading={isLoading}
-            onInputChange={(query, meta) =>
-              handleInputChange(query, meta, setQuery)
+            onInputChange={(inputText, meta) =>
+              handleInputChange(inputText, meta)
             }
             placeholder={"Search location..."}
             options={options}

@@ -10,7 +10,6 @@ import CreateListingCSS from "./CreateListing.module.css";
 
 function CreateListing() {
   const methods = useForm({ mode: "onChange" });
-  console.log(methods.formState.isSubmitting);
 
   return (
     <FormProvider {...methods}>

@@ -36,7 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-#page-content-container {
-  min-height: calc(100vh - var(--navbar-height));
-}

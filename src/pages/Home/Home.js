@@ -1,10 +1,11 @@
-import PageContainer from "../../layouts/PageContainer/PageContainer";
+import Hero from "../../layouts/Hero/Hero";
+import HomeCSS from "./Home.module.css";
 
 function Home() {
   return (
-    <PageContainer type={"wide"}>
-      <h1>Home</h1>
-    </PageContainer>
+    <div className={HomeCSS["home-page-container"]}>
+      <Hero />
+    </div>
   );
 }
 

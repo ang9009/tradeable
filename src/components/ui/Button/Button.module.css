@@ -17,7 +17,7 @@
 }
 
 .gray-outline {
-  background: #fff;
+  background: none;
   border: var(--primary-border);
 }
 
@@ -35,7 +35,7 @@
 }
 
 .black-outline {
-  background: #fff;
+  background: none;
   border: 1px solid #000;
 }
 

@@ -1,10 +1,4 @@
 // Adapted from https://komelin.com/blog/developing-custom-search-box-with-react-select
-function handleInputChange(query, meta, setQuery) {
-  if (meta.action !== "input-blur" && meta.action !== "menu-close") {
-    setQuery(query);
-  }
-}
-
 function noOptionsMessage(obj) {
   if (obj.inputValue.trim().length === 0) {
     return null;
@@ -20,4 +14,4 @@ function validateLocations(v, getValues) {
   }
 }
 
-export { handleInputChange, noOptionsMessage, validateLocations };
+export { noOptionsMessage, validateLocations };

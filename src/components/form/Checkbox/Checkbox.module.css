@@ -15,7 +15,7 @@
   outline: 1px solid var(--primary-border-color);
   border: none;
   border-radius: 3px;
-  background: #fff;
+  background: none;
   cursor: pointer;
 }
 
