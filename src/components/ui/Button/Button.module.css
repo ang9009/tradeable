@@ -17,7 +17,7 @@
 }
 
 .gray-outline {
-  background: none;
+  background: #fff;
   border: var(--primary-border);
 }
 
@@ -34,6 +34,11 @@
   background: #373737;
 }
 
+.white-filled {
+  background: #fff;
+  color: black;
+}
+
 .black-outline {
   background: none;
   border: 1px solid #000;
@@ -41,6 +46,12 @@
 
 .black-outline:hover {
   background: #f6f6f6;
+}
+
+.white-outline {
+  background: none;
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 .icon {

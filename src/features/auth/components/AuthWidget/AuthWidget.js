@@ -5,13 +5,18 @@ import AuthModal from "../AuthModal/AuthModal";
 import { AuthWidgetButtons } from "./../AuthWidgetButtons/AuthWidgetButtons";
 import AuthWidgetCSS from "./AuthWidget.module.css";
 
-function AuthWidget() {
+function AuthWidget({ isHero }) {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { user, isFetchingUser } = useUser();
 
   return (
     <>
-      {user && <div className={AuthWidgetCSS["separator"]}></div>}
+      {user && (
+        <div
+          className={AuthWidgetCSS["separator"]}
+          style={{ height: isHero ? "70%" : "100%" }}
+        ></div>
+      )}
       <div className={AuthWidgetCSS["auth-widget-container"]}>
         {isFetchingUser ? (
           <>
@@ -19,7 +24,10 @@ function AuthWidget() {
             <Skeleton width={"90px"} height={"35px"} />
           </>
         ) : (
-          <AuthWidgetButtons setIsAuthModalOpen={setIsAuthModalOpen} />
+          <AuthWidgetButtons
+            isHero={isHero}
+            setIsAuthModalOpen={setIsAuthModalOpen}
+          />
         )}
       </div>
       <AuthModal

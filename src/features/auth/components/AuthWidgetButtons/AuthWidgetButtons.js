@@ -4,7 +4,7 @@ import { useUser } from "../../../../context/UserContext";
 import UserActionsWidget from "../UserActionsWidget/UserActionsWidget";
 import UserWidget from "../UserWidget/UserWidget";
 
-export function AuthWidgetButtons({ setIsAuthModalOpen }) {
+export function AuthWidgetButtons({ setIsAuthModalOpen, isHero }) {
   const navigate = useNavigate();
   const { user } = useUser();
 
@@ -13,17 +13,23 @@ export function AuthWidgetButtons({ setIsAuthModalOpen }) {
       {user ? (
         <>
           <Button
-            options={{ type: "gray-outline", text: "Sell" }}
+            options={{
+              type: isHero ? "white-outline" : "gray-outline",
+              text: "Sell",
+            }}
             onClick={() => {
               user ? navigate("/create-listing") : setIsAuthModalOpen(true);
             }}
           />
-          <UserActionsWidget />
-          <UserWidget />
+          <UserActionsWidget isHero={isHero} />
+          <UserWidget isHero={isHero} />
         </>
       ) : (
         <Button
-          options={{ type: "black-filled", text: "Sign in" }}
+          options={{
+            type: isHero ? "white-filled" : "black-filled",
+            text: "Sign in",
+          }}
           onClick={() => {
             setIsAuthModalOpen(true);
           }}

@@ -36,7 +36,6 @@
 
 .select-menu {
   background: #fff;
-  border: var(--primary-border);
   border-radius: 3px;
   width: 140px;
   transform: translateY(-12px);
@@ -79,7 +78,7 @@
 @keyframes slideDownAndFade {
   from {
     opacity: 0;
-    transform: translateY(-14px);
+    transform: translateY(-16px);
   }
   to {
     opacity: 1;

@@ -1,10 +1,9 @@
-import { useState } from "react";
-import NavSearchbarCSS from "./NavSearchbar.module.css";
+import { useRef, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { FiX } from "react-icons/fi";
-import { useRef } from "react";
+import NavSearchbarCSS from "./NavSearchbar.module.css";
 
-const Searchbar = () => {
+const NavSearchbar = () => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
 
@@ -42,4 +41,4 @@ const Searchbar = () => {
   );
 };
 
-export default Searchbar;
+export default NavSearchbar;

@@ -1,0 +1,62 @@
+.searchbar {
+  border: 1px solid #fff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 40px;
+  width: 35vw;
+  transition: all 0.2s;
+  overflow: hidden;
+  opacity: 0;
+  animation-delay: 150ms;
+  animation-name: slideUpAndFade;
+  animation-fill-mode: forwards;
+  animation-duration: 800ms;
+}
+
+.input {
+  padding: 16px 0;
+  border: none;
+  height: 100%;
+  background: none;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.input::placeholder {
+  color: #fff;
+}
+
+.input {
+  color: #fff;
+}
+
+.input:focus {
+  outline: none;
+  color: black;
+}
+
+.input:focus::placeholder {
+  color: var(--secondary-text-color);
+}
+
+.placeholder-icon {
+  height: 100%;
+  padding: 16px 10px 16px 20px;
+  display: grid;
+  place-items: center;
+}
+
+.clear-search-btn {
+  cursor: pointer;
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -4,13 +4,23 @@ import UserActionsWidgetCSS from "./UserActionsWidget.module.css";
 
 // text={<FiMessageSquare size={"22px"} />} type={"icon"}
 
-function UserActionsWidget() {
+function UserActionsWidget({ isHero }) {
   return (
     <div className={UserActionsWidgetCSS["user-actions-widget-container"]}>
       <Button
-        options={{ text: <FiMessageSquare size={"22px"} />, type: "icon" }}
+        options={{
+          text: (
+            <FiMessageSquare size={"22px"} color={isHero ? "white" : "black"} />
+          ),
+          type: "icon",
+        }}
       />
-      <Button options={{ text: <FiHeart size={"22px"} />, type: "icon" }} />
+      <Button
+        options={{
+          text: <FiHeart size={"22px"} color={isHero ? "white" : "black"} />,
+          type: "icon",
+        }}
+      />
     </div>
   );
 }

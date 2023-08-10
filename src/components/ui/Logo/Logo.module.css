@@ -9,11 +9,34 @@
 .logo-img {
   height: 30px;
   width: 30px;
+  animation-name: slideUpAndFade;
+  animation-fill-mode: forwards;
+  animation-duration: 500ms;
 }
 
-.logo h1 {
-  margin-left: 15px;
-  font-size: 1rem;
+.letters-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.letter {
   font-family: "Space Grotesk", "sans-serif";
+  font-size: 1rem;
   font-weight: 530;
+}
+
+.letter:first-child {
+  margin-left: 15px;
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    scale: 0.7;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
 }

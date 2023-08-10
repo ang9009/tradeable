@@ -1,7 +1,7 @@
 import Button from "../../components/ui/Button/Button";
 import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
 import Logo from "./../../components/ui/Logo/Logo";
-import Searchbar from "./NavSearchbar";
+import NavSearchbar from "./components/NavSearchbar/NavSearchbar";
 import NavbarCSS from "./Navbar.module.css";
 
 const Navbar = () => {
@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className={NavbarCSS["nav-top"]}>
         <div className={NavbarCSS["nav-left"]}>
           <Logo color={"var(--shareable-burgundy)"} />
-          <Searchbar />
+          <NavSearchbar />
         </div>
         <div className={NavbarCSS["nav-right"]}>
           <Button options={{ type: "black-outline", text: "iOS App" }} />

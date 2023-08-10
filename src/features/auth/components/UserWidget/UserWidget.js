@@ -6,7 +6,7 @@ import { useUser } from "../../../../context/UserContext";
 import { auth } from "../../../../lib/firebase";
 import UserWidgetCSS from "./UserWidget.module.css";
 
-function UserWidget() {
+function UserWidget({ isHero }) {
   const [showMenu, setShowMenu] = useState(false);
   const { user } = useUser();
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ function UserWidget() {
         onMouseEnter={() => setShowMenu(true)}
         onMouseLeave={() => setShowMenu(false)}
         onClick={() => setShowMenu(false)}
+        style={{ color: isHero ? "white" : "black" }}
       >
         <img src={user.photoURL} alt="" />
         <div className={UserWidgetCSS.username}>{user.displayName}</div>
@@ -28,6 +29,7 @@ function UserWidget() {
       <DropdownMenu.Portal>
         <DropdownMenu.Content
           className={UserWidgetCSS["select-menu"]}
+          style={{ border: isHero ? "none" : "var(--primary-border)" }}
           onMouseOver={() => setShowMenu(true)}
           onMouseLeave={() => setShowMenu(false)}
           align={"end"}

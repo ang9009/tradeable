@@ -1,0 +1,29 @@
+.nav-top {
+  z-index: 1;
+  height: 75px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 55px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Nav left */
+.nav-left {
+  width: 50vw;
+}
+
+/* Nav right */
+.ios-app-btn {
+  border: 1px solid #000;
+  background: none;
+}

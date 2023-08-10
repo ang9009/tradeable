@@ -102,10 +102,6 @@
   padding: 10px 12px;
 }
 
-.input::placeholder {
-  color: var(--secondary-text-color);
-}
-
 .input-label {
   font-weight: normal;
 }
