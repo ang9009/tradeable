@@ -1,12 +1,13 @@
-import Modal from "../../../../components/ui/Modal/Modal";
+import { FiX } from "react-icons/fi";
+import ReactModal from "react-modal";
+import Error from "../../../../components/ui/Error/Error";
+import { modalStyles } from "../../../../data/modalStyles";
 import useLogin from "../../hooks/useLogin";
-import AuthModalContent from "../AuthModalContent/AuthModalContent";
+import SignInButton from "../SignInButton/SignInButton";
+import AuthModalCSS from "./AuthModal.module.css";
 
 function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
-  const { login, error, setError } = useLogin();
-
-  // TODO: seems inefficient?
-  // TODO: error should also display banned message
+  const { login, error } = useLogin();
 
   function handleLogin() {
     login().then(() => {
@@ -15,13 +16,40 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
   }
 
   return (
-    <Modal
+    <ReactModal
       isOpen={isAuthModalOpen}
-      handleClose={() => setIsAuthModalOpen(false)}
-      title={"Sign in"}
+      onRequestClose={() => setIsAuthModalOpen(false)}
+      style={modalStyles}
+      closeTimeoutMS={200}
     >
-      <AuthModalContent error={error} login={handleLogin} />
-    </Modal>
+      <div className={AuthModalCSS["modal-content-container"]}>
+        <div className={AuthModalCSS["modal-img"]}></div>
+        <FiX
+          size={"20px"}
+          onClick={() => setIsAuthModalOpen(false)}
+          className={AuthModalCSS["close-btn"]}
+        />
+        <div className={AuthModalCSS["modal-right"]}>
+          <h1 className={AuthModalCSS.title}>Sign in</h1>
+          <p className={AuthModalCSS.desc}>
+            Use your CIS gmail account to log in to shareable. No registration
+            required.
+          </p>
+          <SignInButton signIn={() => handleLogin()} />
+          <div className={AuthModalCSS.separator}></div>
+          <Error
+            message={error}
+            show={error !== ""}
+            className={AuthModalCSS["sign-in-error"]}
+          />
+          <div id={AuthModalCSS["terms-text"]}>
+            By signing into shareable, I agree to its
+            <span className="bold"> Terms & Conditions</span>, which can be
+            viewed <span className="link">here</span>.
+          </div>
+        </div>
+      </div>
+    </ReactModal>
   );
 }
 

@@ -43,7 +43,10 @@ function HeroSearchbar() {
         autoComplete="off"
         placeholder={"Search..."}
         onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onBlur={() => {
+          setIsFocused(false);
+          setSearchText("");
+        }}
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         ref={inputRef}

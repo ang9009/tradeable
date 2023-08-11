@@ -1,7 +1,7 @@
-import ReactModal from "react-modal";
-import ModalCSS from "./Modal.module.css";
 import { FiX } from "react-icons/fi";
+import ReactModal from "react-modal";
 import { modalStyles } from "../../../data/modalStyles";
+import ModalCSS from "./Modal.module.css";
 
 function Modal({ isOpen, handleClose, children, title }) {
   return (
