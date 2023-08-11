@@ -12,7 +12,3 @@
   margin-bottom: var(--form-section-margin-top);
   border-bottom: 1px solid var(--primary-border-color);
 }
-
-.location-inputs-container > * {
-  margin-left: 30px;
-}
