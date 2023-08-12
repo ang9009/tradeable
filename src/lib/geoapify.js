@@ -1,6 +1,6 @@
 const getLocationAutocomplete = async (search) =>
   await fetch(
-    `https://api.geoapify.com/v1/geocode/autocomplete?text=${search}&filter=countrycode:hk&apiKey=f72b8270028941c2ab39d99b36b111a1`
+    `https://api.geoapify.com/v1/geocode/autocomplete?text=${search}&filter=rect:113.8087570696332,22.151069875284193,114.42202040809912,22.597333743462997&apiKey=f72b8270028941c2ab39d99b36b111a1`
   )
     .then((res) => {
       if (!res.ok) {
@@ -32,5 +32,3 @@ const getLocationAutocomplete = async (search) =>
     });
 
 export { getLocationAutocomplete };
-
-//     `https://api.geoapify.com/v1/geocode/autocomplete?text=${search}&filter=countrycode:hk&apiKey=f72b8270028941c2ab39d99b36b111a1`

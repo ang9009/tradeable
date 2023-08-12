@@ -27,6 +27,7 @@ export function LocationSearchBar({
   const [isLoading, setIsLoading] = useState(false);
   const setToast = useSetToast();
 
+  // Triggered by search input on change
   function handleInputChange(inputText, meta) {
     if (meta.action !== "input-blur" && meta.action !== "menu-close") {
       setInputText(inputText);
@@ -36,11 +37,19 @@ export function LocationSearchBar({
 
   const handleSearchDebounce = useCallback(
     debounce((searchText) => {
-      setSearchText(searchText);
+      // Must clear options to show loading status
+      setOptions([]);
+
+      if (searchText.trim().length === 0) {
+        setOptions([]);
+      } else {
+        setSearchText(searchText);
+      }
     }, 300),
     []
   );
 
+  // Triggered by searchText changing, responsible for calling fetch function
   useQuery(
     searchText ? ["locationsData", searchText] : ["locationsData"],
     async () => await search(searchText),
@@ -50,10 +59,6 @@ export function LocationSearchBar({
   );
 
   async function search(searchText) {
-    if (searchText.trim().length === 0) {
-      setOptions([]);
-      return;
-    }
     setIsLoading(true);
 
     const res = await getLocationAutocomplete(searchText).catch((err) => {
@@ -80,12 +85,17 @@ export function LocationSearchBar({
         render={({ field: { onChange, value } }) => (
           <Select
             value={""}
+            filterOption={() => true}
             onChange={(option) => {
               if (!option) return;
-
-              !value?.some((select) => isEqual(option, select))
-                ? onChange([...value, option])
-                : setToast(4000, "You have already added this location");
+              if (value) {
+                !value.some((select) => isEqual(option, select))
+                  ? onChange([...value, option])
+                  : setToast(4000, "You have already added this location");
+              } else {
+                onChange([option]);
+              }
+              setOptions([]);
             }}
             inputValue={inputText}
             isLoading={isLoading}
