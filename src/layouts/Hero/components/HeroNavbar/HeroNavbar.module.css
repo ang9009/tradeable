@@ -1,4 +1,4 @@
-.nav-top {
+.nav {
   z-index: 1;
   height: 75px;
   position: fixed;
@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 55px;
+  transition: all 0.2s;
 }
 
 .nav-left,

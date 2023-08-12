@@ -1,3 +1,46 @@
-.home-page-container {
-  width: 100vw;
+.about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 130px;
+  text-align: center;
+}
+
+.about-section > *:not(:first-child) {
+  margin-top: 30px;
+}
+
+.about-section-title {
+  font-size: 2.8rem;
+  font-family: "Space Grotesk", "sans-serif";
+  width: 45%;
+  line-height: 3.125rem;
+}
+
+.about-section-text {
+  font-size: 1.2rem;
+  width: 45%;
+  line-height: 1.875rem;
+}
+
+.arrow-button {
+  font-size: 1.063rem;
+  background: none;
+  border: 1px solid black;
+  border-radius: 200px;
+  padding: 13px 20px;
+  font-family: "Space Grotesk", "sans-serif";
+  font-weight: var(--bold);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow {
+  margin-left: 5px;
+  transition: all 0.2s;
+}
+
+.arrow-button:hover .arrow {
+  transform: translateX(8px);
 }

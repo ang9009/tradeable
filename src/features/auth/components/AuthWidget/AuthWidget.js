@@ -1,34 +1,40 @@
 import { useState } from "react";
-import Skeleton from "react-loading-skeleton";
+import { useLocation } from "react-router-dom";
 import { useUser } from "../../../../context/UserContext";
 import AuthModal from "../AuthModal/AuthModal";
 import { AuthWidgetButtons } from "./../AuthWidgetButtons/AuthWidgetButtons";
 import AuthWidgetCSS from "./AuthWidget.module.css";
 
-function AuthWidget({ isHero }) {
+function AuthWidget({ changeNav }) {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const { user, isFetchingUser } = useUser();
+  const { user } = useUser();
+  const location = useLocation();
+  const changeNavSeparator = {
+    height: changeNav ? "100%" : "70%",
+    backgroundColor: changeNav ? "var(--primary-border-color)" : "#fff",
+  };
+  const defaultSeparator = {
+    height: "100%",
+    backgroundColor: "var(--primary-border-color)",
+  };
 
   return (
     <>
       {user && (
         <div
           className={AuthWidgetCSS["separator"]}
-          style={{ height: isHero ? "70%" : "100%" }}
+          style={
+            location.pathname === "/"
+              ? { ...changeNavSeparator }
+              : { ...defaultSeparator }
+          }
         ></div>
       )}
       <div className={AuthWidgetCSS["auth-widget-container"]}>
-        {isFetchingUser ? (
-          <>
-            <Skeleton circle width={"35px"} height={"35px"} />
-            <Skeleton width={"90px"} height={"35px"} />
-          </>
-        ) : (
-          <AuthWidgetButtons
-            isHero={isHero}
-            setIsAuthModalOpen={setIsAuthModalOpen}
-          />
-        )}
+        <AuthWidgetButtons
+          setIsAuthModalOpen={setIsAuthModalOpen}
+          changeNav={changeNav}
+        />
       </div>
       <AuthModal
         isAuthModalOpen={isAuthModalOpen}

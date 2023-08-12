@@ -5,6 +5,7 @@
   height: 100%;
   background: none;
   border: none;
+  transition: all 0.2s;
 }
 
 .widget-container:focus {
@@ -37,6 +38,7 @@
 .select-menu {
   background: #fff;
   border-radius: 3px;
+  border: 1px solid #fff;
   width: 140px;
   transform: translateY(-12px);
   padding: 12px 15px;
@@ -44,6 +46,7 @@
   z-index: 999;
   animation-name: slideDownAndFade;
   animation-duration: 300ms;
+  transition: all 0.2s;
 }
 
 /* Dropdown items */

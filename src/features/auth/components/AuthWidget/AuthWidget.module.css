@@ -15,6 +15,7 @@
 
 .separator {
   width: 1px;
-  background: var(--primary-border-color);
+
   margin-left: 22px;
+  transition: all 0.3s;
 }

@@ -1,3 +1,61 @@
-.sign-in-text {
-  margin-top: 30px;
+.modal-img {
+  background: url("../../../../assets/authmodal_img.jpeg");
+  width: 80%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 40%;
+}
+
+.close-btn {
+  cursor: pointer;
+  color: black;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+
+.modal-right {
+  padding: 60px 40px;
+}
+
+#terms-text,
+#terms-text span {
+  font-size: 0.72rem;
+  line-height: 20px;
+  margin: auto;
+  width: 90%;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  line-height: 25px;
+  font-family: "Space Grotesk", "sans-serif";
+}
+
+.sign-in-error {
+  margin-top: 20px;
+}
+
+.text-flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.desc {
+  margin: 30px 0;
+}
+
+.modal-content-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background: #ececec;
+  margin: 30px 0;
 }

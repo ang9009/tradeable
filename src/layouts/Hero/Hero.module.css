@@ -6,13 +6,14 @@
   position: relative;
 }
 
-.title-searchbar-container {
+.title {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
+  pointer-events: none;
 }
 
 .hero-bg {
@@ -43,12 +44,56 @@
 .logo-img {
   width: 40px;
   height: 40px;
+  animation-name: expand;
+  animation-fill-mode: forwards;
+  animation-duration: 500ms;
 }
 
-@keyframes slideUpAndFade {
+.logo,
+.letters-container {
+  display: flex;
+  align-items: center;
+}
+
+.letters-container {
+  margin-left: 20px;
+  overflow: hidden;
+  height: 30px;
+}
+
+.letter {
+  color: #fff;
+  font-family: "Space Grotesk", "sans-serif";
+  font-size: 2.5rem;
+  font-weight: var(--bold);
+}
+
+@keyframes expand {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.desc {
+  color: #fff;
+  margin-top: 15px;
+  font-size: 1.05rem;
+  font-family: "Space Grotesk", "sans-serif";
+  animation-name: fadeUp;
+  animation-fill-mode: forwards;
+  animation-delay: 1400ms;
+  opacity: 0;
+  animation-duration: 700ms;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
   to {
     opacity: 1;

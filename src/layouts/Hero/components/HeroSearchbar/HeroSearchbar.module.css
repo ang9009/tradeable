@@ -1,34 +1,27 @@
 .searchbar {
-  border: 1px solid #fff;
-  color: #fff;
+  margin-left: 30px;
+  outline: 1px solid #fff;
+  border: none;
+  border-radius: 50px;
   display: flex;
   align-items: center;
-  border-radius: 40px;
-  width: 35vw;
+  height: 42px;
+  width: 100%;
   transition: all 0.2s;
-  overflow: hidden;
-  opacity: 0;
-  animation-delay: 150ms;
-  animation-name: slideUpAndFade;
-  animation-fill-mode: forwards;
-  animation-duration: 800ms;
 }
 
+/* Searchbar focus styles */
+.searchbar-focus {
+  outline: var(--input-focus-border);
+}
+
+/* Everything else */
 .input {
-  padding: 16px 0;
   border: none;
   height: 100%;
+  padding: 12px 0;
   background: none;
-  width: 100%;
-  font-size: 1rem;
-}
-
-.input::placeholder {
-  color: #fff;
-}
-
-.input {
-  color: #fff;
+  width: calc(100% - 78px);
 }
 
 .input:focus {
@@ -36,27 +29,47 @@
   color: black;
 }
 
-.input:focus::placeholder {
-  color: var(--secondary-text-color);
-}
-
 .placeholder-icon {
   height: 100%;
-  padding: 16px 10px 16px 20px;
+  padding: 0 10px;
   display: grid;
   place-items: center;
+  color: #fff;
 }
 
 .clear-search-btn {
   cursor: pointer;
 }
 
-@keyframes slideUpAndFade {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-  }
+.search-btn {
+  background: var(--shareable-beige);
+  border-radius: 0 50px 50px 0;
+  border: none;
+  width: 42px;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* Toggled classes (to change color of placeholder) */
+.hero-search {
+  color: white;
+}
+
+.hero-search::placeholder {
+  color: white;
+}
+
+.hero-search:focus::placeholder {
+  color: var(--secondary-text-color);
+}
+
+.default-search {
+  color: black;
+}
+
+.default-search::placeholder {
+  color: var(--secondary-text-color);
 }

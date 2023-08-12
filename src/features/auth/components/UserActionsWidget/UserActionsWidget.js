@@ -1,23 +1,29 @@
 import { FiHeart, FiMessageSquare } from "react-icons/fi";
+import { useLocation } from "react-router-dom";
 import Button from "../../../../components/ui/Button/Button";
 import UserActionsWidgetCSS from "./UserActionsWidget.module.css";
 
-// text={<FiMessageSquare size={"22px"} />} type={"icon"}
+function UserActionsWidget({ changeNav }) {
+  const location = useLocation();
+  function handleColor() {
+    return location.pathname === "/"
+      ? changeNav
+        ? "black"
+        : "white"
+      : "black";
+  }
 
-function UserActionsWidget({ isHero }) {
   return (
     <div className={UserActionsWidgetCSS["user-actions-widget-container"]}>
       <Button
         options={{
-          text: (
-            <FiMessageSquare size={"22px"} color={isHero ? "white" : "black"} />
-          ),
+          text: <FiMessageSquare size={"22px"} color={handleColor()} />,
           type: "icon",
         }}
       />
       <Button
         options={{
-          text: <FiHeart size={"22px"} color={isHero ? "white" : "black"} />,
+          text: <FiHeart size={"22px"} color={handleColor()} />,
           type: "icon",
         }}
       />

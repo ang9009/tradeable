@@ -1,12 +1,21 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../../../../components/ui/Button/Button";
 import { useUser } from "../../../../context/UserContext";
 import UserActionsWidget from "../UserActionsWidget/UserActionsWidget";
 import UserWidget from "../UserWidget/UserWidget";
 
-export function AuthWidgetButtons({ setIsAuthModalOpen, isHero }) {
+export function AuthWidgetButtons({ setIsAuthModalOpen, changeNav }) {
   const navigate = useNavigate();
   const { user } = useUser();
+  const location = useLocation();
+
+  function handleButtonType() {
+    if (location.pathname === "/") {
+      return changeNav ? "gray-outline" : "white-outline";
+    }
+
+    return "gray-outline";
+  }
 
   return (
     <>
@@ -14,20 +23,20 @@ export function AuthWidgetButtons({ setIsAuthModalOpen, isHero }) {
         <>
           <Button
             options={{
-              type: isHero ? "white-outline" : "gray-outline",
+              type: handleButtonType(),
               text: "Sell",
             }}
             onClick={() => {
               user ? navigate("/create-listing") : setIsAuthModalOpen(true);
             }}
           />
-          <UserActionsWidget isHero={isHero} />
-          <UserWidget isHero={isHero} />
+          <UserActionsWidget changeNav={changeNav} />
+          <UserWidget changeNav={changeNav} />
         </>
       ) : (
         <Button
           options={{
-            type: isHero ? "white-filled" : "black-filled",
+            type: changeNav ? "black-filled" : "white-filled",
             text: "Sign in",
           }}
           onClick={() => {

@@ -6,37 +6,18 @@
   text-decoration: none;
 }
 
+.logo > * {
+  transition: all 0.2s;
+}
+
 .logo-img {
   height: 30px;
   width: 30px;
-  animation-name: slideUpAndFade;
-  animation-fill-mode: forwards;
-  animation-duration: 500ms;
 }
 
-.letters-container {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.letter {
+.name {
   font-family: "Space Grotesk", "sans-serif";
   font-size: 1rem;
-  font-weight: 530;
-}
-
-.letter:first-child {
+  font-weight: var(--bold);
   margin-left: 15px;
-}
-
-@keyframes slideUpAndFade {
-  from {
-    opacity: 0;
-    scale: 0.7;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-  }
 }
