@@ -9,6 +9,7 @@
   justify-content: space-between;
   padding: 0 55px;
   transition: all 0.2s;
+  margin-top: var(--banner-height);
 }
 
 .nav-left,
@@ -20,11 +21,40 @@
 
 /* Nav left */
 .nav-left {
-  width: 50vw;
+  width: 600px;
 }
 
 /* Nav right */
-.ios-app-btn {
-  border: 1px solid #000;
-  background: none;
+.nav-right {
+  margin-left: 30px;
+}
+
+.hamburger-icon {
+  margin-left: 30px;
+  display: none;
+}
+
+@media (max-width: 1160px) {
+  .nav-left {
+    flex-grow: 1;
+  }
+
+  .auth-widget {
+    display: none;
+  }
+
+  .nav-right,
+  .hamburger-icon {
+    flex-shrink: 0;
+  }
+
+  .hamburger-icon {
+    display: inline;
+  }
+}
+
+@media (max-width: 500px) {
+  .nav-right {
+    display: none;
+  }
 }

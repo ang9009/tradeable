@@ -13,6 +13,7 @@ import AppLayout from "./layouts/AppLayout/AppLayout";
 function App() {
   return (
     <div id="#root">
+      <div id="banner">Get the iOS app here</div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<AppLayout />}>

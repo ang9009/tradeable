@@ -1,8 +1,8 @@
 import Button from "../../components/ui/Button/Button";
 import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
 import Logo from "./../../components/ui/Logo/Logo";
-import NavSearchbar from "./components/NavSearchbar/NavSearchbar";
 import NavbarCSS from "./Navbar.module.css";
+import NavSearchbar from "./components/NavSearchbar/NavSearchbar";
 
 const Navbar = () => {
   return (

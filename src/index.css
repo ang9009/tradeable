@@ -13,6 +13,7 @@
 
 :root {
   --navbar-height: 128px;
+  --banner-height: 33px;
   /* Colors */
   --shareable-burgundy: #851d40;
   --shareable-beige: #f7ddc3;

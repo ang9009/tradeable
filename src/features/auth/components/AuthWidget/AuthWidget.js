@@ -5,7 +5,7 @@ import AuthModal from "../AuthModal/AuthModal";
 import { AuthWidgetButtons } from "./../AuthWidgetButtons/AuthWidgetButtons";
 import AuthWidgetCSS from "./AuthWidget.module.css";
 
-function AuthWidget({ changeNav }) {
+function AuthWidget({ changeNav, className }) {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { user } = useUser();
   const location = useLocation();
@@ -19,7 +19,7 @@ function AuthWidget({ changeNav }) {
   };
 
   return (
-    <>
+    <div className={className}>
       {user && (
         <div
           className={AuthWidgetCSS["separator"]}
@@ -40,7 +40,7 @@ function AuthWidget({ changeNav }) {
         isAuthModalOpen={isAuthModalOpen}
         setIsAuthModalOpen={setIsAuthModalOpen}
       />
-    </>
+    </div>
   );
 }
 

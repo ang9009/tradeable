@@ -44,7 +44,7 @@ const HeroSearchbar = ({ changeNav }) => {
             : HeroSearchbarCSS["hero-search"]
         }`}
         autoComplete="off"
-        placeholder={"Search for items"}
+        placeholder={"Search..."}
         onFocus={() => setIsFocused(true)}
         onBlur={() => {
           setIsFocused(false);
