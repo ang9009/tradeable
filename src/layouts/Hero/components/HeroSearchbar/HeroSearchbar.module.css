@@ -1,11 +1,9 @@
 .searchbar {
   margin-left: 30px;
-  outline: 1px solid rgba(0, 0, 0, 0.3);
-  border: none;
   border-radius: 50px;
   display: flex;
   align-items: center;
-  height: 42px;
+  height: 43px;
   width: 100%;
   transition: all 0.2s;
 }
@@ -26,7 +24,6 @@
 
 .input:focus {
   outline: none;
-  color: black;
 }
 
 .placeholder-icon {
@@ -34,7 +31,6 @@
   padding: 0 10px;
   display: grid;
   place-items: center;
-  color: #fff;
 }
 
 .clear-search-btn {
@@ -60,10 +56,6 @@
 
 .hero-search::placeholder {
   color: white;
-}
-
-.hero-search:focus::placeholder {
-  color: var(--secondary-text-color);
 }
 
 .default-search {

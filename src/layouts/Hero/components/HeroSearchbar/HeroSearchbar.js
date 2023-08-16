@@ -13,14 +13,17 @@ const HeroSearchbar = ({ changeNav }) => {
     <div
       className={HeroSearchbarCSS.searchbar}
       style={{
-        background: isFocused || changeNav ? "#fff" : "none",
-        outline: changeNav ? "1px solid black" : "1px solid white",
+        background:
+          isFocused || changeNav ? "rgba(255, 255, 255, 0.2)" : "none",
+        outline: changeNav
+          ? "1px solid black"
+          : "1px solid rgba(255, 255, 255, 0.3)",
       }}
     >
       <div
         className={HeroSearchbarCSS["placeholder-icon"]}
         onClick={() => inputRef.current.focus()}
-        style={{ color: isFocused || changeNav ? "black" : "#fff" }}
+        style={{ color: changeNav ? "black" : "white" }}
         onMouseDown={(e) => {
           if (isFocused) {
             setSearchText("");

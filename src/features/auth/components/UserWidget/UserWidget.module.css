@@ -5,6 +5,7 @@
   background: none;
   border: none;
   transition: all 0.2s;
+  height: 75px;
 }
 
 .widget-container:focus {
@@ -21,7 +22,7 @@
 .username {
   margin-left: 10px;
   font-weight: var(--bold);
-  font-family: "Space Grotesk", "sans-serif";
+  font-family: "Tomato Grotesk", "sans-serif";
   max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -39,7 +40,6 @@
   border-radius: 3px;
   border: 1px solid #fff;
   width: 140px;
-  transform: translateY(-12px);
   padding: 12px 15px;
   box-shadow: var(--box-shadow);
   z-index: 999;
@@ -81,10 +81,10 @@
 @keyframes slideDownAndFade {
   from {
     opacity: 0;
-    transform: translateY(2px);
+    transform: translateY(-9px);
   }
   to {
     opacity: 1;
-    transform: translateY(12px);
+    transform: translateY(-12px);
   }
 }

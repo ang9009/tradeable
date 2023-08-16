@@ -25,7 +25,7 @@ function HeroNavbar() {
     <nav
       className={HeroNavbarCSS["nav"]}
       style={{
-        borderBottom: changeNav ? "var(--primary-border)" : "#fff",
+        borderBottom: changeNav ? "var(--primary-border)" : "none",
         background: changeNav ? "#fff" : "none",
       }}
     >
@@ -49,7 +49,7 @@ function HeroNavbar() {
       <FiMenu
         color={changeNav ? "black" : "white"}
         className={HeroNavbarCSS["hamburger-icon"]}
-        size={"25px"}
+        size={"35px"}
       />
     </nav>
   );

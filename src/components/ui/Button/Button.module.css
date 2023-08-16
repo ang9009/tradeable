@@ -1,9 +1,9 @@
 .all-btns {
-  padding: 5px 11px;
+  padding: 5px 15px;
+  font-weight: 900;
   border: none;
-  border-radius: 3px;
-  font-family: "Space Grotesk", "sans-serif";
-  font-weight: var(--bold);
+  border-radius: 50px;
+  font-family: "Tomato Grotesk", "sans-serif";
   cursor: pointer;
   transition: all 0.2s;
 }

@@ -7,3 +7,23 @@
   padding: 5px 20px;
   z-index: 999;
 }
+
+@font-face {
+  font-family: "Tomato Grotesk";
+  font-weight: bold;
+  src: local("Tomato Grotesk"),
+    url(./fonts/tomato_grotesk//TomatoGrotesk-Bold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Tomato Grotesk";
+  font-weight: medium;
+  src: local("Tomato Grotesk"),
+    url(./fonts/tomato_grotesk//TomatoGrotesk-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: local("Sofia Pro"),
+    url(./fonts/sofia_pro/Sofia\ Pro\ Regular\ Az.otf) format("opentype");
+}
