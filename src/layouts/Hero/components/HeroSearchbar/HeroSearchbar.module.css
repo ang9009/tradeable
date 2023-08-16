@@ -1,6 +1,6 @@
 .searchbar {
   margin-left: 30px;
-  outline: 1px solid #fff;
+  outline: 1px solid rgba(0, 0, 0, 0.3);
   border: none;
   border-radius: 50px;
   display: flex;
