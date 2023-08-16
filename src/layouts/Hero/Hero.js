@@ -1,19 +1,9 @@
 import { motion } from "framer-motion";
-import { ReactComponent as LogoImg } from "../../assets/cis_logo.svg";
-import { shareableTitle } from "../../data/homepageTitles";
 import HeroCSS from "./Hero.module.css";
 import HeroNavbar from "./components/HeroNavbar/HeroNavbar";
 
 const banner = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const letterAnimation = {
-  initial: { y: 50 },
+  initial: { y: 200 },
   animate: {
     y: 0,
     transition: {
@@ -27,29 +17,22 @@ function Hero() {
   return (
     <div className={HeroCSS["hero-container"]}>
       <HeroNavbar />
-      <div className={HeroCSS["title"]}>
-        <div className={HeroCSS.logo}>
-          <LogoImg fill={"#fff"} className={HeroCSS["logo-img"]} />
+      <div className={HeroCSS["hero-text"]}>
+        <div className={HeroCSS["title-container"]}>
           <motion.span
-            className={HeroCSS["letters-container"]}
+            className={HeroCSS["title"]}
             variants={banner}
             initial="initial"
             animate="animate"
           >
-            {shareableTitle.map((letter, i) => (
-              <motion.div
-                className={HeroCSS["letter"]}
-                variants={letterAnimation}
-                key={i}
-              >
-                {letter}
-              </motion.div>
-            ))}
+            Donate your second-hand items
           </motion.span>
         </div>
         <p className={HeroCSS["desc"]}>
-          Donate, buy, or sell pre-owned items within CIS
+          Take part in our sustainable initiatve! Offer your second-hand items
+          to other members of CIS via shareable.
         </p>
+        <button className={HeroCSS["fat-btn"]}>Get started</button>
       </div>
       <div className={HeroCSS["hero-bg"]}></div>
     </div>

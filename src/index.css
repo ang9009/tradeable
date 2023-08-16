@@ -35,6 +35,7 @@
   /* Text */
   --bold: 505;
   --secondary-text-color: #676767; /* Also used for icons */
+  --smaller-font-size: 0.8rem;
 }
 
 /* Global containers */

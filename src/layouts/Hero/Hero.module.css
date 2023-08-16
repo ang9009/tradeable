@@ -6,16 +6,6 @@
   position: relative;
 }
 
-.title {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-  pointer-events: none;
-}
-
 .hero-bg {
   background: url("../../assets/hero.jpeg");
   height: 100vh;
@@ -26,41 +16,30 @@
   z-index: -9999;
 }
 
-.logo-img {
-  width: 40px;
-  height: 40px;
-  animation-name: expand;
-  animation-fill-mode: forwards;
-  animation-duration: 500ms;
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  user-select: none;
+  position: absolute;
+  left: 19%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.logo,
-.letters-container {
+.title-container {
+  overflow: hidden;
   display: flex;
   align-items: center;
 }
 
-.letters-container {
-  margin-left: 20px;
-  overflow: hidden;
-  height: 30px;
-}
-
-.letter {
+.title {
   color: #fff;
   font-family: "Tomato Grotesk", "sans-serif";
-  font-size: 2.5rem;
+  font-size: 4.2rem;
   font-weight: var(--bold);
-}
-
-@keyframes expand {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-  }
+  line-height: 65px;
+  max-width: 700px;
 }
 
 .desc {
@@ -70,10 +49,29 @@
   font-family: "Tomato Grotesk", "sans-serif";
   animation-name: fadeUp;
   animation-fill-mode: forwards;
-  animation-delay: 1400ms;
+  animation-delay: 600ms;
   opacity: 0;
   animation-duration: 700ms;
-  text-align: center;
+  text-align: left;
+  width: 500px;
+}
+
+.fat-btn {
+  background: none;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-weight: var(--bold);
+  border: 1px solid white;
+  font-size: var(--smaller-font-size);
+  cursor: pointer;
+  border-radius: 50px;
+  margin-top: 50px;
+  animation-name: fadeUp;
+  animation-fill-mode: forwards;
+  animation-delay: 700ms;
+  opacity: 0;
+  animation-duration: 700ms;
 }
 
 @keyframes fadeUp {
@@ -84,4 +82,25 @@
   to {
     opacity: 1;
   }
+}
+
+.carousel-indicator {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  width: 58vw;
+  color: #fff;
+}
+
+.carousel-indicator span {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  margin-left: 10px;
+}
+
+.carousel-indicator span:first-child {
+  background: #fff;
 }

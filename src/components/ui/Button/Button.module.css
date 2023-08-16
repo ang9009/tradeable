@@ -6,6 +6,8 @@
   font-family: "Tomato Grotesk", "sans-serif";
   cursor: pointer;
   transition: all 0.2s;
+  font-size: var(--smaller-font-size);
+  display: inline;
 }
 
 .all-btns:disabled {

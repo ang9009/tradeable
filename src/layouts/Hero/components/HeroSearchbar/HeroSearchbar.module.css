@@ -20,6 +20,7 @@
   padding: 12px 0;
   background: none;
   width: calc(100% - 78px);
+  font-size: var(--smaller-font-size);
 }
 
 .input:focus {
