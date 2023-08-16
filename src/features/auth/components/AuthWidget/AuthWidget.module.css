@@ -12,10 +12,3 @@
   width: 48px;
   height: 35px;
 }
-
-.separator {
-  width: 1px;
-
-  margin-left: 22px;
-  transition: all 0.3s;
-}

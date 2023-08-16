@@ -13,7 +13,7 @@ function Home() {
         </h1>
         <p className={HomeCSS["about-section-text"]}>
           We built a platform to encourage the exchange of preloved items
-          between members of CIS! Donate, buy, and sell uniforms, textbooks,
+          between members of CIS! Donate, buy, and sell clothing, books,
           electronics, and more.
         </p>
         <button className={HomeCSS["arrow-button"]}>

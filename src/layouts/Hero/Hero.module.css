@@ -26,21 +26,6 @@
   z-index: -9999;
 }
 
-.hero-title {
-  color: #fff;
-  font-family: "Space Grotesk", "sans-serif";
-  font-size: 1.8rem;
-  width: 400px;
-  text-align: center;
-  line-height: 40px;
-  font-weight: var(--bold);
-  animation-name: slideUpAndFade;
-  animation-fill-mode: forwards;
-  animation-duration: 800ms;
-  margin-bottom: 35px;
-  user-select: none;
-}
-
 .logo-img {
   width: 40px;
   height: 40px;
@@ -88,6 +73,7 @@
   animation-delay: 1400ms;
   opacity: 0;
   animation-duration: 700ms;
+  text-align: center;
 }
 
 @keyframes fadeUp {
