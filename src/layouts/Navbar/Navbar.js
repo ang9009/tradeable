@@ -1,3 +1,4 @@
+import { FiMenu } from "react-icons/fi";
 import Button from "../../components/ui/Button/Button";
 import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
 import Logo from "./../../components/ui/Logo/Logo";
@@ -13,9 +14,16 @@ const Navbar = () => {
           <NavSearchbar />
         </div>
         <div className={NavbarCSS["nav-right"]}>
-          <Button options={{ type: "black-outline", text: "iOS App" }} />
-          <AuthWidget />
+          <Button
+            options={{
+              type: "black-outline",
+              text: "iOS App",
+              className: NavbarCSS["ios-app-btn"],
+            }}
+          />
+          <AuthWidget className={NavbarCSS["auth-widget"]} />
         </div>
+        <FiMenu className={NavbarCSS["hamburger-icon"]} size={"35px"} />
       </div>
       <div className={NavbarCSS["nav-bottom"]}>
         <ul>
@@ -32,12 +40,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-function undefined({ cisLogo }) {
-  return (
-    <div className={NavbarCSS.logo}>
-      <img src={cisLogo} className={NavbarCSS.logo} draggable={false} />
-      <h1>shareable</h1>
-    </div>
-  );
-}

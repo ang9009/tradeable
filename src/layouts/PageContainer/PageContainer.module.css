@@ -7,3 +7,9 @@
   padding: 64px 0;
   margin: auto;
 }
+
+@media (max-width: 800px) {
+  .all-containers {
+    margin-top: var(--nav-top-height);
+  }
+}

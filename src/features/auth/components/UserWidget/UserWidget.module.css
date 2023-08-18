@@ -5,7 +5,7 @@
   background: none;
   border: none;
   transition: all 0.2s;
-  height: 75px;
+  height: var(--nav-top-height);
 }
 
 .widget-container:focus {

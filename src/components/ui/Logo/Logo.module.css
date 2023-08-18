@@ -19,7 +19,6 @@
   font-family: "Tomato Grotesk", "sans-serif";
   font-size: 1rem;
   font-weight: var(--bold);
-  margin-left: 15px;
 }
 
 @media (max-width: 700px) {

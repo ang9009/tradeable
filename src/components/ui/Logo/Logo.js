@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import LogoCSS from "./Logo.module.css";
 
-function Logo({ color }) {
+function Logo({ color, className }) {
   return (
-    <Link to="/" className={LogoCSS.logo}>
+    <Link to="/" className={`${LogoCSS.logo} ${className}`}>
       <div style={{ color: color || "#fff" }} className={LogoCSS["name"]}>
         shareable
       </div>

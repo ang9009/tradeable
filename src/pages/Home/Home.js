@@ -12,12 +12,12 @@ function Home() {
           Give second-hand items a new life
         </h1>
         <p className={HomeCSS["about-section-text"]}>
-          We built a platform to encourage the exchange of preloved items
-          between members of CIS! Donate, buy, and sell clothing, books,
-          electronics, and more.
+          We built a platform to facilitate the exchange of preloved items
+          between members of CIS! By posting or browsing listings, you can
+          donate, buy, and sell clothing, books, electronics, and more.
         </p>
         <button className={HomeCSS["arrow-button"]}>
-          Terms & Conditions
+          Start exploring
           <FiArrowRight size="17px" className={HomeCSS["arrow"]} />
         </button>
       </div>

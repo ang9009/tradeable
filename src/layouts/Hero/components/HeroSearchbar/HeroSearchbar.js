@@ -31,10 +31,8 @@ const HeroSearchbar = ({ changeNav }) => {
           }
         }}
       >
-        {isFocused ? (
+        {isFocused && (
           <FiX size={"17px"} className={HeroSearchbarCSS["clear-search-btn"]} />
-        ) : (
-          <BiSearch size={"17px"} />
         )}
       </div>
       <input
@@ -55,14 +53,20 @@ const HeroSearchbar = ({ changeNav }) => {
         }}
         ref={inputRef}
       />
-      {changeNav && (
-        <button className={HeroSearchbarCSS["search-btn"]}>
+      {
+        <button
+          className={
+            changeNav
+              ? HeroSearchbarCSS["default-search-btn"]
+              : HeroSearchbarCSS["hero-search-btn"]
+          }
+        >
           <BiSearch
             size={"17px"}
             className={HeroSearchbarCSS["btn-search-icon"]}
           />
         </button>
-      )}
+      }
     </div>
   );
 };

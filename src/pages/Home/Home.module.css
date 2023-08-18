@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 130px;
+  padding: calc(4vw + 5rem) calc(3vw + 3rem);
   text-align: center;
+  background: #fff;
 }
 
 .about-section > *:not(:first-child) {
@@ -11,24 +12,25 @@
 }
 
 .about-section-title {
-  font-size: 2.8rem;
+  font-size: calc(1.5rem + 1.5vw);
   font-family: "Tomato Grotesk", "sans-serif";
-  width: 45%;
-  line-height: 3.125rem;
+  max-width: 600px;
+  line-height: calc(2rem + 1.5vw);
 }
 
 .about-section-text {
-  font-size: 1.2rem;
-  width: 45%;
-  line-height: 1.875rem;
+  font-size: calc(0.7rem + 0.5vw);
+  max-width: 550px;
+  line-height: calc(1.2rem + 1vw);
 }
 
 .arrow-button {
-  font-size: 1.063rem;
+  font-weight: 900;
+  font-size: var(--smaller-font-size);
   background: none;
   border: 1px solid black;
   border-radius: 200px;
-  padding: 13px 20px;
+  padding: 10px 20px;
   font-family: "Tomato Grotesk", "sans-serif";
   font-weight: var(--bold);
   display: flex;

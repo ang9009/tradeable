@@ -21,9 +21,3 @@
   src: local("Tomato Grotesk"),
     url(./fonts/tomato_grotesk//TomatoGrotesk-Regular.otf) format("opentype");
 }
-
-@font-face {
-  font-family: "Sofia Pro";
-  src: local("Sofia Pro"),
-    url(./fonts/sofia_pro/Sofia\ Pro\ Regular\ Az.otf) format("opentype");
-}

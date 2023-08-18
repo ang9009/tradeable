@@ -30,9 +30,7 @@ function UserWidget({ changeNav }) {
       >
         <img src={user.photoURL} alt="" />
         <div className={UserWidgetCSS.username}>{user.displayName}</div>
-        <div className={UserWidgetCSS["down-chevron"]}>
-          <FiChevronDown size={"15px"} />
-        </div>
+        <FiChevronDown className={UserWidgetCSS["down-chevron"]} />
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content

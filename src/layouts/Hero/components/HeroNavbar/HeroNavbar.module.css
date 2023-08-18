@@ -1,13 +1,13 @@
 .nav {
   z-index: 1;
-  height: 75px;
+  height: var(--nav-top-height);
   position: fixed;
   top: 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 55px;
+  padding: 0 30px;
   transition: all 0.2s;
 }
 
@@ -58,5 +58,8 @@
 @media (max-width: 600px) {
   .nav-right {
     display: none;
+  }
+  .nav {
+    padding: 0 20px;
   }
 }

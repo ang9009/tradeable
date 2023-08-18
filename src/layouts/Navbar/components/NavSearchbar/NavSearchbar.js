@@ -5,38 +5,48 @@ import NavSearchbarCSS from "./NavSearchbar.module.css";
 
 const NavSearchbar = () => {
   const [isFocused, setIsFocused] = useState(false);
+  const [searchText, setSearchText] = useState("");
   const inputRef = useRef(null);
 
+  // Toggles between outline searchbar and default searchbar
   return (
-    <div
-      className={`${NavSearchbarCSS.searchbar} 
-      ${isFocused && NavSearchbarCSS["searchbar-focus"]}`}
-    >
+    <div className={NavSearchbarCSS.searchbar}>
       <div
         className={NavSearchbarCSS["placeholder-icon"]}
         onClick={() => inputRef.current.focus()}
+        onMouseDown={(e) => {
+          if (isFocused) {
+            setSearchText("");
+            e.preventDefault();
+          }
+        }}
       >
-        {isFocused ? (
+        {isFocused && (
           <FiX size={"17px"} className={NavSearchbarCSS["clear-search-btn"]} />
-        ) : (
-          <BiSearch size={"17px"} />
         )}
       </div>
       <input
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
         type="text"
-        className={NavSearchbarCSS.input}
+        className={`${NavSearchbarCSS["input"]} ${NavSearchbarCSS["default-search"]}`}
         autoComplete="off"
-        placeholder={"Search for items"}
+        placeholder={"Search..."}
         onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onBlur={() => {
+          setIsFocused(false);
+          setSearchText("");
+        }}
         ref={inputRef}
       />
-      <button className={NavSearchbarCSS["search-btn"]}>
-        <BiSearch
-          size={"17px"}
-          className={NavSearchbarCSS["btn-search-icon"]}
-        />
-      </button>
+      {
+        <button className={NavSearchbarCSS["default-search-btn"]}>
+          <BiSearch
+            size={"17px"}
+            className={NavSearchbarCSS["btn-search-icon"]}
+          />
+        </button>
+      }
     </div>
   );
 };
