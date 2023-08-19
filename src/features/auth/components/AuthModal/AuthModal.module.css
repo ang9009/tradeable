@@ -55,6 +55,7 @@
   display: flex;
   width: 100%;
   height: 100%;
+  align-items: center;
 }
 
 .separator {
@@ -74,7 +75,7 @@
   background: #fff;
   border: none;
   width: 50vw;
-  height: 75vh;
+  height: 65vh;
   min-height: 60vh;
   position: relative;
   border-radius: 5px;
@@ -92,19 +93,31 @@
   z-index: 9999;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .modal-img {
     display: none;
   }
 
   .modal-right,
   .auth-modal {
-    height: 65vh;
+    height: 70vh;
     width: 40vw;
+  }
+
+  .modal-content-container {
+    align-items: flex-start;
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
+  .modal-right,
+  .auth-modal {
+    width: 75vw;
+    height: 65vh;
+  }
+}
+
+@media (max-width: 500px) {
   .modal-right,
   .auth-modal {
     width: 85vw;

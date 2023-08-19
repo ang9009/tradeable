@@ -1,4 +1,5 @@
 import { FiMenu } from "react-icons/fi";
+import Button from "../../components/ui/Button/Button";
 import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
 import Logo from "./../../components/ui/Logo/Logo";
 import NavbarCSS from "./Navbar.module.css";
@@ -13,7 +14,13 @@ const Navbar = () => {
           <NavSearchbar />
         </div>
         <div className={NavbarCSS["nav-right"]}>
-          <button className={NavbarCSS["ios-app-btn"]}>iOS App</button>
+          <Button
+            options={{
+              className: NavbarCSS["ios-app-btn"],
+              text: "iOS App",
+              type: "black-outline",
+            }}
+          />
           <AuthWidget />
         </div>
         <FiMenu className={NavbarCSS["hamburger-icon"]} size={"35px"} />
