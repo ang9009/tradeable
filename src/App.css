@@ -19,5 +19,5 @@
   font-family: "Tomato Grotesk";
   font-weight: medium;
   src: local("Tomato Grotesk"),
-    url(./fonts/tomato_grotesk//TomatoGrotesk-Regular.otf) format("opentype");
+    url(./fonts/tomato_grotesk//TomatoGrotesk-SemiBold.otf) format("opentype");
 }

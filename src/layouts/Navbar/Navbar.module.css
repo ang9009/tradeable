@@ -37,6 +37,14 @@
   margin-left: 30px;
 }
 
+.ios-app-btn {
+  background: none;
+  border: none;
+  font-family: "Tomato Grotesk", "sans-serif";
+  color: black;
+  cursor: pointer;
+}
+
 .hamburger-icon {
   margin-left: 30px;
   display: none;

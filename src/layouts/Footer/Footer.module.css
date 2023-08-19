@@ -35,7 +35,7 @@
   background: #292929;
   color: #fff;
   padding: 0 55px;
-  height: var(--nav-top-height);
+  height: 50px;
   display: none;
 }
 

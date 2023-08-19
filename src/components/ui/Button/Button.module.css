@@ -1,13 +1,33 @@
 .all-btns {
-  padding: 5px 15px;
-  font-weight: 900;
-  font-size: var(--smaller-font-size);
+  padding: 5px 17px;
   border: none;
   border-radius: 50px;
-  font-family: "Tomato Grotesk", "sans-serif";
   cursor: pointer;
-  transition: all 0.2s;
-  display: inline;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.all-btns > * {
+  transition: ease 0.25s;
+}
+
+.text-container {
+  height: 1.8rem;
+}
+
+.text-container > * {
+  font-family: "Tomato Grotesk", "sans-serif";
+  font-weight: medium;
+  font-size: var(--smaller-font-size);
+  height: 1.8rem;
+  display: grid;
+  place-items: center;
+}
+
+.all-btns:hover .text-container {
+  transform: translateY(-1.8rem);
 }
 
 .all-btns:disabled {
@@ -32,10 +52,6 @@
   color: #fff;
 }
 
-.black-filled:hover {
-  background: #373737;
-}
-
 .white-filled {
   background: #fff;
   color: black;
@@ -46,19 +62,8 @@
   border: 1px solid #000;
 }
 
-.black-outline:hover {
-  background: #f6f6f6;
-}
-
 .white-outline {
   background: none;
   color: #fff;
   border: 1px solid #fff;
-}
-
-.icon {
-  background: none;
-  display: grid;
-  place-items: center;
-  padding: 0;
 }

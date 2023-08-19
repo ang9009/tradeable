@@ -20,6 +20,21 @@
 
 /* TODO: not responsive at all */
 .dropzone-content {
-  width: 250px;
+  max-width: 250px;
   text-align: center;
+}
+
+.photos-field-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  margin-top: var(--input-margin-top);
+}
+
+@media (max-width: 950px) {
+  .photos-field-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 }

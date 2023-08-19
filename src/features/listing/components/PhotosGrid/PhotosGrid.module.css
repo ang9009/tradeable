@@ -1,5 +1,6 @@
 .photos-grid-container {
   position: relative;
+  flex-grow: 1;
 }
 
 .photos-grid,
@@ -7,13 +8,12 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-gap: 20px;
+  grid-gap: 1.5em;
+  height: 100%;
 }
 
 /* TODO: NOT GOOD */
 .frames-container {
-  position: absolute;
-  top: 0;
   z-index: -2;
   width: 100%;
 }
@@ -29,4 +29,11 @@
   display: grid;
   place-items: center;
   color: var(--secondary-text-color);
+}
+
+@media (max-width: 950px) {
+  .photos-grid,
+  .frames-container {
+    grid-template-columns: repeat(auto-fill, 1fr);
+  }
 }

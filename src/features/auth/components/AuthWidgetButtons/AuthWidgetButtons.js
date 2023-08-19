@@ -11,10 +11,10 @@ export function AuthWidgetButtons({ setIsAuthModalOpen, changeNav }) {
 
   function handleButtonType() {
     if (location.pathname === "/") {
-      return changeNav ? "gray-outline" : "white-outline";
+      return changeNav ? "black-outline" : "white-outline";
     }
 
-    return "gray-outline";
+    return "black-outline";
   }
 
   return (
@@ -36,7 +36,12 @@ export function AuthWidgetButtons({ setIsAuthModalOpen, changeNav }) {
       ) : (
         <Button
           options={{
-            type: changeNav ? "black-filled" : "white-filled",
+            type:
+              location.pathname === "/"
+                ? changeNav
+                  ? "black-outline"
+                  : "white-outline"
+                : "black-outline",
             text: "Sign in",
           }}
           onClick={() => {

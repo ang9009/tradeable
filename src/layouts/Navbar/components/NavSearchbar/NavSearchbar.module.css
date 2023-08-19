@@ -5,7 +5,6 @@
   align-items: center;
   height: 43px;
   width: 100%;
-  transition: all 0.2s;
   outline: 1px solid black;
   background: none;
 }

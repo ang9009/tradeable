@@ -13,3 +13,10 @@
     margin-top: var(--nav-top-height);
   }
 }
+
+@media (max-width: 950px) {
+  .centered {
+    width: 100%;
+    padding: 64px 60px;
+  }
+}

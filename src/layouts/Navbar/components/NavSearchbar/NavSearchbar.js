@@ -10,7 +10,10 @@ const NavSearchbar = () => {
 
   // Toggles between outline searchbar and default searchbar
   return (
-    <div className={NavSearchbarCSS.searchbar}>
+    <div
+      className={NavSearchbarCSS.searchbar}
+      style={{ outline: isFocused && "var(--input-focus-border)" }}
+    >
       <div
         className={NavSearchbarCSS["placeholder-icon"]}
         onClick={() => inputRef.current.focus()}

@@ -4,3 +4,9 @@
   grid-column-gap: 30px;
   grid-row-gap: var(--input-margin-top);
 }
+
+@media (max-width: 600px) {
+  .item-details-container {
+    grid-template-columns: 100%;
+  }
+}

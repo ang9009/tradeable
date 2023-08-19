@@ -1,8 +1,12 @@
+.about-section,
+.categories-section {
+  padding: calc(4vw + 5rem) calc(3vw + 3rem);
+}
+
 .about-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: calc(4vw + 5rem) calc(3vw + 3rem);
   text-align: center;
   background: #fff;
 }
@@ -11,28 +15,31 @@
   margin-top: 30px;
 }
 
-.about-section-title {
+.section-title {
   font-size: calc(1.5rem + 1.5vw);
   font-family: "Tomato Grotesk", "sans-serif";
-  max-width: 600px;
   line-height: calc(2rem + 1.5vw);
 }
 
+.about-section-title {
+  max-width: 550px;
+}
+
 .about-section-text {
-  font-size: calc(0.7rem + 0.5vw);
+  font-size: calc(0.9rem + 0.3vw);
   max-width: 550px;
   line-height: calc(1.2rem + 1vw);
 }
 
 .arrow-button {
   font-weight: 900;
-  font-size: var(--smaller-font-size);
+  font-size: calc(0.7rem + 0.2vw);
   background: none;
   border: 1px solid black;
   border-radius: 200px;
-  padding: 10px 20px;
+  padding: 13px 20px;
   font-family: "Tomato Grotesk", "sans-serif";
-  font-weight: var(--bold);
+  font-weight: medium;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -45,4 +52,65 @@
 
 .arrow-button:hover .arrow {
   transform: translateX(8px);
+}
+
+/* Categories section */
+.categories-section {
+  background: #ebdccb;
+}
+
+.categories-container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 3.5rem;
+}
+
+.category-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card img {
+  flex-grow: 1;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 13px;
+  pointer-events: none;
+}
+
+.category-title {
+  margin-top: 15px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.category-title h1 {
+  font-size: calc(1rem + 0.3vw);
+}
+
+.category-arrow {
+  border: 1px solid black;
+  margin-left: 10px;
+  padding: 2px;
+  border-radius: 9999px;
+  transition: all 0.2s;
+}
+
+.category-card:hover .category-arrow {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 787px) {
+  .section-title {
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .categories-container {
+    grid-template-columns: 100%;
+  }
 }

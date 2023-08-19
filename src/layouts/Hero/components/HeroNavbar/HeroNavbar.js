@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
-import Button from "../../../../components/ui/Button/Button";
 import Logo from "../../../../components/ui/Logo/Logo";
 import { AuthWidget } from "../../../../features/auth";
 import HeroSearchbar from "../HeroSearchbar/HeroSearchbar";
@@ -36,13 +35,12 @@ function HeroNavbar() {
         <HeroSearchbar changeNav={changeNav} />
       </div>
       <div className={HeroNavbarCSS["nav-right"]}>
-        <Button
-          options={{
-            type: changeNav ? "black-outline" : "white-outline",
-            text: "iOS App",
-            className: HeroNavbarCSS["ios-app-btn"],
-          }}
-        />
+        <button
+          className={HeroNavbarCSS["ios-app-btn"]}
+          style={{ color: changeNav ? "black" : "white" }}
+        >
+          iOS App
+        </button>
         <AuthWidget
           changeNav={changeNav}
           className={HeroNavbarCSS["auth-widget"]}

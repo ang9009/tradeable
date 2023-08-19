@@ -7,7 +7,10 @@ function Button({ options: { type, text, className }, onClick, disabled }) {
       onClick={onClick}
       disabled={disabled}
     >
-      {text}
+      <div className={ButtonCSS["text-container"]}>
+        <div>{text}</div>
+        <div>{text}</div>
+      </div>
     </button>
   );
 }

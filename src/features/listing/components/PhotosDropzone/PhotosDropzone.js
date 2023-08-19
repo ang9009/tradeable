@@ -27,7 +27,7 @@ const PhotosDropzone = forwardRef(function (
   }
 
   return (
-    <>
+    <div className={PhotosDropzoneCSS["photos-field-container"]}>
       <div
         {...getRootProps({
           className: PhotosDropzoneCSS["dropzone"],
@@ -46,7 +46,7 @@ const PhotosDropzone = forwardRef(function (
         </div>
       </div>
       <PhotosGrid onChange={onChange} value={value} />
-    </>
+    </div>
   );
 });
 
