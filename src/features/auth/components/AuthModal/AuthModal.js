@@ -1,7 +1,6 @@
 import { FiX } from "react-icons/fi";
 import ReactModal from "react-modal";
 import Error from "../../../../components/ui/Error/Error";
-import { modalStyles } from "../../../../data/modalStyles";
 import useLogin from "../../hooks/useLogin";
 import SignInButton from "../SignInButton/SignInButton";
 import AuthModalCSS from "./AuthModal.module.css";
@@ -19,8 +18,9 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
     <ReactModal
       isOpen={isAuthModalOpen}
       onRequestClose={() => setIsAuthModalOpen(false)}
-      style={modalStyles}
       closeTimeoutMS={200}
+      className={AuthModalCSS["auth-modal"]}
+      overlayClassName={AuthModalCSS["overlay"]}
     >
       <div className={AuthModalCSS["modal-content-container"]}>
         <div className={AuthModalCSS["modal-img"]}></div>
@@ -42,7 +42,7 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
             show={error !== ""}
             className={AuthModalCSS["sign-in-error"]}
           />
-          <div id={AuthModalCSS["terms-text"]}>
+          <div class={AuthModalCSS["terms-text"]}>
             By signing into shareable, I agree to its
             <span className="bold"> Terms & Conditions</span>, which can be
             viewed <span className="link">here</span>.

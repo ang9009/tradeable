@@ -1,6 +1,5 @@
 import AuthWidget from "./components/AuthWidget/AuthWidget";
-import AuthModalContent from "./components/AuthModalContent/AuthModalContent";
-import useLogin from "./hooks/useLogin";
 import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
+import useLogin from "./hooks/useLogin";
 
-export { AuthWidget, AuthModalContent, useLogin, PrivateRoutes };
+export { AuthWidget, PrivateRoutes, useLogin };

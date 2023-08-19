@@ -14,7 +14,7 @@ const Navbar = () => {
         </div>
         <div className={NavbarCSS["nav-right"]}>
           <button className={NavbarCSS["ios-app-btn"]}>iOS App</button>
-          <AuthWidget className={NavbarCSS["auth-widget"]} />
+          <AuthWidget />
         </div>
         <FiMenu className={NavbarCSS["hamburger-icon"]} size={"35px"} />
       </div>

@@ -4,11 +4,36 @@
   height: 100%;
 }
 
-.auth-widget-container > * {
+.auth-widget-container {
   margin-left: 22px;
 }
 
 .auth-widget-skeleton-1 {
   width: 48px;
   height: 35px;
+}
+
+@media (max-width: 1160px) {
+  .sign-in-btn {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 0px;
+  }
+}
+
+.user-actions-widget-container {
+  display: flex;
+  align-items: center;
+}
+
+.user-actions-widget-container > * {
+  margin-left: 22px;
+}
+
+/* Must be the same as hamburger menu appearing in HeroNavbar and Navbar */
+@media (max-width: 1160px) {
+  .user-actions-widget-container {
+    display: none;
+  }
 }

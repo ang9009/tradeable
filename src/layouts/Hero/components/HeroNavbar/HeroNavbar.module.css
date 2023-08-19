@@ -24,11 +24,6 @@
   width: 600px;
 }
 
-/* Nav right */
-.nav-right {
-  margin-left: 30px;
-}
-
 .hamburger-icon {
   margin-left: 30px;
   display: none;
@@ -38,12 +33,20 @@
   cursor: pointer;
 }
 
-.ios-app-btn {
+.ios-app-btn,
+.sign-in-btn {
   background: none;
   border: none;
+  padding: 0;
   font-family: "Tomato Grotesk", "sans-serif";
-  color: #fff;
   cursor: pointer;
+  margin-left: 30px;
+  border-radius: 0;
+}
+
+.sign-in-btn {
+  margin-left: 30px;
+  display: none;
 }
 
 @media (max-width: 1160px) {
@@ -51,8 +54,8 @@
     flex-grow: 1;
   }
 
-  .auth-widget {
-    display: none;
+  .sign-in-btn {
+    display: inline;
   }
 
   .nav-right,
@@ -66,8 +69,17 @@
 }
 
 @media (max-width: 600px) {
-  .nav-right {
+  .ios-app-btn {
     display: none;
+  }
+
+  .sign-in-btn {
+    font-size: var(--smaller-font-size);
+    margin-left: 15px;
+  }
+
+  .hamburger-icon {
+    margin-left: 15px;
   }
 
   .nav {

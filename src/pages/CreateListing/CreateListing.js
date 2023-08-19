@@ -10,12 +10,19 @@ import CreateListingCSS from "./CreateListing.module.css";
 
 function CreateListing() {
   const methods = useForm({ mode: "onChange" });
+  const checkKeyDown = (e) => {
+    if (e.key === "Enter") e.preventDefault();
+  };
 
   return (
     <FormProvider {...methods}>
       <FullscreenDropzone>
         <PageContainer type={"centered"}>
-          <form onSubmit={methods.handleSubmit(onSubmitListing)}>
+          <form
+            onSubmit={methods.handleSubmit(onSubmitListing)}
+            onKeyDown={(e) => checkKeyDown(e)}
+            noValidate
+          >
             <h1 className="page-title">Create a new listing</h1>
             <ItemDetailsSection />
             <PhotosSection />

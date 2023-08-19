@@ -76,3 +76,14 @@
 .default-search::placeholder {
   color: var(--secondary-text-color);
 }
+
+@media (max-width: 600px) {
+  .searchbar {
+    margin-left: 15px;
+  }
+
+  .default-search-btn,
+  .hero-search-btn {
+    display: none;
+  }
+}

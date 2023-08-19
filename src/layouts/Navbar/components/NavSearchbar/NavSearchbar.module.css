@@ -41,7 +41,7 @@
 }
 
 /* Search button */
-.default-search-btn {
+.search-btn {
   border-radius: 0 50px 50px 0;
   border: none;
   width: 42px;
@@ -52,15 +52,16 @@
   margin-left: auto;
 }
 
-.default-search-btn {
+.search-btn {
   background: var(--shareable-beige);
 }
 
-/* Toggled classes (to change color of placeholder) */
-.default-search {
-  color: black;
-}
+@media (max-width: 600px) {
+  .searchbar {
+    margin-left: 15px;
+  }
 
-.default-search::placeholder {
-  color: var(--secondary-text-color);
+  .search-btn {
+    display: none;
+  }
 }

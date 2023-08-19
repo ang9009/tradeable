@@ -31,9 +31,6 @@
 .ios-app-btn {
   border: 1px solid #000;
   background: none;
-}
-
-.nav-right {
   margin-left: 30px;
 }
 
@@ -116,8 +113,21 @@
 }
 
 @media (max-width: 600px) {
-  .nav-right {
+  .ios-app-btn {
     display: none;
+  }
+
+  .sign-in-btn {
+    font-size: var(--smaller-font-size);
+    margin-left: 15px;
+  }
+
+  .nav-right {
+    margin-right: none;
+  }
+
+  .hamburger-icon {
+    margin-left: 15px;
   }
 
   .nav-top {

@@ -8,7 +8,7 @@ export const modalStyles = {
     transform: "translate(-50%, -50%)",
     border: "none",
     width: "50vw",
-    height: "500px",
+    height: "75vh",
     padding: "0",
     position: "relative",
     borderRadius: "5px",
@@ -16,7 +16,6 @@ export const modalStyles = {
   },
   overlay: {
     background: "rgba(0, 0, 0, 0.6)",
-    // TODO: lmao
     zIndex: "9999",
   },
 };

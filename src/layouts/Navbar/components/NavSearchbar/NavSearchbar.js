@@ -43,7 +43,7 @@ const NavSearchbar = () => {
         ref={inputRef}
       />
       {
-        <button className={NavSearchbarCSS["default-search-btn"]}>
+        <button className={NavSearchbarCSS["search-btn"]}>
           <BiSearch
             size={"17px"}
             className={NavSearchbarCSS["btn-search-icon"]}

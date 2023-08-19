@@ -42,6 +42,7 @@ function PriceInput({
           type="number"
           placeholder={"Enter item price (HKD)"}
           autoComplete="off"
+          formNoValidate
           onFocus={() => setIsFocused(true)}
           onBlur={(e) => {
             setIsFocused(false);
