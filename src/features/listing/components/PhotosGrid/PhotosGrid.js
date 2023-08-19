@@ -1,16 +1,17 @@
+import { FiCamera } from "react-icons/fi";
 import { ReactSortable } from "react-sortablejs";
 import DraggablePhoto from "../DraggablePhoto/DraggablePhoto";
 import PhotosGridCSS from "./PhotosGrid.module.css";
 
 function PhotosGrid({ onChange, value }) {
   return (
-    <div className={PhotosGridCSS["component-container"]}>
+    <div>
       {value && value.length !== 0 && (
         <ReactSortable
           setList={onChange}
           list={value}
-          className={`${PhotosGridCSS["photos-grid"]}`}
           animation={200}
+          className={PhotosGridCSS["photos-grid"]}
         >
           {value.map(({ _, url }, i) => (
             <DraggablePhoto
@@ -19,8 +20,28 @@ function PhotosGrid({ onChange, value }) {
               inputData={{ onChange, value }}
             />
           ))}
+          {value.length < 6 &&
+            Array.from({ length: 6 - value.length }, () => {
+              return (
+                <div className={PhotosGridCSS["photo-frame"]}>
+                  <FiCamera size={"25px"} />
+                </div>
+              );
+            })}
         </ReactSortable>
       )}
+      {!value ||
+        (value.length === 0 && (
+          <div className={PhotosGridCSS["photos-grid"]}>
+            {Array.from({ length: 6 }, () => {
+              return (
+                <div className={PhotosGridCSS["photo-frame"]}>
+                  <FiCamera size={"25px"} />
+                </div>
+              );
+            })}
+          </div>
+        ))}
     </div>
   );
 }

@@ -6,14 +6,15 @@
   margin-left: 20px;
 }
 
-/* TODO: NOT GOOD */
-
-/* .frames-container > * {
+.photo-frame {
   border-radius: 5px;
   cursor: pointer;
   aspect-ratio: 1;
   border: 1px solid var(--primary-border-color);
-} */
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+}
 
 @media (max-width: 950px) {
   .photos-grid {

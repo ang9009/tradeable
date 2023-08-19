@@ -1,12 +1,12 @@
-import InputMessageCSS from "./InputMessage.module.css";
 import { FiAlertOctagon } from "react-icons/fi";
+import InputMessageCSS from "./InputMessage.module.css";
 
-function InputMessage({ message, isError }) {
+function InputMessage({ message, isError, className }) {
   // For this component to work as intended, its container must have position relative
 
   return (
     <div
-      className={InputMessageCSS["input-message"]}
+      className={`${InputMessageCSS["input-message"]} ${className}`}
       style={{
         color: isError ? "var(--warning-red)" : "var(--secondary-text-color)",
       }}

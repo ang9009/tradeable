@@ -15,7 +15,11 @@ function PhotosSection() {
       <div className="subtitle">Photos</div>
       <div className="form-section-container">
         <div className={"input-field-container"}>
-          <label className={"input-label"}>Dropzone</label>
+          <label
+            className={`input-label ${PhotosSectionCSS["dropzone-label"]}`}
+          >
+            Dropzone
+          </label>
           <Error
             show={errors?.photos}
             message={errors?.photos?.message}
@@ -23,6 +27,7 @@ function PhotosSection() {
           />
           <InputMessage
             message={"Drag and drop to rearrange, hover to delete"}
+            className={PhotosSectionCSS["photo-input-msg"]}
           />
           <PhotosInput control={control} errors={errors} />
         </div>

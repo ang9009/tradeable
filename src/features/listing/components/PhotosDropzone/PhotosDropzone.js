@@ -35,14 +35,16 @@ const PhotosDropzone = forwardRef(function (
         })}
       >
         <input {...getInputProps()} />
-        <div>
-          <div className={PhotosDropzoneCSS["dropzone-content"]}>
-            <FiCamera size={"25px"} />
-            <p>
-              Drag and drop up to 6 photos into your browser window, or click to
-              select
-            </p>
-          </div>
+        <div className={PhotosDropzoneCSS["web-dropzone-content"]}>
+          <FiCamera size={"25px"} />
+          <p>
+            Drag and drop up to 6 photos into your browser window, or click to
+            select
+          </p>
+        </div>
+        <div className={PhotosDropzoneCSS["phone-dropzone-content"]}>
+          <FiCamera size={"17px"} />
+          <p>Tap to select images</p>
         </div>
       </div>
       <PhotosGrid onChange={onChange} value={value} />

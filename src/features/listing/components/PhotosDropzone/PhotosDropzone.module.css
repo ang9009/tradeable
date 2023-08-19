@@ -19,10 +19,6 @@
 }
 
 /* TODO: not responsive at all */
-.dropzone-content {
-  max-width: 250px;
-  text-align: center;
-}
 
 .photos-field-container {
   display: flex;
@@ -33,6 +29,23 @@
   width: 50%;
 }
 
+.web-dropzone-content {
+  max-width: 250px;
+  text-align: center;
+}
+
+.web-dropzone-content p {
+  margin-top: 10px;
+}
+
+.phone-dropzone-content {
+  display: none;
+}
+
+.phone-dropzone-content p {
+  margin-left: 8px;
+}
+
 @media (max-width: 950px) {
   .photos-field-container {
     flex-direction: column;
@@ -41,5 +54,27 @@
 
   .photos-field-container > * {
     width: 100%;
+  }
+
+  .dropzone {
+    height: 50px;
+  }
+
+  .web-dropzone-content {
+    display: none;
+    text-align: center;
+  }
+
+  .phone-dropzone-content {
+    display: flex;
+    width: 100%;
+    padding-left: 20px;
+  }
+}
+
+/* To separate hint and dropzone */
+@media (max-width: 420px) {
+  .dropzone {
+    margin-top: 20px;
   }
 }
