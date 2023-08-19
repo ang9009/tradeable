@@ -10,7 +10,7 @@
   cursor: pointer;
   border-radius: 5px;
   border: 1px dashed var(--primary-border-color);
-  height: 266.66px;
+  height: 263.09px;
 }
 
 .dropzone * {
@@ -25,16 +25,21 @@
 }
 
 .photos-field-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
+  display: flex;
   margin-top: var(--input-margin-top);
+}
+
+.photos-field-container > * {
+  width: 50%;
 }
 
 @media (max-width: 950px) {
   .photos-field-container {
-    display: flex;
     flex-direction: column;
-    height: 100%;
+    width: 100%;
+  }
+
+  .photos-field-container > * {
+    width: 100%;
   }
 }
