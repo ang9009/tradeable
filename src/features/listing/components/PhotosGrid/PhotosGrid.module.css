@@ -18,7 +18,7 @@
 
 @media (max-width: 950px) {
   .photos-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     margin-left: 0;
     margin-top: 20px;
   }

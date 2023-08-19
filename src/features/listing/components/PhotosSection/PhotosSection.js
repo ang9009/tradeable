@@ -20,14 +20,14 @@ function PhotosSection() {
           >
             Dropzone
           </label>
+          <InputMessage
+            message={"Drag and drop to rearrange, hover to delete"}
+            className={PhotosSectionCSS["photo-input-msg"]}
+          />
           <Error
             show={errors?.photos}
             message={errors?.photos?.message}
             className={PhotosSectionCSS["photo-error-msg"]}
-          />
-          <InputMessage
-            message={"Drag and drop to rearrange, hover to delete"}
-            className={PhotosSectionCSS["photo-input-msg"]}
           />
           <PhotosInput control={control} errors={errors} />
         </div>

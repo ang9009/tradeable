@@ -17,7 +17,7 @@ const PhotosDropzone = forwardRef(function (
       "image/jpeg": [],
     },
   });
-  // Required because react hook form doesn't allow custom refs...
+  // Required because react hook form doesn't allow custom refs (for react hook form)
   useImperativeHandle(ref, () => rootRef.current, [rootRef]);
 
   function borderColor() {

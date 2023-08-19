@@ -4,6 +4,8 @@ import DraggablePhoto from "../DraggablePhoto/DraggablePhoto";
 import PhotosGridCSS from "./PhotosGrid.module.css";
 
 function PhotosGrid({ onChange, value }) {
+  console.log(value.length < 9);
+
   return (
     <div>
       {value && value.length !== 0 && (
@@ -20,28 +22,26 @@ function PhotosGrid({ onChange, value }) {
               inputData={{ onChange, value }}
             />
           ))}
-          {value.length < 6 &&
-            Array.from({ length: 6 - value.length }, () => {
-              return (
-                <div className={PhotosGridCSS["photo-frame"]}>
-                  <FiCamera size={"25px"} />
-                </div>
-              );
-            })}
+          {Array.from({ length: 6 - value.length }, () => {
+            return (
+              <div className={PhotosGridCSS["photo-frame"]}>
+                <FiCamera size={"25px"} />
+              </div>
+            );
+          })}
         </ReactSortable>
       )}
-      {!value ||
-        (value.length === 0 && (
-          <div className={PhotosGridCSS["photos-grid"]}>
-            {Array.from({ length: 6 }, () => {
-              return (
-                <div className={PhotosGridCSS["photo-frame"]}>
-                  <FiCamera size={"25px"} />
-                </div>
-              );
-            })}
-          </div>
-        ))}
+      {value.length === 0 && (
+        <div className={PhotosGridCSS["photos-grid"]}>
+          {Array.from({ length: 6 }, () => {
+            return (
+              <div className={PhotosGridCSS["photo-frame"]}>
+                <FiCamera size={"25px"} />
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

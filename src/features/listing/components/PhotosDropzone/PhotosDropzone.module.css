@@ -72,9 +72,6 @@
   }
 }
 
-/* To separate hint and dropzone */
-@media (max-width: 420px) {
-  .dropzone {
-    margin-top: 20px;
-  }
+/* To separate hint and dropzone, must be the same as media query in PhotosSection */
+@media (max-width: 500px) {
 }
