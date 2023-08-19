@@ -3,7 +3,7 @@
   text-align: left;
   border: var(--primary-border);
   background: #fff;
-  font-weight: var(--bold);
+  font-weight: medium;
   border-radius: 5px;
   cursor: pointer;
   padding: 10px 15px;
@@ -18,5 +18,5 @@
 
 .sign-in-btn p {
   margin-left: 10px;
-  font-weight: var(--bold);
+  font-weight: medium;
 }

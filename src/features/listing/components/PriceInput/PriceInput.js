@@ -14,12 +14,6 @@ function PriceInput({
   const registerSettings = {
     ...register("price", {
       required: "This input is required",
-      onBlur: (e) => {
-        if (e.target?.value.toString().includes(".")) {
-          const fixed = parseFloat(e.target.value).toFixed(2);
-          setValue("price", fixed);
-        }
-      },
       valueAsNumber: true,
       max: {
         value: max,
@@ -49,7 +43,13 @@ function PriceInput({
           placeholder={"Enter item price (HKD)"}
           autoComplete="off"
           onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
+          onBlur={(e) => {
+            setIsFocused(false);
+            if (e.target?.value.toString().includes(".")) {
+              const fixed = parseFloat(e.target.value).toFixed(2);
+              setValue("price", fixed);
+            }
+          }}
         />
         <InputMessage message={errors.price?.message} isError />
         {price === 0 && (

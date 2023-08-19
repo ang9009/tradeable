@@ -21,7 +21,7 @@
 
 .username {
   margin-left: 10px;
-  font-weight: var(--bold);
+  font-weight: medium;
   font-family: "Tomato Grotesk", "sans-serif";
   max-width: 100px;
   overflow: hidden;
