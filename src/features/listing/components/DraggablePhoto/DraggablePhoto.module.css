@@ -9,7 +9,7 @@
   left: 5px;
   color: #fff;
   font-family: "Tomato Grotesk", "sans-serif";
-  font-weight: medium;
+  font-weight: normal;
   background: rgba(0, 0, 0, 0.6);
   width: 25px;
   height: 25px;
@@ -37,7 +37,7 @@
 
 .cover-indicator {
   position: absolute;
-  font-weight: medium;
+  font-weight: normal;
   top: 0;
   color: #fff;
   font-family: "Tomato Grotesk", "sans-serif";

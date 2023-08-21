@@ -19,7 +19,7 @@ function Home() {
           between members of CIS! By posting or browsing listings, you can
           donate, buy, and sell clothing, books, electronics, and more.
         </p>
-        <button className={HomeCSS["arrow-button"]}>
+        <button className={HomeCSS["arrow-btn"]}>
           Start exploring
           <FiArrowRight size="17px" className={HomeCSS["arrow"]} />
         </button>

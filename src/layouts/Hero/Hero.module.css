@@ -65,7 +65,7 @@
   border: none;
   color: rgb(252, 219, 191);
   padding: 13px 20px;
-  font-weight: medium;
+  font-weight: normal;
   border: 1px solid rgb(252, 219, 191);
   background: rgba(252, 219, 191, 0.2);
   font-size: var(--smaller-font-size);

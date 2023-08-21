@@ -22,31 +22,29 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
       className={AuthModalCSS["auth-modal"]}
       overlayClassName={AuthModalCSS["overlay"]}
     >
-      <div className={AuthModalCSS["modal-content-container"]}>
-        <div className={AuthModalCSS["modal-img"]}></div>
-        <FiX
-          size={"20px"}
-          onClick={() => setIsAuthModalOpen(false)}
-          className={AuthModalCSS["close-btn"]}
+      <div className={AuthModalCSS["modal-img"]}></div>
+      <FiX
+        size={"20px"}
+        onClick={() => setIsAuthModalOpen(false)}
+        className={AuthModalCSS["close-btn"]}
+      />
+      <div className={AuthModalCSS["modal-right"]}>
+        <h1 className={AuthModalCSS.title}>Sign in</h1>
+        <p className={AuthModalCSS.desc}>
+          Use your CIS gmail account to log in to shareable. No registration
+          required.
+        </p>
+        <SignInButton signIn={() => handleLogin()} />
+        <div className={AuthModalCSS.separator}></div>
+        <Error
+          message={error}
+          show={error !== ""}
+          className={AuthModalCSS["sign-in-error"]}
         />
-        <div className={AuthModalCSS["modal-right"]}>
-          <h1 className={AuthModalCSS.title}>Sign in</h1>
-          <p className={AuthModalCSS.desc}>
-            Use your CIS gmail account to log in to shareable. No registration
-            required.
-          </p>
-          <SignInButton signIn={() => handleLogin()} />
-          <div className={AuthModalCSS.separator}></div>
-          <Error
-            message={error}
-            show={error !== ""}
-            className={AuthModalCSS["sign-in-error"]}
-          />
-          <div class={AuthModalCSS["terms-text"]}>
-            By signing into shareable, I agree to its
-            <span className="bold"> Terms & Conditions</span>, which can be
-            viewed <span className="link">here</span>.
-          </div>
+        <div class={AuthModalCSS["terms-text"]}>
+          By signing into shareable, I agree to its
+          <span className="bold"> Terms & Conditions</span>, which can be viewed{" "}
+          <span className="link">here</span>.
         </div>
       </div>
     </ReactModal>

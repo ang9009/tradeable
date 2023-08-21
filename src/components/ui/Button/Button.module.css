@@ -19,7 +19,7 @@
 
 .text-container > * {
   font-family: "Tomato Grotesk", "sans-serif";
-  font-weight: medium;
+  font-weight: normal;
   font-size: var(--smaller-font-size);
   height: 1.8rem;
   display: grid;

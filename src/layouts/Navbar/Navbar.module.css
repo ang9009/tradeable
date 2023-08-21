@@ -22,6 +22,10 @@
   height: 100%;
 }
 
+.sidebar {
+  display: none;
+}
+
 /* Nav left */
 .nav-left {
   width: 600px;
@@ -76,15 +80,17 @@
   cursor: pointer;
   transition: all 0.2s;
   font-size: var(--smaller-font-size);
-  font-weight: var(--bold);
+  font-family: "Tomato Grotesk", "sans-serif";
+  font-weight: normal;
   height: 100%;
-  display: grid;
-  place-items: center;
   width: calc(100% / 6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-bottom ul li:hover {
-  color: var(--input-focus-color);
+  color: #707070;
 }
 
 @media (max-width: 1160px) {
@@ -108,11 +114,13 @@
   .nav {
     padding: 0 20px;
   }
-}
 
-@media (max-width: 800px) {
   .nav-bottom {
     display: none;
+  }
+
+  .sidebar {
+    display: initial;
   }
 }
 

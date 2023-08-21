@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: "Tomato Grotesk";
-  font-weight: medium;
+  font-weight: normal;
   src: local("Tomato Grotesk"),
     url(./fonts/tomato_grotesk//TomatoGrotesk-SemiBold.otf) format("opentype");
 }

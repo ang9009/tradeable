@@ -7,6 +7,7 @@ function AppLayout() {
   return (
     <>
       <Navbar />
+      {/* Makes sure page content spans at least the entire viewport */}
       <div className={AppLayoutCSS["page-content-container"]}>
         <Outlet />
       </div>

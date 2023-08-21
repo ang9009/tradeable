@@ -25,46 +25,35 @@
 }
 
 .hamburger-icon {
-  margin-left: 30px;
-  display: none;
+  margin-left: 22px;
+  display: inline;
   border: 1px solid #fff;
   border-radius: 50px;
   padding: 7px;
   cursor: pointer;
 }
 
-.ios-app-btn,
-.sign-in-btn {
+.ios-app-btn {
   background: none;
   border: none;
   padding: 0;
   font-family: "Tomato Grotesk", "sans-serif";
   cursor: pointer;
-  margin-left: 30px;
   border-radius: 0;
 }
 
-.sign-in-btn {
-  margin-left: 30px;
-  display: none;
+.nav-right,
+.hamburger-icon {
+  flex-shrink: 0;
 }
 
 @media (max-width: 1160px) {
+  .ios-app-btn {
+    margin-left: 22px;
+  }
+
   .nav-left {
     flex-grow: 1;
-  }
-
-  .sign-in-btn {
-    display: inline;
-  }
-
-  .nav-right,
-  .hamburger-icon {
-    flex-shrink: 0;
-  }
-
-  .hamburger-icon {
-    display: inline;
   }
 }
 

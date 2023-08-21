@@ -7,6 +7,7 @@ import App from "./App";
 import { ToastProvider } from "./context/ToastContext";
 import { UserProvider } from "./context/UserContext";
 import "./index.css";
+import Sidebar from "./layouts/Sidebar/Sidebar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const queryClient = new QueryClient();

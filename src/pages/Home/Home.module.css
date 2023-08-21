@@ -31,15 +31,15 @@
   line-height: calc(1.2rem + 1vw);
 }
 
-.arrow-button {
+.arrow-btn {
   font-weight: 900;
-  font-size: calc(0.7rem + 0.2vw);
+  font-size: calc(0.8rem + 0.2vw);
   background: none;
   border: 1px solid black;
   border-radius: 200px;
   padding: 13px 20px;
   font-family: "Tomato Grotesk", "sans-serif";
-  font-weight: medium;
+  font-weight: normal;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -50,13 +50,13 @@
   transition: all 0.2s;
 }
 
-.arrow-button:hover .arrow {
+.arrow-btn:hover .arrow {
   transform: translateX(8px);
 }
 
 /* Categories section */
 .categories-section {
-  background: #ebdccb;
+  background: var(--background-beige);
 }
 
 .categories-container {
@@ -112,5 +112,10 @@
 @media (max-width: 500px) {
   .categories-container {
     grid-template-columns: 100%;
+  }
+
+  .about-section,
+  .categories-section {
+    padding: calc(2vw + 4rem) calc(3vw + 2rem);
   }
 }

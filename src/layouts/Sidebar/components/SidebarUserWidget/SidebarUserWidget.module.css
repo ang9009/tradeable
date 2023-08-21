@@ -1,0 +1,63 @@
+.widget-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: all 0.2s;
+}
+
+.widget-container:focus {
+  outline: none;
+}
+
+.widget-container img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.username {
+  margin-left: 10px;
+  font-size: calc(0.2vw + 0.9rem);
+  font-weight: regular;
+  font-family: "Tomato Grotesk", "sans-serif";
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.down-chevron {
+  display: grid;
+  place-items: center;
+  margin-left: 10px;
+  transition: transform 0.2s;
+}
+
+.down-chevron-flip {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  list-style: none;
+  margin-left: 45px;
+  margin-top: calc(0.9rem + 0.4vw);
+}
+
+.dropdown li:not(:last-child) {
+  margin-bottom: calc(1rem + 1vw);
+}
+
+.dropdown li {
+  font-size: calc(0.2vw + 0.8rem);
+  font-family: "Lato", "sans-serif";
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.dropdown-widget-container {
+  border-bottom: 1px solid gray;
+}
