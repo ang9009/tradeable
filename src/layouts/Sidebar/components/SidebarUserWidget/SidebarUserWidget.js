@@ -19,7 +19,6 @@ function SidebarUserWidget({ className, setOpenSidebar }) {
             className={`${SidebarUserWidgetCSS["widget-container"]} ${className}`}
             onClick={() => setShowDropdown((showDropdown) => !showDropdown)}
           >
-            <img src={user.photoURL} alt="" />
             <div className={SidebarUserWidgetCSS.username}>
               {user.displayName}
             </div>

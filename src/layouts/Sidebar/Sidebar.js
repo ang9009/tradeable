@@ -20,20 +20,22 @@ function Sidebar({ openSidebar, setOpenSidebar, className }) {
           openSidebar && SidebarCSS["sidebar-open"]
         }`}
       >
-        <div className={SidebarCSS["user-widget-and-close-btn"]}>
-          <SidebarUserWidget setOpenSidebar={setOpenSidebar} />
-          <FiX
-            size={"35px"}
-            className={SidebarCSS["close-btn"]}
-            onClick={() => setOpenSidebar(false)}
-          />
+        <div className={SidebarCSS["sidebar-content-container"]}>
+          <div className={SidebarCSS["user-widget-and-close-btn"]}>
+            <SidebarUserWidget setOpenSidebar={setOpenSidebar} />
+            <FiX
+              size={"35px"}
+              className={SidebarCSS["close-btn"]}
+              onClick={() => setOpenSidebar(false)}
+            />
+          </div>
+          <div className={SidebarCSS["separator"]}></div>
+          <ul className={SidebarCSS["category-list"]}>
+            {categories.map((category) => (
+              <li>{category}</li>
+            ))}
+          </ul>
         </div>
-        <div className={SidebarCSS["separator"]}></div>
-        <ul className={SidebarCSS["category-list"]}>
-          {categories.map((category) => (
-            <li>{category}</li>
-          ))}
-        </ul>
       </div>
       <div
         className={`${SidebarCSS["sidebar-bg"]} ${

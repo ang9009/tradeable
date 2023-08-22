@@ -5,6 +5,7 @@
   background: none;
   border: none;
   transition: all 0.2s;
+  user-select: none;
 }
 
 .widget-container:focus {
@@ -19,9 +20,8 @@
 }
 
 .username {
-  margin-left: 10px;
   font-size: calc(0.2vw + 0.9rem);
-  font-weight: regular;
+  font-weight: normal;
   font-family: "Tomato Grotesk", "sans-serif";
   max-width: 100px;
   overflow: hidden;
@@ -41,21 +41,26 @@
 }
 
 .dropdown {
+  margin-top: calc(1rem + 0.3vw);
   list-style: none;
-  margin-left: 45px;
-  margin-top: calc(0.9rem + 0.4vw);
 }
 
 .dropdown li:not(:last-child) {
-  margin-bottom: calc(1rem + 1vw);
+  margin-bottom: calc(1rem + 0.3vw);
 }
 
 .dropdown li {
-  font-size: calc(0.2vw + 0.8rem);
-  font-family: "Lato", "sans-serif";
+  font-size: calc(0.2vw + 0.9rem);
+  font-family: "Tomato Grotesk", "sans-serif";
+  font-weight: lighter;
   cursor: pointer;
   user-select: none;
   transition: color 0.2s;
+  color: #a6a6a6;
+}
+
+.dropdown li:hover {
+  color: black;
 }
 
 .dropdown-widget-container {
