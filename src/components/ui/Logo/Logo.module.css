@@ -6,10 +6,6 @@
   text-decoration: none;
 }
 
-.logo > * {
-  transition: all 0.2s;
-}
-
 .logo-img {
   height: 30px;
   width: 30px;

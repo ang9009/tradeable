@@ -30,12 +30,13 @@ function AuthWidget({ changeNav, className }) {
               options={{
                 type: handleButtonType(),
                 text: "Sell",
+                className: AuthWidgetCSS["sell-btn"],
               }}
               onClick={() => {
                 user ? navigate("/create-listing") : setIsAuthModalOpen(true);
               }}
             />
-            <div className={AuthWidgetCSS["user-actions-widget-container"]}>
+            <div className={AuthWidgetCSS["buttons-container"]}>
               <UserActionsWidget changeNav={changeNav} />
               <UserWidget changeNav={changeNav} />
             </div>

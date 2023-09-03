@@ -12,6 +12,7 @@ function PhotosGrid({ onChange, value }) {
           list={value}
           animation={200}
           className={PhotosGridCSS["photos-grid"]}
+          swap
         >
           {value.map(({ _, url }, i) => (
             <DraggablePhoto

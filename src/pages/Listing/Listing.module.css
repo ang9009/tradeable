@@ -1,0 +1,23 @@
+.page-container {
+  padding: 70px 125px;
+  display: flex;
+}
+
+.carousel {
+  width: 60%;
+  height: 500px;
+  background: black;
+  border-radius: 8px;
+}
+
+.info-container {
+  width: 40%;
+  margin-left: 50px;
+}
+
+.title {
+  font-family: "Tomato Grotesk", "sans-serif";
+  font-weight: normal;
+  font-size: calc(1rem + 0.3vw);
+  line-height: calc(1rem + 0.7vw);
+}

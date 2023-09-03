@@ -74,6 +74,12 @@
   color: #a6a6a6;
 }
 
+.logo {
+  bottom: 30px;
+  left: 30px;
+  position: absolute;
+}
+
 @media (max-width: 550px) {
   .sidebar-container {
     width: 100%;

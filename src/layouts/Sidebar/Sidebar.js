@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { FiX } from "react-icons/fi";
+import Logo from "../../components/ui/Logo/Logo";
 import categories from "../../data/categories";
 import SidebarCSS from "./Sidebar.module.css";
 import SidebarUserWidget from "./components/SidebarUserWidget/SidebarUserWidget";
@@ -35,6 +36,10 @@ function Sidebar({ openSidebar, setOpenSidebar, className }) {
               <li>{category}</li>
             ))}
           </ul>
+          <Logo
+            className={SidebarCSS["logo"]}
+            color={"var(--shareable-burgundy)"}
+          />
         </div>
       </div>
       <div

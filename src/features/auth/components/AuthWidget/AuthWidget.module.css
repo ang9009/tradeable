@@ -22,18 +22,27 @@
   }
 }
 
-.user-actions-widget-container {
+.buttons-container {
   display: flex;
   align-items: center;
 }
 
-.user-actions-widget-container > * {
+.buttons-container > * {
   margin-left: 22px;
 }
 
-/* Must be the same as hamburger menu appearing in HeroNavbar and Navbar */
-@media (max-width: 1160px) {
-  .user-actions-widget-container {
+/* Must be the same as ios-app-btn disappearing in Navbar/HeroNavbar */
+@media (max-width: 600px) {
+  .sell-btn {
     display: none;
+  }
+
+  .auth-widget-container {
+    margin-left: 15px;
+  }
+
+  /* Auth widget container already has margin, so this margin must be removed*/
+  .buttons-container > * {
+    margin-left: 0;
   }
 }

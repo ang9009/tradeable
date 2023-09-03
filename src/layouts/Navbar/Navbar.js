@@ -32,7 +32,7 @@ const Navbar = () => {
                 type: "black-outline",
               }}
             />
-            <AuthWidget />
+            <AuthWidget className={NavbarCSS["auth-widget"]} />
           </div>
           <FiMenu
             className={NavbarCSS["hamburger-icon"]}

@@ -97,11 +97,18 @@
   }
 
   .auth-modal {
-    max-width: 90vw;
+    max-width: 380px;
     height: 450px;
   }
 
   .modal-content-container {
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 500px) {
+  .auth-modal {
+    max-width: 350px;
+    max-height: 425px;
   }
 }

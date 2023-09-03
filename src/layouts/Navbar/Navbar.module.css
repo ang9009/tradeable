@@ -78,10 +78,10 @@
 
 .nav-bottom ul li {
   cursor: pointer;
-  transition: all 0.2s;
+  transition: color 0.2s;
   font-size: var(--smaller-font-size);
-  font-family: "Tomato Grotesk", "sans-serif";
-  font-weight: normal;
+  font-family: "Lato", "sans-serif";
+  font-weight: bold;
   height: 100%;
   width: calc(100% / 6);
   display: flex;
@@ -96,10 +96,6 @@
 @media (max-width: 1160px) {
   .nav-left {
     flex-grow: 1;
-  }
-
-  .auth-widget {
-    display: none;
   }
 
   .nav-right,

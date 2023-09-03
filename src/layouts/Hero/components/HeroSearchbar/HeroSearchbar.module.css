@@ -5,7 +5,7 @@
   align-items: center;
   height: 43px;
   width: 100%;
-  transition: all 0.2s;
+  transition: background 0.2s;
 }
 
 /* Searchbar focus styles */

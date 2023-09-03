@@ -47,7 +47,7 @@
 
 .arrow {
   margin-left: 5px;
-  transition: all 0.2s;
+  transition: transform 0.2s;
 }
 
 .arrow-btn:hover .arrow {
