@@ -1,5 +1,4 @@
-import PhotosSection from "./components/PhotosSection/PhotosSection";
-import ItemDetailsSection from "./components/ItemDetailsSection/ItemDetailsSection";
-import getConditionHint from "./utils/getConditionHint";
+import ListingCarousel from "./components/ListingCarousel/ListingCarousel";
+import ListingInfo from "./components/ListingInfo/ListingInfo";
 
-export { PhotosSection, ItemDetailsSection, getConditionHint };
+export { ListingCarousel, ListingInfo };

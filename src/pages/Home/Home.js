@@ -1,5 +1,5 @@
 import { FiArrowRight, FiArrowUpRight } from "react-icons/fi";
-import categoriesData from "../../features/listing/data/categoriesData";
+import categoriesData from "../../features/createlisting/data/categoriesData";
 import Footer from "../../layouts/Footer/Footer";
 import Hero from "../../layouts/Hero/Hero";
 import HomeCSS from "./Home.module.css";

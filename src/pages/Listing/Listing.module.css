@@ -3,21 +3,14 @@
   display: flex;
 }
 
-.carousel {
-  width: 60%;
-  height: 500px;
-  background: black;
-  border-radius: 8px;
+.divider {
+  height: 1px;
+  background: var(--primary-border-color);
+  width: 100%;
+  margin: 30px 0;
 }
 
-.info-container {
+.listing-details {
   width: 40%;
   margin-left: 50px;
-}
-
-.title {
-  font-family: "Tomato Grotesk", "sans-serif";
-  font-weight: normal;
-  font-size: calc(1rem + 0.3vw);
-  line-height: calc(1rem + 0.7vw);
 }

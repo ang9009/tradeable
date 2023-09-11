@@ -1,0 +1,29 @@
+/* Info styles */
+.title {
+  font-family: "Tomato Grotesk", "sans-serif";
+  font-weight: normal;
+  font-size: calc(1rem + 0.3vw);
+  line-height: calc(1rem + 0.7vw);
+}
+
+.specs-container * {
+  font-size: calc(0.7rem + 0.3vw);
+}
+
+.specs-container span {
+  color: var(--secondary-text-color);
+  margin-left: 10px;
+}
+
+.specs-container > p:not(:first-child) {
+  margin-top: 12px;
+}
+
+.specs-container,
+.price {
+  margin-top: 25px;
+}
+
+.price {
+  font-size: calc(1rem + 0.3vw);
+}

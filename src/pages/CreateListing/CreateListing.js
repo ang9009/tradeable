@@ -1,9 +1,12 @@
 import { FormProvider, useForm } from "react-hook-form";
 import Button from "../../components/ui/Button/Button";
-import { ItemDetailsSection, PhotosSection } from "../../features/listing";
-import DealingMethodsSection from "../../features/listing/components/DealingMethodsSection/DealingMethodsSection";
-import DescriptionSection from "../../features/listing/components/DescriptionSection/DescriptionSection";
-import FullscreenDropzone from "../../features/listing/components/FullscreenDropzone/FullscreenDropzone";
+import {
+  ItemDetailsSection,
+  PhotosSection,
+} from "../../features/createlisting";
+import DealingMethodsSection from "../../features/createlisting/components/DealingMethodsSection/DealingMethodsSection";
+import DescriptionSection from "../../features/createlisting/components/DescriptionSection/DescriptionSection";
+import FullscreenDropzone from "../../features/createlisting/components/FullscreenDropzone/FullscreenDropzone";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import { onSubmitListing } from "../../lib/firebase";
 import CreateListingCSS from "./CreateListing.module.css";
