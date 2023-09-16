@@ -1,0 +1,14 @@
+.thumbnail-carousel {
+  margin-top: 15px;
+  background: transparent;
+  height: 125px;
+  cursor: pointer;
+}
+
+.thumbnail-carousel .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.thumbnail-carousel swiper-slide {
+  opacity: 0.4;
+}

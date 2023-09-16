@@ -1,61 +1,31 @@
 import ListingCarouselCSS from "./ListingCarousel.module.css";
+import "./ThumbsCarousel.css";
 
 function ListingCarousel() {
   return (
     <div class={ListingCarouselCSS["carousel-container"]}>
       <swiper-container
-        navigation="true"
         class={ListingCarouselCSS.carousel}
         thumbs-swiper=".thumbnail-carousel"
+        navigation="true"
       >
-        <swiper-slide>
-          <img
-            src={require("../../../../assets/authmodal_img.jpeg")}
-            alt=""
-            class={ListingCarouselCSS["carousel-img"]}
-          />
-        </swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
+        {Array.from({ length: 10 }, () => (
+          <swiper-slide>
+            <img
+              src={require("../../../../assets/authmodal_img.jpeg")}
+              alt=""
+              class={ListingCarouselCSS["thumb-img"]}
+            />
+          </swiper-slide>
+        ))}
       </swiper-container>
       <swiper-container
-        class={ListingCarouselCSS["thumbnail-carousel"]}
+        class="thumbnail-carousel"
         space-between="10"
-        navigation="false"
         slides-per-view="4"
-        free-mode="true"
-        watch-slides-progress="true"
+        navigation="true"
       >
-        {" "}
-        <swiper-slide>
-          <img
-            src={require("../../../../assets/authmodal_img.jpeg")}
-            alt=""
-            class={ListingCarouselCSS["thumb-img"]}
-          />
-        </swiper-slide>{" "}
-        <swiper-slide>
-          <img
-            src={require("../../../../assets/authmodal_img.jpeg")}
-            alt=""
-            class={ListingCarouselCSS["thumb-img"]}
-          />
-        </swiper-slide>
-        <swiper-slide>
-          <img
-            src={require("../../../../assets/authmodal_img.jpeg")}
-            alt=""
-            class={ListingCarouselCSS["thumb-img"]}
-          />
-        </swiper-slide>{" "}
-        <swiper-slide>
-          <img
-            src={require("../../../../assets/authmodal_img.jpeg")}
-            alt=""
-            class={ListingCarouselCSS["thumb-img"]}
-          />
-        </swiper-slide>
-        {Array.from({ length: 4 }, () => (
+        {Array.from({ length: 10 }, () => (
           <swiper-slide>
             <img
               src={require("../../../../assets/authmodal_img.jpeg")}

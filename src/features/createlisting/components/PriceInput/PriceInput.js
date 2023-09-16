@@ -33,14 +33,14 @@ function PriceInput({
           outline: handleOutline(errors?.price, isFocused),
         }}
       >
-        <p className={PriceInputCSS["dollar-sign"]}>$</p>
+        <p className={PriceInputCSS["dollar-sign"]}>£</p>
         <input
           className={PriceInputCSS["price-input"]}
           {...registerSettings}
           {...preventE}
           id={"price"}
           type="number"
-          placeholder={"Enter item price (HKD)"}
+          placeholder={"Enter item price (GBP)"}
           autoComplete="off"
           formNoValidate
           onFocus={() => setIsFocused(true)}
@@ -53,11 +53,6 @@ function PriceInput({
           }}
         />
         <InputMessage message={errors.price?.message} isError />
-        {price === 0 && (
-          <InputMessage
-            message={"Your item will appear in the donated category"}
-          />
-        )}
       </div>
     </div>
   );

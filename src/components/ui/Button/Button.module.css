@@ -26,10 +26,6 @@
   place-items: center;
 }
 
-.all-btns:hover .text-container {
-  transform: translateY(-1.8rem);
-}
-
 .all-btns:disabled {
   cursor: not-allowed;
 }

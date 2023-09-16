@@ -1,4 +1,5 @@
 import { FormProvider, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
 import {
   ItemDetailsSection,
@@ -9,10 +10,12 @@ import DescriptionSection from "../../features/createlisting/components/Descript
 import FullscreenDropzone from "../../features/createlisting/components/FullscreenDropzone/FullscreenDropzone";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import { onSubmitListing } from "../../lib/firebase";
+import getId from "../../utils/getId";
 import CreateListingCSS from "./CreateListing.module.css";
 
 function CreateListing() {
   const methods = useForm({ mode: "onChange" });
+  const navigate = useNavigate();
   const checkKeyDown = (e) => {
     if (e.key === "Enter") e.preventDefault();
   };
@@ -22,7 +25,11 @@ function CreateListing() {
       <FullscreenDropzone>
         <PageContainer type={"centered"}>
           <form
-            onSubmit={methods.handleSubmit(onSubmitListing)}
+            onSubmit={methods.handleSubmit(async (data) => {
+              const listingId = getId();
+              await onSubmitListing(data, listingId);
+              navigate(`/listing/${listingId}`);
+            })}
             onKeyDown={(e) => checkKeyDown(e)}
             noValidate
           >

@@ -1,8 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth } from "firebase/auth";
-import { doc, getFirestore, setDoc } from "firebase/firestore";
+import { doc, getFirestore, onSnapshot, setDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
-import getId from "../utils/getId";
 
 // TODO: hide api key
 const firebaseConfig = {
@@ -21,20 +20,16 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const storage = getStorage();
 
-async function onSubmitListing(data) {
+async function onSubmitListing(data, listingId) {
   const listing = {
     name: data.name,
     condition: data.condition.value,
     category: data.category.value,
     price: data.price,
     description: data.description,
-    dealingMethods: data.dealingMethods,
-    meetUpLocations: data.meetupLocations
-      ? data.meetupLocations.map((locationObj) => locationObj.value)
-      : null,
+    meetUpLocations: data.meetUpLocations.value,
   };
-
-  const listingId = getId();
+  console.log(listing);
 
   await setDoc(doc(db, "listings", listingId), listing);
 
@@ -45,4 +40,4 @@ async function onSubmitListing(data) {
   });
 }
 
-export { auth, db, onSubmitListing, provider };
+export { auth, db, doc, onSnapshot, onSubmitListing, provider };

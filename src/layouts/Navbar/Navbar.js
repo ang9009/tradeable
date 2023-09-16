@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
-import Button from "../../components/ui/Button/Button";
 import categories from "../../data/categories";
 import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
 import Sidebar from "../Sidebar/Sidebar";
@@ -25,13 +24,6 @@ const Navbar = () => {
             <NavSearchbar />
           </div>
           <div className={NavbarCSS["nav-right"]}>
-            <Button
-              options={{
-                className: NavbarCSS["ios-app-btn"],
-                text: "iOS App",
-                type: "black-outline",
-              }}
-            />
             <AuthWidget className={NavbarCSS["auth-widget"]} />
           </div>
           <FiMenu

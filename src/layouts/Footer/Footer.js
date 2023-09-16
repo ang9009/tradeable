@@ -12,7 +12,6 @@ function Footer() {
             Terms
             <span className={FooterCSS["conditions-text"]}> & Conditions</span>
           </li>
-          <li>iOS App</li>
         </ul>
         <Logo color={"#fff"} className={FooterCSS["footer-top-logo"]} />
       </div>

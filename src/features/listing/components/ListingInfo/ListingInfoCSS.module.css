@@ -6,8 +6,15 @@
   line-height: calc(1rem + 0.7vw);
 }
 
+.divider {
+  height: 1px;
+  background: var(--primary-border-color);
+  width: 100%;
+  margin: 20px 0;
+}
+
 .specs-container * {
-  font-size: calc(0.7rem + 0.3vw);
+  font-size: calc(0.55rem + 0.4vw);
 }
 
 .specs-container span {
@@ -19,9 +26,8 @@
   margin-top: 12px;
 }
 
-.specs-container,
 .price {
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
 .price {
