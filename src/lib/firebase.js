@@ -7,7 +7,7 @@ import {
   onSnapshot,
   setDoc,
 } from "firebase/firestore";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 // TODO: hide api key
 const firebaseConfig = {
@@ -27,6 +27,14 @@ const provider = new GoogleAuthProvider();
 const storage = getStorage();
 
 async function onSubmitListing(data, listingId, userId) {
+  var nowDate = new Date();
+  var date =
+    nowDate.getDate() +
+    "-" +
+    (nowDate.getMonth() + 1) +
+    "-" +
+    nowDate.getFullYear();
+
   const listing = {
     name: data.name,
     condition: data.condition.value,
@@ -35,13 +43,15 @@ async function onSubmitListing(data, listingId, userId) {
     description: data.description,
     meetUpLocations: data.meetUpLocations.map((location) => location.value),
     sellerId: userId,
+    postedDate: date,
+    imagesNum: data.photos.length,
   };
 
   await setDoc(doc(db, "listings", listingId), listing);
 
   const photos = data.photos.map((photoObj) => photoObj.file);
   photos.forEach(async (photo, i) => {
-    const photoRef = ref(storage, `${listingId}/${i + 1}`);
+    const photoRef = ref(storage, `listingImages/${listingId}/${i + 1}`);
     await uploadBytes(photoRef, photo);
   });
 }
@@ -62,7 +72,10 @@ export {
   db,
   doc,
   getDoc,
+  getDownloadURL,
   onSnapshot,
   onSubmitListing,
   provider,
+  ref,
+  storage,
 };

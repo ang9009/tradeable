@@ -11,7 +11,8 @@ function ListingInfo({ listingData }) {
           <span className={ListingInfoCSS.data}>{listingData.condition}</span>
         </p>
         <p>
-          Posted<span className={ListingInfoCSS.data}>12-05-2023</span>
+          Posted
+          <span className={ListingInfoCSS.data}>{listingData.postedDate}</span>
         </p>
         <p>
           Meet up locations
