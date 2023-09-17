@@ -1,38 +1,36 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { db, doc, onSnapshot } from "../../../../lib/firebase";
 import ListingInfoCSS from "./ListingInfoCSS.module.css";
 
-function ListingInfo() {
-  const { listingId } = useParams();
-  const [listingData, setListingData] = useState({});
-
-  useEffect(() => {
-    const unsub = onSnapshot(doc(db, "listings", listingId), (doc) => {
-      setListingData(doc.data());
-    });
-
-    return () => unsub();
-  }, []);
-
+function ListingInfo({ listingData }) {
   return (
     <div className={ListingInfoCSS["info-container"]}>
       <h1 className={ListingInfoCSS.title}>{listingData?.name}</h1>
       <div className={ListingInfoCSS.divider}></div>
       <div className={ListingInfoCSS["specs-container"]}>
         <p>
-          Condition<span>Well used</span>
+          Condition
+          <span className={ListingInfoCSS.data}>{listingData.condition}</span>
         </p>
         <p>
-          Posted<span>12-05-2023</span>
+          Posted<span className={ListingInfoCSS.data}>12-05-2023</span>
         </p>
         <p>
-          Meet up location<span>{listingData?.meetUpLocations}</span>
+          Meet up locations
+          <span className={ListingInfoCSS.data}>
+            {listingData?.meetUpLocations?.map((location, i) => {
+              const length = listingData.meetUpLocations.length;
+              return i !== length - 1 ? (
+                <span>{location}, </span>
+              ) : (
+                <span>{location}</span>
+              );
+            })}
+          </span>
         </p>
         <p>
-          Category<span>Textbooks</span>
+          Category
+          <span className={ListingInfoCSS.data}>{listingData.category}</span>
         </p>
-        <h1 className={ListingInfoCSS.price}>$240</h1>
+        <h1 className={ListingInfoCSS.price}>£{listingData.price}</h1>
       </div>
     </div>
   );

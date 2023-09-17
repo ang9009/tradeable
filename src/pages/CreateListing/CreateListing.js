@@ -1,6 +1,7 @@
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
+import { useUser } from "../../context/UserContext";
 import {
   ItemDetailsSection,
   PhotosSection,
@@ -15,6 +16,7 @@ import CreateListingCSS from "./CreateListing.module.css";
 
 function CreateListing() {
   const methods = useForm({ mode: "onChange" });
+  const { user } = useUser();
   const navigate = useNavigate();
   const checkKeyDown = (e) => {
     if (e.key === "Enter") e.preventDefault();
@@ -27,7 +29,7 @@ function CreateListing() {
           <form
             onSubmit={methods.handleSubmit(async (data) => {
               const listingId = getId();
-              await onSubmitListing(data, listingId);
+              await onSubmitListing(data, listingId, user.uid);
               navigate(`/listing/${listingId}`);
             })}
             onKeyDown={(e) => checkKeyDown(e)}

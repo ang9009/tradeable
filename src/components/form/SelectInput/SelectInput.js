@@ -15,7 +15,7 @@ const DropdownIndicator = (props) => {
 };
 
 function SelectInput({
-  options: { label, placeholder, selectOptions, hasConditionHint },
+  options: { label, placeholder, selectOptions, hasConditionHint, isMulti },
   formData: { control, errors },
 }) {
   // The "required" prop from Radix conflicts with the error object from react-hook-form, so don't add it
@@ -49,6 +49,7 @@ function SelectInput({
               styles={getSelectInputStyles(handleOutline)}
               options={selectOptions}
               isSearchable={false}
+              isMulti={isMulti}
               unstyled
             />
             {hasConditionHint && (

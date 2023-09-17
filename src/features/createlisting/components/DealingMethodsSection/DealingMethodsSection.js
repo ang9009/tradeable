@@ -23,6 +23,7 @@ function DealingMethodsSection() {
               label: "Meet up locations",
               placeholder: "Select meet up location(s)",
               selectOptions: meetUpOptions,
+              isMulti: true,
             }}
             formData={{ control, errors }}
           />
