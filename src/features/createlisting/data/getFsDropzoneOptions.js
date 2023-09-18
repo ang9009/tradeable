@@ -1,11 +1,7 @@
+import { toast } from "react-toastify";
 import { handleOnDrop } from "../utils/handleOnDrop";
 
-function getFsDropzoneOptions({
-  setShowOverlay,
-  getValues,
-  setValue,
-  setToast,
-}) {
+function getFsDropzoneOptions({ setShowOverlay, getValues, setValue }) {
   const onChange = (value) => {
     setValue("photos", value, { shouldValidate: true });
   };
@@ -26,7 +22,7 @@ function getFsDropzoneOptions({
         err === "file-too-large"
           ? "Please upload files that are under 5MB"
           : "Only .jpg and .png files are supported";
-      setToast(4000, msg);
+      toast.error(msg);
     },
     accept: {
       "image/png": [],

@@ -3,11 +3,10 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
-import { ToastProvider } from "./context/ToastContext";
 import { UserProvider } from "./context/UserContext";
 import "./index.css";
-import Sidebar from "./layouts/Sidebar/Sidebar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const queryClient = new QueryClient();
@@ -16,11 +15,9 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <UserProvider>
-        <ToastProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </ToastProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </UserProvider>
       <ReactQueryDevtools />
     </QueryClientProvider>

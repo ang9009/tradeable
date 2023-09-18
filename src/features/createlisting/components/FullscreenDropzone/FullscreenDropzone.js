@@ -2,20 +2,17 @@ import { useState } from "react";
 import Dropzone from "react-dropzone";
 import { useFormContext } from "react-hook-form";
 import { FiFilePlus } from "react-icons/fi";
-import { useSetToast } from "../../../../context/ToastContext";
 import getFsDropzoneOptions from "../../data/getFsDropzoneOptions";
 import FullscreenDropzoneCSS from "./FullscreenDropzone.module.css";
 
 function FullscreenDropzone({ children }) {
   const { setValue, getValues } = useFormContext();
   const [showOverlay, setShowOverlay] = useState(false);
-  const setToast = useSetToast();
 
   const optionsFns = {
     setShowOverlay,
     getValues,
     setValue,
-    setToast,
   };
 
   return (
@@ -25,6 +22,7 @@ function FullscreenDropzone({ children }) {
           <FiFilePlus color={"#fff"} size={"100px"} />
         </div>
       )}
+      {/* Go to getFsDropzoneOptions for error messages */}
       <Dropzone {...getFsDropzoneOptions(optionsFns)}>
         {({ getRootProps, getInputProps }) => (
           <section>

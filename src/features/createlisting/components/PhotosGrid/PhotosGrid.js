@@ -21,9 +21,9 @@ function PhotosGrid({ onChange, value }) {
               inputData={{ onChange, value }}
             />
           ))}
-          {Array.from({ length: 6 - value.length }, () => {
+          {Array.from({ length: 6 - value.length }, (i) => {
             return (
-              <div className={PhotosGridCSS["photo-frame"]}>
+              <div className={PhotosGridCSS["photo-frame"]} key={i}>
                 <FiCamera size={"25px"} />
               </div>
             );
@@ -32,9 +32,9 @@ function PhotosGrid({ onChange, value }) {
       )}
       {value.length === 0 && (
         <div className={PhotosGridCSS["photos-grid"]}>
-          {Array.from({ length: 6 }, () => {
+          {Array.from({ length: 6 }, (i) => {
             return (
-              <div className={PhotosGridCSS["photo-frame"]}>
+              <div className={PhotosGridCSS["photo-frame"]} key={i}>
                 <FiCamera size={"25px"} />
               </div>
             );

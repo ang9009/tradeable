@@ -50,10 +50,12 @@ async function onSubmitListing(data, listingId, userId) {
   await setDoc(doc(db, "listings", listingId), listing);
 
   const photos = data.photos.map((photoObj) => photoObj.file);
-  photos.forEach(async (photo, i) => {
+  const promises = photos.map((photo, i) => {
     const photoRef = ref(storage, `listingImages/${listingId}/${i + 1}`);
-    await uploadBytes(photoRef, photo);
+    return uploadBytes(photoRef, photo);
   });
+
+  Promise.all(promises);
 }
 
 async function createUser(user) {

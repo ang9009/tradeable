@@ -13,6 +13,7 @@ import AppLayout from "./layouts/AppLayout/AppLayout";
 import Listing from "./pages/Listing/Listing";
 
 // Swiper register
+import { ToastContainer } from "react-toastify";
 import { register } from "swiper/element/bundle";
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
 
   return (
     <div id="#root">
+      {/* For react toastify */}
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<AppLayout />}>

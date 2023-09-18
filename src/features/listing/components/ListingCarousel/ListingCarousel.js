@@ -4,7 +4,7 @@ import "./ThumbsCarousel.css";
 function ListingCarousel({ images, imagesNum }) {
   return (
     <div class={ListingCarouselCSS["carousel-container"]}>
-      {/* TODO: scuffed as hell lmao */}
+      {/* Swiper.js images cannot be updated once carousel is rendered, so the number of images is checked*/}
       {images.length === imagesNum && (
         <>
           <swiper-container

@@ -1,5 +1,8 @@
+import { uploadBytes } from "firebase/storage";
+import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Button from "../../components/ui/Button/Button";
 import { useUser } from "../../context/UserContext";
 import {
@@ -10,7 +13,7 @@ import DealingMethodsSection from "../../features/createlisting/components/Deali
 import DescriptionSection from "../../features/createlisting/components/DescriptionSection/DescriptionSection";
 import FullscreenDropzone from "../../features/createlisting/components/FullscreenDropzone/FullscreenDropzone";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
-import { onSubmitListing } from "../../lib/firebase";
+import { onSubmitListing, ref, storage } from "../../lib/firebase";
 import getId from "../../utils/getId";
 import CreateListingCSS from "./CreateListing.module.css";
 
@@ -21,6 +24,7 @@ function CreateListing() {
   const checkKeyDown = (e) => {
     if (e.key === "Enter") e.preventDefault();
   };
+  const [submitting, setIsSubmitting] = useState(false);
 
   return (
     <FormProvider {...methods}>
@@ -28,9 +32,35 @@ function CreateListing() {
         <PageContainer type={"centered"}>
           <form
             onSubmit={methods.handleSubmit(async (data) => {
+              // TODO: clean this up
+              setIsSubmitting(true);
+              const toastId = toast.loading(
+                "Submitting listing, please wait..."
+              );
+
               const listingId = getId();
               await onSubmitListing(data, listingId, user.uid);
-              navigate(`/listing/${listingId}`);
+
+              const photos = data.photos.map((photoObj) => photoObj.file);
+              const promises = photos.map((photo, i) => {
+                const photoRef = ref(
+                  storage,
+                  `listingImages/${listingId}/${i + 1}`
+                );
+                return uploadBytes(photoRef, photo);
+              });
+
+              Promise.all(promises).then(() => {
+                navigate(`/listing/${listingId}`);
+                setIsSubmitting(false);
+                toast.update(toastId, {
+                  render: "Your listing is live!",
+                  type: "success",
+                  autoClose: 5000,
+                  isLoading: false,
+                  closeButton: true,
+                });
+              });
             })}
             onKeyDown={(e) => checkKeyDown(e)}
             noValidate
@@ -46,7 +76,7 @@ function CreateListing() {
                 text: "Submit",
                 className: CreateListingCSS["submit-btn"],
               }}
-              disabled={methods.formState.isSubmitting}
+              disabled={submitting}
             />
           </form>
         </PageContainer>

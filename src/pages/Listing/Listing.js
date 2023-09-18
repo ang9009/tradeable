@@ -23,6 +23,7 @@ function Listing() {
   useEffect(() => {
     // Fetches listing data, seller object, and images
     const unsub = onSnapshot(doc(db, "listings", listingId), (res) => {
+      console.log("finished fetching photos ===================");
       const data = res.data();
       setListingData(data);
 
