@@ -22,7 +22,7 @@ function getFsDropzoneOptions({ setShowOverlay, getValues, setValue }) {
         err === "file-too-large"
           ? "Please upload files that are under 5MB"
           : "Only .jpg and .png files are supported";
-      toast.error(msg);
+      toast.error(msg, { theme: "colored", position: "bottom-right" });
     },
     accept: {
       "image/png": [],

@@ -35,7 +35,8 @@ function CreateListing() {
               // TODO: clean this up
               setIsSubmitting(true);
               const toastId = toast.loading(
-                "Submitting listing, please wait..."
+                "Submitting listing, please wait...",
+                { theme: "colored", position: "bottom-right" }
               );
 
               const listingId = getId();
@@ -59,6 +60,8 @@ function CreateListing() {
                   autoClose: 5000,
                   isLoading: false,
                   closeButton: true,
+                  theme: "colored",
+                  position: "bottom-right",
                 });
               });
             })}
