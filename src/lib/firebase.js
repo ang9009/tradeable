@@ -11,13 +11,13 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 // TODO: hide api key
 const firebaseConfig = {
-  apiKey: "AIzaSyC4jnEcYgCqb4MBA97TqMN9cEMGORMYo6w",
-  authDomain: "shareable-91a3f.firebaseapp.com",
-  projectId: "shareable-91a3f",
-  storageBucket: "shareable-91a3f.appspot.com",
-  messagingSenderId: "859197244604",
-  appId: "1:859197244604:web:455f11ad7cfaa09fbefcb9",
-  measurementId: "G-7L2MWTKFEG",
+  apiKey: "AIzaSyBplunqQBPKGiHdd5FCoJ5KZZ6RNZqlNQ8",
+  authDomain: "tradeable-6ed31.firebaseapp.com",
+  projectId: "tradeable-6ed31",
+  storageBucket: "tradeable-6ed31.appspot.com",
+  messagingSenderId: "450849674146",
+  appId: "1:450849674146:web:ac534abf225c61750018fb",
+  measurementId: "G-J2MX4443L4",
 };
 
 const app = initializeApp(firebaseConfig);

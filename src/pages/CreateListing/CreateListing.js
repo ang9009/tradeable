@@ -32,7 +32,7 @@ function CreateListing() {
         <PageContainer type={"centered"}>
           <form
             onSubmit={methods.handleSubmit(async (data) => {
-              // TODO: clean this up
+              // TODO: clean this up xd
               setIsSubmitting(true);
               const toastId = toast.loading(
                 "Submitting listing, please wait...",
