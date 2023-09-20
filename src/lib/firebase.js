@@ -7,7 +7,7 @@ import {
   onSnapshot,
   setDoc,
 } from "firebase/firestore";
-import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
 // TODO: hide api key
 const firebaseConfig = {
@@ -48,14 +48,6 @@ async function onSubmitListing(data, listingId, userId) {
   };
 
   await setDoc(doc(db, "listings", listingId), listing);
-
-  const photos = data.photos.map((photoObj) => photoObj.file);
-  const promises = photos.map((photo, i) => {
-    const photoRef = ref(storage, `listingImages/${listingId}/${i + 1}`);
-    return uploadBytes(photoRef, photo);
-  });
-
-  Promise.all(promises);
 }
 
 async function createUser(user) {

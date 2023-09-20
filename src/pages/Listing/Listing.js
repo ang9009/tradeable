@@ -51,7 +51,11 @@ function Listing() {
 
   return (
     <div className={ListingCSS["page-container"]}>
-      <ListingCarousel images={images} imagesNum={listingData.imagesNum} />
+      <ListingCarousel
+        className={ListingCSS["carousel-container"]}
+        images={images}
+        imagesNum={listingData.imagesNum}
+      />
       <div className={ListingCSS["listing-details"]}>
         <ListingInfo listingData={listingData} />
         <div className={ListingCSS["divider"]}></div>

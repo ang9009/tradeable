@@ -14,7 +14,7 @@ function Hero() {
           Take part in our sustainable initiative! Offer your second-hand items
           to other members of CIS via shareable.
         </p>
-        <button className={HeroCSS["fat-btn"]}>Get started</button>
+        <button className={HeroCSS["fat-btn"]}>Sign up and get started</button>
       </div>
       <div className={HeroCSS["hero-bg"]}></div>
     </div>

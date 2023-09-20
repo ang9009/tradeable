@@ -8,10 +8,10 @@ import { useUser } from "../../context/UserContext";
 import {
   ItemDetailsSection,
   PhotosSection,
-} from "../../features/modifylisting";
-import DealingMethodsSection from "../../features/modifylisting/components/DealingMethodsSection/DealingMethodsSection";
-import DescriptionSection from "../../features/modifylisting/components/DescriptionSection/DescriptionSection";
-import FullscreenDropzone from "../../features/modifylisting/components/FullscreenDropzone/FullscreenDropzone";
+} from "../../features/createlisting";
+import DealingMethodsSection from "../../features/createlisting/components/DealingMethodsSection/DealingMethodsSection";
+import DescriptionSection from "../../features/createlisting/components/DescriptionSection/DescriptionSection";
+import FullscreenDropzone from "../../features/createlisting/components/FullscreenDropzone/FullscreenDropzone";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import { onSubmitListing, ref, storage } from "../../lib/firebase";
 import getId from "../../utils/getId";
@@ -42,6 +42,7 @@ function CreateListing() {
               const listingId = getId();
               await onSubmitListing(data, listingId, user.uid);
 
+              // Uplaoding photos
               const photos = data.photos.map((photoObj) => photoObj.file);
               const promises = photos.map((photo, i) => {
                 const photoRef = ref(
@@ -51,6 +52,7 @@ function CreateListing() {
                 return uploadBytes(photoRef, photo);
               });
 
+              // Navigating AFTER photos are submitted
               Promise.all(promises).then(() => {
                 navigate(`/listing/${listingId}`);
                 setIsSubmitting(false);

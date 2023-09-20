@@ -1,5 +1,5 @@
 export default function getConditionHint(condition) {
-  switch (condition) {
+  switch (condition?.toLowerCase()) {
     case "new":
       return "Unused, unopened, and in its original packaging";
     case "like new":

@@ -1,3 +1,8 @@
 .listing-btns-container > *:not(:last-child) {
   margin-bottom: 15px;
 }
+
+.listing-btns-container > * {
+  width: 100%;
+  padding: 8px;
+}

@@ -4,7 +4,6 @@ function ListingInfo({ listingData }) {
   return (
     <div className={ListingInfoCSS["info-container"]}>
       <h1 className={ListingInfoCSS.title}>{listingData?.name}</h1>
-      <div className={ListingInfoCSS.divider}></div>
       <div className={ListingInfoCSS["specs-container"]}>
         <p>
           Condition

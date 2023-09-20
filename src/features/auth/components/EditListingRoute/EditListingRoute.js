@@ -15,7 +15,6 @@ function EditListingRoute() {
     getDoc(listingRef).then((res) => {
       const listingData = res.data();
       setSellerId(listingData.sellerId);
-      console.log(listingData.sellerId, user?.uid);
       setIsFetchingListing(false);
     });
   }, []);

@@ -1,9 +1,9 @@
 import ListingCarouselCSS from "./ListingCarousel.module.css";
 import "./ThumbsCarousel.css";
 
-function ListingCarousel({ images, imagesNum }) {
+function ListingCarousel({ images, imagesNum, className }) {
   return (
-    <div class={ListingCarouselCSS["carousel-container"]}>
+    <div class={className}>
       {/* Swiper.js images cannot be updated once carousel is rendered, so the number of images is checked*/}
       {images.length === imagesNum && (
         <>

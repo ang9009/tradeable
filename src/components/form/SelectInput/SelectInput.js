@@ -2,7 +2,7 @@ import { Controller } from "react-hook-form";
 import { FiChevronDown } from "react-icons/fi";
 import Select, { components } from "react-select";
 import getSelectInputStyles from "../../../data/getSelectInputStyles";
-import { getConditionHint } from "../../../features/modifylisting";
+import { getConditionHint } from "../../../features/createlisting";
 import { toCamelCase } from "../../../utils/toCamelCase";
 import InputMessage from "../InputMessage/InputMessage";
 

@@ -78,3 +78,14 @@
   color: #fff;
   border: 1px solid #fff;
 }
+
+.red-outline {
+  background: none;
+  color: var(--warning-red);
+  border: 1px solid var(--warning-red);
+}
+
+.red-outline:hover {
+  background: var(--warning-red);
+  color: #fff;
+}

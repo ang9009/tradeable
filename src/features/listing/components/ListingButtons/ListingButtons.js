@@ -5,11 +5,15 @@ import SellerButtons from "../SellerButtons/SellerButtons";
 import ListingButtonsCSS from "./ListingButtons.module.css";
 
 function ListingButtons({ sellerId, listingId }) {
-  const { user } = useUser();
+  const { user, isFetchingUser } = useUser();
 
   return (
+    // If user is logged out, display non-seller buttons. If user is logged in,
+    // check if they are the seller and display accordingly
     <div className={ListingButtonsCSS["listing-btns-container"]}>
-      {user ? (
+      {isFetchingUser ? (
+        <Skeleton />
+      ) : user ? (
         user?.uid === sellerId ? (
           <SellerButtons listingId={listingId} />
         ) : (
@@ -22,7 +26,13 @@ function ListingButtons({ sellerId, listingId }) {
           />
         )
       ) : (
-        <Skeleton />
+        <Button
+          options={{
+            text: "Message seller",
+            type: "black-filled",
+            className: ListingButtonsCSS["msg-seller-btn"],
+          }}
+        />
       )}
     </div>
   );

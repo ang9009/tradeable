@@ -1,3 +1,9 @@
 .page-content-container {
   min-height: calc(100vh - var(--navbar-height));
 }
+
+@media (max-width: 1160px) {
+  .page-content-container {
+    margin-top: 70px;
+  }
+}
