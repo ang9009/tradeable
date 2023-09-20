@@ -34,12 +34,27 @@
   outline: none;
 }
 
+/* Types of buttons */
 .gray-outline {
   background: #fff;
   border: var(--primary-border);
 }
 
-.gray-outline:hover {
+.gray-outline-blue {
+  background: #fff;
+  color: var(--reserved-blue);
+  border: var(--primary-border);
+}
+
+.gray-outline-red {
+  background: #fff;
+  color: var(--warning-red);
+  border: var(--primary-border);
+}
+
+.gray-outline:hover,
+.gray-outline-blue:hover,
+.gray-outline-red:hover {
   border: 1px solid #000;
 }
 

@@ -12,6 +12,7 @@ function DescriptionSection() {
     placeholder:
       "Describe the item’s condition, past usage, original price, meet-up preferences, etc",
     max: 1000,
+    min: 10,
   };
 
   return (

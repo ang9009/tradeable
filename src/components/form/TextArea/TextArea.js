@@ -3,7 +3,7 @@ import InputMessage from "../InputMessage/InputMessage";
 import TextAreaCSS from "./TextArea.module.css";
 
 function TextArea({
-  options: { className, label, placeholder, max },
+  options: { className, label, placeholder, max, min },
   formData: { register, errors },
 }) {
   const registerSettings = {
@@ -12,6 +12,10 @@ function TextArea({
       maxLength: {
         value: max,
         message: `Must be ${max} characters or less`,
+      },
+      minLength: {
+        value: min,
+        message: `Must be at least ${min} characters`,
       },
     }),
   };
