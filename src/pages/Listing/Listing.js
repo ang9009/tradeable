@@ -33,14 +33,16 @@ function Listing() {
       });
 
       // Images
+      const imagePromises = [];
+
       for (let i = 0; i < data.imagesNum; i++) {
         const pathRef = ref(storage, `listingImages/${listingId}/${i + 1}`);
-        getDownloadURL(pathRef).then((url) => {
-          setImages((prevImages) => {
-            return [...prevImages, url];
-          });
-        });
+        imagePromises.push(getDownloadURL(pathRef));
       }
+
+      Promise.all(imagePromises).then((images) => {
+        setImages(images);
+      });
     });
 
     // Detaches onSnapshot listener on component unmount
