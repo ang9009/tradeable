@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/ui/Button/Button";
 import SellerButtonsCSS from "./SellerButtons.module.css";
 
-function SellerButtons() {
+function SellerButtons({ listingId }) {
+  const navigate = useNavigate();
+
   return (
     <>
       <Button
@@ -17,6 +20,7 @@ function SellerButtons() {
           type: "gray-outline",
           className: SellerButtonsCSS["msg-seller-btn"],
         }}
+        onClick={() => navigate(`/edit-listing/${listingId}`)}
       />
       <Button
         options={{

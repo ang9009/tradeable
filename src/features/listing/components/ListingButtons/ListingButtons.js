@@ -4,14 +4,14 @@ import { useUser } from "../../../../context/UserContext";
 import SellerButtons from "../SellerButtons/SellerButtons";
 import ListingButtonsCSS from "./ListingButtons.module.css";
 
-function ListingButtons({ sellerId }) {
+function ListingButtons({ sellerId, listingId }) {
   const { user } = useUser();
 
   return (
     <div className={ListingButtonsCSS["listing-btns-container"]}>
       {user ? (
         user?.uid === sellerId ? (
-          <SellerButtons />
+          <SellerButtons listingId={listingId} />
         ) : (
           <Button
             options={{

@@ -15,9 +15,9 @@ import FullscreenDropzone from "../../features/modifylisting/components/Fullscre
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import { onSubmitListing, ref, storage } from "../../lib/firebase";
 import getId from "../../utils/getId";
-import CreateListingCSS from "./CreateListing.module.css";
+import EditListingCSS from "./EditListing.module.css";
 
-function CreateListing() {
+function EditListing() {
   const methods = useForm({ mode: "onChange" });
   const { user } = useUser();
   const navigate = useNavigate();
@@ -68,7 +68,7 @@ function CreateListing() {
             onKeyDown={(e) => checkKeyDown(e)}
             noValidate
           >
-            <h1 className="page-title">Create a new listing</h1>
+            <h1 className="page-title">Edit listing</h1>
             <ItemDetailsSection />
             <PhotosSection />
             <DescriptionSection />
@@ -77,7 +77,7 @@ function CreateListing() {
               options={{
                 type: "black-filled",
                 text: "Submit",
-                className: CreateListingCSS["submit-btn"],
+                className: EditListingCSS["submit-btn"],
               }}
               disabled={submitting}
             />
@@ -88,4 +88,4 @@ function CreateListing() {
   );
 }
 
-export default CreateListing;
+export default EditListing;

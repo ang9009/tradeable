@@ -57,7 +57,10 @@ function Listing() {
         <div className={ListingCSS["divider"]}></div>
         <div className={ListingCSS["seller-section"]}>
           <SellerWidget seller={seller} />
-          <ListingButtons sellerId={listingData.sellerId} />
+          <ListingButtons
+            sellerId={listingData.sellerId}
+            listingId={listingId}
+          />
         </div>
         <div className={ListingCSS["divider"]}></div>
         <div>
