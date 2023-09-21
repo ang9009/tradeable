@@ -1,4 +1,4 @@
-import { getDownloadURL, uploadBytes } from "firebase/storage";
+import { uploadBytes } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
@@ -13,14 +13,7 @@ import DealingMethodsSection from "../../features/createlisting/components/Deali
 import DescriptionSection from "../../features/createlisting/components/DescriptionSection/DescriptionSection";
 import FullscreenDropzone from "../../features/createlisting/components/FullscreenDropzone/FullscreenDropzone";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
-import {
-  db,
-  doc,
-  getDoc,
-  onSubmitListing,
-  ref,
-  storage,
-} from "../../lib/firebase";
+import { editListing, onSubmitListing, ref, storage } from "../../lib/firebase";
 import EditListingCSS from "./EditListing.module.css";
 
 function EditListing() {
@@ -39,40 +32,7 @@ function EditListing() {
   // Replacs data in form with listing data
   useEffect(() => {
     // TODO: move this into firebase.js or something
-    const listingRef = doc(db, "listings", listingId);
-    getDoc(listingRef).then((res) => {
-      const listingData = res.data();
-      const imagePromises = [];
-
-      for (let i = 0; i < listingData.imagesNum; i++) {
-        const pathRef = ref(storage, `listingImages/${listingId}/${i + 1}`);
-        imagePromises.push(getDownloadURL(pathRef));
-      }
-
-      Promise.all(imagePromises).then((photos) => {
-        console.log(photos);
-
-        methods.reset({
-          ...listingData,
-          condition: {
-            value: listingData.condition,
-            label: listingData.condition,
-          },
-          category: {
-            value: listingData.category,
-            label: listingData.category,
-          },
-          meetUpLocations: listingData.meetUpLocations.map((location) => {
-            return { value: location, label: location };
-          }),
-          photos: photos.map((url) => {
-            return { url: url };
-          }),
-        });
-
-        setIsFetchingListing(false);
-      });
-    });
+    editListing(listingId, methods.reset, setIsFetchingListing);
   }, []);
 
   return (

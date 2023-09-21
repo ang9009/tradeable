@@ -61,6 +61,43 @@ async function createUser(user) {
   await setDoc(doc(db, "users", user.uid), newUser);
 }
 
+function editListing(listingId, reset, setIsFetchingListing) {
+  const listingRef = doc(db, "listings", listingId);
+  getDoc(listingRef).then((res) => {
+    const listingData = res.data();
+    const imagePromises = [];
+
+    for (let i = 0; i < listingData.imagesNum; i++) {
+      const pathRef = ref(storage, `listingImages/${listingId}/${i + 1}`);
+      imagePromises.push(getDownloadURL(pathRef));
+    }
+
+    Promise.all(imagePromises).then((photos) => {
+      console.log(photos);
+
+      reset({
+        ...listingData,
+        condition: {
+          value: listingData.condition,
+          label: listingData.condition,
+        },
+        category: {
+          value: listingData.category,
+          label: listingData.category,
+        },
+        meetUpLocations: listingData.meetUpLocations.map((location) => {
+          return { value: location, label: location };
+        }),
+        photos: photos.map((url) => {
+          return { url: url };
+        }),
+      });
+
+      setIsFetchingListing(false);
+    });
+  });
+}
+
 export {
   auth,
   createUser,
@@ -73,4 +110,5 @@ export {
   provider,
   ref,
   storage,
+  editListing,
 };
