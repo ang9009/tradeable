@@ -13,7 +13,12 @@ import DealingMethodsSection from "../../features/createlisting/components/Deali
 import DescriptionSection from "../../features/createlisting/components/DescriptionSection/DescriptionSection";
 import FullscreenDropzone from "../../features/createlisting/components/FullscreenDropzone/FullscreenDropzone";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
-import { editListing, onSubmitListing, ref, storage } from "../../lib/firebase";
+import {
+  getEditListingData,
+  onSubmitListing,
+  ref,
+  storage,
+} from "../../lib/firebase";
 import EditListingCSS from "./EditListing.module.css";
 
 function EditListing() {
@@ -32,7 +37,7 @@ function EditListing() {
   // Replacs data in form with listing data
   useEffect(() => {
     // TODO: move this into firebase.js or something
-    editListing(listingId, methods.reset, setIsFetchingListing);
+    getEditListingData(listingId, methods.reset, setIsFetchingListing);
   }, []);
 
   return (

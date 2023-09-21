@@ -7,7 +7,7 @@ import {
   onSnapshot,
   setDoc,
 } from "firebase/firestore";
-import { getDownloadURL, getStorage, ref } from "firebase/storage";
+import { getBlob, getDownloadURL, getStorage, ref } from "firebase/storage";
 
 // TODO: hide api key
 const firebaseConfig = {
@@ -61,7 +61,7 @@ async function createUser(user) {
   await setDoc(doc(db, "users", user.uid), newUser);
 }
 
-function editListing(listingId, reset, setIsFetchingListing) {
+function getEditListingData(listingId, reset, setIsFetchingListing) {
   const listingRef = doc(db, "listings", listingId);
   getDoc(listingRef).then((res) => {
     const listingData = res.data();
@@ -69,12 +69,10 @@ function editListing(listingId, reset, setIsFetchingListing) {
 
     for (let i = 0; i < listingData.imagesNum; i++) {
       const pathRef = ref(storage, `listingImages/${listingId}/${i + 1}`);
-      imagePromises.push(getDownloadURL(pathRef));
+      imagePromises.push(getBlob(pathRef));
     }
 
-    Promise.all(imagePromises).then((photos) => {
-      console.log(photos);
-
+    Promise.all(imagePromises).then(async (photos) => {
       reset({
         ...listingData,
         condition: {
@@ -88,8 +86,8 @@ function editListing(listingId, reset, setIsFetchingListing) {
         meetUpLocations: listingData.meetUpLocations.map((location) => {
           return { value: location, label: location };
         }),
-        photos: photos.map((url) => {
-          return { url: url };
+        photos: photos.map((blob, i) => {
+          return { file: blob, url: URL.createObjectURL(blob) };
         }),
       });
 
@@ -105,10 +103,10 @@ export {
   doc,
   getDoc,
   getDownloadURL,
+  getEditListingData,
   onSnapshot,
   onSubmitListing,
   provider,
   ref,
   storage,
-  editListing,
 };

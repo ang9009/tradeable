@@ -9,7 +9,6 @@ const PhotosDropzone = forwardRef(function (
   { props: { onChange, value, isError } },
   ref
 ) {
-  console.log(value);
   const { getRootProps, getInputProps, rootRef, isFocused } = useDropzone({
     noDrag: true,
     onDrop: (files) => handleOnDrop(files, onChange, value),
