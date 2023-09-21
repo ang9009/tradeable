@@ -5,7 +5,7 @@ function Logo({ color, className }) {
   return (
     <Link to="/" className={`${LogoCSS.logo} ${className}`}>
       <div style={{ color: color || "#fff" }} className={LogoCSS["name"]}>
-        shareable
+        tradeable
       </div>
     </Link>
   );

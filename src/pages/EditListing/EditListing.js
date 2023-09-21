@@ -23,7 +23,6 @@ import {
 } from "../../lib/firebase";
 import EditListingCSS from "./EditListing.module.css";
 
-// TODO: holy shit this file is insane
 function EditListing() {
   const { listingId } = useParams();
   const { user } = useUser();
@@ -37,7 +36,9 @@ function EditListing() {
     mode: "onChange",
   });
 
+  // Replacs data in form with listing data
   useEffect(() => {
+    // TODO: move this into firebase.js or something
     const listingRef = doc(db, "listings", listingId);
     getDoc(listingRef).then((res) => {
       const listingData = res.data();

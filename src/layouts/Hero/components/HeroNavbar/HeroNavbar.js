@@ -34,7 +34,7 @@ function HeroNavbar() {
         }}
       >
         <div className={HeroNavbarCSS["nav-left"]}>
-          <Logo color={changeNav ? "var(--shareable-burgundy)" : "#fff"} />
+          <Logo color={changeNav ? "var(--tradeable-burgundy)" : "#fff"} />
           <HeroSearchbar changeNav={changeNav} />
         </div>
         <div className={HeroNavbarCSS["nav-right"]}>

@@ -20,7 +20,7 @@ const Navbar = () => {
       <nav className={NavbarCSS["nav-container"]}>
         <div className={NavbarCSS["nav-top"]}>
           <div className={NavbarCSS["nav-left"]}>
-            <Logo color={"var(--shareable-burgundy)"} />
+            <Logo color={"var(--tradeable-burgundy)"} />
             <NavSearchbar />
           </div>
           <div className={NavbarCSS["nav-right"]}>

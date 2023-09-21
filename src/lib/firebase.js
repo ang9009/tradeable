@@ -45,6 +45,7 @@ async function onSubmitListing(data, listingId, userId) {
     sellerId: userId,
     postedDate: date,
     imagesNum: data.photos.length,
+    status: "available",
   };
 
   await setDoc(doc(db, "listings", listingId), listing);

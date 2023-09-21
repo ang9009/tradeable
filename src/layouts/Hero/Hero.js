@@ -12,7 +12,7 @@ function Hero() {
         </div>
         <p className={HeroCSS["desc"]}>
           Take part in our sustainable initiative! Offer your second-hand items
-          to other members of CIS via shareable.
+          to other members of CIS via tradeable.
         </p>
         <button className={HeroCSS["fat-btn"]}>Sign up and get started</button>
       </div>

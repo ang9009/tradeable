@@ -1,1 +1,1 @@
-shareable
+tradeable

@@ -53,7 +53,7 @@
 }
 
 .search-btn {
-  background: var(--shareable-beige);
+  background: var(--tradeable-beige);
 }
 
 @media (max-width: 600px) {

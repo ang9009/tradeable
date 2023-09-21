@@ -31,7 +31,7 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
       <div className={AuthModalCSS["modal-right"]}>
         <h1 className={AuthModalCSS.title}>Sign in</h1>
         <p className={AuthModalCSS.desc}>
-          Use your CIS gmail account to log in to shareable. No registration
+          Use your CIS gmail account to log in to tradeable. No registration
           required.
         </p>
         <SignInButton signIn={() => handleLogin()} />
@@ -42,7 +42,7 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
           className={AuthModalCSS["sign-in-error"]}
         />
         <div class={AuthModalCSS["terms-text"]}>
-          By signing into shareable, I agree to its
+          By signing into tradeable, I agree to its
           <span className="bold"> Terms & Conditions</span>, which can be viewed{" "}
           <span className="link">here</span>.
         </div>

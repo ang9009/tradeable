@@ -38,7 +38,7 @@ function Sidebar({ openSidebar, setOpenSidebar, className }) {
           </ul>
           <Logo
             className={SidebarCSS["logo"]}
-            color={"var(--shareable-burgundy)"}
+            color={"var(--tradeable-burgundy)"}
           />
         </div>
       </div>
