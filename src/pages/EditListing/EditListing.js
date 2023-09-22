@@ -1,4 +1,4 @@
-import { uploadBytes } from "firebase/storage";
+import { listAll, uploadBytes } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
@@ -17,6 +17,7 @@ import PageContainer from "../../layouts/PageContainer/PageContainer";
 import {
   db,
   deleteDoc,
+  deleteObject,
   doc,
   getEditListingData,
   onSubmitListing,
@@ -134,6 +135,16 @@ function EditListing() {
           <Button
             options={{ type: "red-filled", text: "Delete listing" }}
             onClick={() => {
+              // Delete listing function
+              const storageRef = ref(storage, `listingImages/${listingId}`);
+
+              listAll(storageRef).then((listResults) => {
+                const promises = listResults.items.map((item) => {
+                  return deleteObject(item);
+                });
+
+                Promise.all(promises);
+              });
               deleteDoc(doc(db, "listings", listingId));
               navigate(`/profile/${user.uid}`);
               toast.success("Listing successfully deleted!", 3000);

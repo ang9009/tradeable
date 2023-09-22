@@ -53,7 +53,10 @@ function UserWidget({ changeNav }) {
         >
           <DropdownMenu.Item
             className={UserWidgetCSS["select-item"]}
-            onClick={() => setShowMenu(false)}
+            onClick={() => {
+              setShowMenu(false);
+              navigate(`/profile/${user.uid}`);
+            }}
           >
             Profile
           </DropdownMenu.Item>

@@ -8,7 +8,14 @@ import {
   onSnapshot,
   setDoc,
 } from "firebase/firestore";
-import { getBlob, getDownloadURL, getStorage, ref } from "firebase/storage";
+import {
+  deleteObject,
+  getBlob,
+  getDownloadURL,
+  getStorage,
+  listAll,
+  ref,
+} from "firebase/storage";
 
 // TODO: hide api key
 const firebaseConfig = {
@@ -102,10 +109,12 @@ export {
   createUser,
   db,
   deleteDoc,
+  deleteObject,
   doc,
   getDoc,
   getDownloadURL,
   getEditListingData,
+  listAll,
   onSnapshot,
   onSubmitListing,
   provider,
