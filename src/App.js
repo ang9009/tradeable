@@ -17,6 +17,7 @@ import { register } from "swiper/element/bundle";
 import EditListingRoute from "./features/auth/components/EditListingRoute/EditListingRoute";
 import CreateListing from "./pages/CreateListing/CreateListing";
 import EditListing from "./pages/EditListing/EditListing";
+import Messages from "./pages/Messages/Messages";
 import Profile from "./pages/Profile/Profile";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/listing/:listingId" element={<Listing />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/create-listing" element={<CreateListing />} />
+            <Route path="/messages" element={<Messages />} />
             <Route element={<EditListingRoute />}>
               <Route
                 path="/edit-listing/:listingId"

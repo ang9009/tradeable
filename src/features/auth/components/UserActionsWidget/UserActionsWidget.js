@@ -1,9 +1,10 @@
 import { FiMessageSquare } from "react-icons/fi";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import UserActionsWidgetCSS from "./UserActionsWidget.module.css";
 
 function UserActionsWidget({ changeNav }) {
   const location = useLocation();
+  const navigate = useNavigate();
   function handleColor() {
     return location.pathname === "/"
       ? changeNav
@@ -14,7 +15,12 @@ function UserActionsWidget({ changeNav }) {
 
   return (
     <div className={UserActionsWidgetCSS["user-actions-widget-container"]}>
-      <FiMessageSquare size={"22px"} color={handleColor()} />
+      <FiMessageSquare
+        size={"22px"}
+        color={handleColor()}
+        className={UserActionsWidgetCSS["message-btn"]}
+        onClick={() => navigate("/messages")}
+      />
     </div>
   );
 }

@@ -12,6 +12,11 @@ function UserWidget({ changeNav }) {
   const navigate = useNavigate();
   const location = useLocation();
 
+  function goToPage(page) {
+    setShowMenu(false);
+    navigate(page);
+  }
+
   return (
     <DropdownMenu.Root modal={false} open={showMenu}>
       <DropdownMenu.Trigger
@@ -53,10 +58,7 @@ function UserWidget({ changeNav }) {
         >
           <DropdownMenu.Item
             className={UserWidgetCSS["select-item"]}
-            onClick={() => {
-              setShowMenu(false);
-              navigate(`/profile/${user.uid}`);
-            }}
+            onClick={() => goToPage(`/profile/${user.uid}`)}
           >
             Profile
           </DropdownMenu.Item>
@@ -68,22 +70,15 @@ function UserWidget({ changeNav }) {
           </DropdownMenu.Item>
           <DropdownMenu.Item
             className={UserWidgetCSS["select-item"]}
-            onSelect={() => navigate("/create-listing")}
-            onClick={() => setShowMenu(false)}
+            onClick={() => goToPage("/create-listing")}
           >
             Create listing
           </DropdownMenu.Item>
           <DropdownMenu.Item
             className={UserWidgetCSS["select-item"]}
-            onClick={() => setShowMenu(false)}
+            onClick={() => goToPage("/messages")}
           >
             Messages
-          </DropdownMenu.Item>
-          <DropdownMenu.Item
-            className={UserWidgetCSS["select-item"]}
-            onClick={() => setShowMenu(false)}
-          >
-            Favorites
           </DropdownMenu.Item>
           <DropdownMenu.Separator
             className={UserWidgetCSS["select-separator"]}

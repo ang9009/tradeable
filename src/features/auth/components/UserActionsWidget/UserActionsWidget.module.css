@@ -6,3 +6,7 @@
 .user-actions-widget-container {
   display: flex;
 }
+
+.message-btn {
+  cursor: pointer;
+}
