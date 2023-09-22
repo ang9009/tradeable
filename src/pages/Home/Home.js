@@ -16,8 +16,8 @@ function Home() {
         </h1>
         <p className={HomeCSS["about-section-text"]}>
           We built a platform to facilitate the exchange of preloved items
-          between members of CIS! By posting or browsing listings, you can
-          donate, buy, and sell clothing, books, electronics, and more.
+          between students studying in London! Earn some extra cash by selling
+          unneeded items, or save money by buying items at a marked down price.
         </p>
         <button className={HomeCSS["arrow-btn"]}>
           Start exploring

@@ -6,9 +6,3 @@
 .user-actions-widget-container {
   display: flex;
 }
-
-@media (max-width: 900px) {
-  .user-actions-widget-container {
-    display: none;
-  }
-}

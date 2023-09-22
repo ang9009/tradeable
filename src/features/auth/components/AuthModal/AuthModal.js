@@ -31,7 +31,7 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
       <div className={AuthModalCSS["modal-right"]}>
         <h1 className={AuthModalCSS.title}>Sign in</h1>
         <p className={AuthModalCSS.desc}>
-          Use your CIS gmail account to log in to tradeable. No registration
+          Use your gmail account to log in to tradeable. No registration
           required.
         </p>
         <SignInButton signIn={() => handleLogin()} />

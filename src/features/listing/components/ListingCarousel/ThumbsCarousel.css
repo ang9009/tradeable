@@ -2,7 +2,6 @@
   margin-top: 15px;
   background: transparent;
   height: 125px;
-  cursor: pointer;
 }
 
 .thumbnail-carousel .swiper-slide-thumb-active {
@@ -11,4 +10,11 @@
 
 .thumbnail-carousel swiper-slide {
   opacity: 0.4;
+}
+
+/* If updated, change listingthumbs, listingcarousel, listing */
+@media (max-width: 900px) {
+  .thumbnail-carousel {
+    display: none;
+  }
 }
