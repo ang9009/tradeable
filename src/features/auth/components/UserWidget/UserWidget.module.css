@@ -95,6 +95,10 @@
 
 /* Must be the same screen width as hamburger disappearing in Navbar/HeroNavbar */
 @media (max-width: 900px) {
+  .widget-container {
+    pointer-events: none;
+  }
+
   .username,
   .down-chevron {
     display: none;
