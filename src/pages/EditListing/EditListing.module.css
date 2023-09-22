@@ -6,3 +6,25 @@
   margin-top: var(--form-section-margin-top);
   display: flex;
 }
+
+.delete-modal {
+  background: #fff;
+  height: 45vh;
+  width: 30vw;
+  line-height: 25px;
+}
+
+.modal-btns-container {
+  display: flex;
+  margin-top: 25px;
+}
+
+.cancel-btn {
+  margin-left: 10px;
+}
+
+@media (max-width: 1200px) {
+  .delete-modal {
+    min-width: 400px;
+  }
+}

@@ -17,6 +17,7 @@ import { register } from "swiper/element/bundle";
 import EditListingRoute from "./features/auth/components/EditListingRoute/EditListingRoute";
 import CreateListing from "./pages/CreateListing/CreateListing";
 import EditListing from "./pages/EditListing/EditListing";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   // Registers Swiper custom elements (carousel)
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route element={<AppLayout />}>
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/profile/:userId" element={<Profile />} />
           <Route path="/listing/:listingId" element={<Listing />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/create-listing" element={<CreateListing />} />

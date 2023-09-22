@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth } from "firebase/auth";
 import {
+  deleteDoc,
   doc,
   getDoc,
   getFirestore,
@@ -100,6 +101,7 @@ export {
   auth,
   createUser,
   db,
+  deleteDoc,
   doc,
   getDoc,
   getDownloadURL,
