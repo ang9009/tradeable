@@ -57,10 +57,6 @@
 }
 
 @media (max-width: 600px) {
-  .ios-app-btn {
-    display: none;
-  }
-
   .sign-in-btn {
     font-size: var(--smaller-font-size);
     margin-left: 15px;
