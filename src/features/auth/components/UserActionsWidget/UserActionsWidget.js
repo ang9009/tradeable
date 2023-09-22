@@ -16,7 +16,7 @@ function UserActionsWidget({ changeNav }) {
   return (
     <div className={UserActionsWidgetCSS["user-actions-widget-container"]}>
       <FiMessageSquare
-        size={"22px"}
+        size={"27px"}
         color={handleColor()}
         className={UserActionsWidgetCSS["message-btn"]}
         onClick={() => navigate("/messages")}
