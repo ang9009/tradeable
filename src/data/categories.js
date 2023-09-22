@@ -1,9 +1,9 @@
 const categories = [
-  "Donated",
+  "Kitchen",
+  "Cleaning",
+  "Electronics",
   "Textbooks",
   "Clothing",
-  "Electronics",
-  "Subscriptions",
   "Miscellaneous",
 ];
 

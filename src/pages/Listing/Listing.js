@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ListingCarousel, ListingInfo } from "../../features/listing";
-import ListingButtons from "../../features/listing/components/ListingButtons/ListingButtons";
-import SellerWidget from "../../features/listing/components/SellerWidget/SellerWidget";
+import {
+  ListingButtons,
+  ListingCarousel,
+  ListingInfo,
+  SellerWidget,
+} from "../../features/listing";
 import {
   db,
   doc,
@@ -55,6 +58,7 @@ function Listing() {
         className={ListingCSS["carousel-container"]}
         images={images}
         imagesNum={listingData.imagesNum}
+        status={listingData.status}
       />
       <div className={ListingCSS["listing-details"]}>
         <ListingInfo listingData={listingData} />
@@ -64,6 +68,7 @@ function Listing() {
           <ListingButtons
             sellerId={listingData.sellerId}
             listingId={listingId}
+            status={listingData.status}
           />
         </div>
         <div className={ListingCSS["divider"]}></div>

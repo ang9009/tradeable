@@ -7,12 +7,11 @@ export const modalStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     border: "none",
-    width: "50vw",
-    height: "75vh",
     padding: "0",
     position: "relative",
     borderRadius: "5px",
     overflow: "hidden",
+    lineHeight: "25px",
   },
   overlay: {
     background: "rgba(0, 0, 0, 0.6)",

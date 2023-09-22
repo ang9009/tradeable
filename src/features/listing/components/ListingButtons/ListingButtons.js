@@ -4,7 +4,7 @@ import { useUser } from "../../../../context/UserContext";
 import SellerButtons from "../SellerButtons/SellerButtons";
 import ListingButtonsCSS from "./ListingButtons.module.css";
 
-function ListingButtons({ sellerId, listingId }) {
+function ListingButtons({ sellerId, listingId, status }) {
   const { user, isFetchingUser } = useUser();
 
   return (
@@ -13,18 +13,8 @@ function ListingButtons({ sellerId, listingId }) {
     <div className={ListingButtonsCSS["listing-btns-container"]}>
       {isFetchingUser ? (
         <Skeleton />
-      ) : user ? (
-        user?.uid === sellerId ? (
-          <SellerButtons listingId={listingId} />
-        ) : (
-          <Button
-            options={{
-              text: "Message seller",
-              type: "black-filled",
-              className: ListingButtonsCSS["msg-seller-btn"],
-            }}
-          />
-        )
+      ) : user?.uid === sellerId ? (
+        <SellerButtons listingId={listingId} status={status} />
       ) : (
         <Button
           options={{
@@ -32,6 +22,7 @@ function ListingButtons({ sellerId, listingId }) {
             type: "black-filled",
             className: ListingButtonsCSS["msg-seller-btn"],
           }}
+          disabled={status === "reserved" || status === "sold"}
         />
       )}
     </div>

@@ -6,12 +6,12 @@ import { toast } from "react-toastify";
 import Button from "../../components/ui/Button/Button";
 import { useUser } from "../../context/UserContext";
 import {
+  DealingMethodsSection,
+  DescriptionSection,
+  FullscreenDropzone,
   ItemDetailsSection,
   PhotosSection,
 } from "../../features/createlisting";
-import DealingMethodsSection from "../../features/createlisting/components/DealingMethodsSection/DealingMethodsSection";
-import DescriptionSection from "../../features/createlisting/components/DescriptionSection/DescriptionSection";
-import FullscreenDropzone from "../../features/createlisting/components/FullscreenDropzone/FullscreenDropzone";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import {
   getEditListingData,

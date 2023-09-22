@@ -1,0 +1,21 @@
+.modal-btns-container {
+  display: flex;
+  margin-top: 25px;
+}
+
+.cancel-btn {
+  margin-left: 10px;
+}
+
+.sold-modal {
+  background: #fff;
+  height: 45vh;
+  width: 30vw;
+  line-height: 25px;
+}
+
+@media (max-width: 1200px) {
+  .sold-modal {
+    min-width: 400px;
+  }
+}

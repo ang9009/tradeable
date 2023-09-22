@@ -108,5 +108,6 @@ export {
   onSubmitListing,
   provider,
   ref,
+  setDoc,
   storage,
 };

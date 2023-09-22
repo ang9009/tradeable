@@ -3,12 +3,13 @@ import ReactModal from "react-modal";
 import { modalStyles } from "../../../data/modalStyles";
 import ModalCSS from "./Modal.module.css";
 
-function Modal({ isOpen, handleClose, children, title }) {
+function Modal({ isOpen, handleClose, children, title, className }) {
   return (
     <ReactModal
       isOpen={isOpen}
       onRequestClose={handleClose}
       style={modalStyles}
+      className={className}
     >
       <div className={ModalCSS["modal-content"]}>
         <FiX

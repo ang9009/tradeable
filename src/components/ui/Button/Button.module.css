@@ -89,3 +89,8 @@
   background: var(--warning-red);
   color: #fff;
 }
+
+.red-filled {
+  background: var(--warning-red);
+  color: #fff;
+}
