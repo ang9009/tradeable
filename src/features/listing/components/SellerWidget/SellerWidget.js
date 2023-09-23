@@ -5,7 +5,7 @@ function SellerWidget({ seller }) {
   return (
     <div className={SellerWidgetCSS["widget-container"]}>
       <img
-        src={seller.photoURL}
+        src={seller.photoUrl}
         alt=""
         className={SellerWidgetCSS["seller-img"]}
       />

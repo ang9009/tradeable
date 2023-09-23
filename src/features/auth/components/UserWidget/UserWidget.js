@@ -17,6 +17,8 @@ function UserWidget({ changeNav }) {
     navigate(page);
   }
 
+  console.log(user);
+
   return (
     <DropdownMenu.Root modal={false} open={showMenu}>
       <DropdownMenu.Trigger
@@ -25,12 +27,7 @@ function UserWidget({ changeNav }) {
         onMouseLeave={() => setShowMenu(false)}
         onClick={() => setShowMenu(false)}
         style={{
-          color:
-            location.pathname === "/"
-              ? changeNav
-                ? "black"
-                : "white"
-              : "black",
+          color: "black",
         }}
       >
         <img src={user.photoURL} alt="" />

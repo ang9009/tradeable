@@ -1,25 +1,39 @@
+import hero from "../../assets/hero.jpg";
+import Button from "../../components/ui/Button/Button";
 import { useUser } from "../../context/UserContext";
 import HeroCSS from "./Hero.module.css";
-import HeroNavbar from "./components/HeroNavbar/HeroNavbar";
+
 function Hero() {
   const { user } = useUser();
 
   return (
     <div className={HeroCSS["hero-container"]}>
-      <HeroNavbar />
       <div className={HeroCSS["hero-text"]}>
-        <div className={HeroCSS["title-container"]}>
-          <span className={HeroCSS["title"]}>
-            Trade your second-hand items with other students
-          </span>
-        </div>
+        <span className={HeroCSS["title"]}>
+          Save or make money back on dorm essentials
+        </span>
         <p className={HeroCSS["desc"]}>
-          Take part in our sustainable initiative: sell preloved items to other
+          Take part in our sustainable initiative! Sell preloved items to other
           students in London, or save money by buying them.
         </p>
-        <button className={HeroCSS["fat-btn"]}>Start exploring</button>
+        <div className={HeroCSS["btns-container"]}>
+          <Button
+            options={{
+              type: "black-filled",
+              text: "How it works",
+              className: HeroCSS["how-it-works-btn"],
+            }}
+          />
+          <Button
+            options={{
+              type: "gray-outline",
+              text: "Explore",
+              className: HeroCSS["explore-btn"],
+            }}
+          />
+        </div>
+        <img src={hero} alt="" />
       </div>
-      <div className={HeroCSS["hero-bg"]}></div>
     </div>
   );
 }

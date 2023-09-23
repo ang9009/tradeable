@@ -13,14 +13,6 @@ function AuthWidget({ changeNav, className }) {
   const { user } = useUser();
   const location = useLocation();
 
-  function handleButtonType() {
-    if (location.pathname === "/") {
-      return changeNav ? "black-outline" : "white-outline";
-    }
-
-    return "black-outline";
-  }
-
   return (
     <div className={className}>
       <div className={AuthWidgetCSS["auth-widget-container"]}>
@@ -28,7 +20,7 @@ function AuthWidget({ changeNav, className }) {
           <>
             <Button
               options={{
-                type: handleButtonType(),
+                type: "black-outline",
                 text: "Sell",
                 className: AuthWidgetCSS["sell-btn"],
               }}
@@ -44,12 +36,7 @@ function AuthWidget({ changeNav, className }) {
         ) : (
           <Button
             options={{
-              type:
-                location.pathname === "/"
-                  ? changeNav
-                    ? "black-outline"
-                    : "white-outline"
-                  : "black-outline",
+              type: "black-outline",
               text: "Sign in",
               className: AuthWidgetCSS["sign-in-btn"],
             }}

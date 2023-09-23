@@ -1,5 +1,5 @@
 .hero-container {
-  height: 100vh;
+  height: calc(100vh - var(--navbar-height));
   width: 100%;
   position: relative;
 }
@@ -7,9 +7,9 @@
 .hero-bg {
   background: url("../../assets/hero.jpeg") no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: calc(100vh - var(--navbar-height));
   width: 100%;
-  filter: brightness(60%);
+  filter: brightness(55%);
   background-position: 50% 20%;
   position: absolute;
   z-index: -9999;
@@ -18,91 +18,53 @@
 .hero-text {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   user-select: none;
   position: absolute;
-  top: calc(50%);
-  transform: translateY(calc(-50%));
-  padding: 0 10vw;
-  margin: 0 10vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
 }
 
-.title-container {
-  overflow: hidden;
-  display: flex;
-  align-items: center;
+.hero-text > * {
+  text-align: center;
 }
 
 .title {
-  color: #fff;
   font-family: "Tomato Grotesk", "sans-serif";
   font-size: calc(2rem + 2vw);
   font-weight: var(--bold);
   line-height: calc(2.2rem + 2vw);
-  animation-name: fadeUpTitle;
-  animation-timing-function: cubic-bezier(0.6, 0.01, -0.05, 0.95);
-  animation-fill-mode: forwards;
-  animation-duration: 1000ms;
+  max-width: 700px;
 }
 
 .desc {
-  color: #fff;
   margin-top: 17px;
   font-size: calc(0.8rem + 0.3vw);
   line-height: calc(1rem + 0.8vw);
-  animation-name: fadeUp;
-  animation-fill-mode: forwards;
-  animation-delay: 600ms;
-  opacity: 0;
-  animation-duration: 700ms;
-  text-align: left;
-  max-width: 500px;
+  max-width: 550px;
   width: 70vw;
 }
 
-.fat-btn {
-  background: none;
-  border: none;
-  color: rgb(252, 219, 191);
-  padding: 13px 20px;
-  font-weight: normal;
-  border: 1px solid rgb(252, 219, 191);
-  background: rgba(252, 219, 191, 0.2);
-  font-size: var(--smaller-font-size);
-  font-family: "Tomato Grotesk", "sans-serif";
-  cursor: pointer;
-  border-radius: 50px;
-  margin-top: 47px;
-  animation-name: fadeUp;
-  animation-fill-mode: forwards;
-  animation-delay: 700ms;
-  opacity: 0;
-  animation-duration: 700ms;
+.how-it-works-btn,
+.explore-btn {
+  padding: 10px 20px;
+  margin-top: 17px;
 }
 
-@keyframes fadeUpTitle {
-  from {
-    opacity: 0;
-    transform: translateY(200px);
-  }
-  to {
-    opacity: 1;
-  }
+.explore-btn {
+  margin-left: 15px;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-  }
+.btns-container {
+  display: flex;
 }
 
 @media (max-width: 500px) {
   .hero-text {
     padding: 0;
+    align-items: flex-start;
   }
 
   .hero-text > * {

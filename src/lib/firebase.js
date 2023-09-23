@@ -63,7 +63,7 @@ async function createUser(user) {
   const newUser = {
     name: user.displayName,
     email: user.email,
-    photoURL: user.photoURL,
+    photoUrl: user.photoURL,
   };
 
   await setDoc(doc(db, "users", user.uid), newUser);

@@ -29,8 +29,8 @@ function App() {
       {/* For react toastify */}
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route element={<AppLayout />}>
+          <Route path="/" element={<Home />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/profile/:userId" element={<Profile />} />
           <Route path="/listing/:listingId" element={<Listing />} />
