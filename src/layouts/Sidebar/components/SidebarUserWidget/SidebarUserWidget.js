@@ -10,6 +10,10 @@ function SidebarUserWidget({ className, setOpenSidebar }) {
   const { user } = useUser();
   const navigate = useNavigate();
   const location = useLocation();
+  function goToPage(page) {
+    setShowDropdown(false);
+    navigate(page);
+  }
 
   return (
     <>
@@ -32,10 +36,10 @@ function SidebarUserWidget({ className, setOpenSidebar }) {
             <ul className={`${SidebarUserWidgetCSS["dropdown"]}`}>
               <li>Profile</li>
               <li>Settings</li>
-              <li onClick={() => navigate("/create-listing")}>
+              <li onClick={() => goToPage("/create-listing")}>
                 Create listing
               </li>
-              <li>Messages</li>
+              <li onClick={() => goToPage("/messages")}>Messages</li>
               <li>Favorites</li>
               <li
                 onClick={() => {
