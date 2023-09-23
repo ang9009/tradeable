@@ -19,13 +19,13 @@ import {
 
 // TODO: hide api key
 const firebaseConfig = {
-  apiKey: "AIzaSyBplunqQBPKGiHdd5FCoJ5KZZ6RNZqlNQ8",
-  authDomain: "tradeable-6ed31.firebaseapp.com",
-  projectId: "tradeable-6ed31",
-  storageBucket: "tradeable-6ed31.appspot.com",
-  messagingSenderId: "450849674146",
-  appId: "1:450849674146:web:ac534abf225c61750018fb",
-  measurementId: "G-J2MX4443L4",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
