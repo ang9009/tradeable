@@ -17,8 +17,6 @@ function UserWidget({ changeNav }) {
     navigate(page);
   }
 
-  console.log(user);
-
   return (
     <DropdownMenu.Root modal={false} open={showMenu}>
       <DropdownMenu.Trigger
@@ -42,12 +40,7 @@ function UserWidget({ changeNav }) {
         <DropdownMenu.Content
           className={UserWidgetCSS["select-menu"]}
           style={{
-            border:
-              location.pathname === "/"
-                ? changeNav
-                  ? "var(--primary-border)"
-                  : "1px solid #fff"
-                : "var(--primary-border)",
+            border: "var(--primary-border)",
           }}
           onMouseOver={() => setShowMenu(true)}
           onMouseLeave={() => setShowMenu(false)}

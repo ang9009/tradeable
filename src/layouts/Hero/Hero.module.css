@@ -1,30 +1,9 @@
-.hero-container {
-  height: calc(100vh - var(--navbar-height));
-  width: 100%;
-  position: relative;
-}
-
-.hero-bg {
-  background: url("../../assets/hero.jpeg") no-repeat;
-  background-size: cover;
-  height: calc(100vh - var(--navbar-height));
-  width: 100%;
-  filter: brightness(55%);
-  background-position: 50% 20%;
-  position: absolute;
-  z-index: -9999;
-}
-
 .hero-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   user-select: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #000;
+  color: #000000;
 }
 
 .hero-text > * {
@@ -33,10 +12,11 @@
 
 .title {
   font-family: "Tomato Grotesk", "sans-serif";
-  font-size: calc(2rem + 2vw);
+  font-size: calc(2rem + 1.5vw);
   font-weight: var(--bold);
   line-height: calc(2.2rem + 2vw);
-  max-width: 700px;
+  width: 900px;
+  margin-top: 80px;
 }
 
 .desc {
@@ -59,6 +39,11 @@
 
 .btns-container {
   display: flex;
+}
+
+.hero-img {
+  margin-top: 80px;
+  width: 800px;
 }
 
 @media (max-width: 500px) {
