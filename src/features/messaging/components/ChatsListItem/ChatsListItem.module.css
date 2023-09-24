@@ -1,0 +1,48 @@
+.component-container {
+  padding: 30px 25px;
+  border-bottom: 1px solid var(--primary-border-color);
+  transition: background 0.2s;
+}
+
+.component-container:hover {
+  background: #f6f6f6;
+  cursor: pointer;
+}
+
+.user-info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listing-info-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listing-title {
+  max-width: 220px;
+  text-wrap: wrap;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.listing-img {
+  width: 55px;
+  height: 55px;
+  margin-left: 15px;
+  border-radius: 5px;
+}
+
+.last-msg {
+  margin-top: 3px;
+  color: var(--secondary-text-color);
+}
+
+.last-msg-time,
+.username {
+  color: var(--secondary-text-color);
+}

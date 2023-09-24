@@ -6,6 +6,7 @@ import ListingButtonsCSS from "./ListingButtons.module.css";
 
 function ListingButtons({ sellerId, listingId, status }) {
   const { user, isFetchingUser } = useUser();
+  async function createChat() {}
 
   return (
     // If user is logged out, display non-seller buttons. If user is logged in,

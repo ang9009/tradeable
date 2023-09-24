@@ -1,0 +1,32 @@
+.component-container {
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid var(--primary-border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-img {
+  height: 45px;
+  width: 45px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.name-and-status {
+  margin-left: 12px;
+}
+
+.status {
+  margin-top: 2px;
+}
+
+.report-btn {
+  cursor: pointer;
+}

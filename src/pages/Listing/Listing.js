@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   ListingButtons,
   ListingCarousel,
@@ -19,6 +19,7 @@ import ListingCSS from "./Listing.module.css";
 
 function Listing() {
   const { listingId } = useParams();
+  const navigate = useNavigate();
   const [listingData, setListingData] = useState({});
   const [seller, setSeller] = useState({});
   const [images, setImages] = useState([]);
@@ -26,6 +27,11 @@ function Listing() {
   useEffect(() => {
     // Fetches listing data, seller object, and images
     const unsub = onSnapshot(doc(db, "listings", listingId), (res) => {
+      if (!res.exists()) {
+        navigate("/404");
+        return;
+      }
+
       const data = res.data();
       setListingData(data);
 

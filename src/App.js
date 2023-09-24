@@ -18,6 +18,7 @@ import EditListingRoute from "./features/auth/components/EditListingRoute/EditLi
 import CreateListing from "./pages/CreateListing/CreateListing";
 import EditListing from "./pages/EditListing/EditListing";
 import Messages from "./pages/Messages/Messages";
+import NotFound from "./pages/NotFound/NotFound";
 import Profile from "./pages/Profile/Profile";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/profile/:userId" element={<Profile />} />
           <Route path="/listing/:listingId" element={<Listing />} />
+          <Route path="/404" element={<NotFound />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/create-listing" element={<CreateListing />} />
             <Route path="/messages" element={<Messages />} />

@@ -1,0 +1,34 @@
+.component-container {
+  width: 100%;
+  border-bottom: 1px solid var(--primary-border-color);
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.listing-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.listing-details {
+  margin-left: 15px;
+}
+
+.listing-name {
+  max-width: 400px;
+  font-size: calc(0.8rem + 0.2vw);
+  text-wrap: wrap;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.price {
+  font-size: calc(0.9rem + 0.2vw);
+  font-weight: bold;
+  margin-top: 5px;
+}

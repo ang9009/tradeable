@@ -1,0 +1,4 @@
+.chat-container {
+  width: 800px;
+  border-right: 1px solid var(--primary-border-color);
+}
