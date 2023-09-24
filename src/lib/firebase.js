@@ -1,12 +1,19 @@
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, getAuth } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  getAdditionalUserInfo,
+  getAuth,
+} from "firebase/auth";
 import {
   deleteDoc,
   doc,
   getDoc,
+  getDocs,
   getFirestore,
   onSnapshot,
+  serverTimestamp,
   setDoc,
+  updateDoc,
 } from "firebase/firestore";
 import {
   deleteObject,
@@ -67,6 +74,7 @@ async function createUser(user) {
   };
 
   await setDoc(doc(db, "users", user.uid), newUser);
+  await setDoc(doc(db, "userChats", user.uid), {});
 }
 
 function getEditListingData(listingId, reset, setIsFetchingListing) {
@@ -104,14 +112,57 @@ function getEditListingData(listingId, reset, setIsFetchingListing) {
   });
 }
 
+async function createChat(user, sellerId) {
+  // Ensures that chatId is always the same
+  const chatId =
+    user.uid > sellerId ? user.uid + sellerId : sellerId + user.uid;
+
+  try {
+    const res = await getDoc(doc(db, "chats", chatId));
+
+    // Creates a new chat between two users
+    if (!res.exists()) {
+      await setDoc(doc(db, "chats", chatId), { messages: [] });
+    }
+
+    // Updates user chat for user
+    await updateDoc(doc(db, "userChats", user.uid), {
+      [chatId + ".userInfo"]: {
+        id: user.uid,
+        name: user.displayName,
+        photoUrl: user.photoURL,
+      },
+      [chatId + ".date"]: serverTimestamp(),
+    });
+
+    // Updates user chat for seller
+    const sellerRes = await getDoc(doc(db, "users", sellerId));
+    const seller = sellerRes.data();
+
+    await updateDoc(doc(db, "userChats", sellerId), {
+      [chatId + ".userInfo"]: {
+        id: sellerId,
+        name: seller.name,
+        photoUrl: seller.photoUrl,
+      },
+      [chatId + ".date"]: serverTimestamp(),
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export {
   auth,
+  createChat,
   createUser,
   db,
   deleteDoc,
   deleteObject,
   doc,
+  getAdditionalUserInfo,
   getDoc,
+  getDocs,
   getDownloadURL,
   getEditListingData,
   listAll,
@@ -119,6 +170,8 @@ export {
   onSubmitListing,
   provider,
   ref,
+  serverTimestamp,
   setDoc,
   storage,
+  updateDoc,
 };
