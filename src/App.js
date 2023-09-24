@@ -15,6 +15,7 @@ import Listing from "./pages/Listing/Listing";
 import { ToastContainer } from "react-toastify";
 import { register } from "swiper/element/bundle";
 import EditListingRoute from "./features/auth/components/EditListingRoute/EditListingRoute";
+import ListingRoute from "./features/listing/components/ListingRoute/ListingRoute";
 import CreateListing from "./pages/CreateListing/CreateListing";
 import EditListing from "./pages/EditListing/EditListing";
 import Messages from "./pages/Messages/Messages";
@@ -34,7 +35,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/profile/:userId" element={<Profile />} />
-          <Route path="/listing/:listingId" element={<Listing />} />
+          <Route element={<ListingRoute />}>
+            <Route path="/listing/:listingId" element={<Listing />} />
+          </Route>
           <Route path="/404" element={<NotFound />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/create-listing" element={<CreateListing />} />

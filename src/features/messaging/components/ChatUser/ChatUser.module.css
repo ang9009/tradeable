@@ -25,6 +25,7 @@
 
 .status {
   margin-top: 2px;
+  color: var(--secondary-text-color);
 }
 
 .report-btn {

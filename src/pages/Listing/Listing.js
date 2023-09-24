@@ -27,11 +27,6 @@ function Listing() {
   useEffect(() => {
     // Fetches listing data, seller object, and images
     const unsub = onSnapshot(doc(db, "listings", listingId), (res) => {
-      if (!res.exists()) {
-        navigate("/404");
-        return;
-      }
-
       const data = res.data();
       setListingData(data);
 
