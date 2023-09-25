@@ -1,29 +1,26 @@
-import { useState } from "react";
 import ChatsListTabsCSS from "./ChatsListTabs.module.css";
 
-function ChatsListTabs() {
-  const [tab, setTab] = useState("buyers");
-
+function ChatsListTabs({ tab, setTab }) {
   return (
     <div className={ChatsListTabsCSS["tabs-container"]}>
       <button
         className={ChatsListTabsCSS["tab-btn"]}
-        onClick={() => setTab("buyers")}
+        onClick={() => setTab("buying")}
         style={{
           borderBottom:
-            tab === "buyers" && "2px solid var(--tradeable-burgundy)",
-          color: tab === "buyers" && "var(--tradeable-burgundy)",
+            tab === "buying" && "2px solid var(--tradeable-burgundy)",
+          color: tab === "buying" && "var(--tradeable-burgundy)",
         }}
       >
         Buying from
       </button>
       <button
         className={ChatsListTabsCSS["tab-btn"]}
-        onClick={() => setTab("sellers")}
+        onClick={() => setTab("selling")}
         style={{
           borderBottom:
-            tab === "sellers" && "2px solid var(--tradeable-burgundy)",
-          color: tab === "sellers" && "var(--tradeable-burgundy)",
+            tab === "selling" && "2px solid var(--tradeable-burgundy)",
+          color: tab === "selling" && "var(--tradeable-burgundy)",
         }}
       >
         Selling to

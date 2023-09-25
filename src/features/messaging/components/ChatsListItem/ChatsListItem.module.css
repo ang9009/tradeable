@@ -5,7 +5,7 @@
 }
 
 .component-container:hover {
-  background: #f6f6f6;
+  background: var(--hover-gray);
   cursor: pointer;
 }
 

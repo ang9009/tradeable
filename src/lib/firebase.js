@@ -112,39 +112,43 @@ function getEditListingData(listingId, reset, setIsFetchingListing) {
   });
 }
 
-async function createChat(user, sellerId) {
-  // Ensures that chatId is always the same
-  const chatId =
-    user.uid > sellerId ? user.uid + sellerId : sellerId + user.uid;
+async function createChat(user, sellerId, listingId) {
+  // If two people buy and sell from each other, the chat ids should be different
+  const chatId = user.uid + sellerId;
 
   try {
     const res = await getDoc(doc(db, "chats", chatId));
 
-    // Creates a new chat between two users
+    // Creates a new chat between two users holding the messages in that chat
     if (!res.exists()) {
       await setDoc(doc(db, "chats", chatId), { messages: [] });
     }
 
-    // Updates user chat for user
-    await updateDoc(doc(db, "userChats", user.uid), {
+    // userChats stores the list of chats for each user
+    // Updates user chat for seller
+    await updateDoc(doc(db, "userChats", sellerId), {
       [chatId + ".userInfo"]: {
         id: user.uid,
         name: user.displayName,
         photoUrl: user.photoURL,
       },
+      [chatId + ".listingId"]: listingId,
+      [chatId + ".type"]: "selling",
       [chatId + ".date"]: serverTimestamp(),
     });
 
-    // Updates user chat for seller
+    // Updates user chat for user
     const sellerRes = await getDoc(doc(db, "users", sellerId));
     const seller = sellerRes.data();
 
-    await updateDoc(doc(db, "userChats", sellerId), {
+    await updateDoc(doc(db, "userChats", user.uid), {
       [chatId + ".userInfo"]: {
         id: sellerId,
         name: seller.name,
         photoUrl: seller.photoUrl,
       },
+      [chatId + ".listingId"]: listingId,
+      [chatId + ".type"]: "buying",
       [chatId + ".date"]: serverTimestamp(),
     });
   } catch (err) {

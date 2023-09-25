@@ -11,9 +11,10 @@
   cursor: pointer;
   color: var(--secondary-text-color);
   position: relative;
-  transition: color 0.2s;
+  transition: color, background 0.2s;
 }
 
 .tab-btn:hover {
   color: var(--tradeable-burgundy);
+  background: var(--hover-gray);
 }

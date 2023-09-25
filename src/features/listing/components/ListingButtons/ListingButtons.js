@@ -24,7 +24,7 @@ function ListingButtons({ sellerId, listingId, status }) {
             className: ListingButtonsCSS["msg-seller-btn"],
           }}
           disabled={status === "reserved" || status === "sold"}
-          onClick={async () => await createChat(user, sellerId)}
+          onClick={async () => await createChat(user, sellerId, listingId)}
         />
       )}
     </div>
