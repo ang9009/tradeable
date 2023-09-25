@@ -16,10 +16,6 @@ function Messages() {
     function getChats() {
       const unsub = onSnapshot(doc(db, "userChats", user.uid), (doc) => {
         setUserChats(Object.entries(doc.data()));
-
-        if (Object.keys(doc.data()).length !== 0) {
-          setSelectedChat(Object.entries(doc.data())[0]);
-        }
       });
 
       return () => unsub();
@@ -28,13 +24,18 @@ function Messages() {
     user.uid && getChats();
   }, [user.uid]);
 
+  // Updates the selected chat for the Chat component
+  // useEffect(() => {
+  //   const filteredChats = userChats.filter((chat) => chat[1].type === tab);
+  //   setSelectedChat(filteredChats[0]);
+  // }, [tab]);
+
   return (
     <div className={MessagesCSS["components-container"]}>
       <ChatsList
         userChats={userChats}
-        setSelectedChat={setSelectedChat}
-        tab={tab}
-        setTab={setTab}
+        selectedChatData={{ selectedChat, setSelectedChat }}
+        tabData={{ tab, setTab }}
       />
       <Chat selectedChat={selectedChat} />
     </div>

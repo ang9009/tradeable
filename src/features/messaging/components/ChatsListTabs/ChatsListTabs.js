@@ -1,11 +1,16 @@
 import ChatsListTabsCSS from "./ChatsListTabs.module.css";
 
-function ChatsListTabs({ tab, setTab }) {
+function ChatsListTabs({ tab, setTab, setSelectedChat }) {
+  function changeTab(tab) {
+    setTab(tab);
+    setSelectedChat([]);
+  }
+
   return (
     <div className={ChatsListTabsCSS["tabs-container"]}>
       <button
         className={ChatsListTabsCSS["tab-btn"]}
-        onClick={() => setTab("buying")}
+        onClick={() => changeTab("buying")}
         style={{
           borderBottom:
             tab === "buying" && "2px solid var(--tradeable-burgundy)",
@@ -16,7 +21,7 @@ function ChatsListTabs({ tab, setTab }) {
       </button>
       <button
         className={ChatsListTabsCSS["tab-btn"]}
-        onClick={() => setTab("selling")}
+        onClick={() => changeTab("selling")}
         style={{
           borderBottom:
             tab === "selling" && "2px solid var(--tradeable-burgundy)",

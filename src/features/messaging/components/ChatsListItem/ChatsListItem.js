@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { db } from "../../../../lib/firebase";
 import ChatsListItemCSS from "./ChatsListItem.module.css";
 
-function ChatsListItem({ chat, onClick }) {
+function ChatsListItem({ chat, onClick, selectedChat }) {
   const [listing, setListing] = useState({});
 
   useEffect(() => {
@@ -22,7 +22,13 @@ function ChatsListItem({ chat, onClick }) {
   }, [chat]);
 
   return (
-    <div className={ChatsListItemCSS["component-container"]} onClick={onClick}>
+    <div
+      className={ChatsListItemCSS["component-container"]}
+      style={{
+        background: chat[0] === selectedChat[0] && "var(--hover-gray)",
+      }}
+      onClick={onClick}
+    >
       {listing ? (
         <>
           <div className={ChatsListItemCSS["user-info-container"]}>
