@@ -22,7 +22,6 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
       className={AuthModalCSS["auth-modal"]}
       overlayClassName={AuthModalCSS["overlay"]}
     >
-      <div className={AuthModalCSS["modal-img"]}></div>
       <FiX
         size={"20px"}
         onClick={() => setIsAuthModalOpen(false)}

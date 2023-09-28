@@ -2,13 +2,14 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useUser } from "../../context/UserContext";
 import { Chat, ChatsList } from "../../features/messaging";
-import { db } from "../../lib/firebase";
+import { db, getChatListings } from "../../lib/firebase";
 import MessagesCSS from "./Messages.module.css";
 
 function Messages() {
   const [userChats, setUserChats] = useState([]);
+  const [listings, setListings] = useState([]);
+  const [isFetchingListings, setIsFetchingListings] = useState(true);
   const [selectedChat, setSelectedChat] = useState([]);
-  const [tab, setTab] = useState("buying");
   const { user } = useUser();
 
   // Fetches chats
@@ -21,23 +22,30 @@ function Messages() {
       return () => unsub();
     }
 
-    user.uid && getChats();
+    user.uid && getChats(userChats);
   }, [user.uid]);
 
-  // Updates the selected chat for the Chat component
-  // useEffect(() => {
-  //   const filteredChats = userChats.filter((chat) => chat[1].type === tab);
-  //   setSelectedChat(filteredChats[0]);
-  // }, [tab]);
+  // Fetches listings and their images
+  useEffect(() => {
+    if (userChats.length !== 0) {
+      getChatListings(userChats).then((chatListings) => {
+        setListings(chatListings);
+        setIsFetchingListings(false);
+      });
+    }
+  }, [userChats]);
 
   return (
     <div className={MessagesCSS["components-container"]}>
       <ChatsList
         userChats={userChats}
         selectedChatData={{ selectedChat, setSelectedChat }}
-        tabData={{ tab, setTab }}
+        listingData={{ listings, isFetchingListings }}
       />
-      <Chat selectedChat={selectedChat} />
+      <Chat
+        selectedChat={selectedChat}
+        listingData={{ listings, isFetchingListings }}
+      />
     </div>
   );
 }

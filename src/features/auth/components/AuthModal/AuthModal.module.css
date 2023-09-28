@@ -71,8 +71,8 @@
   transform: translate(-50%, -50%);
   background: #fff;
   border: none;
-  max-width: 700px;
-  height: 500px;
+  max-width: 350px;
+  height: 430px;
   position: relative;
   border-radius: 5px;
   overflow: auto;
@@ -92,15 +92,6 @@
 }
 
 @media (max-width: 1200px) {
-  .modal-img {
-    display: none;
-  }
-
-  .auth-modal {
-    max-width: 380px;
-    height: 450px;
-  }
-
   .modal-content-container {
     align-items: flex-start;
   }

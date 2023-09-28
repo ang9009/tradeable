@@ -36,6 +36,7 @@
   height: 55px;
   margin-left: 15px;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 .last-msg {

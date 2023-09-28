@@ -1,26 +1,12 @@
-import { doc, getDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { db } from "../../../../lib/firebase";
+import Skeleton from "react-loading-skeleton";
 import ChatsListItemCSS from "./ChatsListItem.module.css";
 
-function ChatsListItem({ chat, onClick, selectedChat }) {
-  const [listing, setListing] = useState({});
-
-  useEffect(() => {
-    function getListing() {
-      const listingRef = doc(db, "listings", chat[1].listingId);
-      getDoc(listingRef).then((res) => {
-        if (!res.exists()) {
-          setListing(null);
-        } else {
-          setListing(res.data());
-        }
-      });
-    }
-
-    chat && getListing();
-  }, [chat]);
-
+function ChatsListItem({
+  chat,
+  onClick,
+  selectedChat,
+  listingData: { listing, isFetchingListings },
+}) {
   return (
     <div
       className={ChatsListItemCSS["component-container"]}
@@ -29,7 +15,7 @@ function ChatsListItem({ chat, onClick, selectedChat }) {
       }}
       onClick={onClick}
     >
-      {listing ? (
+      {!isFetchingListings && listing ? (
         <>
           <div className={ChatsListItemCSS["user-info-container"]}>
             <p className={ChatsListItemCSS.username}>{chat[1].userInfo.name}</p>
@@ -37,8 +23,11 @@ function ChatsListItem({ chat, onClick, selectedChat }) {
           </div>
           <div className={ChatsListItemCSS["listing-info-container"]}>
             <div>
-              <p className={ChatsListItemCSS["listing-title"]}>
-                {listing.name}
+              <p
+                className={ChatsListItemCSS["listing-title"]}
+                style={{ color: listing ? "black" : "red" }}
+              >
+                {listing ? listing.name : "Listing removed"}
               </p>
               <p className={ChatsListItemCSS["last-msg"]}>
                 {chat[1].userInfo.lastMessage
@@ -47,14 +36,21 @@ function ChatsListItem({ chat, onClick, selectedChat }) {
               </p>
             </div>
             <img
-              src={require("../../../../assets/authmodal_img.jpg")}
+              src={
+                listing
+                  ? listing.photoUrl
+                  : require("../../../../assets/placeholder_img.jpg")
+              }
               alt=""
               className={ChatsListItemCSS["listing-img"]}
             />
           </div>
         </>
       ) : (
-        <div>Doesn't exist</div>
+        <>
+          <Skeleton height={"30px"} />
+          <Skeleton height={"30px"} style={{ marginTop: "30px" }} />
+        </>
       )}
     </div>
   );

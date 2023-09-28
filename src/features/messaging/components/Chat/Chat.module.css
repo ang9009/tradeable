@@ -2,3 +2,21 @@
   width: 800px;
   border-right: 1px solid var(--primary-border-color);
 }
+
+.no-chats-msg-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--secondary-text-color);
+}
+
+.no-chats-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-chats-text {
+  margin-top: 10px;
+}

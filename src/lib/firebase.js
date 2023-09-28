@@ -52,6 +52,7 @@ async function onSubmitListing(data, listingId, userId) {
 
   const listing = {
     name: data.name,
+    id: listingId,
     condition: data.condition.value,
     category: data.category.value,
     price: data.price,
@@ -113,28 +114,25 @@ function getEditListingData(listingId, reset, setIsFetchingListing) {
 }
 
 async function createChat(user, sellerId, listingId) {
-  // If two people buy and sell from each other, the chat ids should be different
-  const chatId = user.uid + sellerId;
-
   try {
-    const res = await getDoc(doc(db, "chats", chatId));
+    const res = await getDoc(doc(db, "chats", listingId));
 
     // Creates a new chat between two users holding the messages in that chat
     if (!res.exists()) {
-      await setDoc(doc(db, "chats", chatId), { messages: [] });
+      await setDoc(doc(db, "chats", listingId), { messages: [] });
     }
 
     // userChats stores the list of chats for each user
     // Updates user chat for seller
     await updateDoc(doc(db, "userChats", sellerId), {
-      [chatId + ".userInfo"]: {
+      [listingId + ".userInfo"]: {
         id: user.uid,
         name: user.displayName,
         photoUrl: user.photoURL,
       },
-      [chatId + ".listingId"]: listingId,
-      [chatId + ".type"]: "selling",
-      [chatId + ".date"]: serverTimestamp(),
+      [listingId + ".listingId"]: listingId,
+      [listingId + ".type"]: "selling",
+      [listingId + ".date"]: serverTimestamp(),
     });
 
     // Updates user chat for user
@@ -142,18 +140,50 @@ async function createChat(user, sellerId, listingId) {
     const seller = sellerRes.data();
 
     await updateDoc(doc(db, "userChats", user.uid), {
-      [chatId + ".userInfo"]: {
+      [listingId + ".userInfo"]: {
         id: sellerId,
         name: seller.name,
         photoUrl: seller.photoUrl,
       },
-      [chatId + ".listingId"]: listingId,
-      [chatId + ".type"]: "buying",
-      [chatId + ".date"]: serverTimestamp(),
+      [listingId + ".listingId"]: listingId,
+      [listingId + ".type"]: "buying",
+      [listingId + ".date"]: serverTimestamp(),
     });
   } catch (err) {
     console.log(err);
   }
+}
+
+async function getChatListings(userChats) {
+  // Fetching listings
+  const listingPromises = [];
+  const listingImgPromises = [];
+
+  userChats.forEach((chat) => {
+    const listingRef = doc(db, "listings", chat[1].listingId);
+    const listingPromise = getDoc(listingRef);
+    listingPromises.push(listingPromise);
+  });
+
+  const listingSnapshots = await Promise.all(listingPromises);
+  const listings = listingSnapshots.map((listing) => listing.data());
+
+  listings.forEach((listing) => {
+    if (listing !== null) {
+      const imgRef = ref(storage, `listingImages/${listing.id}/1`);
+      const listingImgPromise = getDownloadURL(imgRef);
+      listingImgPromises.push(listingImgPromise);
+    } else {
+      listingImgPromises.push(null);
+    }
+  });
+
+  const listingImgs = await Promise.all(listingImgPromises);
+  const listingsAndImgs = listings.map((listing, i) => {
+    return { ...listing, photoUrl: listingImgs[i] };
+  });
+
+  return listingsAndImgs;
 }
 
 export {
@@ -165,6 +195,7 @@ export {
   deleteObject,
   doc,
   getAdditionalUserInfo,
+  getChatListings,
   getDoc,
   getDocs,
   getDownloadURL,

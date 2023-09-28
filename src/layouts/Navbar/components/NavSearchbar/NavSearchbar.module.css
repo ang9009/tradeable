@@ -1,11 +1,11 @@
 .searchbar {
   margin-left: 30px;
-  border-radius: 50px;
+  border-radius: 9999px;
   display: flex;
   align-items: center;
   height: 43px;
   width: 100%;
-  outline: 1px solid black;
+  border: 1px solid black;
   background: none;
 }
 
