@@ -115,7 +115,8 @@ function getEditListingData(listingId, reset, setIsFetchingListing) {
 
 async function createChat(user, sellerId, listingId) {
   try {
-    const res = await getDoc(doc(db, "chats", listingId));
+    const chatId = listingId + user.uid;
+    const res = await getDoc(doc(db, "chats", chatId));
 
     // Creates a new chat between two users holding the messages in that chat
     if (!res.exists()) {
@@ -125,14 +126,14 @@ async function createChat(user, sellerId, listingId) {
     // userChats stores the list of chats for each user
     // Updates user chat for seller
     await updateDoc(doc(db, "userChats", sellerId), {
-      [listingId + ".userInfo"]: {
+      [chatId + ".userInfo"]: {
         id: user.uid,
         name: user.displayName,
         photoUrl: user.photoURL,
       },
-      [listingId + ".listingId"]: listingId,
-      [listingId + ".type"]: "selling",
-      [listingId + ".date"]: serverTimestamp(),
+      [chatId + ".listingId"]: listingId,
+      [chatId + ".type"]: "selling",
+      [chatId + ".date"]: serverTimestamp(),
     });
 
     // Updates user chat for user
@@ -140,14 +141,14 @@ async function createChat(user, sellerId, listingId) {
     const seller = sellerRes.data();
 
     await updateDoc(doc(db, "userChats", user.uid), {
-      [listingId + ".userInfo"]: {
+      [chatId + ".userInfo"]: {
         id: sellerId,
         name: seller.name,
         photoUrl: seller.photoUrl,
       },
-      [listingId + ".listingId"]: listingId,
-      [listingId + ".type"]: "buying",
-      [listingId + ".date"]: serverTimestamp(),
+      [chatId + ".listingId"]: listingId,
+      [chatId + ".type"]: "buying",
+      [chatId + ".date"]: serverTimestamp(),
     });
   } catch (err) {
     console.log(err);
@@ -169,7 +170,7 @@ async function getChatListings(userChats) {
   const listings = listingSnapshots.map((listing) => listing.data());
 
   listings.forEach((listing) => {
-    if (listing !== null) {
+    if (listing) {
       const imgRef = ref(storage, `listingImages/${listing.id}/1`);
       const listingImgPromise = getDownloadURL(imgRef);
       listingImgPromises.push(listingImgPromise);
@@ -180,7 +181,11 @@ async function getChatListings(userChats) {
 
   const listingImgs = await Promise.all(listingImgPromises);
   const listingsAndImgs = listings.map((listing, i) => {
-    return { ...listing, photoUrl: listingImgs[i] };
+    if (listing) {
+      return { ...listing, photoUrl: listingImgs[i] };
+    } else {
+      return null;
+    }
   });
 
   return listingsAndImgs;

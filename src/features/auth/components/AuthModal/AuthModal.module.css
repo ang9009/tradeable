@@ -1,12 +1,3 @@
-.modal-img {
-  background: url("../../../../assets/authmodal_img.jpg");
-  width: 80%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 40%;
-}
-
 .close-btn {
   cursor: pointer;
   color: black;
@@ -15,8 +6,8 @@
   top: 25px;
 }
 
-.modal-right {
-  padding: 60px 40px;
+.modal-container {
+  padding: 50px 40px;
   height: 100%;
   display: flex;
   flex-direction: column;

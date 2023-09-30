@@ -27,7 +27,7 @@ function AuthModal({ isAuthModalOpen, setIsAuthModalOpen }) {
         onClick={() => setIsAuthModalOpen(false)}
         className={AuthModalCSS["close-btn"]}
       />
-      <div className={AuthModalCSS["modal-right"]}>
+      <div className={AuthModalCSS["modal-container"]}>
         <h1 className={AuthModalCSS.title}>Sign in</h1>
         <p className={AuthModalCSS.desc}>
           Use your gmail account to log in to tradeable. No registration

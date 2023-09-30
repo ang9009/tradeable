@@ -15,7 +15,7 @@ function ChatsListItem({
       }}
       onClick={onClick}
     >
-      {!isFetchingListings && listing ? (
+      {!isFetchingListings ? (
         <>
           <div className={ChatsListItemCSS["user-info-container"]}>
             <p className={ChatsListItemCSS.username}>{chat[1].userInfo.name}</p>

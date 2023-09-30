@@ -1,6 +1,7 @@
 .chat-container {
   width: 800px;
   border-right: 1px solid var(--primary-border-color);
+  position: relative;
 }
 
 .no-chats-msg-container {
@@ -17,6 +18,12 @@
   align-items: center;
 }
 
-.no-chats-text {
+.no-chats-msg h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
   margin-top: 10px;
+}
+
+.no-chats-msg p {
+  margin-top: 5px;
 }

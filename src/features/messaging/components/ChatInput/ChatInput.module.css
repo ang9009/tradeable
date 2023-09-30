@@ -1,0 +1,22 @@
+.input-container {
+  height: 60px;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--primary-border-color);
+}
+
+.text-input {
+  border: none;
+  height: 30px;
+  width: 100%;
+}
+
+.text-input:focus {
+  outline: none;
+}
+
+.image-btn {
+  cursor: pointer;
+}

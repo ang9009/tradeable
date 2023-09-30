@@ -23,6 +23,11 @@ function ChatsList({
             onClick={() => setSelectedChat(chat)}
           />
         ))}
+      {userChats.length === 0 && (
+        <div className={ChatsListCSS["no-chats-msg"]}>
+          <p>Chats will appear here</p>
+        </div>
+      )}
     </div>
   );
 }

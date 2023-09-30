@@ -6,9 +6,10 @@ import { useUser } from "../../../../context/UserContext";
 import { auth } from "../../../../lib/firebase";
 import UserWidgetCSS from "./UserWidget.module.css";
 
-function UserWidget({ changeNav }) {
+function UserWidget() {
   const [showMenu, setShowMenu] = useState(false);
-  const { user } = useUser();
+  const [photoUrl, setPhotoUrl] = useState("");
+  const { user, isFetchingUser } = useUser();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -28,7 +29,7 @@ function UserWidget({ changeNav }) {
           color: "black",
         }}
       >
-        <img src={user.photoURL} alt="" />
+        <img src={user.photoURL} alt={"Profile image"} />
         <div className={UserWidgetCSS.username}>{user.displayName}</div>
         <FiChevronDown
           className={`${UserWidgetCSS["down-chevron"]} ${

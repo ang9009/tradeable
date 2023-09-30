@@ -1,9 +1,15 @@
 import Skeleton from "react-loading-skeleton";
+import { useNavigate } from "react-router-dom";
 import ChatListingInfoCSS from "./ChatListingInfo.module.css";
 
 function ChatListingInfo({ listing, isFetchingListing }) {
+  const navigate = useNavigate();
+
   return (
-    <div className={ChatListingInfoCSS["component-container"]}>
+    <div
+      className={ChatListingInfoCSS["component-container"]}
+      onClick={() => navigate(`/listing/${listing.id}`)}
+    >
       {!isFetchingListing ? (
         <>
           <img

@@ -1,5 +1,7 @@
 import { FiMessageSquare } from "react-icons/fi";
+import ChatInput from "../ChatInput/ChatInput";
 import ChatListingInfo from "../ChatListingInfo/ChatListingInfo";
+import ChatMessages from "../ChatMessages/ChatMessages";
 import ChatUser from "../ChatUser/ChatUser";
 import ChatCSS from "./Chat.module.css";
 
@@ -11,24 +13,24 @@ function Chat({ selectedChat, listingData: { listings, isFetchingListings } }) {
           <ChatUser userInfo={selectedChat[1].userInfo} />
           <ChatListingInfo
             listing={
-              // TODO: scuffed
               listings.filter(
-                (listing) => listing.id === selectedChat[1].listingId
+                (listing) => listing && listing.id === selectedChat[1].listingId
               )[0]
             }
             isFetchingListing={isFetchingListings}
           />
+          <ChatMessages />
+          <ChatInput />
         </>
       ) : (
         <div className={ChatCSS["no-chats-msg-container"]}>
           <div className={ChatCSS["no-chats-msg"]}>
             <FiMessageSquare
               color={"var(--secondary-text-color"}
-              size={"30px"}
+              size={"50px"}
             />
-            <p className={ChatCSS["no-chats-text"]}>
-              Select a chat from the left
-            </p>
+            <h1>Your messages</h1>
+            <p>Select a chat from the left</p>
           </div>
         </div>
       )}

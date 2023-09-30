@@ -38,7 +38,7 @@ function App() {
           <Route element={<ListingRoute />}>
             <Route path="/listing/:listingId" element={<Listing />} />
           </Route>
-          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/create-listing" element={<CreateListing />} />
             <Route path="/messages" element={<Messages />} />

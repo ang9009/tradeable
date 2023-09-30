@@ -1,0 +1,28 @@
+.not-found-img {
+  width: calc(22em + 25vw);
+}
+
+.page-container {
+  display: grid;
+  place-items: center;
+  height: calc(100vh - var(--navbar-height));
+}
+
+.not-found-msg {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found-msg h1 {
+  font-size: 4rem;
+  font-family: "Tomato Grotesk", "sans serif";
+  line-height: 5rem;
+  height: 100%;
+}
+
+.not-found-msg p {
+  font-size: 1rem;
+  width: 210px;
+}

@@ -31,7 +31,7 @@ function EditListingRoute() {
   ) : listingExists && user.uid === sellerId ? (
     <Outlet />
   ) : (
-    <Navigate to="/404" />
+    <Navigate to="*" />
   );
 }
 
