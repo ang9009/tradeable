@@ -16,12 +16,13 @@ function ListingInfo({ listingData }) {
         <p>
           Meet up locations
           <span className={ListingInfoCSS.data}>
+            {/* Add commas to all locations except the last one */}
             {listingData?.meetUpLocations?.map((location, i) => {
               const length = listingData.meetUpLocations.length;
               return i !== length - 1 ? (
-                <span>{location}, </span>
+                <span key={location}>{location}, </span>
               ) : (
-                <span>{location}</span>
+                <span key={location}>{location}</span>
               );
             })}
           </span>

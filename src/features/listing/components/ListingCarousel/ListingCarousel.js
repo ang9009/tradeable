@@ -28,7 +28,7 @@ function ListingCarousel({ images, imagesNum, className, status }) {
               navigation="true"
             >
               {images.map((url) => (
-                <swiper-slide>
+                <swiper-slide key={url}>
                   <img src={url} alt="" class={ListingCarouselCSS.img} />
                 </swiper-slide>
               ))}
@@ -41,7 +41,7 @@ function ListingCarousel({ images, imagesNum, className, status }) {
             navigation="true"
           >
             {images.map((url) => (
-              <swiper-slide>
+              <swiper-slide key={url}>
                 <img src={url} alt="" class={ListingCarouselCSS.img} />
               </swiper-slide>
             ))}

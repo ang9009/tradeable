@@ -1,12 +1,15 @@
 import Skeleton from "react-loading-skeleton";
+import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/ui/Button/Button";
 import { useUser } from "../../../../context/UserContext";
 import { createChat } from "../../../../lib/firebase";
+import getChatId from "../../../../utils/getChatId";
 import SellerButtons from "../SellerButtons/SellerButtons";
 import ListingButtonsCSS from "./ListingButtons.module.css";
 
 function ListingButtons({ sellerId, listingId, status }) {
   const { user, isFetchingUser } = useUser();
+  const navigate = useNavigate();
 
   return (
     // If user is logged out, display non-seller buttons. If user is logged in,
@@ -24,7 +27,11 @@ function ListingButtons({ sellerId, listingId, status }) {
             className: ListingButtonsCSS["msg-seller-btn"],
           }}
           disabled={status === "reserved" || status === "sold" || !user}
-          onClick={async () => await createChat(user, sellerId, listingId)}
+          onClick={() => {
+            createChat(user, sellerId, listingId).then(() => {
+              navigate(`/messages/${getChatId(user.uid, sellerId, listingId)}`);
+            });
+          }}
         />
       )}
     </div>

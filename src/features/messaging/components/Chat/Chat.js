@@ -30,7 +30,7 @@ function Chat({ selectedChat, listingData: { listings, isFetchingListings } }) {
               size={"50px"}
             />
             <h1>Your messages</h1>
-            <p>Select a chat from the left</p>
+            <p>Chat with buyers and sellers here</p>
           </div>
         </div>
       )}

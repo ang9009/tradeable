@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../../../../components/ui/Button/Button";
 import Modal from "../../../../components/ui/Modal/Modal";
+import { useUser } from "../../../../context/UserContext";
 import { db, doc, setDoc } from "../../../../lib/firebase";
 import SellerButtonsCSS from "./SellerButtons.module.css";
 
 function SellerButtons({ listingId, status }) {
   const navigate = useNavigate();
   const [soldModalIsOpen, setSoldModalIsOpen] = useState(false);
+  const { user } = useUser();
 
   return (
     <>
@@ -17,6 +19,7 @@ function SellerButtons({ listingId, status }) {
           text: "View messages",
           type: "black-filled",
         }}
+        onClick={() => navigate(`/messages`)}
       />
       {status !== "sold" && (
         <>

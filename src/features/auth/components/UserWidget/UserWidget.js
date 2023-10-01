@@ -8,7 +8,6 @@ import UserWidgetCSS from "./UserWidget.module.css";
 
 function UserWidget() {
   const [showMenu, setShowMenu] = useState(false);
-  const [photoUrl, setPhotoUrl] = useState("");
   const { user, isFetchingUser } = useUser();
   const navigate = useNavigate();
   const location = useLocation();

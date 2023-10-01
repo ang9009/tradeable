@@ -18,9 +18,8 @@ function Messages() {
   useEffect(() => {
     function getChats() {
       const unsub = onSnapshot(doc(db, "userChats", user.uid), (doc) => {
-        // Sorted by most updated
         const userChats = Object.entries(doc.data()).sort(
-          (a, b) => b[1].date.seconds - a[1].date.seconds
+          (a, b) => b[1]?.date?.seconds - a[1]?.date?.seconds
         );
 
         setUserChats(userChats);
@@ -28,6 +27,7 @@ function Messages() {
 
       return () => unsub();
     }
+
     user.uid && getChats(userChats);
   }, [user.uid]);
 
@@ -44,7 +44,10 @@ function Messages() {
   // Updates selected chat based on chatId
   useEffect(() => {
     if (userChats.length !== 0 && chatId && chatId.length !== 0) {
-      setSelectedChat(userChats.find((chat) => chat[0] === chatId));
+      const selectedChat = userChats.find((chat) => chat[0] === chatId);
+      selectedChat && setSelectedChat(selectedChat);
+    } else {
+      setSelectedChat([]);
     }
   }, [chatId, userChats]);
 

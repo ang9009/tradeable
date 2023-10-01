@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../../../context/UserContext";
+import getChatId from "../../../../utils/getChatId";
 import ChatsListItem from "../ChatsListItem/ChatsListItem";
 import ChatsListCSS from "./ChatsList.module.css";
 
@@ -26,12 +27,11 @@ function ChatsList({
             }}
             key={chat[0]}
             onClick={() => {
-              const chatIdPrefix =
-                user.uid > chat[1].userInfo.id
-                  ? user.uid + chat[1].userInfo.id
-                  : chat[1].userInfo.id + user.uid;
-              const chatId = listings[i].id + chatIdPrefix;
-
+              const chatId = getChatId(
+                user.uid,
+                chat[1].userInfo.id,
+                listings[i].id
+              );
               navigate(`/messages/${chatId}`);
             }}
           />
