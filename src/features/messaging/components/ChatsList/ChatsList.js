@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import ChatsListItem from "../ChatsListItem/ChatsListItem";
 import ChatsListCSS from "./ChatsList.module.css";
 
@@ -6,6 +7,8 @@ function ChatsList({
   selectedChatData: { selectedChat, setSelectedChat },
   listingData: { listings, isFetchingListings },
 }) {
+  const navigate = useNavigate();
+
   return (
     <div className={ChatsListCSS["chat-list-container"]}>
       {/* chat[0] is the id, chat[1] holds chat info */}
@@ -20,7 +23,7 @@ function ChatsList({
               isFetchingListings: isFetchingListings,
             }}
             key={chat[0]}
-            onClick={() => setSelectedChat(chat)}
+            onClick={() => navigate(`/messages/${listings[i].id}`)}
           />
         ))}
       {userChats.length === 0 && (

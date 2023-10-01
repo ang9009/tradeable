@@ -40,7 +40,7 @@ function Sidebar({ openSidebar, setOpenSidebar, className }) {
           )}
           <ul className={SidebarCSS["category-list"]}>
             {categories.map((category) => (
-              <li>{category}</li>
+              <li key={category}>{category}</li>
             ))}
           </ul>
           <Logo

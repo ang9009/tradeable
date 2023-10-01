@@ -1,5 +1,6 @@
 import { doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 import { Chat, ChatsList } from "../../features/messaging";
 import { db, getChatListings } from "../../lib/firebase";
@@ -11,12 +12,18 @@ function Messages() {
   const [isFetchingListings, setIsFetchingListings] = useState(true);
   const [selectedChat, setSelectedChat] = useState([]);
   const { user } = useUser();
+  const { chatId } = useParams();
 
   // Fetches chats
   useEffect(() => {
     function getChats() {
       const unsub = onSnapshot(doc(db, "userChats", user.uid), (doc) => {
-        setUserChats(Object.entries(doc.data()));
+        // Sorted by most updated
+        const userChats = Object.entries(doc.data()).sort(
+          (a, b) => b[1].date.seconds - a[1].date.seconds
+        );
+
+        setUserChats(userChats);
       });
 
       return () => unsub();

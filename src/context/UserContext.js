@@ -13,11 +13,6 @@ function useUser() {
   };
 }
 
-// TODO: delete if unnecessary
-function useUserUpdate() {
-  return useContext(UserUpdateContext);
-}
-
 function UserProvider({ children }) {
   const [currUser, setCurrUser] = useState(null);
   const [isFetchingUser, setIsFetchingUser] = useState(true);
@@ -42,13 +37,11 @@ function UserProvider({ children }) {
 
   return (
     <UserContext.Provider value={currUser}>
-      <UserUpdateContext.Provider value={setCurrUser}>
-        <IsFetchingUserContext.Provider value={isFetchingUser}>
-          {children}
-        </IsFetchingUserContext.Provider>
-      </UserUpdateContext.Provider>
+      <IsFetchingUserContext.Provider value={isFetchingUser}>
+        {children}
+      </IsFetchingUserContext.Provider>
     </UserContext.Provider>
   );
 }
 
-export { UserProvider, useUser, useUserUpdate };
+export { UserProvider, useUser };

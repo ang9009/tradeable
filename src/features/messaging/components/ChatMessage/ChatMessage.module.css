@@ -18,10 +18,10 @@
   gap: 15px;
 }
 
-.message-content p {
-  background-color: #f7ddc3;
-  padding: 10px 12px;
+.message-text {
+  padding: 10px 15px;
   border-radius: 5px;
+  max-width: max-content;
 }
 
 .message-content img {
@@ -32,4 +32,33 @@
   display: flex;
   flex-direction: column;
   color: var(--secondary-text-color);
+}
+
+.message-time {
+  margin-top: 5px;
+  color: var(--secondar-text-color);
+  font-size: 0.8rem;
+}
+
+/* Current user message styles */
+.curr-user .message-text {
+  background-color: #ebebeb;
+}
+
+.curr-user {
+  flex-direction: row-reverse;
+}
+
+.curr-user .message-content {
+  align-items: flex-end;
+}
+
+.curr-user .message-info img {
+  display: none;
+}
+
+.curr-user .message-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

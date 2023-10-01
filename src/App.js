@@ -41,7 +41,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/create-listing" element={<CreateListing />} />
-            <Route path="/messages" element={<Messages />} />
+            <Route path="/messages/:chatId" element={<Messages />} />
             <Route element={<EditListingRoute />}>
               <Route
                 path="/edit-listing/:listingId"

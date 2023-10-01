@@ -10,8 +10,6 @@ function ChatMessages() {
       <ChatMessage />
       <ChatMessage />
       <ChatMessage />
-      <ChatMessage />
-      <ChatMessage />
     </div>
   );
 }

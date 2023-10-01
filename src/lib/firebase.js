@@ -115,7 +115,12 @@ function getEditListingData(listingId, reset, setIsFetchingListing) {
 
 async function createChat(user, sellerId, listingId) {
   try {
-    const chatId = listingId + user.uid;
+    // Seller and buyer should be able to buy things from each other, so listingId is added to differentiate
+    // However, we also need to be able to fetch the same chat for both users from the chats collection
+    // Thus, chatIdPrefix ensures that the same id can be reproduced
+    const chatIdPrefix =
+      user.uid > sellerId ? user.uid + sellerId : sellerId + user.uid;
+    const chatId = listingId + chatIdPrefix;
     const res = await getDoc(doc(db, "chats", chatId));
 
     // Creates a new chat between two users holding the messages in that chat

@@ -35,7 +35,7 @@ const Navbar = () => {
         <div className={NavbarCSS["nav-bottom"]}>
           <ul>
             {categories.map((category) => (
-              <li>{category}</li>
+              <li key={category}>{category}</li>
             ))}
           </ul>
         </div>
