@@ -43,10 +43,10 @@ function Messages() {
 
   // Updates selected chat based on chatId
   useEffect(() => {
-    if (chatId && chatId.length !== 0) {
+    if (userChats.length !== 0 && chatId && chatId.length !== 0) {
       setSelectedChat(userChats.find((chat) => chat[0] === chatId));
     }
-  }, [chatId]);
+  }, [chatId, userChats]);
 
   return (
     <div className={MessagesCSS["components-container"]}>
