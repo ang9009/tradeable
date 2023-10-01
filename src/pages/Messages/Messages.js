@@ -41,8 +41,9 @@ function Messages() {
     }
   }, [userChats]);
 
+  // Updates selected chat based on chatId
   useEffect(() => {
-    if (chatId.length !== 0) {
+    if (chatId && chatId.length !== 0) {
       setSelectedChat(userChats.find((chat) => chat[0] === chatId));
     }
   }, [chatId]);
