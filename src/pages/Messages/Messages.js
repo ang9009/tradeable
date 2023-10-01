@@ -28,7 +28,6 @@ function Messages() {
 
       return () => unsub();
     }
-
     user.uid && getChats(userChats);
   }, [user.uid]);
 
@@ -41,6 +40,12 @@ function Messages() {
       });
     }
   }, [userChats]);
+
+  useEffect(() => {
+    if (chatId.length !== 0) {
+      setSelectedChat(userChats.find((chat) => chat[0] === chatId));
+    }
+  }, [chatId]);
 
   return (
     <div className={MessagesCSS["components-container"]}>
