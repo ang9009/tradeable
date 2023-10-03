@@ -1,16 +1,30 @@
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../../../context/UserContext";
 import getChatId from "../../../../utils/getChatId";
+import { ChatContext } from "../../context/ChatContext";
 import ChatsListItem from "../ChatsListItem/ChatsListItem";
 import ChatsListCSS from "./ChatsList.module.css";
 
 function ChatsList({
   userChats,
-  selectedChatData: { selectedChat, setSelectedChat },
+  selectedChat,
   listingData: { listings, isFetchingListings },
 }) {
   const navigate = useNavigate();
   const { user } = useUser();
+  const { dispatch } = useContext(ChatContext);
+  function handleSelect(otherUser, listing) {
+    const chatId = getChatId(user.uid, otherUser.id, listing.id);
+    navigate(`/messages/${chatId}`);
+  }
+
+  // Updates seller chat info
+  useEffect(() => {
+    if (selectedChat.length !== 0) {
+      dispatch({ type: "CHANGE_USER", payload: selectedChat[1].userInfo });
+    }
+  }, [selectedChat]);
 
   return (
     <div className={ChatsListCSS["chat-list-container"]}>
@@ -26,14 +40,7 @@ function ChatsList({
               isFetchingListings: isFetchingListings,
             }}
             key={chat[0]}
-            onClick={() => {
-              const chatId = getChatId(
-                user.uid,
-                chat[1].userInfo.id,
-                listings[i].id
-              );
-              navigate(`/messages/${chatId}`);
-            }}
+            onClick={() => handleSelect(chat[1].userInfo, listings[i])}
           />
         ))}
       {userChats.length === 0 && (

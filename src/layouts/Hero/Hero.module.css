@@ -1,13 +1,14 @@
 .hero-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  user-select: none;
+  align-items: flex-start;
+  cursor: default;
   color: #000000;
+  padding: 0 70px;
 }
 
 .hero-text > * {
-  text-align: center;
+  text-align: left;
 }
 
 .title {
@@ -15,12 +16,12 @@
   font-size: calc(2rem + 1.5vw);
   font-weight: var(--bold);
   line-height: calc(2.2rem + 2vw);
-  width: 900px;
+  width: 800px;
   margin-top: 80px;
 }
 
 .desc {
-  margin-top: 17px;
+  margin-top: 20px;
   font-size: calc(0.8rem + 0.3vw);
   line-height: calc(1rem + 0.8vw);
   max-width: 550px;
@@ -29,8 +30,8 @@
 
 .how-it-works-btn,
 .explore-btn {
-  padding: 10px 20px;
-  margin-top: 17px;
+  padding: 10px 20px !important;
+  margin-top: 20px;
 }
 
 .explore-btn {

@@ -7,9 +7,6 @@
   place-items: center;
   overflow: hidden;
   position: relative;
-}
-
-.all-btns > * {
   transition: ease 0.25s;
 }
 
@@ -60,6 +57,11 @@
 
 .black-filled {
   background: #000;
+  color: #fff;
+}
+
+.burgundy-filled {
+  background: var(--tradeable-burgundy);
   color: #fff;
 }
 

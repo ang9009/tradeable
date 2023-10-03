@@ -71,7 +71,7 @@ swiper-container::part(button-next) {
   border-radius: 2px;
   padding: 8px 15px;
   font-family: "Tomato Grotesk", "sans-serif";
-  text-transform: uppercase;
+  text-transform: capitalize;
   border: 1px solid #fff;
 }
 

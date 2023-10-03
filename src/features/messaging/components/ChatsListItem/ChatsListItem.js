@@ -30,8 +30,8 @@ function ChatsListItem({
                 {listing ? listing.name : "Listing removed"}
               </p>
               <p className={ChatsListItemCSS["last-msg"]}>
-                {chat[1].userInfo.lastMessage
-                  ? chat[1].userInfo.lastMessage.text
+                {chat[1].lastMessage
+                  ? chat[1].lastMessage?.text
                   : "No messages found"}
               </p>
             </div>
