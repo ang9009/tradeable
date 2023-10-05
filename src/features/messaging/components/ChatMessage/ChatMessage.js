@@ -14,25 +14,15 @@ function ChatMessage({ message }) {
 
   return (
     <div
-      className={`${ChatMessageCSS["message"]} ${
-        message.senderId === user.uid
-          ? ChatMessageCSS["curr-user"]
-          : ChatMessageCSS["other-user"]
-      }`}
+      className={`${ChatMessageCSS["message"]} ${ChatMessageCSS["curr-user"]}`}
     >
       <div className={ChatMessageCSS["message-info"]}>
         <img src={data.user.photoUrl} alt="" />
       </div>
       <div className={ChatMessageCSS["message-content"]}>
         <div className={ChatMessageCSS["message-text-container"]}>
-          {message.img && (
-            <img
-              src={message.img}
-              alt=""
-              className={ChatMessageCSS["message-img"]}
-            />
-          )}
-          <p className={ChatMessageCSS["message-text"]}>{message?.text}</p>
+          <p className={ChatMessageCSS["message-text"]}>cum</p>
+          <p className={ChatMessageCSS["message-time"]}>Just now</p>
         </div>
       </div>
       <div ref={ref}></div>
