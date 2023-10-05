@@ -1,20 +1,7 @@
-<<<<<<< HEAD
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useContext, useRef, useState } from "react";
 import { FiImage, FiTrash } from "react-icons/fi";
-=======
-import {
-  Timestamp,
-  arrayUnion,
-  doc,
-  serverTimestamp,
-  updateDoc,
-} from "firebase/firestore";
-import { getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import { useContext, useState } from "react";
-import { FiImage } from "react-icons/fi";
->>>>>>> 35f7c4797a4514742d6e67ae2b0bdfecb5c88956
 import { useParams } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import { useUser } from "../../../../context/UserContext";
