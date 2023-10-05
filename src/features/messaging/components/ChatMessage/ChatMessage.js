@@ -9,7 +9,9 @@ function ChatMessage({ message }) {
   const ref = useRef();
 
   useEffect(() => {
-    ref.current?.scrollIntoView();
+    setTimeout(function () {
+      ref.current?.scrollIntoView();
+    }, 10);
   }, [message]);
 
   return (

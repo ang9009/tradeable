@@ -20,7 +20,7 @@ function Messages() {
     function getChats() {
       const unsub = onSnapshot(doc(db, "userChats", user.uid), (doc) => {
         const userChats = Object.entries(doc.data()).sort(
-          (a, b) => b[1]?.date?.seconds - a[1]?.date?.seconds
+          (a, b) => b[1]?.date - a[1]?.date
         );
 
         setUserChats(userChats);

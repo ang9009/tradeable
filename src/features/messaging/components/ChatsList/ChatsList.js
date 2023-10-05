@@ -36,11 +36,18 @@ function ChatsList({
             selectedChat={selectedChat}
             chat={chat}
             listingData={{
-              listing: listings[i],
+              listing: listings.find(
+                (listing) => listing.id === chat[1].listingId
+              ),
               isFetchingListings: isFetchingListings,
             }}
             key={chat[0]}
-            onClick={() => handleSelect(chat[1].userInfo, listings[i])}
+            onClick={() =>
+              handleSelect(
+                chat[1].userInfo,
+                listings.find((listing) => listing.id === chat[1].listingId)
+              )
+            }
           />
         ))}
       {userChats.length === 0 && (
