@@ -10,7 +10,7 @@ function Chat({ selectedChat, listingData: { listings, isFetchingListings } }) {
     <div className={ChatCSS["chat-container"]}>
       {selectedChat.length !== 0 ? (
         <>
-          <ChatUser userInfo={selectedChat[1].userInfo} />
+          <ChatUser selectedChat={selectedChat} />
           <ChatListingInfo
             listing={
               listings.filter(

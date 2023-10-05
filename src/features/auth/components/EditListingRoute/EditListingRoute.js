@@ -1,7 +1,8 @@
+import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Navigate, Outlet, useParams } from "react-router-dom";
 import { useUser } from "../../../../context/UserContext";
-import { db, doc, getDoc } from "../../../../lib/firebase";
+import { db } from "../../../../lib/firebase";
 
 // For redirecting users if they try to edit someone else's listing
 function EditListingRoute() {

@@ -125,7 +125,7 @@ async function createChat(user, sellerId, listingId) {
 
     // Creates a new chat between two users holding the messages in that chat
     if (!res.exists()) {
-      await setDoc(doc(db, "chats", listingId), { messages: [] });
+      await setDoc(doc(db, "chats", chatId), { messages: [] });
     }
 
     // userChats stores the list of chats for each user
@@ -138,7 +138,7 @@ async function createChat(user, sellerId, listingId) {
       },
       [chatId + ".listingId"]: listingId,
       [chatId + ".type"]: "selling",
-      [chatId + ".date"]: serverTimestamp(),
+      [chatId + ".date"]: Date.now(),
     });
 
     // Updates user chat for user
@@ -153,7 +153,7 @@ async function createChat(user, sellerId, listingId) {
       },
       [chatId + ".listingId"]: listingId,
       [chatId + ".type"]: "buying",
-      [chatId + ".date"]: serverTimestamp(),
+      [chatId + ".date"]: Date.now(),
     });
   } catch (err) {
     console.log(err);

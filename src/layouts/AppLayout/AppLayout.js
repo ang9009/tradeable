@@ -1,9 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import AppLayoutCSS from "./AppLayout.module.css";
 
 function AppLayout() {
+  const location = useLocation();
+
   return (
     <>
       <Navbar />
@@ -11,7 +13,7 @@ function AppLayout() {
       <div className={AppLayoutCSS["page-content-container"]}>
         <Outlet />
       </div>
-      <Footer />
+      {location.pathname.includes("/messages") || <Footer />}
     </>
   );
 }

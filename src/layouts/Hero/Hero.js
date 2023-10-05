@@ -1,4 +1,3 @@
-import hero from "../../assets/hero.jpg";
 import Button from "../../components/ui/Button/Button";
 import HeroCSS from "./Hero.module.css";
 
@@ -6,7 +5,7 @@ function Hero() {
   return (
     <div className={HeroCSS["hero-text"]}>
       <span className={HeroCSS["title"]}>
-        An online marketplace for second-hand dorm room essentials
+        An online marketplace for college students in London
       </span>
       <p className={HeroCSS["desc"]}>
         Make some extra cash, or save money by selling or buying pre-loved dorm
@@ -15,7 +14,7 @@ function Hero() {
       <div className={HeroCSS["btns-container"]}>
         <Button
           options={{
-            type: "black-filled",
+            type: "burgundy-filled",
             text: "How it works",
             className: HeroCSS["how-it-works-btn"],
           }}
@@ -28,7 +27,6 @@ function Hero() {
           }}
         />
       </div>
-      <img src={hero} alt="" className={HeroCSS["hero-img"]} />
     </div>
   );
 }

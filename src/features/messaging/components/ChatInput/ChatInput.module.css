@@ -1,10 +1,16 @@
+.component-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid var(--primary-border-color);
+  background: #fff;
+}
+
 .input-container {
   height: 60px;
-  width: 100%;
   padding: 0 20px;
   display: flex;
   align-items: center;
-  border-top: 1px solid var(--primary-border-color);
 }
 
 .text-input {
@@ -19,4 +25,44 @@
 
 .image-btn {
   cursor: pointer;
+}
+
+/* Image preview input */
+.img-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.img-preview-container {
+  width: 100%;
+  height: max-content;
+  padding-top: 20px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #fff;
+  font-family: "Tomato Grotesk", "sans-serif";
+  font-weight: normal;
+  background: rgba(0, 0, 0, 0.6);
+  width: 25px;
+  height: 25px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: rgba(227, 62, 50, 0.8);
 }

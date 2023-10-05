@@ -1,18 +1,21 @@
 import { FiFlag } from "react-icons/fi";
+import getMessageTime from "../../utils/getMessageTime";
 import ChatUserCSS from "./ChatUser.module.css";
 
-function ChatUser({ userInfo }) {
+function ChatUser({ selectedChat }) {
   return (
     <div className={ChatUserCSS["component-container"]}>
       <div className={ChatUserCSS["user-info"]}>
         <img
-          src={userInfo.photoUrl}
+          src={selectedChat[1].userInfo.photoUrl}
           className={ChatUserCSS["profile-img"]}
           alt=""
         />
         <div className={ChatUserCSS["name-and-status"]}>
-          <h1>{userInfo.name}</h1>
-          <p className={ChatUserCSS.status}>Last message sent 1 minute ago</p>
+          <h1>{selectedChat[1].userInfo.name}</h1>
+          <p className={ChatUserCSS.status}>
+            Last updated {getMessageTime(selectedChat[1].date)}
+          </p>
         </div>
       </div>
       <FiFlag size={"22px"} className={ChatUserCSS["report-btn"]} />

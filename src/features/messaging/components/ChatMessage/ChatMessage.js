@@ -1,21 +1,41 @@
+import { useContext, useEffect, useRef } from "react";
+import { useUser } from "../../../../context/UserContext";
+import { ChatContext } from "../../context/ChatContext";
 import ChatMessageCSS from "./ChatMessage.module.css";
 
-function ChatMessage() {
+function ChatMessage({ message }) {
+  const { user } = useUser();
+  const { data } = useContext(ChatContext);
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current?.scrollIntoView();
+  }, [message]);
+
   return (
     <div
-      className={`${ChatMessageCSS["message"]} ${ChatMessageCSS["curr-user"]}`}
+      className={`${ChatMessageCSS["message"]} ${
+        message.senderId === user.uid
+          ? ChatMessageCSS["curr-user"]
+          : ChatMessageCSS["other-user"]
+      }`}
     >
       <div className={ChatMessageCSS["message-info"]}>
-        <img src={require("../../../../assets/placeholder_img.jpg")} alt="" />
+        <img src={data.user.photoUrl} alt="" />
       </div>
       <div className={ChatMessageCSS["message-content"]}>
         <div className={ChatMessageCSS["message-text-container"]}>
-          <p className={ChatMessageCSS["message-text"]}>cum</p>
-          <p className={ChatMessageCSS["message-time"]}>Just now</p>
+          {message.img && (
+            <img
+              src={message.img}
+              alt=""
+              className={ChatMessageCSS["message-img"]}
+            />
+          )}
+          <p className={ChatMessageCSS["message-text"]}>{message?.text}</p>
         </div>
-
-        {/* <img src={require("../../../../assets/placeholder_img.jpg")} alt="" /> */}
       </div>
+      <div ref={ref}></div>
     </div>
   );
 }

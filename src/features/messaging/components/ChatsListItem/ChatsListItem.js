@@ -1,4 +1,5 @@
 import Skeleton from "react-loading-skeleton";
+import getMessageTime from "../../utils/getMessageTime";
 import ChatsListItemCSS from "./ChatsListItem.module.css";
 
 function ChatsListItem({
@@ -19,7 +20,9 @@ function ChatsListItem({
         <>
           <div className={ChatsListItemCSS["user-info-container"]}>
             <p className={ChatsListItemCSS.username}>{chat[1].userInfo.name}</p>
-            <p className={ChatsListItemCSS["last-msg-time"]}>1 minute ago</p>
+            <p className={ChatsListItemCSS["last-msg-time"]}>
+              {getMessageTime(chat[1].date)}
+            </p>
           </div>
           <div className={ChatsListItemCSS["listing-info-container"]}>
             <div>
@@ -30,8 +33,8 @@ function ChatsListItem({
                 {listing ? listing.name : "Listing removed"}
               </p>
               <p className={ChatsListItemCSS["last-msg"]}>
-                {chat[1].userInfo.lastMessage
-                  ? chat[1].userInfo.lastMessage.text
+                {chat[1].lastMessage
+                  ? chat[1].lastMessage?.text
                   : "No messages found"}
               </p>
             </div>

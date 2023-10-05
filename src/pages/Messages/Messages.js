@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 import { Chat, ChatsList } from "../../features/messaging";
+import ChatContextProvider from "../../features/messaging/context/ChatContext";
 import { db, getChatListings } from "../../lib/firebase";
 import MessagesCSS from "./Messages.module.css";
 
@@ -31,9 +32,9 @@ function Messages() {
     user.uid && getChats(userChats);
   }, [user.uid]);
 
-  // Fetches listings and their images
+  // Fetches listings and their image, only on first load
   useEffect(() => {
-    if (userChats.length !== 0) {
+    if (userChats.length !== 0 && listings.length === 0) {
       getChatListings(userChats).then((chatListings) => {
         setListings(chatListings);
         setIsFetchingListings(false);
@@ -52,17 +53,19 @@ function Messages() {
   }, [chatId, userChats]);
 
   return (
-    <div className={MessagesCSS["components-container"]}>
-      <ChatsList
-        userChats={userChats}
-        selectedChatData={{ selectedChat, setSelectedChat }}
-        listingData={{ listings, isFetchingListings }}
-      />
-      <Chat
-        selectedChat={selectedChat}
-        listingData={{ listings, isFetchingListings }}
-      />
-    </div>
+    <ChatContextProvider>
+      <div className={MessagesCSS["components-container"]}>
+        <ChatsList
+          userChats={userChats}
+          selectedChat={selectedChat}
+          listingData={{ listings, isFetchingListings }}
+        />
+        <Chat
+          selectedChat={selectedChat}
+          listingData={{ listings, isFetchingListings }}
+        />
+      </div>
+    </ChatContextProvider>
   );
 }
 

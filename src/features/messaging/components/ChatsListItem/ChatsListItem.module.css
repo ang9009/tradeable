@@ -48,3 +48,7 @@
 .username {
   color: var(--secondary-text-color);
 }
+
+.last-msg-time::first-letter {
+  text-transform: capitalize;
+}

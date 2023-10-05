@@ -1,11 +1,6 @@
-import { signInWithPopup } from "firebase/auth";
+import { getAdditionalUserInfo, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
-import {
-  auth,
-  createUser,
-  getAdditionalUserInfo,
-  provider,
-} from "../../../lib/firebase";
+import { auth, createUser, provider } from "../../../lib/firebase";
 
 function useLogin() {
   const [error, setError] = useState("");

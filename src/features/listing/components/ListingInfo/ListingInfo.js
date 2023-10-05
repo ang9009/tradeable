@@ -1,4 +1,4 @@
-import ListingInfoCSS from "./ListingInfoCSS.module.css";
+import ListingInfoCSS from "./ListingInfo.module.css";
 
 function ListingInfo({ listingData }) {
   return (

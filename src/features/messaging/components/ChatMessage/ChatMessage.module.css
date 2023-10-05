@@ -1,7 +1,10 @@
 .message {
   display: flex;
   gap: 15px;
-  margin-bottom: 20px;
+}
+
+.message:not(:last-child) {
+  margin-bottom: 15px;
 }
 
 .message-info img {
@@ -19,9 +22,17 @@
 }
 
 .message-text {
-  padding: 10px 15px;
+  padding: 5px 12px;
   border-radius: 5px;
   max-width: max-content;
+  line-break: anywhere;
+  line-height: 30px;
+  text-wrap: wrap;
+}
+
+.message-img {
+  margin-bottom: 15px;
+  border-radius: 5px;
 }
 
 .message-content img {
@@ -34,15 +45,10 @@
   color: var(--secondary-text-color);
 }
 
-.message-time {
-  margin-top: 5px;
-  color: var(--secondar-text-color);
-  font-size: 0.8rem;
-}
-
 /* Current user message styles */
 .curr-user .message-text {
   background-color: #ebebeb;
+  margin: none;
 }
 
 .curr-user {
@@ -53,7 +59,7 @@
   align-items: flex-end;
 }
 
-.curr-user .message-info img {
+.curr-user .message-info {
   display: none;
 }
 
@@ -61,4 +67,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+/* Other user message styles */
+.other-user .message-text {
+  background: #f7ddc3;
 }
