@@ -7,12 +7,13 @@
   height: 1px;
   background: var(--primary-border-color);
   width: 100%;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .desc-title {
-  font-size: calc(1rem + 0.3vw);
-  margin-bottom: 30px;
+  font-size: calc(0.8rem + 0.3vw);
+  font-family: "Tomato Grotesk", "sans-serif";
+  margin-bottom: 15px;
 }
 
 .desc {
@@ -20,17 +21,13 @@
   line-height: calc(0.8rem + 0.8vw);
 }
 
-.seller-section {
-  padding: 10px 0;
-}
-
 .listing-details {
-  width: 40%;
+  width: 35%;
   margin-left: 50px;
 }
 
 .carousel-container {
-  width: 60%;
+  width: 65%;
 }
 
 /* If updated, change listingthumbs, listingcarousel, listing */

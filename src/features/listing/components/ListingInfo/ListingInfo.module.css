@@ -2,9 +2,9 @@
 .title {
   font-family: "Tomato Grotesk", "sans-serif";
   font-weight: normal;
-  font-size: calc(1rem + 0.3vw);
+  font-size: calc(0.8rem + 0.3vw);
   line-height: calc(1rem + 0.7vw);
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   max-width: 100%;
   text-wrap: wrap;
   line-break: anywhere;
