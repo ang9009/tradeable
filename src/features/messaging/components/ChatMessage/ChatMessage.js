@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useLayoutEffect, useRef } from "react";
 import { useUser } from "../../../../context/UserContext";
 import { ChatContext } from "../../context/ChatContext";
 import ChatMessageCSS from "./ChatMessage.module.css";
@@ -7,6 +7,12 @@ function ChatMessage({ message }) {
   const { user } = useUser();
   const { data } = useContext(ChatContext);
 
+  const ref = useRef();
+
+  useLayoutEffect(() => {
+    ref.current?.scrollIntoView();
+  }, [message]);
+
   return (
     <div
       className={`${ChatMessageCSS["message"]} ${
@@ -14,6 +20,7 @@ function ChatMessage({ message }) {
           ? ChatMessageCSS["curr-user"]
           : ChatMessageCSS["other-user"]
       }`}
+      ref={ref}
     >
       <div className={ChatMessageCSS["message-info"]}>
         <img src={data.user.photoUrl} alt="" />
