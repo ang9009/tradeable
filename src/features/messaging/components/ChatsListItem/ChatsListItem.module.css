@@ -42,6 +42,9 @@
 .last-msg {
   margin-top: 3px;
   color: var(--secondary-text-color);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .last-msg-time,
