@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext } from "react";
 import { useUser } from "../../../../context/UserContext";
 import { ChatContext } from "../../context/ChatContext";
 import ChatMessageCSS from "./ChatMessage.module.css";
@@ -6,13 +6,6 @@ import ChatMessageCSS from "./ChatMessage.module.css";
 function ChatMessage({ message }) {
   const { user } = useUser();
   const { data } = useContext(ChatContext);
-  const ref = useRef();
-
-  useEffect(() => {
-    setTimeout(function () {
-      ref.current?.scrollIntoView();
-    }, 10);
-  }, [message]);
 
   return (
     <div
@@ -37,7 +30,6 @@ function ChatMessage({ message }) {
           <p className={ChatMessageCSS["message-text"]}>{message?.text}</p>
         </div>
       </div>
-      <div ref={ref}></div>
     </div>
   );
 }

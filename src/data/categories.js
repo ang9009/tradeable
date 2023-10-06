@@ -2,7 +2,7 @@ const categories = [
   "Kitchen",
   "Cleaning",
   "Electronics",
-  "Textbooks",
+  "Self-care",
   "Clothing",
   "Miscellaneous",
 ];

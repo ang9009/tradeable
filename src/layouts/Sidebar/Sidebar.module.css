@@ -9,6 +9,7 @@
   transition: right 0.5s;
   transition-timing-function: cubic-bezier(0.6, 0.01, -0.05, 0.95);
   overflow: auto;
+  display: none;
 }
 
 .sidebar-content-container {
@@ -78,6 +79,12 @@
   bottom: 30px;
   left: 30px;
   position: absolute;
+}
+
+@media (max-width: 1160px) {
+  .sidebar-container {
+    display: initial;
+  }
 }
 
 @media (max-width: 550px) {

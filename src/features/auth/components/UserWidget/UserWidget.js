@@ -28,7 +28,10 @@ function UserWidget() {
           color: "black",
         }}
       >
-        <img src={user.photoURL} alt={"Profile image"} />
+        <img
+          src={user.photoURL}
+          alt={require("../../../../assets/placeholder_img.jpg")}
+        />
         <div className={UserWidgetCSS.username}>{user.displayName}</div>
         <FiChevronDown
           className={`${UserWidgetCSS["down-chevron"]} ${

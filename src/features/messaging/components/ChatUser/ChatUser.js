@@ -1,15 +1,17 @@
 import { FiFlag } from "react-icons/fi";
+import placeholderImg from "../../../../assets/placeholder_img.jpg";
 import getMessageTime from "../../utils/getMessageTime";
 import ChatUserCSS from "./ChatUser.module.css";
 
 function ChatUser({ selectedChat }) {
+  console.log(selectedChat[1].userInfo.photoUrl);
   return (
     <div className={ChatUserCSS["component-container"]}>
       <div className={ChatUserCSS["user-info"]}>
         <img
-          src={selectedChat[1].userInfo.photoUrl}
+          src={selectedChat[1].userInfo.photoUrl || placeholderImg}
           className={ChatUserCSS["profile-img"]}
-          alt=""
+          alt={""}
         />
         <div className={ChatUserCSS["name-and-status"]}>
           <h1>{selectedChat[1].userInfo.name}</h1>

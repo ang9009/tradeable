@@ -26,18 +26,20 @@ function ChatsList({
     }
   }, [selectedChat]);
 
+  console.log(listings);
+
   return (
     <div className={ChatsListCSS["chat-list-container"]}>
       {/* chat[0] is the id, chat[1] holds chat info */}
-      {userChats &&
-        listings &&
+      {listings.length !== 0 &&
         userChats.map((chat, i) => (
           <ChatsListItem
             selectedChat={selectedChat}
             chat={chat}
             listingData={{
+              // Listing could be null if deleted
               listing: listings.find(
-                (listing) => listing.id === chat[1].listingId
+                (listing) => listing && listing.id === chat[1].listingId
               ),
               isFetchingListings: isFetchingListings,
             }}

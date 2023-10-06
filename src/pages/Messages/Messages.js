@@ -23,7 +23,9 @@ function Messages() {
           (a, b) => b[1]?.date - a[1]?.date
         );
 
-        if (newUserChats.length > userChats.length) {
+        // Refetches listings if a new chat is created while the user has the chat window open
+        // TODO: could be optimized to only fetch the new listing to minimize reads
+        if (listings.length !== 0 && newUserChats.length > userChats.length) {
           getChatListings(userChats).then((chatListings) => {
             setListings(chatListings);
           });
