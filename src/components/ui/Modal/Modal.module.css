@@ -16,9 +16,9 @@
   text-align: center;
 }
 
-.modal-bottom p {
-  font-size: 0.9rem;
-  line-height: 40px;
+.modal-bottom {
+  font-size: 0.95rem;
+  line-height: 30px;
 }
 
 .close-btn {
