@@ -45,11 +45,23 @@
   max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .last-msg-time,
 .username {
   color: var(--secondary-text-color);
+}
+
+.username:first-letter {
+  text-transform: capitalize;
+}
+
+.username {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .last-msg-time::first-letter {

@@ -26,8 +26,6 @@ function ChatsList({
     }
   }, [selectedChat]);
 
-  console.log(listings);
-
   return (
     <div className={ChatsListCSS["chat-list-container"]}>
       {/* chat[0] is the id, chat[1] holds chat info */}

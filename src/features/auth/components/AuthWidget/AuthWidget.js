@@ -40,7 +40,7 @@ function AuthWidget({ changeNav, className }) {
             ) : (
               <Button
                 options={{
-                  type: "black-outline",
+                  type: "gray-outline",
                   text: "Sign in",
                   className: AuthWidgetCSS["sign-in-btn"],
                 }}

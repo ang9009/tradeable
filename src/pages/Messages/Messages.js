@@ -26,7 +26,7 @@ function Messages() {
         // Refetches listings if a new chat is created while the user has the chat window open
         // TODO: could be optimized to only fetch the new listing to minimize reads
         if (listings.length !== 0 && newUserChats.length > userChats.length) {
-          getChatListings(userChats).then((chatListings) => {
+          getChatListings(newUserChats).then((chatListings) => {
             setListings(chatListings);
           });
         }
@@ -49,8 +49,6 @@ function Messages() {
       });
     }
   }, [userChats]);
-
-  console.log(listings);
 
   // Updates selected chat based on chatId
   useEffect(() => {

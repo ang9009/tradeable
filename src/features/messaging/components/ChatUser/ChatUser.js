@@ -4,7 +4,6 @@ import getMessageTime from "../../utils/getMessageTime";
 import ChatUserCSS from "./ChatUser.module.css";
 
 function ChatUser({ selectedChat }) {
-  console.log(selectedChat[1].userInfo.photoUrl);
   return (
     <div className={ChatUserCSS["component-container"]}>
       <div className={ChatUserCSS["user-info"]}>

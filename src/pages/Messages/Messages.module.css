@@ -1,4 +1,11 @@
 .components-container {
   display: flex;
   justify-content: center;
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+@media (max-width: 1160px) {
+  .components-container {
+    min-height: calc(100vh - var(--nav-top-height));
+  }
 }

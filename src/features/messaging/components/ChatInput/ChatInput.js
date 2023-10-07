@@ -26,9 +26,7 @@ function ChatInput() {
       uploadTask.on(
         "state_changed",
         (snapshot) => {},
-        (error) => {
-          console.log(error);
-        },
+        (error) => {},
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadUrl) => {
             await updateDoc(doc(db, "chats", chatId), {

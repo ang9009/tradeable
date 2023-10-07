@@ -32,6 +32,12 @@
 }
 
 /* Types of buttons */
+
+.no-outline {
+  color: black;
+  background: #fff;
+}
+
 .gray-outline {
   background: #fff;
   border: var(--primary-border);

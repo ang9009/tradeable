@@ -19,7 +19,9 @@ function ChatsListItem({
       {!isFetchingListings ? (
         <>
           <div className={ChatsListItemCSS["user-info-container"]}>
-            <p className={ChatsListItemCSS.username}>{chat[1].userInfo.name}</p>
+            <p
+              className={ChatsListItemCSS.username}
+            >{`${chat[1].type} to ${chat[1].userInfo.name}`}</p>
             <p className={ChatsListItemCSS["last-msg-time"]}>
               {getMessageTime(chat[1].date)}
             </p>

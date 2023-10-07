@@ -4,6 +4,7 @@
 
 @media (max-width: 1160px) {
   .page-content-container {
-    margin-top: 80px;
+    margin-top: var(--nav-top-height);
+    min-height: calc(100vh - var(--nav-top-height));
   }
 }

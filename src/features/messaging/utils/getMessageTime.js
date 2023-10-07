@@ -9,7 +9,7 @@ function getLeadingZero(num) {
 function getDateString(date) {
   return `${getLeadingZero(date.getDate())}/${getLeadingZero(
     date.getMonth() + 1
-  )}/${date.getFullYear()}`;
+  )}`;
 }
 
 export default function getMessageTime(milliseconds) {
