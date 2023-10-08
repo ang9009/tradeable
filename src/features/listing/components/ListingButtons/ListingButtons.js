@@ -25,6 +25,7 @@ function ListingButtons({ sellerId, listingId, status }) {
             text: "Message seller",
             type: "black-filled",
             className: ListingButtonsCSS["msg-seller-btn"],
+            notRounded: true,
           }}
           disabled={status === "reserved" || status === "sold" || !user}
           onClick={() => {

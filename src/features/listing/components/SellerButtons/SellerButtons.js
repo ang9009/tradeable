@@ -18,6 +18,7 @@ function SellerButtons({ listingId, status }) {
         options={{
           text: "View messages",
           type: "black-filled",
+          notRounded: true,
         }}
         onClick={() => navigate(`/messages`)}
       />
@@ -27,6 +28,7 @@ function SellerButtons({ listingId, status }) {
             options={{
               text: "Edit listing",
               type: "gray-outline",
+              notRounded: true,
             }}
             onClick={() => navigate(`/edit-listing/${listingId}`)}
           />
@@ -37,6 +39,7 @@ function SellerButtons({ listingId, status }) {
                   ? "Mark as reserved"
                   : "Mark as available",
               type: "gray-outline-blue",
+              notRounded: true,
             }}
             onClick={() => {
               const ref = doc(db, "listings", listingId);
@@ -52,6 +55,7 @@ function SellerButtons({ listingId, status }) {
             options={{
               text: "Mark as sold",
               type: "gray-outline-red",
+              notRounded: true,
             }}
             onClick={() => setSoldModalIsOpen(true)}
           />
