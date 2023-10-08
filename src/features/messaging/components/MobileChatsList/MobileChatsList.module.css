@@ -1,9 +1,8 @@
 .chat-list-container {
   min-width: 350px;
   overflow-y: auto;
-  height: calc(100vh - var(--navbar-height));
+  height: calc(100vh - var(--nav-top-height));
   padding: 30px;
-  border-top: 1px solid var(--primary-border-color);
 }
 
 .no-chats-msg-container {
@@ -30,6 +29,12 @@
   font-size: 1.5rem;
   line-height: 2rem;
   margin-top: 10px;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background: var(--primary-border-color);
 }
 
 .no-chats-msg p {

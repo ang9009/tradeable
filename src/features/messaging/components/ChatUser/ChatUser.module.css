@@ -7,6 +7,11 @@
   align-items: center;
 }
 
+.chat-user-left {
+  display: flex;
+  align-items: center;
+}
+
 .user-info {
   display: flex;
   align-items: center;
@@ -30,4 +35,17 @@
 
 .report-btn {
   cursor: pointer;
+}
+
+.arrow-btn {
+  cursor: pointer;
+  margin-right: 15px;
+  display: none;
+}
+
+/* Same as messages.module.css */
+@media (max-width: 1160px) {
+  .arrow-btn {
+    display: initial;
+  }
 }

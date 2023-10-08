@@ -21,7 +21,7 @@ function MobileChatsList({
       const chatId = getChatId(user.uid, otherUser.id, listing.id);
       navigate(`/messages/${chatId}`);
     } else {
-      toast.error("Listing was removed by seller", 2000);
+      toast.error("Listing no longer exists!", 2000);
     }
   }
 
@@ -35,7 +35,10 @@ function MobileChatsList({
   return (
     <div className={MobileChatsListCSS["chat-list-container"]}>
       {userChats.length !== 0 && (
-        <h1 className={MobileChatsListCSS["msgs-title"]}>Messages</h1>
+        <>
+          <h1 className={MobileChatsListCSS["msgs-title"]}>Messages</h1>
+          <div className={MobileChatsListCSS["divider"]}></div>
+        </>
       )}
       {/* chat[0] is the id, chat[1] holds chat info */}
       {listings.length !== 0 &&

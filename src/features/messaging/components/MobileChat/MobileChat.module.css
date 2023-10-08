@@ -1,6 +1,7 @@
 .chat-container {
   width: 100%;
   position: relative;
+  height: calc(100vh - var(--nav-top-height));
 }
 
 .no-chats-msg-container {

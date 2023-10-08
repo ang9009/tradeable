@@ -1,27 +1,25 @@
 import { doc, onSnapshot } from "firebase/firestore";
-import {
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { db } from "../../../../lib/firebase";
-import { ChatContext } from "../../context/ChatContext";
 import ChatMessage from "../ChatMessage/ChatMessage";
 import ChatMessagesCSS from "./ChatMessages.module.css";
 
 function ChatMessages() {
   const [messages, setMessages] = useState([]);
-  const { data } = useContext(ChatContext);
+  const { chatId } = useParams();
 
   useEffect(() => {
-    const unsub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
-      doc.exists() && setMessages(doc.data().messages);
-    });
+    function getMessages() {
+      const unsub = onSnapshot(doc(db, "chats", chatId), (doc) => {
+        doc.exists() && setMessages(doc.data().messages);
+      });
 
-    return () => unsub();
-  }, [data.chatId]);
+      return () => unsub();
+    }
+
+    chatId && getMessages();
+  }, [chatId]);
 
   return (
     <div className={ChatMessagesCSS["messages-container"]}>

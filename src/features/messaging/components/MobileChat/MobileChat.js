@@ -1,4 +1,5 @@
 import { FiMessageSquare } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import ChatInput from "../ChatInput/ChatInput";
 import ChatListingInfo from "../ChatListingInfo/ChatListingInfo";
 import ChatMessages from "../ChatMessages/ChatMessages";
@@ -9,14 +10,16 @@ function MobileChat({
   selectedChat,
   listingData: { listings, isFetchingListings },
 }) {
+  const navigate = useNavigate();
+
   return (
     <div className={MobileChatCSS["chat-container"]}>
-      {selectedChat.length !== 0 ? (
+      {selectedChat?.length !== 0 && !isFetchingListings ? (
         <>
           <ChatUser selectedChat={selectedChat} />
           <ChatListingInfo
-            listing={listings.find(
-              (listing) => listing && listing.id === selectedChat[1].listingId
+            listing={listings?.find(
+              (listing) => listing && listing?.id === selectedChat[1]?.listingId
             )}
             isFetchingListing={isFetchingListings}
           />
