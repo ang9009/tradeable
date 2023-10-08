@@ -19,17 +19,17 @@ function Messages() {
   useEffect(() => {
     function getChats() {
       const unsub = onSnapshot(doc(db, "userChats", user.uid), (doc) => {
+        setIsFetchingListings(true);
         const newUserChats = Object.entries(doc.data()).sort(
           (a, b) => b[1]?.date - a[1]?.date
         );
 
         // Refetches listings if a new chat is created while the user has the chat window open
         // TODO: could be optimized to only fetch the new listing to minimize reads
-        if (listings.length !== 0 && newUserChats.length > userChats.length) {
-          getChatListings(newUserChats).then((chatListings) => {
-            setListings(chatListings);
-          });
-        }
+        getChatListings(newUserChats).then((chatListings) => {
+          setListings(chatListings);
+          setIsFetchingListings(false);
+        });
 
         setUserChats(newUserChats);
       });
@@ -39,16 +39,6 @@ function Messages() {
 
     user.uid && getChats(userChats);
   }, [user.uid]);
-
-  // Fetches listings and their image, only on first load
-  useEffect(() => {
-    if (userChats.length !== 0 && listings.length === 0) {
-      getChatListings(userChats).then((chatListings) => {
-        setListings(chatListings);
-        setIsFetchingListings(false);
-      });
-    }
-  }, [userChats]);
 
   // Updates selected chat based on chatId
   useEffect(() => {

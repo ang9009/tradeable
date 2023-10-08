@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useUser } from "../../../../context/UserContext";
 import getChatId from "../../../../utils/getChatId";
 import { ChatContext } from "../../context/ChatContext";
@@ -15,8 +16,12 @@ function ChatsList({
   const { user } = useUser();
   const { dispatch } = useContext(ChatContext);
   function handleSelect(otherUser, listing) {
-    const chatId = getChatId(user.uid, otherUser.id, listing.id);
-    navigate(`/messages/${chatId}`);
+    if (listing) {
+      const chatId = getChatId(user.uid, otherUser.id, listing.id);
+      navigate(`/messages/${chatId}`);
+    } else {
+      toast.error("Listing was removed by seller", 2000);
+    }
   }
 
   // Updates seller chat info
@@ -45,7 +50,9 @@ function ChatsList({
             onClick={() =>
               handleSelect(
                 chat[1].userInfo,
-                listings.find((listing) => listing.id === chat[1].listingId)
+                listings.find(
+                  (listing) => listing && listing.id === chat[1].listingId
+                )
               )
             }
           />
