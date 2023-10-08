@@ -1,0 +1,28 @@
+.chat-container {
+  width: 100%;
+  position: relative;
+}
+
+.no-chats-msg-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--secondary-text-color);
+}
+
+.no-chats-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-chats-msg h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-top: 10px;
+}
+
+.no-chats-msg p {
+  margin-top: 5px;
+}

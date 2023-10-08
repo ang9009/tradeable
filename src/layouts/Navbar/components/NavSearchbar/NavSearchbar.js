@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
-import { BiSearch } from "react-icons/bi";
-import { FiX } from "react-icons/fi";
+import { FiSearch, FiX } from "react-icons/fi";
 import NavSearchbarCSS from "./NavSearchbar.module.css";
 
 const NavSearchbar = () => {
@@ -24,8 +23,13 @@ const NavSearchbar = () => {
           }
         }}
       >
-        {isFocused && (
+        {isFocused ? (
           <FiX size={"17px"} className={NavSearchbarCSS["clear-search-btn"]} />
+        ) : (
+          <FiSearch
+            size={"15px"}
+            className={NavSearchbarCSS["clear-search-btn"]}
+          />
         )}
       </div>
       <input
@@ -42,14 +46,6 @@ const NavSearchbar = () => {
         }}
         ref={inputRef}
       />
-      {
-        <button className={NavSearchbarCSS["search-btn"]}>
-          <BiSearch
-            size={"17px"}
-            className={NavSearchbarCSS["btn-search-icon"]}
-          />
-        </button>
-      }
     </div>
   );
 };

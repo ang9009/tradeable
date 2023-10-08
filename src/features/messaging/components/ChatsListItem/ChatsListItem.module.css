@@ -67,3 +67,20 @@
 .last-msg-time::first-letter {
   text-transform: capitalize;
 }
+
+/* Must be the same as media query in Messages.module.css */
+@media (max-width: 1160px) {
+  .component-container {
+    padding: 30px 0;
+  }
+
+  /* To disable the selected item indicator */
+  .component-container {
+    background: #fff !important;
+  }
+
+  .component-container:hover,
+  .component-container:active {
+    background: var(--hover-gray) !important;
+  }
+}

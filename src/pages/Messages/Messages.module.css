@@ -4,7 +4,19 @@
   min-height: calc(100vh - var(--navbar-height));
 }
 
+.mobile {
+  display: none;
+}
+
 @media (max-width: 1160px) {
+  .web {
+    display: none;
+  }
+
+  .mobile {
+    display: initial;
+  }
+
   .components-container {
     min-height: calc(100vh - var(--nav-top-height));
   }

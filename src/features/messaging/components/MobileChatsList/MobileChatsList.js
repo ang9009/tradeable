@@ -1,13 +1,14 @@
 import { useContext, useEffect } from "react";
+import { FiMessageSquare } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useUser } from "../../../../context/UserContext";
 import getChatId from "../../../../utils/getChatId";
 import { ChatContext } from "../../context/ChatContext";
 import ChatsListItem from "../ChatsListItem/ChatsListItem";
-import ChatsListCSS from "./ChatsList.module.css";
+import MobileChatsListCSS from "./MobileChatsList.module.css";
 
-function ChatsList({
+function MobileChatsList({
   userChats,
   selectedChat,
   listingData: { listings, isFetchingListings },
@@ -20,7 +21,7 @@ function ChatsList({
       const chatId = getChatId(user.uid, otherUser.id, listing.id);
       navigate(`/messages/${chatId}`);
     } else {
-      toast.error("Listing no longer exists!", 2000);
+      toast.error("Listing was removed by seller", 2000);
     }
   }
 
@@ -32,7 +33,10 @@ function ChatsList({
   }, [selectedChat]);
 
   return (
-    <div className={ChatsListCSS["chat-list-container"]}>
+    <div className={MobileChatsListCSS["chat-list-container"]}>
+      {userChats.length !== 0 && (
+        <h1 className={MobileChatsListCSS["msgs-title"]}>Messages</h1>
+      )}
       {/* chat[0] is the id, chat[1] holds chat info */}
       {listings.length !== 0 &&
         userChats.map((chat, i) => (
@@ -58,12 +62,19 @@ function ChatsList({
           />
         ))}
       {userChats.length === 0 && (
-        <div className={ChatsListCSS["no-chats-msg"]}>
-          <p>Chats will appear here</p>
+        <div className={MobileChatsListCSS["no-chats-msg-container"]}>
+          <div className={MobileChatsListCSS["no-chats-msg"]}>
+            <FiMessageSquare
+              color={"var(--secondary-text-color"}
+              size={"50px"}
+            />
+            <h1>No messages found</h1>
+            <p>Chat with buyers and sellers here</p>
+          </div>
         </div>
       )}
     </div>
   );
 }
 
-export default ChatsList;
+export default MobileChatsList;
