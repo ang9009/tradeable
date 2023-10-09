@@ -4,11 +4,13 @@ import Skeleton from "react-loading-skeleton";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/ui/Button/Button";
 import { db } from "../../../../lib/firebase";
+import { SoldModal } from "../../../listing/components/SoldModal/SoldModal";
 import ChatListingInfoCSS from "./ChatListingInfo.module.css";
 
 function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
   const navigate = useNavigate();
   const [listingStatus, setListingStatus] = useState("");
+  const [soldModalIsOpen, setSoldModalIsOpen] = useState(false);
 
   useEffect(() => {
     if (listing) {
@@ -57,33 +59,46 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
               )}
             </div>
           </div>
-          {selectedChat && selectedChat[1].type == "selling" && (
-            <div className={ChatListingInfoCSS["seller-btns"]}>
-              <Button
-                options={{
-                  type: "gray-outline-blue",
-                  notRounded: true,
-                  text:
-                    listingStatus === "available"
-                      ? "Mark as reserved"
-                      : "Mark as available",
-                }}
-                onClick={() => markReserved()}
-              />
-              <Button
-                options={{
-                  type: "gray-outline-red",
-                  notRounded: true,
-                  text: "Mark as sold",
-                  className: ChatListingInfoCSS["sold-btn"],
-                }}
-              />
-            </div>
-          )}
+          {selectedChat &&
+            selectedChat[1].type == "selling" &&
+            (listingStatus !== "sold" ? (
+              <div className={ChatListingInfoCSS["seller-btns"]}>
+                <Button
+                  options={{
+                    type: "gray-outline-blue",
+                    notRounded: true,
+                    text:
+                      listingStatus === "available"
+                        ? "Mark as reserved"
+                        : "Mark as available",
+                  }}
+                  onClick={() => markReserved()}
+                />
+                <Button
+                  options={{
+                    type: "gray-outline-red",
+                    notRounded: true,
+                    text: "Mark as sold",
+                    className: ChatListingInfoCSS["sold-btn"],
+                  }}
+                  onClick={() => setSoldModalIsOpen(true)}
+                />
+              </div>
+            ) : (
+              <div className={ChatListingInfoCSS["listing-sold-msg"]}>
+                Listing sold
+              </div>
+            ))}
         </>
       ) : (
         <Skeleton height={"50px"} />
       )}
+      <SoldModal
+        setSoldModalIsOpen={setSoldModalIsOpen}
+        soldModalIsOpen={soldModalIsOpen}
+        listingId={listing?.id}
+        setListingStatus={setListingStatus}
+      />
     </div>
   );
 }

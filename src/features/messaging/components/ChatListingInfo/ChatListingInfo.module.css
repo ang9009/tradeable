@@ -47,3 +47,7 @@
 .sold-btn {
   margin-left: 15px;
 }
+
+.listing-sold-msg {
+  color: var(--secondary-text-color);
+}
