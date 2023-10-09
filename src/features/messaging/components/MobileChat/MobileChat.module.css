@@ -2,6 +2,7 @@
   width: 100%;
   position: relative;
   height: calc(-webkit-fill-available - var(--nav-top-height));
+  overflow: hidden;
 }
 
 .no-chats-msg-container {
