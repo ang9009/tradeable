@@ -3,8 +3,8 @@
   border-bottom: 1px solid var(--primary-border-color);
   padding: 15px 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  cursor: pointer;
 }
 
 .listing-img {
@@ -16,6 +16,12 @@
 
 .listing-details {
   margin-left: 15px;
+}
+
+.listing-data-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .listing-name {
@@ -32,4 +38,12 @@
   font-size: calc(0.9rem + 0.2vw);
   font-weight: bold;
   margin-top: 5px;
+}
+
+.seller-btns {
+  display: flex;
+}
+
+.sold-btn {
+  margin-left: 15px;
 }

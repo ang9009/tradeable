@@ -1,5 +1,6 @@
 import Skeleton from "react-loading-skeleton";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Button from "../../../../components/ui/Button/Button";
 import { useUser } from "../../../../context/UserContext";
 import { createChat } from "../../../../lib/firebase";
@@ -27,11 +28,19 @@ function ListingButtons({ sellerId, listingId, status }) {
             className: ListingButtonsCSS["msg-seller-btn"],
             notRounded: true,
           }}
-          disabled={status === "reserved" || status === "sold" || !user}
+          disabled={!user}
           onClick={() => {
-            createChat(user, sellerId, listingId).then(() => {
-              navigate(`/messages/${getChatId(user.uid, sellerId, listingId)}`);
-            });
+            if (status == "available") {
+              createChat(user, sellerId, listingId).then(() => {
+                navigate(
+                  `/messages/${getChatId(user.uid, sellerId, listingId)}`
+                );
+              });
+            } else if (status === "reserved") {
+              toast.error("Listing has been reserved", 3000);
+            } else {
+              toast.error("Listing sold", 3000);
+            }
           }}
         />
       )}

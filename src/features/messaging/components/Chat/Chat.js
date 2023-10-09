@@ -15,6 +15,7 @@ function Chat({ selectedChat, listingData: { listings, isFetchingListings } }) {
             listing={listings.find(
               (listing) => listing && listing.id === selectedChat[1].listingId
             )}
+            selectedChat={selectedChat}
             isFetchingListing={isFetchingListings}
           />
           <ChatMessages />
