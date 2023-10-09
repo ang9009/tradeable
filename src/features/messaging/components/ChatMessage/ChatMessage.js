@@ -27,14 +27,15 @@ function ChatMessage({ message }) {
       </div>
       <div className={ChatMessageCSS["message-content"]}>
         <div className={ChatMessageCSS["message-text-container"]}>
-          {message.img && (
+          {message.img ? (
             <img
               src={message.img}
               alt=""
               className={ChatMessageCSS["message-img"]}
             />
+          ) : (
+            <p className={ChatMessageCSS["message-text"]}>{message?.text}</p>
           )}
-          <p className={ChatMessageCSS["message-text"]}>{message?.text}</p>
         </div>
       </div>
     </div>
