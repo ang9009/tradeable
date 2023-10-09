@@ -28,7 +28,7 @@ const Navbar = () => {
           </div>
           <FiMenu
             className={NavbarCSS["hamburger-icon"]}
-            size={"35px"}
+            size={"25px"}
             onClick={() => setOpenSidebar(true)}
           />
         </div>

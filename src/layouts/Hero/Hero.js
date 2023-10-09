@@ -1,10 +1,9 @@
-import Button from "../../components/ui/Button/Button";
 import HeroCSS from "./Hero.module.css";
 
 function Hero() {
   return (
     <div className={HeroCSS["hero-text"]}>
-      <span className={HeroCSS["title"]}>
+      {/* <span className={HeroCSS["title"]}>
         An online marketplace for college students in London
       </span>
       <p className={HeroCSS["desc"]}>
@@ -26,7 +25,7 @@ function Hero() {
             className: HeroCSS["explore-btn"],
           }}
         />
-      </div>
+      </div> */}
     </div>
   );
 }
