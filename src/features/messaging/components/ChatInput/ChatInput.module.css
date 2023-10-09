@@ -66,3 +66,9 @@
 .delete-btn:hover {
   background: rgba(227, 62, 50, 0.8);
 }
+
+@media (max-width: 1160px) {
+  .component-container {
+    position: fixed;
+  }
+}
