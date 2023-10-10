@@ -3,6 +3,7 @@ import { getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useContext, useRef, useState } from "react";
 import { FiImage } from "react-icons/fi";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { v4 as uuid } from "uuid";
 import { useUser } from "../../../../context/UserContext";
 import { db, ref, storage } from "../../../../lib/firebase";
@@ -95,12 +96,18 @@ function ChatInput() {
         />
         <input
           type="file"
+          accept="image/png, image/jpeg"
           style={{ display: "none" }}
           id="file"
           ref={imgInputRef}
           onInput={async (e) => {
             // Image input doesn't allow the same img to be uploaded again by default, so use onInput
-            if (e.target.files[0]) {
+            if (e.target.files[0] && e.target.files[0].size > 4194304) {
+              toast.error("Please upload files that are under 4MB", {
+                theme: "colored",
+                autoClose: 3000,
+              });
+            } else if (e.target.files[0]) {
               await handleSendImage(e.target.files[0]);
             }
           }}

@@ -3,7 +3,7 @@
 }
 
 .nav-top {
-  z-index: 2;
+  z-index: 4;
   height: var(--nav-top-height);
   position: fixed;
   top: 0;

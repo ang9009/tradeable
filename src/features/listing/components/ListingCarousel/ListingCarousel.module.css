@@ -71,8 +71,8 @@ swiper-container::part(button-next) {
   font-family: "Tomato Grotesk", "sans-serif";
   text-transform: capitalize;
   z-index: 2;
-  top: 20px;
-  left: 20px;
+  top: 15px;
+  left: 15px;
   border: 1px solid #fff;
   position: absolute;
 }
@@ -87,8 +87,8 @@ swiper-container::part(button-next) {
   background: #fff;
   box-shadow: var(--box-shadow);
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   z-index: 2;
   border-radius: 5px;
   cursor: pointer;

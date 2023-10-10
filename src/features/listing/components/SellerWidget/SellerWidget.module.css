@@ -20,3 +20,13 @@
   margin-left: 8px;
   font-size: calc(0.1vw + 0.8rem);
 }
+
+.name-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.name {
+  margin-right: 5px;
+}

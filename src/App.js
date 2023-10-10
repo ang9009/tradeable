@@ -7,6 +7,7 @@ import SignIn from "./pages/SignIn/SignIn";
 
 // Library CSS files
 import "react-loading-skeleton/dist/skeleton.css";
+import "react-tooltip/dist/react-tooltip.css";
 import "swiper/css";
 import AppLayout from "./layouts/AppLayout/AppLayout";
 import Listing from "./pages/Listing/Listing";
