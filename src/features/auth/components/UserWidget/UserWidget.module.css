@@ -71,7 +71,7 @@
 .select-item:hover,
 .select-item:focus {
   outline: none;
-  color: var(--input-focus-color);
+  color: var(--tradeable-burgundy);
   cursor: pointer;
 }
 

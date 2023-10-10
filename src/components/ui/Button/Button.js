@@ -12,9 +12,7 @@ function Button({
       disabled={disabled}
       style={{ borderRadius: notRounded && "5px" }}
     >
-      <div className={ButtonCSS["text-container"]}>
-        <div>{text}</div>
-      </div>
+      <div className={ButtonCSS.text}>{text}</div>
     </button>
   );
 }

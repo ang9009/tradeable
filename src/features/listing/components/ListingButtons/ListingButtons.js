@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -5,12 +6,14 @@ import Button from "../../../../components/ui/Button/Button";
 import { useUser } from "../../../../context/UserContext";
 import { createChat } from "../../../../lib/firebase";
 import getChatId from "../../../../utils/getChatId";
+import AuthModal from "../../../auth/components/AuthModal/AuthModal";
 import SellerButtons from "../SellerButtons/SellerButtons";
 import ListingButtonsCSS from "./ListingButtons.module.css";
 
 function ListingButtons({ sellerId, listingId, status }) {
   const { user, isFetchingUser } = useUser();
   const navigate = useNavigate();
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   return (
     // If user is logged out, display non-seller buttons. If user is logged in,
@@ -28,8 +31,12 @@ function ListingButtons({ sellerId, listingId, status }) {
             className: ListingButtonsCSS["msg-seller-btn"],
             notRounded: true,
           }}
-          disabled={!user}
           onClick={() => {
+            if (!user) {
+              setIsAuthModalOpen(true);
+              return;
+            }
+
             if (status == "available") {
               createChat(user, sellerId, listingId).then(() => {
                 navigate(
@@ -44,6 +51,10 @@ function ListingButtons({ sellerId, listingId, status }) {
           }}
         />
       )}
+      <AuthModal
+        isAuthModalOpen={isAuthModalOpen}
+        setIsAuthModalOpen={setIsAuthModalOpen}
+      />
     </div>
   );
 }

@@ -10,14 +10,11 @@
   transition: ease 0.25s;
 }
 
-.text-container {
+.text {
   height: 1.8rem;
-}
-
-.text-container > * {
   font-family: "Tomato Grotesk", "sans-serif";
   font-weight: normal;
-  font-size: var(--smaller-font-size);
+  font-size: calc(0.85rem + 0.1vw);
   height: 1.8rem;
   display: grid;
   place-items: center;

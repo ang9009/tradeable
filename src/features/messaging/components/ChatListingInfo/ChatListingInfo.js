@@ -2,6 +2,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Button from "../../../../components/ui/Button/Button";
 import { db } from "../../../../lib/firebase";
 import { SoldModal } from "../../../listing/components/SoldModal/SoldModal";
@@ -24,9 +25,11 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
     if (listingStatus === "available") {
       setDoc(ref, { status: "reserved" }, { merge: true });
       setListingStatus("reserved");
+      toast.success("Listing marked as reserved!", { autoClose: 1500 });
     } else {
       setDoc(ref, { status: "available" }, { merge: true });
       setListingStatus("available");
+      toast.success("Listing marked as available!", { autoClose: 1500 });
     }
   }
 

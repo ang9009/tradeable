@@ -56,25 +56,48 @@ swiper-container::part(button-next) {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
-  pointer-events: none;
   top: 0;
   left: 0;
+  pointer-events: none;
   z-index: 1;
   border-radius: 8px;
-  padding: 20px;
 }
 
 .status-tag {
   color: #fff;
   display: inline;
-  top: 0;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 8px 15px;
   font-family: "Tomato Grotesk", "sans-serif";
   text-transform: capitalize;
+  z-index: 2;
+  top: 20px;
+  left: 20px;
   border: 1px solid #fff;
+  position: absolute;
 }
 
 .carousel-container {
   position: relative;
+}
+
+.share-btn {
+  border: none;
+  padding: 8px 15px;
+  background: #fff;
+  box-shadow: var(--box-shadow);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.share-btn span {
+  font-family: "Tomato Grotesk", "sans-serif";
+  font-weight: bold;
+  margin-left: 5px;
 }

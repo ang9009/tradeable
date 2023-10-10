@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Button from "../../../../components/ui/Button/Button";
 import { db, doc, setDoc } from "../../../../lib/firebase";
 import { SoldModal } from "./../SoldModal/SoldModal";
@@ -42,8 +43,14 @@ function SellerButtons({ listingId, status }) {
 
               if (status === "available") {
                 setDoc(ref, { status: "reserved" }, { merge: true });
+                toast.success("Listing marked as reserved", {
+                  autoClose: 1500,
+                });
               } else {
                 setDoc(ref, { status: "available" }, { merge: true });
+                toast.success("Listing marked as available", {
+                  autoClose: 1500,
+                });
               }
             }}
           />

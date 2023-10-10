@@ -1,3 +1,6 @@
+import CopyToClipboard from "react-copy-to-clipboard";
+import { FiShare } from "react-icons/fi";
+import { toast } from "react-toastify";
 import ListingCarouselCSS from "./ListingCarousel.module.css";
 import "./ThumbsCarousel.css";
 
@@ -8,8 +11,23 @@ function ListingCarousel({ images, imagesNum, className, status }) {
       {images.length === imagesNum && (
         <>
           <div className={ListingCarouselCSS["carousel-container"]}>
+            {status === "available" && (
+              <CopyToClipboard text={window.location.href}>
+                <button
+                  className={ListingCarouselCSS["share-btn"]}
+                  onClick={() =>
+                    toast.success("Link copied to clipboard", {
+                      autoClose: 2000,
+                    })
+                  }
+                >
+                  <FiShare size={"15px"} />
+                  <span>Share</span>
+                </button>
+              </CopyToClipboard>
+            )}
             {status !== "available" && (
-              <div className={ListingCarouselCSS["overlay"]}>
+              <>
                 <div
                   className={ListingCarouselCSS["status-tag"]}
                   style={{
@@ -20,7 +38,8 @@ function ListingCarousel({ images, imagesNum, className, status }) {
                 >
                   {status}
                 </div>
-              </div>
+                <div className={ListingCarouselCSS["overlay"]}></div>
+              </>
             )}
             <swiper-container
               class={ListingCarouselCSS.carousel}

@@ -18,8 +18,8 @@ export function SoldModal({
       title={"Are you sure?"}
       className={SoldModalCSS["sold-modal"]}
     >
-      This action cannot be undone. Your item will no longer appear in the
-      marketplace, and buyers will no longer be able to interact with you.
+      This action cannot be undone. Buyers will no longer be able to interact
+      with you.
       <div className={SoldModalCSS["modal-btns-container"]}>
         <Button
           options={{
@@ -39,7 +39,7 @@ export function SoldModal({
             );
             setSoldModalIsOpen(false);
             setListingStatus && setListingStatus("sold");
-            toast.success("Listing marked as sold!", 3000);
+            toast.success("Listing marked as sold", { autoClose: 1500 });
           }}
         />
         <Button

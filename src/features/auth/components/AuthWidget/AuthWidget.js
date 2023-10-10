@@ -22,7 +22,7 @@ function AuthWidget({ changeNav, className }) {
               <>
                 <Button
                   options={{
-                    type: "black-outline",
+                    type: "gray-outline",
                     text: "Sell",
                     className: AuthWidgetCSS["sell-btn"],
                   }}
@@ -40,7 +40,7 @@ function AuthWidget({ changeNav, className }) {
             ) : (
               <Button
                 options={{
-                  type: "gray-outline",
+                  type: "black-outline",
                   text: "Sign in",
                   className: AuthWidgetCSS["sign-in-btn"],
                 }}

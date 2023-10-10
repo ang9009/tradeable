@@ -129,9 +129,8 @@ function EditListing() {
         title={"Are you sure?"}
         className={EditListingCSS["delete-modal"]}
       >
-        This action cannot be undone. Your item will no longer appear in the
-        marketplace, and buyers will no longer be able to interact with you
-        regarding this item.
+        This action cannot be undone. Buyers will no longer be able to interact
+        with you.
         <div className={EditListingCSS["modal-btns-container"]}>
           <Button
             options={{ type: "red-filled", text: "Delete listing" }}
