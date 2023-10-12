@@ -12,13 +12,14 @@
 }
 
 .name {
-  font-family: "Tomato Grotesk", "sans-serif";
+  font-family: "Space Grotesk", "sans-serif";
   font-size: 1rem;
-  font-weight: var(--bold);
+  font-weight: bolder;
+  margin-left: 10px;
 }
 
 @media (max-width: 700px) {
   .name {
-    font-size: 0.9rem;
+    display: none;
   }
 }

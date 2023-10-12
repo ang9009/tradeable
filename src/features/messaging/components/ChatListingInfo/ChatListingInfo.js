@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../../../../components/ui/Button/Button";
 import { db } from "../../../../lib/firebase";
-import { SoldModal } from "../../../listing/components/SoldModal/SoldModal";
+import SoldModal from "../../../listing/components/SoldModal/SoldModal";
 import ChatListingInfoCSS from "./ChatListingInfo.module.css";
 
 function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {

@@ -11,7 +11,7 @@
 
 /* Searchbar focus styles */
 .searchbar-focus {
-  outline: var(--input-focus-border);
+  border: var(--input-focus-border);
 }
 
 /* Everything else */

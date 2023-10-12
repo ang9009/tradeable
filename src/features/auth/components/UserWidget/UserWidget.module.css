@@ -20,8 +20,8 @@
 
 .username {
   margin-left: 10px;
-  font-weight: normal;
-  font-family: "Tomato Grotesk", "sans-serif";
+  font-weight: bold;
+  font-family: "Lato", "sans-serif";
   max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -71,7 +71,7 @@
 .select-item:hover,
 .select-item:focus {
   outline: none;
-  color: var(--tradeable-burgundy);
+  color: var(--secondary-text-color);
   cursor: pointer;
 }
 

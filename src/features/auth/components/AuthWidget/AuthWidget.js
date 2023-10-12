@@ -38,16 +38,25 @@ function AuthWidget({ changeNav, className }) {
                 </div>
               </>
             ) : (
-              <Button
-                options={{
-                  type: "black-outline",
-                  text: "Sign in",
-                  className: AuthWidgetCSS["sign-in-btn"],
-                }}
-                onClick={() => {
-                  setIsAuthModalOpen(true);
-                }}
-              />
+              <>
+                <Button
+                  options={{
+                    type: "no-outline",
+                    text: "Log in",
+                    className: AuthWidgetCSS["sign-in-btn"],
+                  }}
+                  onClick={() => {
+                    setIsAuthModalOpen(true);
+                  }}
+                />
+                <Button
+                  options={{
+                    type: "black-filled",
+                    text: "Sign up",
+                    className: AuthWidgetCSS["sign-in-btn"],
+                  }}
+                />
+              </>
             )}
           </>
         ) : (

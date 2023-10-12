@@ -17,7 +17,7 @@
 
 .section-title {
   font-size: calc(1.5rem + 1.5vw);
-  font-family: "Tomato Grotesk", "sans-serif";
+  font-family: "Space Grotesk", "sans-serif";
   line-height: calc(2rem + 1.5vw);
 }
 
@@ -38,7 +38,7 @@
   border: 1px solid black;
   border-radius: 200px;
   padding: 13px 20px;
-  font-family: "Tomato Grotesk", "sans-serif";
+  font-family: "Space Grotesk", "sans-serif";
   font-weight: normal;
   display: flex;
   align-items: center;

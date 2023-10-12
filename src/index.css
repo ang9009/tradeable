@@ -25,8 +25,8 @@
   --primary-border: 1px solid var(--primary-border-color);
   /* Inputs and forms */
   --input-focus-color: #015ecc;
-  --input-focus-border: 1.5px solid var(--input-focus-color);
-  --input-warning-border: 1.5px solid var(--warning-red);
+  --input-focus-border: 1px solid var(--input-focus-color);
+  --input-warning-border: 1px solid var(--warning-red);
   --input-margin-top: 13px;
   --checked-green: #67a629;
   --form-section-margin-top: 30px;

@@ -1,7 +1,7 @@
 .all-btns {
   padding: 5px 17px;
   border: none;
-  border-radius: 50px;
+  border-radius: 9999px;
   cursor: pointer;
   display: grid;
   place-items: center;
@@ -12,12 +12,12 @@
 
 .text {
   height: 1.8rem;
-  font-family: "Tomato Grotesk", "sans-serif";
-  font-weight: normal;
+  font-family: "Lato", "sans-serif";
   font-size: calc(0.85rem + 0.1vw);
   height: 1.8rem;
   display: grid;
   place-items: center;
+  font-weight: bold;
 }
 
 .all-btns:disabled {

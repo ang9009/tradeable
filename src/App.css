@@ -8,16 +8,16 @@
   z-index: 999;
 }
 
-@font-face {
-  font-family: "Tomato Grotesk";
+/* @font-face {
+  font-family: "Space Grotesk";
   font-weight: bold;
-  src: local("Tomato Grotesk"),
+  src: local("Space Grotesk"),
     url(./fonts/tomato_grotesk//TomatoGrotesk-Bold.otf) format("opentype");
 }
 
 @font-face {
-  font-family: "Tomato Grotesk";
+  font-family: "Space Grotesk";
   font-weight: normal;
-  src: local("Tomato Grotesk"),
+  src: local("Space Grotesk"),
     url(./fonts/tomato_grotesk//TomatoGrotesk-SemiBold.otf) format("opentype");
-}
+} */

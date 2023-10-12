@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../../../../components/ui/Button/Button";
 import { db, doc, setDoc } from "../../../../lib/firebase";
-import { SoldModal } from "./../SoldModal/SoldModal";
+import SoldModal from "./../SoldModal/SoldModal";
 
 function SellerButtons({ listingId, status }) {
   const navigate = useNavigate();

@@ -5,7 +5,7 @@ import Modal from "../../../../components/ui/Modal/Modal";
 import { db } from "../../../../lib/firebase";
 import SoldModalCSS from "./SoldModal.module.css";
 
-export function SoldModal({
+function SoldModal({
   soldModalIsOpen,
   setSoldModalIsOpen,
   listingId,
@@ -54,3 +54,5 @@ export function SoldModal({
     </Modal>
   );
 }
+
+export default SoldModal;

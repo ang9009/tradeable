@@ -1,7 +1,6 @@
 /* Info styles */
 .title {
-  font-family: "Tomato Grotesk", "sans-serif";
-  font-weight: normal;
+  font-weight: bold;
   font-size: calc(1rem + 0.1vw);
   line-height: calc(1rem + 0.7vw);
   margin-bottom: 15px;

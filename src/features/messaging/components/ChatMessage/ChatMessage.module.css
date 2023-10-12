@@ -35,6 +35,8 @@
   border-radius: 5px;
   /* Must be fixed height so that scrollIntoView works */
   height: 200px;
+  max-width: 500px;
+  object-fit: contain;
   background: var(--primary-border-color);
 }
 
@@ -71,4 +73,11 @@
 /* Other user message styles */
 .other-user .message-text {
   background: #f7ddc3;
+}
+
+@media (max-width: 800px) {
+  .message-img {
+    max-width: 250px;
+    object-fit: contain;
+  }
 }
