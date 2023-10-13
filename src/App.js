@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router";
 import "./App.css";
 import { PrivateRoutes } from "./features/auth";
 import Home from "./pages/Home/Home";
-import SignIn from "./pages/SignIn/SignIn";
 
 // Library CSS files
 import "react-loading-skeleton/dist/skeleton.css";
@@ -19,9 +18,11 @@ import EditListingRoute from "./features/auth/components/EditListingRoute/EditLi
 import ListingRoute from "./features/listing/components/ListingRoute/ListingRoute";
 import CreateListing from "./pages/CreateListing/CreateListing";
 import EditListing from "./pages/EditListing/EditListing";
+import Login from "./pages/Login/Login";
 import Messages from "./pages/Messages/Messages";
 import NotFound from "./pages/NotFound/NotFound";
 import Profile from "./pages/Profile/Profile";
+import Signup from "./pages/Signup/Signup";
 
 function App() {
   // Registers Swiper custom elements (carousel)
@@ -34,7 +35,8 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/profile/:userId" element={<Profile />} />
           <Route element={<ListingRoute />}>
             <Route path="/listing/:listingId" element={<Listing />} />

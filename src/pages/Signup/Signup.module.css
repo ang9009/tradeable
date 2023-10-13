@@ -1,0 +1,10 @@
+.sign-up-page-container {
+  min-height: calc(100vh - var(--navbar-height));
+  width: 25vw;
+  padding: 64px 0;
+  margin: auto;
+}
+
+.centered-title {
+  text-align: center;
+}

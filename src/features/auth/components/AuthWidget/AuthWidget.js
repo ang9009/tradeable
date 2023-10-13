@@ -1,15 +1,12 @@
-import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/ui/Button/Button";
 import { useUser } from "../../../../context/UserContext";
-import AuthModal from "../AuthModal/AuthModal";
 import UserActionsWidget from "../UserActionsWidget/UserActionsWidget";
 import UserWidget from "../UserWidget/UserWidget";
 import AuthWidgetCSS from "./AuthWidget.module.css";
 
 function AuthWidget({ changeNav, className }) {
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const navigate = useNavigate();
   const { user, isFetchingUser } = useUser();
 
@@ -27,9 +24,7 @@ function AuthWidget({ changeNav, className }) {
                     className: AuthWidgetCSS["sell-btn"],
                   }}
                   onClick={() => {
-                    user
-                      ? navigate("/create-listing")
-                      : setIsAuthModalOpen(true);
+                    user ? navigate("/create-listing") : navigate("/login");
                   }}
                 />
                 <div className={AuthWidgetCSS["buttons-container"]}>
@@ -46,14 +41,17 @@ function AuthWidget({ changeNav, className }) {
                     className: AuthWidgetCSS["sign-in-btn"],
                   }}
                   onClick={() => {
-                    setIsAuthModalOpen(true);
+                    navigate("/login");
                   }}
                 />
                 <Button
                   options={{
-                    type: "black-filled",
+                    type: "burgundy-filled",
                     text: "Sign up",
                     className: AuthWidgetCSS["sign-in-btn"],
+                  }}
+                  onClick={() => {
+                    navigate("/signup");
                   }}
                 />
               </>
@@ -63,11 +61,6 @@ function AuthWidget({ changeNav, className }) {
           <Skeleton width={"80px"} height={"30px"} />
         )}
       </div>
-
-      <AuthModal
-        isAuthModalOpen={isAuthModalOpen}
-        setIsAuthModalOpen={setIsAuthModalOpen}
-      />
     </div>
   );
 }

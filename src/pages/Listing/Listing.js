@@ -66,11 +66,13 @@ function Listing() {
         <div className={ListingCSS["divider"]}></div>
         <div className={ListingCSS["seller-section"]}>
           <SellerWidget seller={seller} />
-          <ListingButtons
-            sellerId={listingData.sellerId}
-            listingId={listingId}
-            status={listingData.status}
-          />
+          {listingData.status === "available" && (
+            <ListingButtons
+              sellerId={listingData.sellerId}
+              listingId={listingId}
+              status={listingData.status}
+            />
+          )}
         </div>
         <div className={ListingCSS["divider"]}></div>
         <div>

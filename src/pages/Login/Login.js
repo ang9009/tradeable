@@ -1,17 +1,17 @@
 import { Navigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 import { useLogin } from "../../features/auth";
-import SignInCSS from "./SignIn.module.css";
+import LoginCSS from "./Login.module.css";
 
-function SignIn() {
+function Login() {
   const { login, error } = useLogin();
   const { user, isFetchingUser } = useUser();
 
   return isFetchingUser ? (
     <></>
   ) : !user ? (
-    <div className={SignInCSS["sign-in-page-container"]}>
-      <h1 className={`page-title ${SignInCSS["centered-title"]}`}>Sign in</h1>
+    <div className={LoginCSS["sign-in-page-container"]}>
+      <h1 className={`page-title ${LoginCSS["centered-title"]}`}>Log in</h1>
       <div className="page-section-container"></div>
     </div>
   ) : (
@@ -19,4 +19,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Login;
