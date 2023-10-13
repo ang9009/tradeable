@@ -7,4 +7,19 @@
 
 .centered-title {
   text-align: center;
+  font-size: calc(2rem + 0.5vw);
+}
+
+.email-input {
+  margin-top: 45px;
+}
+
+.password-input {
+  margin-top: 15px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--primary-border-color);
 }
