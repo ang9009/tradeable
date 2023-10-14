@@ -52,6 +52,7 @@ function Signup() {
             isVerified: false,
           };
 
+          setDoc(doc(db, "userChats", result.user.uid), {});
           setDoc(userRef, user).then(() => {
             sendEmailVerification(result.user);
             navigate("/verify");

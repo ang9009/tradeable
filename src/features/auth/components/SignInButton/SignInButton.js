@@ -37,7 +37,7 @@ function SignInButton({ setError }) {
           };
 
           setDoc(userRef, user).then(() => {
-            navigate("/");
+            navigate("/*");
           });
         } else {
           setError("An account already exists with this email");

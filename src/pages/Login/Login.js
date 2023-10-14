@@ -67,37 +67,46 @@ function Login() {
     <div className={LoginCSS["login-page-container"]}>
       <h1 className={`${LoginCSS["centered-title"]}`}>Log in</h1>
       {!showForgotPassword ? (
-        <form
-          onSubmit={handleSubmit(submitLogin)}
-          className={LoginCSS["form-container"]}
-          key={1}
-        >
-          <TextInput
-            options={{
-              label: "Student email",
-              placeholder: "E.g. johndoe@ucl.ac.uk",
-              className: LoginCSS["input"],
-            }}
-            formData={{ register, errors }}
+        <>
+          <form
+            onSubmit={handleSubmit(submitLogin)}
+            className={LoginCSS["form-container"]}
+            key={1}
+          >
+            <TextInput
+              options={{
+                label: "Student email",
+                placeholder: "E.g. johndoe@ucl.ac.uk",
+                className: LoginCSS["input"],
+              }}
+              formData={{ register, errors }}
+            />
+            <TextInput
+              options={{
+                label: "Password",
+                placeholder: "Enter your password...",
+                className: LoginCSS["input"],
+                isPassword: true,
+              }}
+              formData={{ register, errors }}
+            />
+            <Button
+              options={{
+                type: "black-filled",
+                text: "Log in",
+                className: LoginCSS["submit-btn"],
+                notRounded: true,
+              }}
+            />
+          </form>
+          <div className={LoginCSS["divider"]}></div>
+          <SignInButton setError={setError} />
+          <Error
+            message={error}
+            show={error !== ""}
+            className={LoginCSS["error"]}
           />
-          <TextInput
-            options={{
-              label: "Password",
-              placeholder: "Enter your password...",
-              className: LoginCSS["input"],
-              isPassword: true,
-            }}
-            formData={{ register, errors }}
-          />
-          <Button
-            options={{
-              type: "black-filled",
-              text: "Log in",
-              className: LoginCSS["submit-btn"],
-              notRounded: true,
-            }}
-          />
-        </form>
+        </>
       ) : (
         <form key={2} onSubmit={handleSubmit2(submitResetPassword)}>
           <div
@@ -134,13 +143,6 @@ function Login() {
           />
         </form>
       )}
-      <div className={LoginCSS["divider"]}></div>
-      <SignInButton setError={setError} />
-      <Error
-        message={error}
-        show={error !== ""}
-        className={LoginCSS["error"]}
-      />
       {showForgotPassword || (
         <p
           className={LoginCSS["hints"]}
