@@ -25,19 +25,25 @@
   margin-top: 45px;
 }
 
-.create-account-btn {
+.submit-btn {
   margin-top: 20px;
   width: 100%;
   padding: 10px 12px;
 }
 
-.log-in-text {
+.hints {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
   color: var(--secondary-text-color);
 }
 
-.log-in-text span {
+.hints:first-of-type {
+  margin-top: 20px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hints span {
   cursor: pointer;
   text-decoration: underline;
 }
@@ -57,4 +63,12 @@
 
 .error {
   margin-top: 20px;
+}
+
+.reset-password-input {
+  margin-top: 45px;
+}
+
+.submit-reset-password {
+  width: 100%;
 }

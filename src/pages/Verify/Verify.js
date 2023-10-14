@@ -26,7 +26,6 @@ function Verify() {
     };
   }, []);
 
-  // TODO: should also prevent verified users from accessing page again
   return userData ? (
     <>
       <h1>Welcome to tradeable</h1>
@@ -34,6 +33,7 @@ function Verify() {
         Please verify your email using the link we sent to you. Check your spam
         folder!
       </p>
+      <p>Didn't receive an email? Send me another one</p>
     </>
   ) : (
     <Navigate to="/" />
