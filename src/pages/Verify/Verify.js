@@ -2,7 +2,7 @@ import { onIdTokenChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
-import { auth } from "../../lib/firebase";
+import { auth, db, doc, updateDoc } from "../../lib/firebase";
 
 function Verify() {
   const navigate = useNavigate();
@@ -15,7 +15,12 @@ function Verify() {
           await user.reload();
 
           if (user?.emailVerified) {
-            navigate("/");
+            const userRef = doc(db, "users", user.uid);
+            updateDoc(userRef, {
+              isVerified: true,
+            }).then(() => {
+              navigate("/");
+            });
           }
         })();
       }

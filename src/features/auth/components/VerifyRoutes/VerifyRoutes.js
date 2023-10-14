@@ -3,9 +3,9 @@ import { useUser } from "../../../../context/UserContext";
 
 // For redirecting users when they haven't been verified
 function VerifyRoutes() {
-  const { userData, isFetchingUser } = useUser();
+  const { user, userData, isFetchingUser } = useUser();
 
-  return userData ? (
+  return user ? (
     userData.emailVerified ? (
       <Outlet />
     ) : (

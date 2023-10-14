@@ -33,6 +33,7 @@ function SignInButton({ setError }) {
             name: name,
             email: result.user.email,
             uid: result.user.uid,
+            isVerified: false,
           };
 
           setDoc(userRef, user).then(() => {

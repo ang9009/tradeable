@@ -49,6 +49,7 @@ function Signup() {
             name: name,
             email: data.studentEmail,
             uid: result.user.uid,
+            isVerified: false,
           };
 
           setDoc(userRef, user).then(() => {
