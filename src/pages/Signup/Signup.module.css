@@ -10,19 +10,19 @@
   font-size: calc(2rem + 0.5vw);
 }
 
-.email-input {
-  margin-top: 45px;
-}
-
-.password-input {
-  margin-top: 20px;
-}
-
 .divider {
   width: 100%;
   margin: 25px 0;
   height: 1px;
   background: var(--primary-border-color);
+}
+
+.input:not(:first-child) {
+  margin-top: 15px;
+}
+
+.input:first-of-type {
+  margin-top: 45px;
 }
 
 .create-account-btn {
@@ -43,7 +43,7 @@
 }
 
 .terms-text {
-  margin-top: 70px;
+  margin-top: 30px;
   text-align: center;
   color: var(--secondary-text-color);
   font-size: 0.85rem;

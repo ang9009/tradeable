@@ -29,10 +29,12 @@ function UserWidget() {
         }}
       >
         <img
-          src={user.photoURL}
+          src={
+            user.photoURL || require("../../../../assets/placeholder_img.jpg")
+          }
           alt={require("../../../../assets/placeholder_img.jpg")}
         />
-        <div className={UserWidgetCSS.username}>{user.displayName}</div>
+        <div className={UserWidgetCSS.username}>{user.name}</div>
         <FiChevronDown
           className={`${UserWidgetCSS["down-chevron"]} ${
             showMenu && UserWidgetCSS["down-chevron-flip"]

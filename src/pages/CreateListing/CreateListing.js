@@ -19,7 +19,7 @@ import CreateListingCSS from "./CreateListing.module.css";
 
 function CreateListing() {
   const methods = useForm({ mode: "onChange" });
-  const { user } = useUser();
+  const { user, userData } = useUser();
   const navigate = useNavigate();
   const checkKeyDown = (e) => {
     if (e.key === "Enter") e.preventDefault();

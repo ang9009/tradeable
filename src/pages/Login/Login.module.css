@@ -1,10 +1,60 @@
-.sign-in-page-container {
+.login-page-container {
   min-height: calc(100vh - var(--navbar-height));
-  width: 25vw;
+  width: 23vw;
   padding: 64px 0;
   margin: auto;
 }
 
 .centered-title {
   text-align: center;
+  font-size: calc(2rem + 0.5vw);
+}
+
+.divider {
+  width: 100%;
+  margin: 25px 0;
+  height: 1px;
+  background: var(--primary-border-color);
+}
+
+.input:not(:first-child) {
+  margin-top: 15px;
+}
+
+.input:first-of-type {
+  margin-top: 45px;
+}
+
+.create-account-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px 12px;
+}
+
+.log-in-text {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--secondary-text-color);
+}
+
+.log-in-text span {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.terms-text {
+  margin-top: 30px;
+  text-align: center;
+  color: var(--secondary-text-color);
+  font-size: 0.85rem;
+}
+
+.terms-text span {
+  text-decoration: underline;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.error {
+  margin-top: 20px;
 }

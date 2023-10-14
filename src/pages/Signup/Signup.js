@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   deleteUser,
   getAdditionalUserInfo,
+  sendEmailVerification,
   signOut,
 } from "firebase/auth";
 import { useState } from "react";
@@ -33,38 +34,47 @@ function Signup() {
 
   function submitSignup(data, e) {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, data.collegeEmail, data.password)
-      .then(async (result) => {
+    createUserWithEmailAndPassword(auth, data.studentEmail, data.password)
+      .then((result) => {
         const { isNewUser } = getAdditionalUserInfo(result);
 
         if (!isValidEmail(result.user.email)) {
-          setError("Please use an email ending in .ac.uk or .edu");
+          setError("Please use your student email");
           deleteUser(result.user);
           signOut(auth);
         } else if (isNewUser) {
           const userRef = doc(db, "users", result.user.uid);
+          const name = data.studentEmail.split("@")[0];
           const user = {
-            email: result.user.email,
-            name: result.user.displayName,
+            name: name,
+            email: data.studentEmail,
+            uid: result.user.uid,
           };
-          await setDoc(userRef, user);
-          navigate("/");
+
+          setDoc(userRef, user).then(() => {
+            sendEmailVerification(result.user);
+            navigate("/verify");
+          });
         }
       })
-      .catch((error) =>
-        setError("Email is invalid, or account already exists")
-      );
+      .catch((error) => {
+        setError(`${error.message.split(": ")[1]}`);
+      });
   }
 
   return (
     <div className={SignupCSS["sign-up-page-container"]}>
-      <form action="" onSubmit={handleSubmit(submitSignup)}>
+      <form
+        action=""
+        onSubmit={handleSubmit(submitSignup)}
+        className={SignupCSS["form-container"]}
+      >
         <h1 className={`${SignupCSS["centered-title"]}`}>Sign up</h1>
         <TextInput
           options={{
-            label: "College email",
+            label: "Student email",
             placeholder: "E.g. johndoe@ucl.ac.uk",
-            className: SignupCSS["email-input"],
+            className: SignupCSS["input"],
           }}
           formData={{ register, errors }}
         />
@@ -72,7 +82,8 @@ function Signup() {
           options={{
             label: "Password",
             placeholder: "Enter your password...",
-            className: SignupCSS["password-input"],
+            className: SignupCSS["input"],
+            isPassword: true,
           }}
           formData={{ register, errors }}
         />

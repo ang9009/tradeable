@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import { Route, Routes } from "react-router";
 import "./App.css";
-import { PrivateRoutes } from "./features/auth";
+import { PrivateRoutes, VerifyRoutes } from "./features/auth";
 import Home from "./pages/Home/Home";
 
 // Library CSS files
@@ -23,6 +23,7 @@ import Messages from "./pages/Messages/Messages";
 import NotFound from "./pages/NotFound/NotFound";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/Signup/Signup";
+import Verify from "./pages/Verify/Verify";
 
 function App() {
   // Registers Swiper custom elements (carousel)
@@ -34,25 +35,28 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route element={<AppLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/profile/:userId" element={<Profile />} />
-          <Route element={<ListingRoute />}>
-            <Route path="/listing/:listingId" element={<Listing />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-          <Route element={<PrivateRoutes />}>
-            <Route path="/create-listing" element={<CreateListing />} />
-            <Route path="/messages">
-              <Route index element={<Messages />} />
-              <Route path=":chatId" element={<Messages />} />
+          <Route path="/verify" element={<Verify />} />
+          <Route element={<VerifyRoutes />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/profile/:userId" element={<Profile />} />
+            <Route element={<ListingRoute />}>
+              <Route path="/listing/:listingId" element={<Listing />} />
             </Route>
-            <Route element={<EditListingRoute />}>
-              <Route
-                path="/edit-listing/:listingId"
-                element={<EditListing />}
-              />
+            <Route path="*" element={<NotFound />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="/create-listing" element={<CreateListing />} />
+              <Route path="/messages">
+                <Route index element={<Messages />} />
+                <Route path=":chatId" element={<Messages />} />
+              </Route>
+              <Route element={<EditListingRoute />}>
+                <Route
+                  path="/edit-listing/:listingId"
+                  element={<EditListing />}
+                />
+              </Route>
             </Route>
           </Route>
         </Route>

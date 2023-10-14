@@ -23,17 +23,21 @@ function SignInButton({ setError }) {
         const { isNewUser } = getAdditionalUserInfo(result);
 
         if (!isValidEmail(result.user.email)) {
-          setError("Please use an email ending in .ac.uk or .edu");
+          setError("Please use your student email");
           deleteUser(result.user);
           signOut(auth);
         } else if (isNewUser) {
           const userRef = doc(db, "users", result.user.uid);
+          const name = result.user.email.split("@")[0];
           const user = {
+            name: name,
             email: result.user.email,
-            name: result.user.displayName,
+            uid: result.user.uid,
           };
-          await setDoc(userRef, user);
-          navigate("/");
+
+          setDoc(userRef, user).then(() => {
+            navigate("/");
+          });
         } else {
           setError("An account already exists with this email");
         }

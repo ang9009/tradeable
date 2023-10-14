@@ -18,6 +18,10 @@
   margin-left: 15px;
 }
 
+.sell-btn {
+  margin-left: 15px;
+}
+
 /* Must be the same as ios-app-btn disappearing in Navbar/HeroNavbar */
 @media (max-width: 600px) {
   .sell-btn {

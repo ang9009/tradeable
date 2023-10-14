@@ -2,7 +2,7 @@ import { toCamelCase } from "../../../utils/toCamelCase";
 import InputMessage from "../InputMessage/InputMessage";
 
 function TextInput({
-  options: { className, label, placeholder, max },
+  options: { className, label, placeholder, max, isPassword },
   formData: { register, errors },
 }) {
   // The "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
@@ -26,7 +26,7 @@ function TextInput({
         {...registerSettings}
         id={toCamelCase(label)}
         className={"input"}
-        type={"text"}
+        type={isPassword ? "password" : "text"}
         placeholder={placeholder}
         autoComplete="off"
         style={{
