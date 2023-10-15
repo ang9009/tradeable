@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 30px;
-  grid-row-gap: var(--input-margin-top);
+  grid-row-gap: 20px;
 }
 
 @media (max-width: 600px) {
