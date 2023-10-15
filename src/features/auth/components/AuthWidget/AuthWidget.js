@@ -38,7 +38,7 @@ function AuthWidget({ changeNav, className }) {
                   options={{
                     type: "no-outline",
                     text: "Log in",
-                    className: AuthWidgetCSS["sign-in-btn"],
+                    className: AuthWidgetCSS["log-in-btn"],
                   }}
                   onClick={() => {
                     navigate("/login");
@@ -48,7 +48,7 @@ function AuthWidget({ changeNav, className }) {
                   options={{
                     type: "burgundy-filled",
                     text: "Sign up",
-                    className: AuthWidgetCSS["sign-in-btn"],
+                    className: AuthWidgetCSS["sign-up-btn"],
                   }}
                   onClick={() => {
                     navigate("/signup");

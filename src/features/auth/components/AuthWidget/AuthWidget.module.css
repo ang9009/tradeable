@@ -27,4 +27,12 @@
   .sell-btn {
     display: none;
   }
+
+  .log-in-btn {
+    display: none;
+  }
+
+  .sign-up-btn {
+    margin-left: 15px;
+  }
 }
