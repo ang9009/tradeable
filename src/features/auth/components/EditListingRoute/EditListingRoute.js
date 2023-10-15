@@ -29,7 +29,7 @@ function EditListingRoute() {
 
   return isFetchingUser || isFetchingListing ? (
     <></>
-  ) : listingExists && user.uid === sellerId ? (
+  ) : listingExists && user.id === sellerId ? (
     <Outlet />
   ) : (
     <Navigate to="*" />

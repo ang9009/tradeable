@@ -40,7 +40,7 @@ function CreateListing() {
               );
 
               const listingId = getId();
-              await onSubmitListing(data, listingId, user.uid);
+              await onSubmitListing(data, listingId, user.id);
 
               // Uplaoding photos
               const photos = data.photos.map((photoObj) => photoObj.file);

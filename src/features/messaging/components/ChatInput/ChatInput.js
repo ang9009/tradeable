@@ -30,7 +30,7 @@ function ChatInput() {
             messages: arrayUnion({
               id: uuid(),
               text: "",
-              senderId: user.uid,
+              senderId: user.id,
               date: Date.now(),
               img: downloadUrl,
             }),
@@ -39,7 +39,7 @@ function ChatInput() {
       }
     );
 
-    await updateDoc(doc(db, "userChats", user.uid), {
+    await updateDoc(doc(db, "userChats", user.id), {
       [chatId + ".lastMessage"]: {
         text: "[Image]",
       },
@@ -59,14 +59,14 @@ function ChatInput() {
       messages: arrayUnion({
         id: uuid(),
         text,
-        senderId: user.uid,
+        senderId: user.id,
         date: Date.now(),
       }),
     });
 
     setText("");
 
-    await updateDoc(doc(db, "userChats", user.uid), {
+    await updateDoc(doc(db, "userChats", user.id), {
       [chatId + ".lastMessage"]: {
         text,
       },

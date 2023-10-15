@@ -17,6 +17,8 @@ function UserWidget() {
     navigate(page);
   }
 
+  console.log(user.photoUrl);
+
   return (
     <DropdownMenu.Root modal={false} open={showMenu}>
       <DropdownMenu.Trigger
@@ -30,7 +32,8 @@ function UserWidget() {
       >
         <img
           src={
-            user.photoURL || require("../../../../assets/placeholder_img.jpg")
+            user.photoUrl ||
+            require("../../../../assets/profile_placeholder.png")
           }
           alt={require("../../../../assets/placeholder_img.jpg")}
         />
@@ -53,7 +56,7 @@ function UserWidget() {
         >
           <DropdownMenu.Item
             className={UserWidgetCSS["select-item"]}
-            onClick={() => goToPage(`/profile/${user.uid}`)}
+            onClick={() => goToPage(`/profile/${user.id}`)}
           >
             Profile
           </DropdownMenu.Item>

@@ -18,7 +18,7 @@ function ListingButtons({ sellerId, listingId, status }) {
     <div className={ListingButtonsCSS["listing-btns-container"]}>
       {isFetchingUser ? (
         <Skeleton />
-      ) : user?.uid === sellerId ? (
+      ) : user?.id === sellerId ? (
         <SellerButtons listingId={listingId} status={status} />
       ) : (
         <Button
@@ -37,7 +37,7 @@ function ListingButtons({ sellerId, listingId, status }) {
             if (status == "available") {
               createChat(user, sellerId, listingId).then(() => {
                 navigate(
-                  `/messages/${getChatId(user.uid, sellerId, listingId)}`
+                  `/messages/${getChatId(user.id, sellerId, listingId)}`
                 );
               });
             } else if (status === "reserved") {

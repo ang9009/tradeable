@@ -37,8 +37,8 @@ function Signup() {
     createUserWithEmailAndPassword(auth, data.studentEmail, data.password)
       .then((result) => {
         const { isNewUser } = getAdditionalUserInfo(result);
-
-        if (!isValidEmail(result.user.email)) {
+        // !isValidEmail(result.user.email)
+        if (false) {
           setError("Please use your student email");
           deleteUser(result.user);
           signOut(auth);
@@ -48,8 +48,10 @@ function Signup() {
           const user = {
             name: name,
             email: data.studentEmail,
-            uid: result.user.uid,
+            id: result.user.uid,
             isVerified: false,
+            photoUrl:
+              "https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/profile_placeholder.png",
           };
 
           setDoc(doc(db, "userChats", result.user.uid), {});

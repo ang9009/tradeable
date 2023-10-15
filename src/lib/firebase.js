@@ -71,11 +71,11 @@ async function createUser(user) {
   const newUser = {
     name: user.displayName,
     email: user.email,
-    photoUrl: user.photoURL,
+    photoUrl: user.photoUrl,
   };
 
-  await setDoc(doc(db, "users", user.uid), newUser);
-  await setDoc(doc(db, "userChats", user.uid), {});
+  await setDoc(doc(db, "users", user.id), newUser);
+  await setDoc(doc(db, "userChats", user.id), {});
 }
 
 function getEditListingData(listingId, reset, setIsFetchingListing) {
@@ -119,7 +119,7 @@ async function createChat(user, sellerId, listingId) {
     // However, we also need to be able to fetch the same chat for both users from the chats collection
     // Thus, chatIdPrefix ensures that the same id can be reproduced
     const chatIdPrefix =
-      user.uid > sellerId ? user.uid + sellerId : sellerId + user.uid;
+      user.id > sellerId ? user.id + sellerId : sellerId + user.id;
     const chatId = listingId + chatIdPrefix;
     const res = await getDoc(doc(db, "chats", chatId));
 
@@ -132,9 +132,9 @@ async function createChat(user, sellerId, listingId) {
     // Updates user chat for seller
     await updateDoc(doc(db, "userChats", sellerId), {
       [chatId + ".userInfo"]: {
-        id: user.uid,
-        name: user.displayName,
-        photoUrl: user.photoURL,
+        id: user.id,
+        name: user.name,
+        photoUrl: user.photoUrl,
       },
       [chatId + ".listingId"]: listingId,
       [chatId + ".type"]: "selling",
@@ -145,7 +145,7 @@ async function createChat(user, sellerId, listingId) {
     const sellerRes = await getDoc(doc(db, "users", sellerId));
     const seller = sellerRes.data();
 
-    await updateDoc(doc(db, "userChats", user.uid), {
+    await updateDoc(doc(db, "userChats", user.id), {
       [chatId + ".userInfo"]: {
         id: sellerId,
         name: seller.name,

@@ -27,7 +27,7 @@ function Messages() {
   // Fetches chats
   useEffect(() => {
     function getChats() {
-      const unsub = onSnapshot(doc(db, "userChats", user.uid), (doc) => {
+      const unsub = onSnapshot(doc(db, "userChats", user.id), (doc) => {
         const newUserChats = Object.entries(doc.data()).sort(
           (a, b) => b[1]?.date - a[1]?.date
         );
@@ -49,8 +49,8 @@ function Messages() {
       return () => unsub();
     }
 
-    user.uid && getChats(userChats);
-  }, [user.uid]);
+    user.id && getChats(userChats);
+  }, [user.id]);
 
   // Updates selected chat based on chatId
   useEffect(() => {

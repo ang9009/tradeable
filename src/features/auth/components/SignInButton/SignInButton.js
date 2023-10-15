@@ -32,7 +32,7 @@ function SignInButton({ setError }) {
           const user = {
             name: name,
             email: result.user.email,
-            uid: result.user.uid,
+            id: result.user.uid,
             isVerified: false,
           };
 

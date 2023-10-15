@@ -7,19 +7,24 @@ function SellerWidget({ seller }) {
   return (
     <div className={SellerWidgetCSS["widget-container"]}>
       <img
-        src={seller.photoUrl}
+        src={
+          seller.photoUrl ||
+          require("../../../../assets/profile_placeholder.png")
+        }
         alt=""
         className={SellerWidgetCSS["seller-img"]}
       />
       <div>
         <div className={SellerWidgetCSS["name-container"]}>
           <h1 className={SellerWidgetCSS.name}>{seller.name}</h1>
-          <MdVerified
-            size={"15px"}
-            color={"var(--input-focus-color)"}
-            data-tooltip-id="verified-tooltip"
-            data-tooltip-content="User has verified their student email"
-          />
+          {seller.isVerified && (
+            <MdVerified
+              size={"15px"}
+              color={"var(--input-focus-color)"}
+              data-tooltip-id="verified-tooltip"
+              data-tooltip-content="User has verified their student email"
+            />
+          )}
           <Tooltip id="verified-tooltip" />
         </div>
         <div className={SellerWidgetCSS["ratings-container"]}>

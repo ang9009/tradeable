@@ -18,7 +18,7 @@ function MobileChatsList({
   const { dispatch } = useContext(ChatContext);
   function handleSelect(otherUser, listing) {
     if (listing) {
-      const chatId = getChatId(user.uid, otherUser.id, listing.id);
+      const chatId = getChatId(user.id, otherUser.id, listing.id);
       navigate(`/messages/${chatId}`);
     } else {
       toast.error("Listing no longer exists!", 2000);

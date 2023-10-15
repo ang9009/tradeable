@@ -16,7 +16,7 @@ function ChatMessage({ message }) {
   return (
     <div
       className={`${ChatMessageCSS["message"]} ${
-        message.senderId === user.uid
+        message.senderId === user.id
           ? ChatMessageCSS["curr-user"]
           : ChatMessageCSS["other-user"]
       }`}

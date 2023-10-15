@@ -62,7 +62,7 @@ function EditListing() {
                     { theme: "colored", position: "bottom-right" }
                   );
 
-                  await onSubmitListing(data, listingId, user.uid);
+                  await onSubmitListing(data, listingId, user.id);
 
                   const photos = data.photos.map((photoObj) => photoObj.file);
                   const promises = photos.map((photo, i) => {
@@ -146,7 +146,7 @@ function EditListing() {
                 Promise.all(promises);
               });
               deleteDoc(doc(db, "listings", listingId));
-              navigate(`/profile/${user.uid}`);
+              navigate(`/profile/${user.id}`);
               toast.success("Listing successfully deleted!", 3000);
             }}
           />
