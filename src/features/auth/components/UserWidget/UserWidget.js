@@ -17,8 +17,6 @@ function UserWidget() {
     navigate(page);
   }
 
-  console.log(user.photoUrl);
-
   return (
     <DropdownMenu.Root modal={false} open={showMenu}>
       <DropdownMenu.Trigger
