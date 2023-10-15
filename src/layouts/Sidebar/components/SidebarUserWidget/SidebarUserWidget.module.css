@@ -21,8 +21,7 @@
 
 .username {
   font-size: calc(0.2vw + 0.9rem);
-  font-weight: normal;
-  font-family: "Space Grotesk", "sans-serif";
+  font-weight: bold;
   max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -51,8 +50,7 @@
 
 .dropdown li {
   font-size: calc(0.2vw + 0.9rem);
-  font-family: "Space Grotesk", "sans-serif";
-  font-weight: lighter;
+  font-weight: normal;
   cursor: pointer;
   user-select: none;
   transition: color 0.2s;

@@ -12,6 +12,7 @@ function SidebarUserWidget({ className, setOpenSidebar }) {
   const location = useLocation();
   function goToPage(page) {
     setShowDropdown(false);
+    setOpenSidebar(false);
     navigate(page);
   }
 
@@ -23,9 +24,7 @@ function SidebarUserWidget({ className, setOpenSidebar }) {
             className={`${SidebarUserWidgetCSS["widget-container"]} ${className}`}
             onClick={() => setShowDropdown((showDropdown) => !showDropdown)}
           >
-            <div className={SidebarUserWidgetCSS.username}>
-              {user.displayName}
-            </div>
+            <div className={SidebarUserWidgetCSS.username}>{user.name}</div>
             <FiChevronDown
               className={`${SidebarUserWidgetCSS["down-chevron"]} ${
                 showDropdown && SidebarUserWidgetCSS["down-chevron-flip"]
