@@ -5,8 +5,8 @@ import LogoCSS from "./Logo.module.css";
 function Logo({ color, className }) {
   return (
     <Link to="/" className={`${LogoCSS.logo} ${className}`}>
-      <Icon />
-      <div style={{ color: color || "#fff" }} className={LogoCSS["name"]}>
+      <Icon color={color} />
+      <div style={{ color: color }} className={LogoCSS["name"]}>
         tradeable
       </div>
     </Link>
