@@ -27,9 +27,4 @@
   .sell-btn {
     display: none;
   }
-
-  /* Auth widget container already has margin, so this margin must be removed*/
-  .buttons-container > * {
-    margin-left: 0;
-  }
 }

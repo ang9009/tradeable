@@ -51,7 +51,7 @@
 }
 
 .hamburger-icon {
-  margin-left: 30px;
+  margin-left: 15px;
   display: none;
   border-radius: 50px;
   cursor: pointer;
@@ -134,9 +134,5 @@
 
   .nav-right {
     margin-right: none;
-  }
-
-  .hamburger-icon {
-    margin-left: 15px;
   }
 }

@@ -1,5 +1,5 @@
 .searchbar {
-  margin-left: 30px;
+  margin-left: 15px;
   border-radius: 9999px;
   display: flex;
   align-items: center;
@@ -54,14 +54,4 @@
 
 .search-btn {
   background: var(--tradeable-beige);
-}
-
-@media (max-width: 600px) {
-  .searchbar {
-    margin-left: 15px;
-  }
-
-  .search-btn {
-    display: none;
-  }
 }

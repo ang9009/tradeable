@@ -104,9 +104,3 @@
     display: none;
   }
 }
-
-@media (max-width: 600px) {
-  .widget-container img {
-    margin-left: 15px;
-  }
-}
