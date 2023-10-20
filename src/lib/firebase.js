@@ -137,7 +137,10 @@ async function createChat(user, sellerId, listingId) {
         name: user.name,
         photoUrl: user.photoUrl,
       },
-      [chatId + ".listingId"]: listingId,
+      [chatId + ".listing"]: {
+        id: listingId,
+        buyerId: "",
+      },
       [chatId + ".type"]: "selling",
       [chatId + ".date"]: Date.now(),
     });
@@ -152,7 +155,10 @@ async function createChat(user, sellerId, listingId) {
         name: seller.name,
         photoUrl: seller.photoUrl,
       },
-      [chatId + ".listingId"]: listingId,
+      [chatId + ".listing"]: {
+        id: listingId,
+        buyerId: "",
+      },
       [chatId + ".type"]: "buying",
       [chatId + ".date"]: Date.now(),
     });
@@ -167,7 +173,7 @@ async function getChatListings(userChats) {
   const listingImgPromises = [];
 
   userChats.forEach((chat) => {
-    const listingRef = doc(db, "listings", chat[1].listingId);
+    const listingRef = doc(db, "listings", chat[1].listing.id);
     const listingPromise = getDoc(listingRef);
     listingPromises.push(listingPromise);
   });

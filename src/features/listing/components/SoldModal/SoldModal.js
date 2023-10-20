@@ -1,7 +1,8 @@
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import Button from "../../../../components/ui/Button/Button";
 import Modal from "../../../../components/ui/Modal/Modal";
+import { useUser } from "../../../../context/UserContext";
 import { db } from "../../../../lib/firebase";
 import SoldModalCSS from "./SoldModal.module.css";
 
@@ -9,8 +10,12 @@ function SoldModal({
   soldModalIsOpen,
   setSoldModalIsOpen,
   listingId,
+  buyerId,
   setListingStatus,
+  chatId,
 }) {
+  const { user } = useUser();
+
   return (
     <Modal
       isOpen={soldModalIsOpen}
@@ -27,17 +32,35 @@ function SoldModal({
             type: "red-filled",
             text: "Mark as sold",
           }}
-          onClick={() => {
+          onClick={async () => {
+            // Updating listing buyerId
             const ref = doc(db, "listings", listingId);
-            setDoc(
+            await setDoc(
               ref,
               {
                 status: "sold",
+                buyerId: buyerId,
               },
               {
                 merge: true,
               }
             );
+
+            // Updating buyer and seller userChat objects
+            await updateDoc(doc(db, "userChats", user.id), {
+              [chatId + ".listing"]: {
+                id: listingId,
+                buyerId: buyerId,
+              },
+            });
+
+            await updateDoc(doc(db, "userChats", buyerId), {
+              [chatId + ".listing"]: {
+                id: listingId,
+                buyerId: buyerId,
+              },
+            });
+
             setSoldModalIsOpen(false);
             setListingStatus && setListingStatus("sold");
             toast.success("Listing marked as sold", { autoClose: 1500 });

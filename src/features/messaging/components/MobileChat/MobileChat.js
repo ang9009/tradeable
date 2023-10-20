@@ -19,7 +19,8 @@ function MobileChat({
           <ChatUser selectedChat={selectedChat} />
           <ChatListingInfo
             listing={listings?.find(
-              (listing) => listing && listing?.id === selectedChat[1]?.listingId
+              (listing) =>
+                listing && listing?.id === selectedChat[1]?.listing.id
             )}
             isFetchingListing={isFetchingListings}
           />

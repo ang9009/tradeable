@@ -42,7 +42,7 @@ function ChatsList({
             listingData={{
               // Listing could be null if deleted
               listing: listings.find(
-                (listing) => listing && listing.id === chat[1].listingId
+                (listing) => listing && listing.id === chat[1].listing.id
               ),
               isFetchingListings: isFetchingListings,
             }}
@@ -51,7 +51,7 @@ function ChatsList({
               handleSelect(
                 chat[1].userInfo,
                 listings.find(
-                  (listing) => listing && listing.id === chat[1].listingId
+                  (listing) => listing && listing.id === chat[1].listing.id
                 )
               )
             }

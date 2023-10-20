@@ -19,8 +19,6 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
     }
   }, [listing]);
 
-  console.log(selectedChat);
-
   async function markReserved() {
     const ref = doc(db, "listings", listing.id);
 
@@ -102,6 +100,8 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
         setSoldModalIsOpen={setSoldModalIsOpen}
         soldModalIsOpen={soldModalIsOpen}
         listingId={listing?.id}
+        chatId={selectedChat && selectedChat[0]}
+        buyerId={selectedChat && selectedChat[1].userInfo.id}
         setListingStatus={setListingStatus}
       />
     </div>

@@ -13,7 +13,7 @@ function Chat({ selectedChat, listingData: { listings, isFetchingListings } }) {
           <ChatUser selectedChat={selectedChat} />
           <ChatListingInfo
             listing={listings.find(
-              (listing) => listing && listing.id === selectedChat[1].listingId
+              (listing) => listing && listing.id === selectedChat[1].listing.id
             )}
             selectedChat={selectedChat}
             isFetchingListing={isFetchingListings}
