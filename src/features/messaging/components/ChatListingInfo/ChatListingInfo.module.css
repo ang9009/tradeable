@@ -50,4 +50,10 @@
 
 .listing-sold-msg {
   color: var(--secondary-text-color);
+  margin-right: 15px;
+}
+
+.listing-sold-buttons {
+  display: flex;
+  align-items: center;
 }

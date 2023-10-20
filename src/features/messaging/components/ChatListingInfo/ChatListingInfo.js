@@ -64,7 +64,7 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
           </div>
           {selectedChat &&
             selectedChat[1].type == "selling" &&
-            (listingStatus !== "sold" ? (
+            listing.status !== "sold" && (
               <div className={ChatListingInfoCSS["seller-btns"]}>
                 <Button
                   options={{
@@ -87,11 +87,31 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
                   onClick={() => setSoldModalIsOpen(true)}
                 />
               </div>
-            ) : (
+            )}
+          {listing.status == "sold" && (
+            <div className={ChatListingInfoCSS["listing-sold-buttons"]}>
               <div className={ChatListingInfoCSS["listing-sold-msg"]}>
                 Listing sold
               </div>
-            ))}
+              {selectedChat && selectedChat[1].type == "selling" ? (
+                <Button
+                  options={{
+                    type: "black-filled",
+                    text: "Review buyer",
+                    notRounded: true,
+                  }}
+                />
+              ) : (
+                <Button
+                  options={{
+                    type: "black-filled",
+                    text: "Review seller",
+                    notRounded: true,
+                  }}
+                />
+              )}
+            </div>
+          )}
         </>
       ) : (
         <Skeleton height={"50px"} />
