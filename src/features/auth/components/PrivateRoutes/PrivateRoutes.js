@@ -5,13 +5,7 @@ import { useUser } from "../../../../context/UserContext";
 function PrivateRoutes() {
   const { user, isFetchingUser } = useUser();
 
-  return isFetchingUser ? (
-    <></>
-  ) : user ? (
-    <Outlet />
-  ) : (
-    <Navigate to="/sign-in" />
-  );
+  return isFetchingUser ? <></> : user ? <Outlet /> : <Navigate to="/signup" />;
 }
 
 export default PrivateRoutes;

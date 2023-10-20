@@ -19,7 +19,8 @@ function SoldModal({
       className={SoldModalCSS["sold-modal"]}
     >
       This action cannot be undone. Buyers will no longer be able to interact
-      with you.
+      with you. Both you and the user that you are selling your item to will be
+      able to make reviews for each other.
       <div className={SoldModalCSS["modal-btns-container"]}>
         <Button
           options={{

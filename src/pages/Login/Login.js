@@ -106,6 +106,10 @@ function Login() {
             show={error !== ""}
             className={LoginCSS["error"]}
           />
+          <p className={LoginCSS["hints"]}>
+            Don't have an account?{" "}
+            <span onClick={() => navigate("/signup")}>Sign up</span> instead
+          </p>
         </>
       ) : (
         <form key={2} onSubmit={handleSubmit2(submitResetPassword)}>
@@ -145,16 +149,12 @@ function Login() {
       )}
       {showForgotPassword || (
         <p
-          className={LoginCSS["hints"]}
+          className={`${LoginCSS["hints"]} ${LoginCSS["forgot-password"]}`}
           onClick={() => setShowForgotPassword(true)}
         >
           Forgot password?
         </p>
       )}
-      <p className={LoginCSS["hints"]}>
-        Don't have an account?{" "}
-        <span onClick={() => navigate("/")}>Sign up</span> instead
-      </p>
     </div>
   );
 }

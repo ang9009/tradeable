@@ -59,6 +59,7 @@ async function onSubmitListing(data, listingId, userId) {
     description: data.description,
     meetUpLocations: data.meetUpLocations.map((location) => location.value),
     sellerId: userId,
+    buyerId: "",
     postedDate: date,
     imagesNum: data.photos.length,
     status: "available",

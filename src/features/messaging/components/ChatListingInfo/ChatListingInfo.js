@@ -19,6 +19,8 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
     }
   }, [listing]);
 
+  console.log(selectedChat);
+
   async function markReserved() {
     const ref = doc(db, "listings", listing.id);
 
