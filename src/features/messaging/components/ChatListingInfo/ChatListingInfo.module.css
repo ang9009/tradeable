@@ -57,3 +57,10 @@
   display: flex;
   align-items: center;
 }
+
+/* Same as messages.module.css */
+@media (max-width: 1160px) {
+  .component-container {
+    padding: 10px 20px;
+  }
+}

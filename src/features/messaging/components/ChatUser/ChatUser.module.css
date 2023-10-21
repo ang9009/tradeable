@@ -48,4 +48,13 @@
   .arrow-btn {
     display: initial;
   }
+
+  .profile-img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .component-container {
+    padding: 10px;
+  }
 }
