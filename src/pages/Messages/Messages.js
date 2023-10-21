@@ -21,13 +21,13 @@ function Messages() {
   const [listings, setListings] = useState([]);
   const [isFetchingListings, setIsFetchingListings] = useState(true);
   const [selectedChat, setSelectedChat] = useState([]);
-  const { user } = useUser();
+  const { user, isFetchingUser } = useUser();
   const { chatId } = useParams();
 
   // Fetches chats
   useEffect(() => {
     function getChats() {
-      const unsub = onSnapshot(doc(db, "userChats", user.id), (doc) => {
+      const unsub = onSnapshot(doc(db, "userChats", user?.id), (doc) => {
         const newUserChats = Object.entries(doc.data()).sort(
           (a, b) => b[1]?.date - a[1]?.date
         );
@@ -49,8 +49,8 @@ function Messages() {
       return () => unsub();
     }
 
-    user.id && getChats(userChats);
-  }, [user.id]);
+    user?.id && !isFetchingUser && getChats(userChats);
+  }, [user?.id, isFetchingUser]);
 
   // Updates selected chat based on chatId
   useEffect(() => {

@@ -33,6 +33,8 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
     }
   }
 
+  async function createReview(userId) {}
+
   return (
     <div className={ChatListingInfoCSS["component-container"]}>
       {!isFetchingListing ? (
@@ -62,38 +64,36 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
               )}
             </div>
           </div>
-          {selectedChat &&
-            selectedChat[1].type == "selling" &&
-            listing.status !== "sold" && (
-              <div className={ChatListingInfoCSS["seller-btns"]}>
-                <Button
-                  options={{
-                    type: "gray-outline-blue",
-                    notRounded: true,
-                    text:
-                      listingStatus === "available"
-                        ? "Mark as reserved"
-                        : "Mark as available",
-                  }}
-                  onClick={() => markReserved()}
-                />
-                <Button
-                  options={{
-                    type: "gray-outline-red",
-                    notRounded: true,
-                    text: "Mark as sold",
-                    className: ChatListingInfoCSS["sold-btn"],
-                  }}
-                  onClick={() => setSoldModalIsOpen(true)}
-                />
-              </div>
-            )}
+          {selectedChat?.[1].type == "selling" && listing.status !== "sold" && (
+            <div className={ChatListingInfoCSS["seller-btns"]}>
+              <Button
+                options={{
+                  type: "gray-outline-blue",
+                  notRounded: true,
+                  text:
+                    listingStatus === "available"
+                      ? "Mark as reserved"
+                      : "Mark as available",
+                }}
+                onClick={() => markReserved()}
+              />
+              <Button
+                options={{
+                  type: "gray-outline-red",
+                  notRounded: true,
+                  text: "Mark as sold",
+                  className: ChatListingInfoCSS["sold-btn"],
+                }}
+                onClick={() => setSoldModalIsOpen(true)}
+              />
+            </div>
+          )}
           {selectedChat && listing.status == "sold" && (
             <div className={ChatListingInfoCSS["listing-sold-buttons"]}>
               <div className={ChatListingInfoCSS["listing-sold-msg"]}>
                 Listing sold
               </div>
-              {selectedChat && selectedChat[1].type == "selling" ? (
+              {selectedChat?.[1].type == "selling" ? (
                 <Button
                   options={{
                     type: "black-filled",

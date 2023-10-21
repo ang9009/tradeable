@@ -17,6 +17,7 @@ function ChatInput() {
   const { data } = useContext(ChatContext);
   const imgInputRef = useRef();
 
+  // Sends image
   async function handleSendImage(img) {
     const storageRef = ref(storage, `chats/${uuid()}`);
     const uploadTask = uploadBytesResumable(storageRef, img);
@@ -80,9 +81,9 @@ function ChatInput() {
       [chatId + ".date"]: Date.now(),
     });
   }
-
   return (
     <div className={ChatInputCSS["component-container"]}>
+      {/* Input */}
       <div className={ChatInputCSS["input-container"]}>
         <input
           type="text"

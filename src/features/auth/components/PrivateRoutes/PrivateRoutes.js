@@ -3,9 +3,15 @@ import { useUser } from "../../../../context/UserContext";
 
 // For redirecting users when logged out
 function PrivateRoutes() {
-  const { user, isFetchingUser } = useUser();
+  const { userData, isFetchingUser } = useUser();
 
-  return isFetchingUser ? <></> : user ? <Outlet /> : <Navigate to="/signup" />;
+  return isFetchingUser ? (
+    <></>
+  ) : userData ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/signup" />
+  );
 }
 
 export default PrivateRoutes;
