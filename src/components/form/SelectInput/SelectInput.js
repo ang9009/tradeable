@@ -5,6 +5,7 @@ import getSelectInputStyles from "../../../data/getSelectInputStyles";
 import { getConditionHint } from "../../../features/createlisting";
 import { toCamelCase } from "../../../utils/toCamelCase";
 import InputMessage from "../InputMessage/InputMessage";
+import SelectInputCSS from "./SelectInput.module.css";
 
 const DropdownIndicator = (props) => {
   return (
@@ -43,6 +44,7 @@ function SelectInput({
           <>
             <Select
               {...field}
+              className={SelectInputCSS["select"]}
               classNamePrefix={"react-select"}
               inputId={toCamelCase(label)}
               placeholder={placeholder}
