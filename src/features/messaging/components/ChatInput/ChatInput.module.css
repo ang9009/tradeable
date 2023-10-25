@@ -72,3 +72,9 @@
     position: fixed;
   }
 }
+
+@media (max-width: 600px) {
+  .text-input {
+    font-size: 16px;
+  }
+}

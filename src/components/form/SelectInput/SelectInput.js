@@ -43,6 +43,7 @@ function SelectInput({
           <>
             <Select
               {...field}
+              classNamePrefix={"react-select"}
               inputId={toCamelCase(label)}
               placeholder={placeholder}
               components={{ DropdownIndicator }}
