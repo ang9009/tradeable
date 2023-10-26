@@ -49,8 +49,10 @@
   margin-top: 5px;
 }
 
-.seller-btns {
+.seller-btns,
+.listing-sold-buttons {
   display: flex;
+  align-items: center;
   width: 100%;
 }
 
@@ -65,11 +67,6 @@
 .listing-sold-msg {
   color: var(--secondary-text-color);
   margin-right: 15px;
-}
-
-.listing-sold-buttons {
-  display: flex;
-  align-items: center;
 }
 
 /* Same as messages.module.css */

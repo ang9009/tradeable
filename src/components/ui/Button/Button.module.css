@@ -12,7 +12,7 @@
 
 .text {
   height: 1.8rem;
-  font-family: "Lato", "sans-serif";
+  font-family: "Nunito", "sans-serif";
   font-size: calc(0.85rem + 0.1vw);
   height: 1.8rem;
   display: grid;

@@ -1,9 +1,6 @@
 import {
   createUserWithEmailAndPassword,
-  deleteUser,
-  getAdditionalUserInfo,
   sendEmailVerification,
-  signOut,
 } from "firebase/auth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -34,32 +31,30 @@ function Signup() {
 
   function submitSignup(data, e) {
     e.preventDefault();
+
+    if (!isValidEmail(data.studentEmail)) {
+      setError("Please use your student email");
+      return;
+    }
+
     createUserWithEmailAndPassword(auth, data.studentEmail, data.password)
       .then((result) => {
-        const { isNewUser } = getAdditionalUserInfo(result);
-        // !isValidEmail(result.user.email)
-        if (false) {
-          setError("Please use your student email");
-          deleteUser(result.user);
-          signOut(auth);
-        } else if (isNewUser) {
-          const userRef = doc(db, "users", result.user.uid);
-          const name = data.studentEmail.split("@")[0];
-          const user = {
-            name: name,
-            email: data.studentEmail,
-            id: result.user.uid,
-            isVerified: false,
-            photoUrl:
-              "https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/profile_placeholder.png",
-          };
+        const userRef = doc(db, "users", result.user.uid);
+        const name = data.studentEmail.split("@")[0];
+        const user = {
+          name: name,
+          email: data.studentEmail,
+          id: result.user.uid,
+          isVerified: false,
+          photoUrl:
+            "https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/profile_placeholder.png",
+        };
 
-          setDoc(doc(db, "userChats", result.user.uid), {});
-          setDoc(userRef, user).then(() => {
-            sendEmailVerification(result.user);
-            navigate("/verify");
-          });
-        }
+        setDoc(doc(db, "userChats", result.user.uid), {});
+        setDoc(userRef, user).then(() => {
+          sendEmailVerification(result.user);
+          navigate("/verify");
+        });
       })
       .catch((error) => {
         setError(`${error.message.split(": ")[1]}`);

@@ -1,3 +1,4 @@
+import Icon from "../../components/ui/Logo/Icon";
 import Logo from "../../components/ui/Logo/Logo";
 import FooterCSS from "./Footer.module.css";
 
@@ -16,7 +17,10 @@ function Footer() {
         <Logo color={"#fff"} className={FooterCSS["footer-top-logo"]} />
       </div>
       <div className={FooterCSS["footer-bottom-container"]}>
-        <Logo color={"#fff"} />
+        <div className={FooterCSS["mobile-footer-logo"]}>
+          <Icon color={"white"} />
+          <div className={FooterCSS["name"]}>tradeable</div>
+        </div>
       </div>
     </>
   );

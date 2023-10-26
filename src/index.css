@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Lato", "sans-serif";
+  font-family: "Nunito", "sans-serif";
   font-size: 0.93rem;
   background-clip: border-box;
   line-height: 20px;
@@ -95,14 +95,14 @@
 
 .input {
   margin-top: var(--input-margin-top);
-  outline: var(--primary-border);
-  border: none;
+  border: var(--primary-border);
   border-radius: 5px;
   padding: 10px 12px;
+  outline: none;
 }
 
 .input:focus {
-  outline: var(--input-focus-border);
+  border: var(--input-focus-border);
 }
 
 .input-label {
@@ -141,5 +141,6 @@
   input[type="tel"],
   input[type="color"] {
     font-size: 16px;
+    line-height: 1.5rem;
   }
 }

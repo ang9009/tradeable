@@ -25,6 +25,18 @@
   font-size: var(--smaller-font-size);
 }
 
+.mobile-footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  margin-left: 10px;
+  font-family: "Space Grotesk", "sans-serif";
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
 @media (max-width: 600px) {
   .conditions-text {
     display: none;
@@ -34,8 +46,8 @@
 .footer-bottom-container {
   background: #292929;
   color: #fff;
-  padding: 0 55px;
-  height: 50px;
+  padding: 50 20px;
+  height: 80px;
   display: none;
 }
 

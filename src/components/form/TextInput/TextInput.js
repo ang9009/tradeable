@@ -30,7 +30,7 @@ function TextInput({
         placeholder={placeholder}
         autoComplete="off"
         style={{
-          outline: errors[toCamelCase(label)] && "var(--input-warning-border)",
+          border: errors[toCamelCase(label)] && "var(--input-warning-border)",
         }}
       />
       <InputMessage message={errors[toCamelCase(label)]?.message} isError />

@@ -3,6 +3,10 @@ function getSelectInputStyles(handleOutline) {
     placeholder: (baseStyles) => ({
       ...baseStyles,
       color: "var(--secondary-text-color)",
+      "@media only screen and (max-width: 600px)": {
+        ...styles["@media only screen and (max-width: 600px)"],
+        fontSize: "16px",
+      },
     }),
     menuList: () => ({
       border: "var(--primary-border)",
