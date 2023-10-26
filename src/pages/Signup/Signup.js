@@ -32,10 +32,10 @@ function Signup() {
   function submitSignup(data, e) {
     e.preventDefault();
 
-    if (!isValidEmail(data.studentEmail)) {
-      setError("Please use your student email");
-      return;
-    }
+    // if (!isValidEmail(data.studentEmail)) {
+    //   setError("Please use your student email");
+    //   return;
+    // }
 
     createUserWithEmailAndPassword(auth, data.studentEmail, data.password)
       .then((result) => {
@@ -52,8 +52,10 @@ function Signup() {
 
         setDoc(doc(db, "userChats", result.user.uid), {});
         setDoc(userRef, user).then(() => {
-          sendEmailVerification(result.user);
-          navigate("/verify");
+          sendEmailVerification(result.user).then(() => {
+            navigate("/verify");
+            console.log("success");
+          });
         });
       })
       .catch((error) => {

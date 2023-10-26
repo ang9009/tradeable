@@ -1,12 +1,17 @@
-import { onIdTokenChanged } from "firebase/auth";
-import { useEffect } from "react";
+import { onIdTokenChanged, sendEmailVerification } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import Button from "../../components/ui/Button/Button";
+import Error from "../../components/ui/Error/Error";
 import { useUser } from "../../context/UserContext";
 import { auth, db, doc, updateDoc } from "../../lib/firebase";
+import VerifyCSS from "./Verify.module.css";
 
 function Verify() {
   const navigate = useNavigate();
   const { userData } = useUser();
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const unsub = onIdTokenChanged(auth, (user) => {
@@ -32,14 +37,48 @@ function Verify() {
   }, []);
 
   return userData ? (
-    <>
-      <h1>Welcome to tradeable</h1>
-      <p>
-        Please verify your email using the link we sent to you. Check your spam
-        folder!
-      </p>
-      <p>Didn't receive an email? Send me another one</p>
-    </>
+    <div className={VerifyCSS["page-container"]}>
+      <img
+        src={require("../../assets/verify_lyla_2.png")}
+        className={VerifyCSS["lyla-img-mobile"]}
+        alt=""
+      />
+      <div className={VerifyCSS["text-container"]}>
+        <h1 className={VerifyCSS["page-title"]}>Verify your email address</h1>
+        <p className={VerifyCSS["text-content"]}>
+          Please verify your email address using the link we sent to:{" "}
+          <span className={VerifyCSS["user-email"]}>{userData.email}</span>.
+          Don't see it? Check your spam folder!
+        </p>
+        <Button
+          options={{
+            type: "burgundy-filled",
+            text: "Resend email",
+            className: VerifyCSS["resend-btn"],
+          }}
+          onClick={() => {
+            sendEmailVerification(userData)
+              .then(() => {
+                toast.success("Email sent!", {
+                  autoClose: 2000,
+                });
+                setError("");
+              })
+              .catch((error) => setError(error.message));
+          }}
+        />
+        <Error
+          message={error}
+          show={error !== ""}
+          className={VerifyCSS["error"]}
+        />
+      </div>
+      <img
+        src={require("../../assets/verify_lyla.png")}
+        className={VerifyCSS["lyla-img"]}
+        alt=""
+      />
+    </div>
   ) : (
     <Navigate to="/" />
   );
