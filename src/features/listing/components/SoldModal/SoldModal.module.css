@@ -15,6 +15,12 @@
 
 @media (max-width: 1200px) {
   .sold-modal {
-    min-width: 400px;
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 300px) {
+  .sold-modal {
+    min-width: 100%;
   }
 }

@@ -7,6 +7,6 @@
 @media (max-width: 1160px) {
   /* ChatUser changes to 63px, ChatListingInfo changes to 71px*/
   .messages-container {
-    height: calc(100vh - 71px - 63px - 60px - var(--nav-top-height));
+    height: calc(100vh - 71px - 63px - 60px - 69.78px - var(--nav-top-height));
   }
 }
