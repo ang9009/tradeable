@@ -64,7 +64,7 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
               )}
             </div>
           </div>
-          {selectedChat?.[1].type == "selling" && listing.status !== "sold" && (
+          {selectedChat?.[1].type == "selling" && listingStatus !== "sold" && (
             <div className={ChatListingInfoCSS["seller-btns"]}>
               <Button
                 options={{
@@ -88,7 +88,7 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
               />
             </div>
           )}
-          {selectedChat && listing.status == "sold" && (
+          {selectedChat && listingStatus == "sold" && (
             <div className={ChatListingInfoCSS["listing-sold-buttons"]}>
               <div className={ChatListingInfoCSS["listing-sold-msg"]}>
                 Listing sold

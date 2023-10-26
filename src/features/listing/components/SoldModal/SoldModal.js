@@ -1,5 +1,4 @@
 import { doc, setDoc, updateDoc } from "firebase/firestore";
-import { toast } from "react-toastify";
 import Button from "../../../../components/ui/Button/Button";
 import Modal from "../../../../components/ui/Modal/Modal";
 import { useUser } from "../../../../context/UserContext";
@@ -13,6 +12,7 @@ function SoldModal({
   buyerId,
   setListingStatus,
   chatId,
+  isMobile,
 }) {
   const { user } = useUser();
 
@@ -62,8 +62,7 @@ function SoldModal({
             });
 
             setSoldModalIsOpen(false);
-            setListingStatus && setListingStatus("sold");
-            toast.success("Listing marked as sold", { autoClose: 1500 });
+            isMobile && window.location.reload(true);
           }}
         />
         <Button

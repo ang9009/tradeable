@@ -2,7 +2,6 @@ import { doc, setDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import Button from "../../../../components/ui/Button/Button";
 import { db } from "../../../../lib/firebase";
 import SoldModal from "../../../listing/components/SoldModal/SoldModal";
@@ -24,12 +23,10 @@ function MobileChatListingInfo({ listing, isFetchingListing, selectedChat }) {
 
     if (listingStatus === "available") {
       setDoc(ref, { status: "reserved" }, { merge: true });
-      setListingStatus("reserved");
-      toast.success("Listing marked as reserved!", { autoClose: 1500 });
+      window.location.reload(true);
     } else {
       setDoc(ref, { status: "available" }, { merge: true });
-      setListingStatus("available");
-      toast.success("Listing marked as available!", { autoClose: 1500 });
+      window.location.reload(true);
     }
   }
 
@@ -76,10 +73,11 @@ function MobileChatListingInfo({ listing, isFetchingListing, selectedChat }) {
           chatId={selectedChat && selectedChat[0]}
           buyerId={selectedChat && selectedChat[1].userInfo.id}
           setListingStatus={setListingStatus}
+          isMobile
         />
       </div>
       <div className={MobileChatListingInfoCSS["component-bottom-container"]}>
-        {selectedChat?.[1].type == "selling" && listing.status !== "sold" && (
+        {selectedChat?.[1].type == "selling" && listingStatus !== "sold" && (
           <div className={MobileChatListingInfoCSS["seller-btns"]}>
             <Button
               options={{
@@ -103,7 +101,7 @@ function MobileChatListingInfo({ listing, isFetchingListing, selectedChat }) {
             />
           </div>
         )}
-        {selectedChat && listing.status == "sold" && (
+        {selectedChat && listingStatus == "sold" && (
           <div className={MobileChatListingInfoCSS["listing-sold-buttons"]}>
             <div className={MobileChatListingInfoCSS["listing-sold-msg"]}>
               Listing sold

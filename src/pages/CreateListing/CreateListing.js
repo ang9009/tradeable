@@ -59,7 +59,7 @@ function CreateListing() {
                 toast.update(toastId, {
                   render: "Your listing is live!",
                   type: "success",
-                  autoClose: 5000,
+                  autoClose: 3000,
                   isLoading: false,
                   closeButton: true,
                   theme: "colored",
