@@ -1,14 +1,15 @@
 import {
+  average,
   collection,
   doc,
+  getAggregateFromServer,
   getFirestore,
   increment,
   query,
   setDoc,
   updateDoc,
   where,
-} from "@firebase/firestore";
-import { average, getAggregateFromServer } from "firebase/firestore";
+} from "firebase/firestore";
 import { v4 as uuid } from "uuid";
 import { db } from "../../../lib/firebase";
 
