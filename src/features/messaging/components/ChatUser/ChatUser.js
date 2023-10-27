@@ -12,16 +12,16 @@ function ChatUser({ selectedChat }) {
 
   return (
     <div className={ChatUserCSS["component-container"]}>
-      <div
-        className={ChatUserCSS["chat-user-left"]}
-        onClick={() => navigate(`/profile/${selectedChat[1].userInfo.id}`)}
-      >
+      <div className={ChatUserCSS["chat-user-left"]}>
         <FiArrowLeft
           onClick={() => navigate("/messages")}
           size={"25px"}
           className={ChatUserCSS["arrow-btn"]}
         />
-        <div className={ChatUserCSS["user-info"]}>
+        <div
+          className={ChatUserCSS["user-info"]}
+          onClick={() => navigate(`/profile/${selectedChat[1].userInfo.id}`)}
+        >
           <img
             src={selectedChat[1].userInfo.photoUrl || placeholderImg}
             className={ChatUserCSS["profile-img"]}
