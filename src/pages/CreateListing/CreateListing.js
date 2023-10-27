@@ -63,7 +63,6 @@ function CreateListing() {
                   isLoading: false,
                   closeButton: true,
                   theme: "colored",
-                  position: "bottom-right",
                 });
               });
             })}

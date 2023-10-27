@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { FiArrowLeft, FiFlag } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import placeholderImg from "../../../../assets/placeholder_img.jpg";
 import getMessageTime from "../../utils/getMessageTime";
+import ReportModal from "../ReportModal/ReportModal";
 import ChatUserCSS from "./ChatUser.module.css";
 
 function ChatUser({ selectedChat }) {
   const navigate = useNavigate();
+  const [reportModalIsOpen, setReportModalIsOpen] = useState(false);
 
   return (
     <div className={ChatUserCSS["component-container"]}>
@@ -29,7 +32,16 @@ function ChatUser({ selectedChat }) {
           </div>
         </div>
       </div>
-      <FiFlag size={"25px"} className={ChatUserCSS["report-btn"]} />
+      <FiFlag
+        size={"25px"}
+        className={ChatUserCSS["report-btn"]}
+        onClick={() => setReportModalIsOpen(true)}
+      />
+      <ReportModal
+        reportModalIsOpen={reportModalIsOpen}
+        setReportModalIsOpen={setReportModalIsOpen}
+        selectedChat={selectedChat}
+      />
     </div>
   );
 }

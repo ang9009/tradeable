@@ -17,7 +17,8 @@ function ListingCarousel({ images, imagesNum, className, status }) {
                   className={ListingCarouselCSS["share-btn"]}
                   onClick={() =>
                     toast.success("Link copied to clipboard", {
-                      autoClose: 2000,
+                      autoClose: 3000,
+                      theme: "colored",
                     })
                   }
                 >

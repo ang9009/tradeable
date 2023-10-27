@@ -147,7 +147,10 @@ function EditListing() {
               });
               deleteDoc(doc(db, "listings", listingId));
               navigate(`/profile/${user.id}`);
-              toast.success("Listing successfully deleted!", 3000);
+              toast.default("Listing successfully deleted", {
+                autoClose: 3000,
+                theme: "colored",
+              });
             }}
           />
           <Button

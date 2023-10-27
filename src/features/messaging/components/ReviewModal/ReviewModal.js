@@ -41,7 +41,10 @@ function ReviewModal({
             submitReview(data, e, selectedChat);
             setReviewModalIsOpen(false);
             navigate(`/profile/${selectedChat[1].userInfo.id}`);
-            toast.success("Review submitted!", { autoClose: 3000 });
+            toast.success("Review submitted", {
+              autoClose: 3000,
+              theme: "colored",
+            });
           })}
         >
           <div className={ReviewModalCSS["review-rating"]}>
