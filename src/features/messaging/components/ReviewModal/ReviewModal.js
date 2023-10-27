@@ -79,7 +79,7 @@ function ReviewModal({
           <Button
             options={{
               notRounded: true,
-              text: "Submit",
+              text: "Submit review",
               type: "burgundy-filled",
               className: ReviewModalCSS["submit-btn"],
             }}

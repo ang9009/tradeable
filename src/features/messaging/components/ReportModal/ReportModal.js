@@ -38,7 +38,7 @@ function ReportModal({
           onSubmit={handleSubmit((data, e) => {
             e.preventDefault();
 
-            submitReport(data, selectedChat);
+            submitReport(data, selectedChat[1].userInfo.id, user.id);
             setReportModalIsOpen(false);
             toast.success("Report submitted", {
               autoClose: 3000,

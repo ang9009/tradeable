@@ -4,6 +4,12 @@ import { Tooltip } from "react-tooltip";
 import SellerWidgetCSS from "./SellerWidget.module.css";
 
 function SellerWidget({ seller }) {
+  function addS(reviews) {
+    if (reviews !== 1) {
+      return "s";
+    }
+  }
+
   return (
     <div className={SellerWidgetCSS["widget-container"]}>
       <img
@@ -17,7 +23,7 @@ function SellerWidget({ seller }) {
       <div>
         <div className={SellerWidgetCSS["name-container"]}>
           <h1 className={SellerWidgetCSS.name}>{seller.name}</h1>
-          {seller.isVerified && (
+          {seller?.isVerified && (
             <MdVerifiedUser
               size={"15px"}
               color={"black"}
@@ -29,7 +35,9 @@ function SellerWidget({ seller }) {
         </div>
         <div className={SellerWidgetCSS["ratings-container"]}>
           <Rating initialValue={5} readonly size={"15px"} />
-          <p className={SellerWidgetCSS["rating-number"]}>169 reviews</p>
+          <p className={SellerWidgetCSS["rating-number"]}>
+            {seller?.reviews} review{addS(seller?.reviews)}
+          </p>
         </div>
       </div>
     </div>

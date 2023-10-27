@@ -1,9 +1,29 @@
-import { doc, increment, setDoc, updateDoc } from "@firebase/firestore";
+import {
+  collection,
+  doc,
+  getFirestore,
+  increment,
+  query,
+  setDoc,
+  updateDoc,
+  where,
+} from "@firebase/firestore";
+import { average, getAggregateFromServer } from "firebase/firestore";
 import { v4 as uuid } from "uuid";
 import { db } from "../../../lib/firebase";
 
+// !TODO: update so that it also reflects who posted it
 export default async function submitReview(data, e, selectedChat) {
   e.preventDefault();
+
+  // !TODO: should update the users's avgRating field
+  const coll = collection(getFirestore(), "reviews");
+  const q = query(coll, where("capital", "==", true));
+  const snapshot = await getAggregateFromServer(q, {
+    averagePopulation: average("population"),
+  });
+
+  console.log("averagePopulation: ", snapshot.data().averagePopulation);
 
   const review = {
     message: data.message,
