@@ -6,12 +6,14 @@ import { toast } from "react-toastify";
 import Button from "../../../../components/ui/Button/Button";
 import { db } from "../../../../lib/firebase";
 import SoldModal from "../../../listing/components/SoldModal/SoldModal";
+import ReviewModal from "../ReviewModal/ReviewModal";
 import ChatListingInfoCSS from "./ChatListingInfo.module.css";
 
 function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
   const navigate = useNavigate();
   const [listingStatus, setListingStatus] = useState("");
   const [soldModalIsOpen, setSoldModalIsOpen] = useState(false);
+  const [reviewModalIsOpen, setReviewModalIsOpen] = useState(false);
 
   useEffect(() => {
     if (listing) {
@@ -32,8 +34,6 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
       toast.success("Listing marked as available!", { autoClose: 1500 });
     }
   }
-
-  async function createReview(userId) {}
 
   return (
     <div className={ChatListingInfoCSS["component-container"]}>
@@ -100,6 +100,7 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
                     text: "Review buyer",
                     notRounded: true,
                   }}
+                  onClick={() => setReviewModalIsOpen(true)}
                 />
               ) : (
                 <Button
@@ -108,6 +109,7 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
                     text: "Review seller",
                     notRounded: true,
                   }}
+                  onClick={() => setReviewModalIsOpen(true)}
                 />
               )}
             </div>
@@ -123,6 +125,11 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
         chatId={selectedChat && selectedChat[0]}
         buyerId={selectedChat && selectedChat[1].userInfo.id}
         setListingStatus={setListingStatus}
+      />
+      <ReviewModal
+        setReviewModalIsOpen={setReviewModalIsOpen}
+        reviewModalIsOpen={reviewModalIsOpen}
+        selectedChat={selectedChat}
       />
     </div>
   );

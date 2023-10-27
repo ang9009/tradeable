@@ -48,13 +48,13 @@ function Signup() {
           isVerified: false,
           photoUrl:
             "https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/profile_placeholder.png",
+          reviews: 0,
         };
 
         setDoc(doc(db, "userChats", result.user.uid), {});
         setDoc(userRef, user).then(() => {
           sendEmailVerification(result.user).then(() => {
             navigate("/verify");
-            console.log("success");
           });
         });
       })

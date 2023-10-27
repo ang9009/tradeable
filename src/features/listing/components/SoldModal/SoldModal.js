@@ -29,8 +29,9 @@ function SoldModal({
       <div className={SoldModalCSS["modal-btns-container"]}>
         <Button
           options={{
-            type: "red-filled",
+            type: "burgundy-filled",
             text: "Mark as sold",
+            notRounded: true,
           }}
           onClick={async () => {
             // Updating listing buyerId
@@ -69,6 +70,7 @@ function SoldModal({
           options={{
             type: "gray-outline",
             text: "Cancel",
+            notRounded: true,
             className: SoldModalCSS["cancel-btn"],
           }}
           onClick={() => setSoldModalIsOpen(false)}

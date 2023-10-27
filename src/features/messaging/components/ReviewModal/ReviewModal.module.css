@@ -1,0 +1,33 @@
+.review-modal {
+  background: #fff;
+  width: 30vw;
+}
+
+.submit-btn {
+  margin-top: 15px;
+}
+
+.rating-error {
+  position: initial;
+}
+
+.message-input {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.review-rating {
+  position: relative;
+}
+
+@media (max-width: 1200px) {
+  .review-modal {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 300px) {
+  .review-modal {
+    min-width: 100%;
+  }
+}

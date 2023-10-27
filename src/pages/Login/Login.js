@@ -50,7 +50,7 @@ function Login() {
 
   function submitResetPassword(data, e) {
     e.preventDefault();
-    console.log(data.resetEmail);
+
     sendPasswordResetEmail(auth, data.resetEmail)
       .then(() => {
         toast.success("Email sent! Check your spam folder.", {

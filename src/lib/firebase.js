@@ -68,17 +68,6 @@ async function onSubmitListing(data, listingId, userId) {
   await setDoc(doc(db, "listings", listingId), listing);
 }
 
-async function createUser(user) {
-  const newUser = {
-    name: user.displayName,
-    email: user.email,
-    photoUrl: user.photoUrl,
-  };
-
-  await setDoc(doc(db, "users", user.id), newUser);
-  await setDoc(doc(db, "userChats", user.id), {});
-}
-
 function getEditListingData(listingId, reset, setIsFetchingListing) {
   const listingRef = doc(db, "listings", listingId);
   getDoc(listingRef).then((res) => {
@@ -206,7 +195,6 @@ async function getChatListings(userChats) {
 export {
   auth,
   createChat,
-  createUser,
   db,
   deleteDoc,
   deleteObject,

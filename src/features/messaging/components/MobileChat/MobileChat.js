@@ -9,8 +9,6 @@ function MobileChat({
   selectedChat,
   listingData: { listings, isFetchingListings },
 }) {
-  console.log(selectedChat);
-
   return (
     <div className={MobileChatCSS["chat-container"]}>
       {selectedChat?.length !== 0 && !isFetchingListings ? (

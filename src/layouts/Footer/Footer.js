@@ -7,7 +7,7 @@ function Footer() {
     <>
       <div className={FooterCSS["footer-container"]}>
         <ul>
-          <li>About</li>
+          <li>Report bugs</li>
           <li>Help</li>
           <li>
             Terms
