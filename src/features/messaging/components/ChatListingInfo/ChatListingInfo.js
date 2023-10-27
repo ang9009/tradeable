@@ -12,14 +12,22 @@ import ChatListingInfoCSS from "./ChatListingInfo.module.css";
 function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
   const navigate = useNavigate();
   const [listingStatus, setListingStatus] = useState("");
+  const [hasReviewed, setHasReviewed] = useState(true);
   const [soldModalIsOpen, setSoldModalIsOpen] = useState(false);
   const [reviewModalIsOpen, setReviewModalIsOpen] = useState(false);
 
   useEffect(() => {
-    if (listing) {
+    if (listing && selectedChat) {
       setListingStatus(listing.status);
+
+      if (
+        (selectedChat?.[1].type === "selling" && !listing?.sellerHasReviewed) ||
+        (selectedChat?.[1].type === "buying" && !listing?.buyerHasReviewed)
+      ) {
+        setHasReviewed(false);
+      }
     }
-  }, [listing]);
+  }, [listing, selectedChat]);
 
   async function markReserved() {
     const ref = doc(db, "listings", listing.id);
@@ -88,25 +96,18 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
               />
             </div>
           )}
+
+          {/* Review buttons */}
           {selectedChat && listingStatus == "sold" && (
             <div className={ChatListingInfoCSS["listing-sold-buttons"]}>
               <div className={ChatListingInfoCSS["listing-sold-msg"]}>
                 Listing sold
               </div>
-              {selectedChat?.[1].type == "selling" ? (
+              {hasReviewed || (
                 <Button
                   options={{
                     type: "black-filled",
-                    text: "Review buyer",
-                    notRounded: true,
-                  }}
-                  onClick={() => setReviewModalIsOpen(true)}
-                />
-              ) : (
-                <Button
-                  options={{
-                    type: "black-filled",
-                    text: "Review seller",
+                    text: "Leave review",
                     notRounded: true,
                   }}
                   onClick={() => setReviewModalIsOpen(true)}

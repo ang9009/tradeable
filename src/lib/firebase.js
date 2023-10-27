@@ -63,6 +63,8 @@ async function onSubmitListing(data, listingId, userId) {
     postedDate: date,
     imagesNum: data.photos.length,
     status: "available",
+    buyerHasReviewed: false,
+    sellerHasReviewed: false,
   };
 
   await setDoc(doc(db, "listings", listingId), listing);

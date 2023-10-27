@@ -36,7 +36,7 @@ function ReviewModal({
           action=""
           className={ReviewModalCSS["review-form"]}
           onSubmit={handleSubmit((data, e) => {
-            submitReview(data, e, selectedChat[1].userInfo.id);
+            submitReview(data, e, selectedChat);
             setReviewModalIsOpen(false);
             toast.success("Review submitted!", { autoClose: 3000 });
           })}
