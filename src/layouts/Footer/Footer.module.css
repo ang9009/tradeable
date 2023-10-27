@@ -70,13 +70,4 @@
     justify-content: center;
     width: 100%;
   }
-
-  .footer-container ul li {
-    width: 25%;
-    text-align: center;
-  }
-
-  .footer-container ul li:not(:last-child) {
-    margin: 0;
-  }
 }
