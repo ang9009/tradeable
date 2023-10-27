@@ -1,31 +1,26 @@
 import { doc, setDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/ui/Button/Button";
 import { db } from "../../../../lib/firebase";
 import SoldModal from "../../../listing/components/SoldModal/SoldModal";
+import ReviewModal from "../ReviewModal/ReviewModal";
 import MobileChatListingInfoCSS from "./MobileChatListingInfo.module.css";
 
 function MobileChatListingInfo({ listing, isFetchingListing, selectedChat }) {
   const navigate = useNavigate();
-  const [listingStatus, setListingStatus] = useState("");
   const [soldModalIsOpen, setSoldModalIsOpen] = useState(false);
-
-  useEffect(() => {
-    if (listing) {
-      setListingStatus(listing.status);
-    }
-  }, [listing]);
+  const [reviewModalIsOpen, setReviewModalIsOpen] = useState(false);
 
   async function markReserved() {
     const ref = doc(db, "listings", listing.id);
 
-    if (listingStatus === "available") {
-      setDoc(ref, { status: "reserved" }, { merge: true });
+    if (listing?.status === "available") {
+      await setDoc(ref, { status: "reserved" }, { merge: true });
       window.location.reload(true);
     } else {
-      setDoc(ref, { status: "available" }, { merge: true });
+      await setDoc(ref, { status: "available" }, { merge: true });
       window.location.reload(true);
     }
   }
@@ -66,25 +61,16 @@ function MobileChatListingInfo({ listing, isFetchingListing, selectedChat }) {
         ) : (
           <Skeleton height={"50px"} />
         )}
-        <SoldModal
-          setSoldModalIsOpen={setSoldModalIsOpen}
-          soldModalIsOpen={soldModalIsOpen}
-          listingId={listing?.id}
-          chatId={selectedChat && selectedChat[0]}
-          buyerId={selectedChat && selectedChat[1].userInfo.id}
-          setListingStatus={setListingStatus}
-          isMobile
-        />
       </div>
       <div className={MobileChatListingInfoCSS["component-bottom-container"]}>
-        {selectedChat?.[1].type == "selling" && listingStatus !== "sold" && (
+        {selectedChat?.[1].type == "selling" && listing?.status !== "sold" && (
           <div className={MobileChatListingInfoCSS["seller-btns"]}>
             <Button
               options={{
                 type: "gray-outline-blue",
                 notRounded: true,
                 text:
-                  listingStatus === "available"
+                  listing?.status === "available"
                     ? "Mark as reserved"
                     : "Mark as available",
               }}
@@ -101,31 +87,47 @@ function MobileChatListingInfo({ listing, isFetchingListing, selectedChat }) {
             />
           </div>
         )}
-        {selectedChat && listingStatus == "sold" && (
+        {selectedChat && listing?.status == "sold" && (
           <div className={MobileChatListingInfoCSS["listing-sold-buttons"]}>
             <div className={MobileChatListingInfoCSS["listing-sold-msg"]}>
               Listing sold
             </div>
-            {selectedChat?.[1].type == "selling" ? (
+            {(selectedChat?.[1].type === "selling" &&
+              !listing?.sellerHasReviewed) ||
+            (selectedChat?.[1].type === "buying" &&
+              !listing?.buyerHasReviewed) ? (
               <Button
                 options={{
                   type: "black-filled",
-                  text: "Review buyer",
+                  text: "Leave review",
                   notRounded: true,
+                  className: MobileChatListingInfoCSS["review-btn"],
                 }}
+                onClick={() => setReviewModalIsOpen(true)}
               />
             ) : (
-              <Button
-                options={{
-                  type: "black-filled",
-                  text: "Review seller",
-                  notRounded: true,
-                }}
-              />
+              <div className={MobileChatListingInfoCSS["listing-sold-msg"]}>
+                , review submitted
+              </div>
             )}
           </div>
         )}
       </div>
+
+      {/* Modals */}
+      <SoldModal
+        setSoldModalIsOpen={setSoldModalIsOpen}
+        soldModalIsOpen={soldModalIsOpen}
+        listingId={listing?.id}
+        chatId={selectedChat && selectedChat[0]}
+        buyerId={selectedChat && selectedChat[1].userInfo.id}
+        isMobile
+      />
+      <ReviewModal
+        setReviewModalIsOpen={setReviewModalIsOpen}
+        reviewModalIsOpen={reviewModalIsOpen}
+        selectedChat={selectedChat}
+      />
     </>
   );
 }

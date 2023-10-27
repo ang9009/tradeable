@@ -1,4 +1,5 @@
 import { Controller, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
 import { toast } from "react-toastify";
 import InputMessage from "../../../../components/form/InputMessage/InputMessage";
@@ -23,6 +24,7 @@ function ReviewModal({
     mode: "onChange",
   });
   const { user } = useUser();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -38,6 +40,7 @@ function ReviewModal({
           onSubmit={handleSubmit((data, e) => {
             submitReview(data, e, selectedChat);
             setReviewModalIsOpen(false);
+            navigate(`/profile/${selectedChat[1].userInfo.id}`);
             toast.success("Review submitted!", { autoClose: 3000 });
           })}
         >

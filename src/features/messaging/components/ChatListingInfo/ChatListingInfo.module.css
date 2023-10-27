@@ -50,7 +50,10 @@
 
 .listing-sold-msg {
   color: var(--secondary-text-color);
-  margin-right: 15px;
+}
+
+.review-btn {
+  margin-left: 15px;
 }
 
 .listing-sold-buttons {

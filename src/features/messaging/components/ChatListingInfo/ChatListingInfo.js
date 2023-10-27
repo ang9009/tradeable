@@ -1,8 +1,7 @@
 import { doc, setDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import Button from "../../../../components/ui/Button/Button";
 import { db } from "../../../../lib/firebase";
 import SoldModal from "../../../listing/components/SoldModal/SoldModal";
@@ -11,37 +10,24 @@ import ChatListingInfoCSS from "./ChatListingInfo.module.css";
 
 function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
   const navigate = useNavigate();
-  const [listingStatus, setListingStatus] = useState("");
-  const [hasReviewed, setHasReviewed] = useState(true);
   const [soldModalIsOpen, setSoldModalIsOpen] = useState(false);
   const [reviewModalIsOpen, setReviewModalIsOpen] = useState(false);
-
-  useEffect(() => {
-    if (listing && selectedChat) {
-      setListingStatus(listing.status);
-
-      if (
-        (selectedChat?.[1].type === "selling" && !listing?.sellerHasReviewed) ||
-        (selectedChat?.[1].type === "buying" && !listing?.buyerHasReviewed)
-      ) {
-        setHasReviewed(false);
-      }
-    }
-  }, [listing, selectedChat]);
 
   async function markReserved() {
     const ref = doc(db, "listings", listing.id);
 
-    if (listingStatus === "available") {
-      setDoc(ref, { status: "reserved" }, { merge: true });
-      setListingStatus("reserved");
-      toast.success("Listing marked as reserved!", { autoClose: 1500 });
+    if (listing?.status === "available") {
+      await setDoc(ref, { status: "reserved" }, { merge: true });
+      window.location.reload(true);
     } else {
-      setDoc(ref, { status: "available" }, { merge: true });
-      setListingStatus("available");
-      toast.success("Listing marked as available!", { autoClose: 1500 });
+      await setDoc(ref, { status: "available" }, { merge: true });
+      window.location.reload(true);
     }
   }
+
+  console.log(
+    selectedChat?.[1].type === "selling" && !listing?.sellerHasReviewed
+  );
 
   return (
     <div className={ChatListingInfoCSS["component-container"]}>
@@ -72,46 +58,56 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
               )}
             </div>
           </div>
-          {selectedChat?.[1].type == "selling" && listingStatus !== "sold" && (
-            <div className={ChatListingInfoCSS["seller-btns"]}>
-              <Button
-                options={{
-                  type: "gray-outline-blue",
-                  notRounded: true,
-                  text:
-                    listingStatus === "available"
-                      ? "Mark as reserved"
-                      : "Mark as available",
-                }}
-                onClick={() => markReserved()}
-              />
-              <Button
-                options={{
-                  type: "gray-outline-red",
-                  notRounded: true,
-                  text: "Mark as sold",
-                  className: ChatListingInfoCSS["sold-btn"],
-                }}
-                onClick={() => setSoldModalIsOpen(true)}
-              />
-            </div>
-          )}
+          {selectedChat?.[1].type == "selling" &&
+            listing?.status !== "sold" && (
+              <div className={ChatListingInfoCSS["seller-btns"]}>
+                <Button
+                  options={{
+                    type: "gray-outline-blue",
+                    notRounded: true,
+                    text:
+                      listing?.status === "available"
+                        ? "Mark as reserved"
+                        : "Mark as available",
+                  }}
+                  onClick={() => markReserved()}
+                />
+                <Button
+                  options={{
+                    type: "gray-outline-red",
+                    notRounded: true,
+                    text: "Mark as sold",
+                    className: ChatListingInfoCSS["sold-btn"],
+                  }}
+                  onClick={() => setSoldModalIsOpen(true)}
+                />
+              </div>
+            )}
 
           {/* Review buttons */}
-          {selectedChat && listingStatus == "sold" && (
+          {selectedChat && listing?.status === "sold" && (
             <div className={ChatListingInfoCSS["listing-sold-buttons"]}>
               <div className={ChatListingInfoCSS["listing-sold-msg"]}>
                 Listing sold
               </div>
-              {hasReviewed || (
+              {/* If chat type selling and seller has not reviewed or vice versa, show review button */}
+              {(selectedChat?.[1].type === "selling" &&
+                !listing?.sellerHasReviewed) ||
+              (selectedChat?.[1].type === "buying" &&
+                !listing?.buyerHasReviewed) ? (
                 <Button
                   options={{
                     type: "black-filled",
                     text: "Leave review",
                     notRounded: true,
+                    className: ChatListingInfoCSS["review-btn"],
                   }}
                   onClick={() => setReviewModalIsOpen(true)}
                 />
+              ) : (
+                <div className={ChatListingInfoCSS["listing-sold-msg"]}>
+                  , review submitted
+                </div>
               )}
             </div>
           )}
@@ -125,7 +121,6 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
         listingId={listing?.id}
         chatId={selectedChat && selectedChat[0]}
         buyerId={selectedChat && selectedChat[1].userInfo.id}
-        setListingStatus={setListingStatus}
       />
       <ReviewModal
         setReviewModalIsOpen={setReviewModalIsOpen}

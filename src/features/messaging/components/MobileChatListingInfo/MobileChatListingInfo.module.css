@@ -14,6 +14,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 57.78px;
 }
 
 .listing-img {
@@ -66,7 +67,10 @@
 
 .listing-sold-msg {
   color: var(--secondary-text-color);
-  margin-right: 15px;
+}
+
+.review-btn {
+  margin-left: 15px;
 }
 
 /* Same as messages.module.css */
