@@ -1,4 +1,4 @@
-import { MdVerifiedUser } from "react-icons/md";
+import { MdVerified } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
 import { Tooltip } from "react-tooltip";
@@ -29,9 +29,9 @@ function SellerWidget({ seller }) {
         <div className={SellerWidgetCSS["name-container"]}>
           <h1 className={SellerWidgetCSS.name}>{seller.name}</h1>
           {seller?.isVerified && (
-            <MdVerifiedUser
+            <MdVerified
               size={"15px"}
-              color={"black"}
+              color={"var(--verified-color)"}
               data-tooltip-id="verified-tooltip"
               data-tooltip-content="User has verified their student email"
             />

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiArrowLeft, FiFlag } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import placeholderImg from "../../../../assets/placeholder_img.jpg";
+import placeholderImg from "../../../../assets/profile_placeholder.png";
 import getMessageTime from "../../utils/getMessageTime";
 import ReportModal from "../ReportModal/ReportModal";
 import ChatUserCSS from "./ChatUser.module.css";

@@ -14,7 +14,7 @@
 .title {
   font-family: "Space Grotesk", "sans-serif";
   font-size: calc(2rem + 1.5vw);
-  font-weight: var(--bold);
+  font-weight: bold;
   line-height: calc(2.2rem + 2vw);
   width: 800px;
   margin-top: 80px;

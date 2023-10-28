@@ -13,7 +13,7 @@
 }
 
 .user-name {
-  font-size: calc(1.6rem + 1vw);
+  font-size: calc(1.5rem + 0.5vw);
   line-height: calc(2rem + 1vw);
 }
 
@@ -40,4 +40,14 @@
 .about {
   margin-top: 10px;
   max-width: 500px;
+}
+
+.name-container {
+  display: flex;
+  align-items: center;
+}
+
+.verified-symbol {
+  margin-left: 10px;
+  cursor: pointer;
 }

@@ -82,7 +82,7 @@ swiper-container::part(button-next) {
 }
 
 .share-btn {
-  border: none;
+  border: 1px solid var(--primary-border-color);
   padding: 8px 15px;
   background: #fff;
   box-shadow: var(--box-shadow);

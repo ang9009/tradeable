@@ -20,7 +20,7 @@
 
 .footer-container ul li,
 .conditions-text {
-  font-weight: var(--bold);
+  font-weight: bold;
   cursor: pointer;
   font-size: var(--smaller-font-size);
 }

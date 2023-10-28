@@ -26,8 +26,8 @@ function ReviewModal({
   const { user } = useUser();
   const navigate = useNavigate();
 
-  function handleSubmitReview(data, e) {
-    submitReview(data, e, selectedChat, user);
+  async function handleSubmitReview(data, e) {
+    await submitReview(data, e, selectedChat, user);
     setReviewModalIsOpen(false);
     navigate(`/profile/${selectedChat[1].userInfo.id}`);
     toast.success("Review submitted", {
