@@ -15,11 +15,11 @@
 .user-name {
   font-size: calc(1.6rem + 1vw);
   line-height: calc(2rem + 1vw);
-  margin-bottom: 10px;
 }
 
 .reviews-data-container {
   display: flex;
+  margin-top: 10px;
 }
 
 .reviews-count {
@@ -38,6 +38,6 @@
 }
 
 .about {
-  margin-top: 15px;
+  margin-top: 10px;
   max-width: 500px;
 }

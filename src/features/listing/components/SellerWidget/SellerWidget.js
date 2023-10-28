@@ -39,7 +39,12 @@ function SellerWidget({ seller }) {
           <Tooltip id="verified-tooltip" />
         </div>
         <div className={SellerWidgetCSS["ratings-container"]}>
-          <Rating initialValue={seller?.avgRating} readonly size={"15px"} />
+          <Rating
+            initialValue={seller?.avgRating}
+            readonly
+            size={"15px"}
+            fillColor={"var(--tradeable-burgundy)"}
+          />
           <p className={SellerWidgetCSS["rating-number"]}>
             {seller?.reviews} review{addS(seller?.reviews)}
           </p>

@@ -57,6 +57,7 @@ function ReviewModal({
               render={({ field: { onChange } }) => (
                 <Rating
                   className={ReviewModalCSS["rating"]}
+                  fillColor={"var(--tradeable-burgundy)"}
                   onClick={onChange}
                   quiet={true}
                 />

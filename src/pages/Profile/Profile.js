@@ -36,6 +36,15 @@ function Profile() {
         )}
         <ProfileButtons />
       </div>
+      <div className={ProfileCSS["profile-bottom-section"]}>
+        <div className={ProfileCSS["profile-navbar"]}>
+          <div className={ProfileCSS["profile-navbar-tabs"]}>
+            <h1 className={ProfileCSS["nav-tab"]}>Listings</h1>
+            <h1 className={ProfileCSS["nav-tab"]}>Reviews</h1>
+          </div>
+          <div className={ProfileCSS["profile-navbar-divider"]}></div>
+        </div>
+      </div>
     </div>
   );
 }
