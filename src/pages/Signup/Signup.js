@@ -47,8 +47,7 @@ function Signup() {
           email: data.studentEmail,
           id: result.user.uid,
           isVerified: false,
-          photoUrl:
-            "https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/profile_placeholder.png",
+          photoUrl: "",
           reviews: 0,
           avgRating: 0,
         };

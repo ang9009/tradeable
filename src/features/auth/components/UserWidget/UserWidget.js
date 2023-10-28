@@ -16,7 +16,6 @@ function UserWidget() {
     setShowMenu(false);
     navigate(page);
   }
-
   return (
     <DropdownMenu.Root modal={false} open={showMenu}>
       <DropdownMenu.Trigger
@@ -30,8 +29,9 @@ function UserWidget() {
       >
         <img
           src={
-            user.photoUrl ||
-            require("../../../../assets/profile_placeholder.png")
+            user?.photoUrl === ""
+              ? require("../../../../assets/profile_placeholder.png")
+              : user?.photoUrl
           }
           alt={require("../../../../assets/placeholder_img.jpg")}
         />
