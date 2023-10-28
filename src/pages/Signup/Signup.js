@@ -49,6 +49,7 @@ function Signup() {
           photoUrl:
             "https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/profile_placeholder.png",
           reviews: 0,
+          avgRating: 0,
         };
 
         setDoc(doc(db, "userChats", result.user.uid), {});

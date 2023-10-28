@@ -14,22 +14,31 @@ import { v4 as uuid } from "uuid";
 import { db } from "../../../lib/firebase";
 
 // !TODO: update so that it also reflects who posted it
-export default async function submitReview(data, e, selectedChat) {
+export default async function submitReview(data, e, selectedChat, user) {
   e.preventDefault();
 
-  // !TODO: should update the users's avgRating field
+  // Updates the user's avgRating field
   const coll = collection(getFirestore(), "reviews");
-  const q = query(coll, where("capital", "==", true));
+  const q = query(
+    coll,
+    where("reviewedUserId", "==", selectedChat[1].userInfo.id)
+  );
   const snapshot = await getAggregateFromServer(q, {
-    averagePopulation: average("population"),
+    avgRating: average("rating"),
   });
-
-  console.log("averagePopulation: ", snapshot.data().averagePopulation);
+  const totalAvgRating = Math.round(
+    (snapshot.data().avgRating + data.rating) / 2
+  );
+  await updateDoc(doc(db, "users", selectedChat[1].userInfo.id), {
+    ["avgRating"]: totalAvgRating,
+  });
 
   const review = {
     message: data.message,
     rating: data.rating,
-    userId: selectedChat[1].userInfo.id,
+    reviewedUserId: selectedChat[1].userInfo.id,
+    userId: user.id,
+    name: user.name,
   };
   await setDoc(doc(db, "reviews", uuid()), review);
   await updateDoc(doc(db, "users", selectedChat[1].userInfo.id), {

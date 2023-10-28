@@ -26,6 +26,16 @@ function ReviewModal({
   const { user } = useUser();
   const navigate = useNavigate();
 
+  function handleSubmitReview(data, e) {
+    submitReview(data, e, selectedChat, user);
+    setReviewModalIsOpen(false);
+    navigate(`/profile/${selectedChat[1].userInfo.id}`);
+    toast.success("Review submitted", {
+      autoClose: 3000,
+      theme: "colored",
+    });
+  }
+
   return (
     <>
       <Modal
@@ -37,15 +47,7 @@ function ReviewModal({
         <form
           action=""
           className={ReviewModalCSS["review-form"]}
-          onSubmit={handleSubmit((data, e) => {
-            submitReview(data, e, selectedChat);
-            setReviewModalIsOpen(false);
-            navigate(`/profile/${selectedChat[1].userInfo.id}`);
-            toast.success("Review submitted", {
-              autoClose: 3000,
-              theme: "colored",
-            });
-          })}
+          onSubmit={handleSubmit(handleSubmitReview)}
         >
           <div className={ReviewModalCSS["review-rating"]}>
             <Controller

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/ui/Button/Button";
+import { useUser } from "../../../../context/UserContext";
 import { db } from "../../../../lib/firebase";
 import SoldModal from "../../../listing/components/SoldModal/SoldModal";
 import ReviewModal from "../ReviewModal/ReviewModal";
@@ -12,6 +13,7 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
   const navigate = useNavigate();
   const [soldModalIsOpen, setSoldModalIsOpen] = useState(false);
   const [reviewModalIsOpen, setReviewModalIsOpen] = useState(false);
+  const { user } = useUser();
 
   async function markReserved() {
     const ref = doc(db, "listings", listing.id);
@@ -24,10 +26,6 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
       window.location.reload(true);
     }
   }
-
-  console.log(
-    selectedChat?.[1].type === "selling" && !listing?.sellerHasReviewed
-  );
 
   return (
     <div className={ChatListingInfoCSS["component-container"]}>
@@ -90,11 +88,13 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
               <div className={ChatListingInfoCSS["listing-sold-msg"]}>
                 Listing sold
               </div>
-              {/* If chat type selling and seller has not reviewed or vice versa, show review button */}
-              {(selectedChat?.[1].type === "selling" &&
+              {/* If chat type selling and seller has not reviewed or if the user is buying the item and
+               vice versa, show review button */}
+              {((selectedChat?.[1].type === "selling" &&
                 !listing?.sellerHasReviewed) ||
-              (selectedChat?.[1].type === "buying" &&
-                !listing?.buyerHasReviewed) ? (
+                (selectedChat?.[1].type === "buying" &&
+                  !listing?.buyerHasReviewed &&
+                  listing?.buyerId === user.id)) && (
                 <Button
                   options={{
                     type: "black-filled",
@@ -104,7 +104,13 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
                   }}
                   onClick={() => setReviewModalIsOpen(true)}
                 />
-              ) : (
+              )}
+              {/* The same thing, except if they have reviewed, show the review submitted message */}
+              {((selectedChat?.[1].type === "selling" &&
+                listing?.sellerHasReviewed) ||
+                (selectedChat?.[1].type === "buying" &&
+                  listing?.buyerHasReviewed &&
+                  listing?.buyerId === user.id)) && (
                 <div className={ChatListingInfoCSS["listing-sold-msg"]}>
                   , review submitted
                 </div>
