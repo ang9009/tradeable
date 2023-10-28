@@ -1,6 +1,8 @@
 .widget-container {
   display: flex;
   margin-bottom: 15px;
+  width: fit-content;
+  cursor: pointer;
 }
 
 .seller-img {
@@ -24,7 +26,6 @@
 .name-container {
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 
 .name {

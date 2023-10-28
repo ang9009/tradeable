@@ -1,9 +1,11 @@
 import { MdVerifiedUser } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
 import { Tooltip } from "react-tooltip";
 import SellerWidgetCSS from "./SellerWidget.module.css";
 
 function SellerWidget({ seller }) {
+  const navigate = useNavigate();
   function addS(reviews) {
     if (reviews !== 1) {
       return "s";
@@ -11,7 +13,10 @@ function SellerWidget({ seller }) {
   }
 
   return (
-    <div className={SellerWidgetCSS["widget-container"]}>
+    <div
+      className={SellerWidgetCSS["widget-container"]}
+      onClick={() => navigate(`/profile/${seller.id}`)}
+    >
       <img
         src={
           seller.photoUrl ||

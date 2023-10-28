@@ -1,0 +1,43 @@
+.profile-img {
+  border-radius: 9999px;
+  width: 80px;
+  height: 80px;
+}
+
+.user-info-container {
+  display: flex;
+}
+
+.user-data-container {
+  margin-left: 30px;
+}
+
+.user-name {
+  font-size: calc(1.6rem + 1vw);
+  line-height: calc(2rem + 1vw);
+  margin-bottom: 10px;
+}
+
+.reviews-data-container {
+  display: flex;
+}
+
+.reviews-count {
+  margin-left: 10px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.reviews-count::before {
+  position: absolute;
+  left: 0;
+  content: "";
+  background: var(--primary-border-color);
+  width: 1px;
+  height: 20px;
+}
+
+.about {
+  margin-top: 15px;
+  max-width: 500px;
+}
