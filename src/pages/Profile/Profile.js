@@ -1,49 +1,40 @@
-import CopyToClipboard from "react-copy-to-clipboard";
-import { FiShare } from "react-icons/fi";
-import { toast } from "react-toastify";
-import Button from "../../components/ui/Button/Button";
-import { UserInfo } from "../../features/profile";
+import { doc, getDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
+import { useParams } from "react-router-dom";
+import { ProfileButtons, ProfileUserInfo } from "../../features/profile";
+import { db } from "../../lib/firebase";
 import ProfileCSS from "./Profile.module.css";
 
 function Profile() {
+  const userId = useParams().userId;
+  const [isFetchingUser, setIsFetchingUser] = useState(true);
+  const [profileUser, setProfileUser] = useState({});
+
+  useEffect(() => {
+    const userRef = doc(db, "users", userId);
+    getDoc(userRef).then((res) => {
+      setProfileUser(res.data());
+      setIsFetchingUser(false);
+    });
+  }, []);
+
   return (
     <div className={ProfileCSS["page-container"]}>
       <div className={ProfileCSS["profile-top-section"]}>
-        <UserInfo />
-        <div className={ProfileCSS["profile-btns"]}>
-          <CopyToClipboard text={window.location.href}>
-            <Button
-              options={{
-                notRounded: true,
-                text: (
-                  <div className={ProfileCSS["share-btn"]}>
-                    <FiShare
-                      size={"15px"}
-                      className={ProfileCSS["share-icon"]}
-                    />
-                    Share
-                  </div>
-                ),
-                type: "black-filled",
-                className: ProfileCSS["profile-btn"],
-              }}
-              onClick={() =>
-                toast.success("Link copied to clipboard", {
-                  autoClose: 3000,
-                  theme: "colored",
-                })
-              }
+        {isFetchingUser ? (
+          <div>
+            <Skeleton height={"50px"} width={"500px"} />
+            <Skeleton
+              height={"50px"}
+              width={"500px"}
+              style={{ marginTop: "15px" }}
             />
-          </CopyToClipboard>
-          <Button
-            options={{
-              notRounded: true,
-              text: "Edit profile",
-              type: "gray-outline",
-              className: ProfileCSS["profile-btn"],
-            }}
-          />
-        </div>
+          </div>
+        ) : (
+          <ProfileUserInfo user={profileUser} />
+        )}
+        <ProfileButtons />
       </div>
     </div>
   );

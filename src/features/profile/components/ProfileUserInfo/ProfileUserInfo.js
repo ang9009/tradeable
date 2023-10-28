@@ -1,13 +1,10 @@
 import { Rating } from "react-simple-star-rating";
-import { useUser } from "../../../../context/UserContext";
-import UserInfoCSS from "./UserInfo.module.css";
+import ProfileUserInfoCSS from "./ProfileUserInfo.module.css";
 
-function UserInfo() {
-  const { user } = useUser();
-
+function ProfileUserInfo({ user }) {
   return (
     <div>
-      <div className={UserInfoCSS["user-info-container"]}>
+      <div className={ProfileUserInfoCSS["user-info-container"]}>
         <img
           src={
             user?.photoUrl === ""
@@ -15,19 +12,19 @@ function UserInfo() {
               : user?.photoUrl
           }
           alt={require("../../../../assets/profile_placeholder.png")}
-          className={UserInfoCSS["profile-img"]}
+          className={ProfileUserInfoCSS["profile-img"]}
         />
-        <div className={UserInfoCSS["user-data-container"]}>
+        <div className={ProfileUserInfoCSS["user-data-container"]}>
           <div>
-            <h1 className={UserInfoCSS["user-name"]}>{user?.name}</h1>
-            <div className={UserInfoCSS["reviews-data-container"]}>
+            <h1 className={ProfileUserInfoCSS["user-name"]}>{user?.name}</h1>
+            <div className={ProfileUserInfoCSS["reviews-data-container"]}>
               <Rating initialValue={user?.avgRating} readonly size={"20px"} />
-              <p className={UserInfoCSS["reviews-count"]}>
+              <p className={ProfileUserInfoCSS["reviews-count"]}>
                 {user?.reviews} reviews
               </p>
             </div>
           </div>
-          <p className={UserInfoCSS["about"]}>
+          <p className={ProfileUserInfoCSS["about"]}>
             My name is Barry Allen and I am the fastest man alive. To the
             outside world, I am an ordinary forensic scientist, but secretly
             with the help of my friends in S.T.A.R. Labs, I fight crime and find
@@ -39,4 +36,4 @@ function UserInfo() {
   );
 }
 
-export default UserInfo;
+export default ProfileUserInfo;

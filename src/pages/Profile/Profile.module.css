@@ -6,21 +6,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.profile-btns {
-  display: flex;
-  height: fit-content;
-}
-
-.profile-btn:last-child {
-  margin-left: 15px;
-}
-
-.share-btn {
-  display: flex;
-  align-items: center;
-}
-
-.share-icon {
-  margin-right: 5px;
-}
