@@ -19,7 +19,7 @@ function ProfileUserInfo({ user }) {
             <h1 className={ProfileUserInfoCSS["user-name"]}>{user?.name}</h1>
             <div className={ProfileUserInfoCSS["reviews-data-container"]}>
               <Rating
-                initialValue={5}
+                initialValue={user?.avgRating}
                 readonly
                 size={"20px"}
                 fillColor={"var(--tradeable-burgundy)"}

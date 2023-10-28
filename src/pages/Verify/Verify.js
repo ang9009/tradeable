@@ -36,6 +36,18 @@ function Verify() {
     };
   }, []);
 
+  function sendEmail() {
+    sendEmailVerification(userData)
+      .then(() => {
+        toast.success("Email sent!", {
+          autoClose: 2000,
+        });
+
+        setError("");
+      })
+      .catch((error) => setError(error.message));
+  }
+
   return userData ? (
     <div className={VerifyCSS["page-container"]}>
       <img
@@ -58,16 +70,7 @@ function Verify() {
             text: "Resend email",
             className: VerifyCSS["resend-btn"],
           }}
-          onClick={() => {
-            sendEmailVerification(userData)
-              .then(() => {
-                toast.success("Email sent!", {
-                  autoClose: 2000,
-                });
-                setError("");
-              })
-              .catch((error) => setError(error.message));
-          }}
+          onClick={() => sendEmail}
         />
         <Error
           message={error}
