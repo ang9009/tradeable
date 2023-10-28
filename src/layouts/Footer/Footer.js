@@ -1,13 +1,19 @@
+import { useState } from "react";
+import ReportErrorModal from "../../components/form/ReportErrorModal/ReportErrorModal";
 import Icon from "../../components/ui/Logo/Icon";
 import Logo from "../../components/ui/Logo/Logo";
 import FooterCSS from "./Footer.module.css";
 
 function Footer() {
+  const [reportErrorModalIsOpen, setReportErrorModalIsOpen] = useState(false);
+
   return (
     <>
       <div className={FooterCSS["footer-container"]}>
         <ul>
-          <li>Report an error</li>
+          <li onClick={() => setReportErrorModalIsOpen(true)}>
+            Report an error
+          </li>
           <li>Help</li>
           <li>
             Terms
@@ -22,6 +28,10 @@ function Footer() {
           <div className={FooterCSS["name"]}>tradeable</div>
         </div>
       </div>
+      <ReportErrorModal
+        reportErrorModalIsOpen={reportErrorModalIsOpen}
+        setReportErrorModalIsOpen={setReportErrorModalIsOpen}
+      />
     </>
   );
 }

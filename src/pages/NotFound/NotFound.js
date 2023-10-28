@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ReportErrorModal from "../../components/form/ReportErrorModal/ReportErrorModal";
 import Button from "../../components/ui/Button/Button";
 import NotFoundCSS from "./NotFound.module.css";
 
 function NotFound() {
   const navigate = useNavigate();
+  const [reportErrorModalIsOpen, setReportErrorModalIsOpen] = useState(false);
 
   return (
     <div className={NotFoundCSS["page-container"]}>
@@ -25,13 +28,17 @@ function NotFound() {
               text: "Report",
               className: NotFoundCSS["btn"],
             }}
-            onClick={() => navigate("/")}
+            onClick={() => setReportErrorModalIsOpen(true)}
           />
         </div>
       </div>
       <img
         src={require("../../assets/404_lyla.png")}
         className={NotFoundCSS["not-found-img"]}
+      />
+      <ReportErrorModal
+        reportErrorModalIsOpen={reportErrorModalIsOpen}
+        setReportErrorModalIsOpen={setReportErrorModalIsOpen}
       />
     </div>
   );

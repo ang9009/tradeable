@@ -9,5 +9,5 @@ export default async function submitReport(data, reportedUserId, userId) {
     userId: userId,
   };
 
-  await setDoc(doc(db, "reports", uuid()), report);
+  await setDoc(doc(db, "userReports", uuid()), report);
 }
