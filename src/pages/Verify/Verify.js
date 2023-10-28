@@ -10,7 +10,7 @@ import VerifyCSS from "./Verify.module.css";
 
 function Verify() {
   const navigate = useNavigate();
-  const { userData } = useUser();
+  const { userData, user } = useUser();
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -44,10 +44,12 @@ function Verify() {
         alt=""
       />
       <div className={VerifyCSS["text-container"]}>
-        <h1 className={VerifyCSS["page-title"]}>Verify your email address</h1>
+        <h1 className={VerifyCSS["page-title"]}>
+          Verify your email address, {user?.name}
+        </h1>
         <p className={VerifyCSS["text-content"]}>
           Please verify your email address using the link we sent to:{" "}
-          <span className={VerifyCSS["user-email"]}>{userData.email}</span>.
+          <span className={VerifyCSS["user-email"]}>{userData?.email}</span>.
           Don't see it? Check your spam folder!
         </p>
         <Button

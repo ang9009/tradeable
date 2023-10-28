@@ -32,6 +32,7 @@ function Signup() {
   function submitSignup(data, e) {
     e.preventDefault();
 
+    // !TODO: uncomment this later
     // if (!isValidEmail(data.studentEmail)) {
     //   setError("Please use your student email");
     //   return;
