@@ -1,6 +1,12 @@
 import ListingInfoCSS from "./ListingInfo.module.css";
 
 function ListingInfo({ listingData }) {
+  console.log(listingData);
+
+  function getMapsLink(coords) {
+    return `https://maps.google.com?q=${coords.lat},${coords.lng}`;
+  }
+
   return (
     <div className={ListingInfoCSS["info-container"]}>
       <h1 className={ListingInfoCSS.title}>{listingData?.name}</h1>
@@ -17,12 +23,26 @@ function ListingInfo({ listingData }) {
           Meet up locations
           <span className={ListingInfoCSS.data}>
             {/* Add commas to all locations except the last one */}
-            {listingData?.meetUpLocations?.map((location, i) => {
+            {listingData?.meetUpLocations?.map((locObj, i) => {
               const length = listingData.meetUpLocations.length;
               return i !== length - 1 ? (
-                <span key={location}>{location}, </span>
+                <a
+                  href={getMapsLink(locObj.coords)}
+                  target="_blank"
+                  key={locObj.location}
+                  className={ListingInfoCSS["location-link"]}
+                >
+                  {locObj.location},{" "}
+                </a>
               ) : (
-                <span key={location}>{location}</span>
+                <a
+                  href={getMapsLink(locObj.coords)}
+                  target="_blank"
+                  key={locObj.location}
+                  className={ListingInfoCSS["location-link"]}
+                >
+                  {locObj.location}
+                </a>
               );
             })}
           </span>

@@ -11,6 +11,10 @@
   text-overflow: ellipsis;
 }
 
+.location-link {
+  color: var(--secondary-text-color);
+}
+
 .divider {
   height: 1px;
   background: var(--primary-border-color);
