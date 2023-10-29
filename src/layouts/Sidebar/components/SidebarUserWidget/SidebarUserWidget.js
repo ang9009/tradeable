@@ -18,7 +18,7 @@ function SidebarUserWidget({ className, setOpenSidebar }) {
 
   return (
     <>
-      {user && (
+      {user ? (
         <div className={SidebarUserWidgetCSS["dropdown-widget-conatiner"]}>
           <div
             className={`${SidebarUserWidgetCSS["widget-container"]} ${className}`}
@@ -33,7 +33,7 @@ function SidebarUserWidget({ className, setOpenSidebar }) {
           </div>
           {showDropdown && (
             <ul className={`${SidebarUserWidgetCSS["dropdown"]}`}>
-              <li>Profile</li>
+              <li onClick={() => goToPage(`/profile/${user.id}`)}>Profile</li>
               <li>Settings</li>
               <li onClick={() => goToPage("/create-listing")}>
                 Create listing
@@ -51,6 +51,8 @@ function SidebarUserWidget({ className, setOpenSidebar }) {
             </ul>
           )}
         </div>
+      ) : (
+        <h1 onClick={() => goToPage("/login")}>Log in</h1>
       )}
     </>
   );
