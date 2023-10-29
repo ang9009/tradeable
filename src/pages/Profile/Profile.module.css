@@ -11,59 +11,9 @@
   margin-top: 50px;
 }
 
-.profile-navbar-tabs {
-  display: flex;
-  color: var(--secondary-text-color);
-}
-
-.nav-tab {
-  font-size: calc(0.8rem + 0.2vw);
-  cursor: pointer;
-  padding: 20px 0px;
-  position: relative;
-}
-
-.highlight {
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: var(--tradeable-burgundy);
-  left: 0;
-  bottom: 0;
-}
-
-.nav-tab:hover {
-  color: var(--tradeable-burgundy);
-}
-
-.nav-tab:last-child {
-  margin-left: 30px;
-}
-
-.profile-navbar-divider {
-  width: 100%;
-  height: 1px;
-  background: var(--primary-border-color);
-}
-
-.listing-section {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-}
-
-.reviews-section {
-  margin-top: 30px;
-}
-
-@media (max-width: 950px) {
+@media (max-width: 1000px) {
   .page-container {
-    padding: 50px 40px;
-  }
-
-  .listing-section {
-    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    padding: 50px 20px;
   }
 
   .profile-top-section {
@@ -72,11 +22,5 @@
 
   .profile-top-section > :last-child {
     margin-top: 20px;
-  }
-}
-
-@media (max-width: 750px) {
-  .listing-section {
-    grid-template-columns: repeat(1, minmax(100px, 1fr));
   }
 }
