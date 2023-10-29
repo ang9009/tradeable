@@ -57,7 +57,7 @@ async function onSubmitListing(data, listingId, userId) {
     category: data.category.value,
     price: data.price,
     description: data.description,
-    meetUpLocations: data.meetUpLocations.map((location) => location.value),
+    meetUpLocations: data.meetUpLocations,
     sellerId: userId,
     buyerId: "",
     postedDate: date,
@@ -93,9 +93,7 @@ function getEditListingData(listingId, reset, setIsFetchingListing) {
           value: listingData.category,
           label: listingData.category,
         },
-        meetUpLocations: listingData.meetUpLocations.map((location) => {
-          return { value: location, label: location };
-        }),
+        meetUpLocations: listingData.meetUpLocations,
         photos: photos.map((blob, i) => {
           return { file: blob, url: URL.createObjectURL(blob) };
         }),

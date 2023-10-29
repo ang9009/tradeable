@@ -1,11 +1,11 @@
 import ListingInfoCSS from "./ListingInfo.module.css";
 
 function ListingInfo({ listingData }) {
-  console.log(listingData);
-
   function getMapsLink(coords) {
     return `https://maps.google.com?q=${coords.lat},${coords.lng}`;
   }
+
+  console.log(listingData.meetUpLocations);
 
   return (
     <div className={ListingInfoCSS["info-container"]}>
@@ -27,21 +27,21 @@ function ListingInfo({ listingData }) {
               const length = listingData.meetUpLocations.length;
               return i !== length - 1 ? (
                 <a
-                  href={getMapsLink(locObj.coords)}
+                  href={getMapsLink(locObj.value.coords)}
                   target="_blank"
-                  key={locObj.location}
+                  key={locObj.value.location}
                   className={ListingInfoCSS["location-link"]}
                 >
-                  {locObj.location},{" "}
+                  {locObj.value.location},{" "}
                 </a>
               ) : (
                 <a
-                  href={getMapsLink(locObj.coords)}
+                  href={getMapsLink(locObj.value.coords)}
                   target="_blank"
                   key={locObj.location}
                   className={ListingInfoCSS["location-link"]}
                 >
-                  {locObj.location}
+                  {locObj.value.location}
                 </a>
               );
             })}

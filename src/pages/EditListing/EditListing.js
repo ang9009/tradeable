@@ -43,7 +43,6 @@ function EditListing() {
 
   // Replacs data in form with listing data
   useEffect(() => {
-    // TODO: move this into firebase.js or something
     getEditListingData(listingId, methods.reset, setIsFetchingListing);
   }, []);
 

@@ -11,8 +11,8 @@ function ListingCard({ listing }) {
     >
       <div className={ListingCardCSS["img-container"]}>
         <img
-          src={require("../../../../assets/placeholder_img.jpg")}
-          alt=""
+          src={`https://storage.googleapis.com/tradeable-6ed31.appspot.com/listingImages/${listing?.id}/1`}
+          alt={"Listing image"}
           className={ListingCardCSS["listing-img"]}
         />
         {/* <div>

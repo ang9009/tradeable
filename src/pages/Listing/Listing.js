@@ -1,28 +1,18 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   ListingButtons,
   ListingCarousel,
   ListingInfo,
   SellerWidget,
 } from "../../features/listing";
-import {
-  db,
-  doc,
-  getDoc,
-  getDownloadURL,
-  onSnapshot,
-  ref,
-  storage,
-} from "../../lib/firebase";
+import { db, doc, getDoc, onSnapshot } from "../../lib/firebase";
 import ListingCSS from "./Listing.module.css";
 
 function Listing() {
   const { listingId } = useParams();
-  const navigate = useNavigate();
   const [listingData, setListingData] = useState({});
   const [seller, setSeller] = useState({});
-  const [images, setImages] = useState([]);
 
   useEffect(() => {
     // Fetches listing data, seller object, and images
@@ -35,18 +25,6 @@ function Listing() {
       getDoc(sellerRef).then((res) => {
         setSeller(res.data());
       });
-
-      // Images
-      const imagePromises = [];
-
-      for (let i = 0; i < data.imagesNum; i++) {
-        const pathRef = ref(storage, `listingImages/${listingId}/${i + 1}`);
-        imagePromises.push(getDownloadURL(pathRef));
-      }
-
-      Promise.all(imagePromises).then((images) => {
-        setImages(images);
-      });
     });
 
     // Detaches onSnapshot listener on component unmount
@@ -57,8 +35,8 @@ function Listing() {
     <div className={ListingCSS["page-container"]}>
       <ListingCarousel
         className={ListingCSS["carousel-container"]}
-        images={images}
         imagesNum={listingData.imagesNum}
+        listingId={listingId}
         status={listingData.status}
       />
       <div className={ListingCSS["listing-details"]}>

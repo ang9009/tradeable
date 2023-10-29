@@ -4,11 +4,11 @@ import { toast } from "react-toastify";
 import ListingCarouselCSS from "./ListingCarousel.module.css";
 import "./ThumbsCarousel.css";
 
-function ListingCarousel({ images, imagesNum, className, status }) {
+function ListingCarousel({ imagesNum, className, status, listingId }) {
   return (
     <div className={className}>
       {/* Swiper.js images cannot be updated once carousel is rendered, so the number of images is checked*/}
-      {images.length === imagesNum && (
+      {imagesNum && (
         <>
           <div className={ListingCarouselCSS["carousel-container"]}>
             {status === "available" && (
@@ -47,9 +47,13 @@ function ListingCarousel({ images, imagesNum, className, status }) {
               thumbs-swiper=".thumbnail-carousel"
               navigation="true"
             >
-              {images.map((url) => (
-                <swiper-slide key={url}>
-                  <img src={url} alt="" class={ListingCarouselCSS.img} />
+              {Array.from({ length: imagesNum }, (_, i) => i + 1).map((i) => (
+                <swiper-slide key={i}>
+                  <img
+                    src={`https://storage.googleapis.com/tradeable-6ed31.appspot.com/listingImages/${listingId}/${i}`}
+                    alt=""
+                    class={ListingCarouselCSS.img}
+                  />
                 </swiper-slide>
               ))}
             </swiper-container>
@@ -60,9 +64,13 @@ function ListingCarousel({ images, imagesNum, className, status }) {
             slides-per-view="4"
             navigation="true"
           >
-            {images.map((url) => (
-              <swiper-slide key={url}>
-                <img src={url} alt="" class={ListingCarouselCSS.img} />
+            {Array.from({ length: imagesNum }, (_, i) => i + 1).map((i) => (
+              <swiper-slide key={i}>
+                <img
+                  src={`https://storage.googleapis.com/tradeable-6ed31.appspot.com/listingImages/${listingId}/${i}`}
+                  alt=""
+                  class={ListingCarouselCSS.img}
+                />
               </swiper-slide>
             ))}
           </swiper-container>
