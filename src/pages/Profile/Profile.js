@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useNavigate, useParams } from "react-router-dom";
 import { ProfileButtons, ProfileUserInfo } from "../../features/profile";
+import { ListingCard } from "../../features/search";
 import { db } from "../../lib/firebase";
 import ProfileCSS from "./Profile.module.css";
 
@@ -49,6 +50,13 @@ function Profile() {
           </div>
           <div className={ProfileCSS["profile-navbar-divider"]}></div>
         </div>
+      </div>
+      <div className={ProfileCSS["listing-section"]}>
+        <ListingCard />
+        <ListingCard />
+        <ListingCard />
+        <ListingCard />
+        <ListingCard />
       </div>
     </div>
   );

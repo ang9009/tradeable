@@ -1,7 +1,7 @@
 .profile-img {
   border-radius: 9999px;
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
 }
 
 .user-info-container {
@@ -38,7 +38,7 @@
 }
 
 .about {
-  margin-top: 10px;
+  margin-top: 20px;
   max-width: 500px;
 }
 

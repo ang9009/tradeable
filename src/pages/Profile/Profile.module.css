@@ -35,3 +35,34 @@
   height: 1px;
   background: var(--primary-border-color);
 }
+
+.listing-section {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+@media (max-width: 950px) {
+  .page-container {
+    padding: 50px 40px;
+  }
+
+  .listing-section {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+  }
+
+  .profile-top-section {
+    flex-direction: column;
+  }
+
+  .profile-top-section > :last-child {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 750px) {
+  .listing-section {
+    grid-template-columns: repeat(1, minmax(100px, 1fr));
+  }
+}
