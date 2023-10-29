@@ -1,7 +1,7 @@
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ProfileButtons, ProfileUserInfo } from "../../features/profile";
 import { db } from "../../lib/firebase";
 import ProfileCSS from "./Profile.module.css";
@@ -10,12 +10,17 @@ function Profile() {
   const userId = useParams().userId;
   const [isFetchingUser, setIsFetchingUser] = useState(true);
   const [profileUser, setProfileUser] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const userRef = doc(db, "users", userId);
     getDoc(userRef).then((res) => {
-      setProfileUser(res.data());
-      setIsFetchingUser(false);
+      if (res.data()) {
+        setProfileUser(res.data());
+        setIsFetchingUser(false);
+      } else {
+        navigate("/404");
+      }
     });
   }, []);
 
