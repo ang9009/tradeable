@@ -72,7 +72,7 @@ function Profile() {
       <div className={ProfileCSS["profile-bottom-section"]}>
         <ProfileNav setIsListings={setIsListings} isListings={isListings} />
         {isListings ? (
-          <ListingSection listings={listings} />
+          <ListingSection listings={listings} isProfile />
         ) : (
           <ProfileReviewsSection />
         )}

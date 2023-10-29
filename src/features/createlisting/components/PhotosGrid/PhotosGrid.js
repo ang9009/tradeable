@@ -4,6 +4,7 @@ import DraggablePhoto from "../DraggablePhoto/DraggablePhoto";
 import PhotosGridCSS from "./PhotosGrid.module.css";
 
 function PhotosGrid({ onChange, value }) {
+  // console.log(value);
   return (
     <div>
       {value && value.length !== 0 && (

@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { BiSearch } from "react-icons/bi";
 import { FiX } from "react-icons/fi";
 import NavSearchbarCSS from "./NavSearchbar.module.css";
 
@@ -27,8 +27,8 @@ const NavSearchbar = () => {
         {isFocused ? (
           <FiX size={"17px"} className={NavSearchbarCSS["clear-search-btn"]} />
         ) : (
-          <AiOutlineSearch
-            size={"20px"}
+          <BiSearch
+            size={"17px"}
             className={NavSearchbarCSS["clear-search-btn"]}
           />
         )}

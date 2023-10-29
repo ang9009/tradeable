@@ -63,6 +63,18 @@ function EditListing() {
 
                   await onSubmitListing(data, listingId, user.id);
 
+                  // Removing old images
+                  const storageRef = ref(storage, `listingImages/${listingId}`);
+
+                  listAll(storageRef).then((listResults) => {
+                    const promises = listResults.items.map((item) => {
+                      return deleteObject(item);
+                    });
+
+                    Promise.all(promises);
+                  });
+
+                  // Adding new ones
                   const photos = data.photos.map((photoObj) => photoObj.file);
                   const promises = photos.map((photo, i) => {
                     const photoRef = ref(
