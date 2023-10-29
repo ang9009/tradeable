@@ -34,7 +34,7 @@ function getLocationSearchStyles(errors) {
     }),
     control: (_, state) => ({
       padding: "10px 12px",
-      outline: handleOutline(errors?.meetupLocations, state.isFocused),
+      outline: handleOutline(errors?.meetUpLocations, state.isFocused),
       flexDirection: "row-reverse",
       marginTop: "var(--input-margin-top)",
       borderRadius: "5px",

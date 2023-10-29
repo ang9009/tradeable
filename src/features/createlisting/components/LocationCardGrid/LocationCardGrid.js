@@ -7,7 +7,7 @@ function LocationCardGrid({ locations }) {
   const { setValue } = useFormContext();
   function handleDelete(currLocation) {
     setValue(
-      "meetupLocations",
+      "meetUpLocations",
       locations.filter((location) => !isEqual(location, currLocation)),
       { shouldValidate: true }
     );

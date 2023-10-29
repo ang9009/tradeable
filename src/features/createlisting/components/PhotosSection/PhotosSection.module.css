@@ -2,6 +2,16 @@
   margin-top: var(--input-margin-top);
 }
 
+.photo-error-msg > * {
+  font-size: 0.8rem;
+  margin-left: 0;
+}
+
+.alert-icon {
+  width: 13.48px;
+  height: 13.48px;
+}
+
 @media (max-width: 500px) {
   .dropzone-label {
     display: none;

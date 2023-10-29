@@ -66,6 +66,7 @@ async function onSubmitListing(data, listingId, userId) {
     buyerHasReviewed: false,
     sellerHasReviewed: false,
   };
+  console.log(listing);
 
   await setDoc(doc(db, "listings", listingId), listing);
 }

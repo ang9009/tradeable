@@ -28,6 +28,7 @@ function PhotosSection() {
             show={errors?.photos}
             message={errors?.photos?.message}
             className={PhotosSectionCSS["photo-error-msg"]}
+            alertIconClassName={PhotosSectionCSS["alert-icon"]}
           />
           <PhotosInput control={control} errors={errors} />
         </div>

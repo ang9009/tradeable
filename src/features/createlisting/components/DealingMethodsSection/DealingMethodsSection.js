@@ -1,7 +1,6 @@
 import { useFormContext } from "react-hook-form";
-import SelectInput from "../../../../components/form/SelectInput/SelectInput";
 import Error from "../../../../components/ui/Error/Error";
-import { meetUpOptions } from "../../data/meetUpOptions";
+import SearchLocationInput from "../SearchLocationInput/SearchLocationInput";
 
 function DealingMethodsSection() {
   const {
@@ -18,15 +17,7 @@ function DealingMethodsSection() {
             show={errors?.dealingMethods}
             message={errors?.dealingMethods?.message}
           />
-          <SelectInput
-            options={{
-              label: "Meet up locations",
-              placeholder: "Select meet up location(s)",
-              selectOptions: meetUpOptions,
-              isMulti: true,
-            }}
-            formData={{ control, errors }}
-          />
+          <SearchLocationInput />
         </div>
       </div>
     </>

@@ -7,11 +7,8 @@ function noOptionsMessage(obj) {
   return "No locations found";
 }
 
-function validateLocations(v, getValues) {
-  const dealingMethods = getValues("dealingMethods");
-  if (dealingMethods.includes("meetUp")) {
-    return v.length !== 0 || "Please add at least one meet-up location";
-  }
+function validateLocations(v) {
+  return v.length !== 0 || "Please add at least one meet-up location";
 }
 
 export { noOptionsMessage, validateLocations };
