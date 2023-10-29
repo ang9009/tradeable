@@ -11,6 +11,7 @@ function Profile() {
   const userId = useParams().userId;
   const [isFetchingUser, setIsFetchingUser] = useState(true);
   const [profileUser, setProfileUser] = useState({});
+  const [isListings, setIsListings] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -45,19 +46,37 @@ function Profile() {
       <div className={ProfileCSS["profile-bottom-section"]}>
         <div className={ProfileCSS["profile-navbar"]}>
           <div className={ProfileCSS["profile-navbar-tabs"]}>
-            <h1 className={ProfileCSS["nav-tab"]}>Listings</h1>
-            <h1 className={ProfileCSS["nav-tab"]}>Reviews</h1>
+            <h1
+              className={ProfileCSS["nav-tab"]}
+              onClick={() => setIsListings(true)}
+              style={{ color: isListings && "var(--tradeable-burgundy)" }}
+            >
+              Listings
+              {isListings && <span className={ProfileCSS["highlight"]}></span>}
+            </h1>
+            <h1
+              className={ProfileCSS["nav-tab"]}
+              onClick={() => setIsListings(false)}
+              style={{ color: !isListings && "var(--tradeable-burgundy)" }}
+            >
+              Reviews
+              {!isListings && <span className={ProfileCSS["highlight"]}></span>}
+            </h1>
           </div>
           <div className={ProfileCSS["profile-navbar-divider"]}></div>
         </div>
       </div>
-      <div className={ProfileCSS["listing-section"]}>
-        <ListingCard />
-        <ListingCard />
-        <ListingCard />
-        <ListingCard />
-        <ListingCard />
-      </div>
+      {isListings ? (
+        <div className={ProfileCSS["listing-section"]}>
+          <ListingCard />
+          <ListingCard />
+          <ListingCard />
+          <ListingCard />
+          <ListingCard />
+        </div>
+      ) : (
+        <div className={ProfileCSS["reviews-section"]}>Reviews</div>
+      )}
     </div>
   );
 }
