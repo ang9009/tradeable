@@ -16,16 +16,15 @@ function SignInButton({ setError }) {
     return email.includes(".ac.uk") || email.includes(".edu");
   }
 
-  // Checks if user is of valid domain (.edu or .ac.uk), checked by firebase security reles
   async function login() {
     await signInWithPopup(auth, provider)
       .then(async (result) => {
         const { isNewUser } = getAdditionalUserInfo(result);
 
         if (!isValidEmail(result.user.email)) {
-          setError("Please use your student email");
-          deleteUser(result.user);
           signOut(auth);
+          deleteUser(result.user);
+          setError("Please use your student email");
         } else if (isNewUser) {
           const userRef = doc(db, "users", result.user.uid);
           const name = result.user.email.split("@")[0];
