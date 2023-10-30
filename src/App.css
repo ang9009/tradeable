@@ -7,3 +7,11 @@
   padding: 5px 20px;
   z-index: 999;
 }
+
+@font-face {
+  font-family: "Visby Round CF";
+  font-style: bold;
+  font-weight: bold;
+  src: local("Visby Round Bold"),
+    url("/src/fonts/VisbyRound/VisbyRoundCF-Bold.otf");
+}
