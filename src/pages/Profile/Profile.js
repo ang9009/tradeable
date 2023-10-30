@@ -6,6 +6,7 @@ import {
   limit,
   orderBy,
   query,
+  where,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
@@ -43,7 +44,8 @@ function Profile() {
     const listingsQuery = query(
       listingsRef,
       orderBy("timestamp", "desc"),
-      limit(8)
+      limit(8),
+      where("sellerId", "==", userId)
     );
     getDocs(listingsQuery).then((res) => {
       const listings = [];
