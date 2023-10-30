@@ -26,9 +26,15 @@ export default async function submitReview(data, e, selectedChat, user) {
   const snapshot = await getAggregateFromServer(q, {
     avgRating: average("rating"),
   });
-  const totalAvgRating = Math.round(
-    (snapshot.data().avgRating + data.rating) / 2
-  );
+
+  const totalAvgRating = 0;
+
+  if (snapshot.data().avgRating === 0) {
+    totalAvgRating = data.rating;
+  } else {
+    totalAvgRating = Math.round((snapshot.data().avgRating + data.rating) / 2);
+  }
+
   await updateDoc(doc(db, "users", selectedChat[1].userInfo.id), {
     ["avgRating"]: totalAvgRating,
   });
