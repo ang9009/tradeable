@@ -40,7 +40,11 @@ function Profile() {
     });
 
     const listingsRef = collection(db, "listings");
-    const listingsQuery = query(listingsRef, orderBy("timestamp"), limit(8));
+    const listingsQuery = query(
+      listingsRef,
+      orderBy("timestamp", "desc"),
+      limit(8)
+    );
     getDocs(listingsQuery).then((res) => {
       const listings = [];
 

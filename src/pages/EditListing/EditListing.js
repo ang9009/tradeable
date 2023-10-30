@@ -1,4 +1,4 @@
-import { listAll, uploadBytes } from "firebase/storage";
+import { listAll } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,7 +11,6 @@ import {
   DescriptionSection,
   FullscreenDropzone,
   ItemDetailsSection,
-  PhotosSection,
 } from "../../features/createlisting";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import {
@@ -63,39 +62,39 @@ function EditListing() {
 
                   await onSubmitListing(data, listingId, user.id);
 
+                  // !Editing images is currently disabled due to caching problems
                   // Removing old images
-                  const storageRef = ref(storage, `listingImages/${listingId}`);
+                  // const storageRef = ref(storage, `listingImages/${listingId}`);
 
-                  listAll(storageRef).then((listResults) => {
-                    const promises = listResults.items.map((item) => {
-                      return deleteObject(item);
-                    });
+                  // listAll(storageRef).then((listResults) => {
+                  //   const promises = listResults.items.map((item) => {
+                  //     return deleteObject(item);
+                  //   });
 
-                    Promise.all(promises);
-                  });
+                  //   Promise.all(promises);
+                  // });
 
                   // Adding new ones
-                  const photos = data.photos.map((photoObj) => photoObj.file);
-                  const promises = photos.map((photo, i) => {
-                    const photoRef = ref(
-                      storage,
-                      `listingImages/${listingId}/${i + 1}`
-                    );
-                    return uploadBytes(photoRef, photo);
-                  });
+                  // const photos = data.photos.map((photoObj) => photoObj.file);
+                  // const promises = photos.map((photo, i) => {
+                  //   const photoRef = ref(
+                  //     storage,
+                  //     `listingImages/${listingId}/${i + 1}`
+                  //   );
+                  //   return uploadBytes(photoRef, photo);
+                  // });
 
-                  Promise.all(promises).then(() => {
-                    navigate(`/listing/${listingId}`);
-                    setIsSubmitting(false);
-                    toast.update(toastId, {
-                      render: "Changes saved!",
-                      type: "success",
-                      autoClose: 5000,
-                      isLoading: false,
-                      closeButton: true,
-                      theme: "colored",
-                      position: "bottom-right",
-                    });
+                  // Promise.all(promises).then(() => {});
+                  navigate(`/listing/${listingId}`);
+                  setIsSubmitting(false);
+                  toast.update(toastId, {
+                    render: "Changes saved!",
+                    type: "success",
+                    autoClose: 5000,
+                    isLoading: false,
+                    closeButton: true,
+                    theme: "colored",
+                    position: "bottom-right",
                   });
                 })}
                 onKeyDown={(e) => checkKeyDown(e)}
@@ -103,8 +102,14 @@ function EditListing() {
               >
                 <h1 className="page-title">Edit listing</h1>
                 <ItemDetailsSection />
-                <PhotosSection />
                 <DescriptionSection />
+                <div className="page-section-container">
+                  <div className="subtitle">Photos</div>
+                  <p className={"form-section-container"}>
+                    Editing listing photos is currently disabled due to a
+                    caching issue. We apologise for any inconvenience caused.
+                  </p>
+                </div>
                 <DealingMethodsSection />
                 <div className={EditListingCSS["btns-container"]}>
                   <Button
@@ -145,7 +150,7 @@ function EditListing() {
         <div className={EditListingCSS["modal-btns-container"]}>
           <Button
             options={{ type: "red-filled", text: "Delete listing" }}
-            onClick={() => {
+            onClick={async () => {
               // Delete listing function
               const storageRef = ref(storage, `listingImages/${listingId}`);
 
@@ -156,9 +161,9 @@ function EditListing() {
 
                 Promise.all(promises);
               });
-              deleteDoc(doc(db, "listings", listingId));
+              await deleteDoc(doc(db, "listings", listingId));
               navigate(`/profile/${user.id}`);
-              toast.default("Listing successfully deleted", {
+              toast.success("Listing successfully deleted", {
                 autoClose: 3000,
                 theme: "colored",
               });
