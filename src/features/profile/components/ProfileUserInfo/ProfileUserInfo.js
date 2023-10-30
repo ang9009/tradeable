@@ -51,12 +51,10 @@ function ProfileUserInfo({ user }) {
           </div>
         </div>
       </div>
-      <p className={ProfileUserInfoCSS["about"]}>
-        My name is Barry Allen and I am the fastest man alive. To the outside
-        world, I am an ordinary forensic scientist, but secretly with the help
-        of my friends in S.T.A.R. Labs, I fight crime and find other meta-humans
-        like me.
-      </p>
+      <div className={ProfileUserInfoCSS["about"]}>
+        <h1>About</h1>
+        <p>{user?.about}</p>
+      </div>
     </div>
   );
 }

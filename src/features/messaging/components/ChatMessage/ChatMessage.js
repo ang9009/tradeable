@@ -23,7 +23,14 @@ function ChatMessage({ message }) {
       ref={ref}
     >
       <div className={ChatMessageCSS["message-info"]}>
-        <img src={data.user.photoUrl} alt="" />
+        <img
+          src={
+            data.user.photoUrl === ""
+              ? require("../../../../assets/profile_placeholder.png")
+              : user?.photoUrl
+          }
+          alt=""
+        />
       </div>
       <div className={ChatMessageCSS["message-content"]}>
         <div className={ChatMessageCSS["message-text-container"]}>

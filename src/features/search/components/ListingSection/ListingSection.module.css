@@ -9,6 +9,10 @@
   max-width: 300px;
 }
 
+.skeleton-card {
+  aspect-ratio: 1/1;
+}
+
 /* Listing section already provides margin */
 .no-listings-msg {
   display: grid;

@@ -1,4 +1,4 @@
-import { listAll } from "firebase/storage";
+import { listAll, updateMetadata, uploadBytes } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,6 +11,7 @@ import {
   DescriptionSection,
   FullscreenDropzone,
   ItemDetailsSection,
+  PhotosSection,
 } from "../../features/createlisting";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import {
@@ -62,39 +63,49 @@ function EditListing() {
 
                   await onSubmitListing(data, listingId, user.id);
 
-                  // !Editing images is currently disabled due to caching problems
                   // Removing old images
-                  // const storageRef = ref(storage, `listingImages/${listingId}`);
-
-                  // listAll(storageRef).then((listResults) => {
-                  //   const promises = listResults.items.map((item) => {
-                  //     return deleteObject(item);
-                  //   });
-
-                  //   Promise.all(promises);
-                  // });
+                  const storageRef = ref(storage, `listingImages/${listingId}`);
+                  const listResults = await listAll(storageRef);
+                  const deletePromises = listResults.items.map((item) => {
+                    return deleteObject(item);
+                  });
+                  await Promise.all(deletePromises);
 
                   // Adding new ones
-                  // const photos = data.photos.map((photoObj) => photoObj.file);
-                  // const promises = photos.map((photo, i) => {
-                  //   const photoRef = ref(
-                  //     storage,
-                  //     `listingImages/${listingId}/${i + 1}`
-                  //   );
-                  //   return uploadBytes(photoRef, photo);
-                  // });
+                  const photos = data.photos.map((photoObj) => photoObj.file);
+                  const photoPromises = photos.map((photo, i) => {
+                    const photoRef = ref(
+                      storage,
+                      `listingImages/${listingId}/${i + 1}`
+                    );
+                    return uploadBytes(photoRef, photo);
+                  });
+                  await Promise.all(photoPromises);
 
-                  // Promise.all(promises).then(() => {});
-                  navigate(`/listing/${listingId}`);
-                  setIsSubmitting(false);
-                  toast.update(toastId, {
-                    render: "Changes saved!",
-                    type: "success",
-                    autoClose: 5000,
-                    isLoading: false,
-                    closeButton: true,
-                    theme: "colored",
-                    position: "bottom-right",
+                  // Prevents photo caching
+                  const photoMetadata = {
+                    cacheControl: "public,max-age=15,no-store",
+                    contentType: "image/jpeg",
+                  };
+                  const photoMetadataPromises = photos.map((_, i) => {
+                    const photoRef = ref(
+                      storage,
+                      `listingImages/${listingId}/${i + 1}`
+                    );
+                    return updateMetadata(photoRef, photoMetadata);
+                  });
+                  await Promise.all(photoMetadataPromises).then(() => {
+                    navigate(`/listing/${listingId}`);
+                    setIsSubmitting(false);
+                    toast.update(toastId, {
+                      render: "Changes saved!",
+                      type: "success",
+                      autoClose: 5000,
+                      isLoading: false,
+                      closeButton: true,
+                      theme: "colored",
+                      position: "bottom-right",
+                    });
                   });
                 })}
                 onKeyDown={(e) => checkKeyDown(e)}
@@ -103,13 +114,7 @@ function EditListing() {
                 <h1 className="page-title">Edit listing</h1>
                 <ItemDetailsSection />
                 <DescriptionSection />
-                <div className="page-section-container">
-                  <div className="subtitle">Photos</div>
-                  <p className={"form-section-container"}>
-                    Editing listing photos is currently disabled due to a
-                    caching issue. We apologise for any inconvenience caused.
-                  </p>
-                </div>
+                <PhotosSection />
                 <DealingMethodsSection />
                 <div className={EditListingCSS["btns-container"]}>
                   <Button

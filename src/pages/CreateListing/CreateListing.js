@@ -1,4 +1,4 @@
-import { uploadBytes } from "firebase/storage";
+import { updateMetadata, uploadBytes } from "firebase/storage";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -44,26 +44,38 @@ function CreateListing() {
 
               // Uplaoding photos
               const photos = data.photos.map((photoObj) => photoObj.file);
-              const promises = photos.map((photo, i) => {
+              const photoPromises = photos.map((photo, i) => {
                 const photoRef = ref(
                   storage,
                   `listingImages/${listingId}/${i + 1}`
                 );
                 return uploadBytes(photoRef, photo);
               });
+              await Promise.all(photoPromises);
 
-              // Navigating AFTER photos are submitted
-              Promise.all(promises).then(() => {
-                navigate(`/listing/${listingId}`);
-                setIsSubmitting(false);
-                toast.update(toastId, {
-                  render: "Your listing is live!",
-                  type: "success",
-                  autoClose: 3000,
-                  isLoading: false,
-                  closeButton: true,
-                  theme: "colored",
-                });
+              // Prevents photo caching
+              const photoMetadata = {
+                cacheControl: "public,max-age=15,no-store",
+                contentType: "image/jpeg",
+              };
+              const photoMetadataPromises = photos.map((_, i) => {
+                const photoRef = ref(
+                  storage,
+                  `listingImages/${listingId}/${i + 1}`
+                );
+                return updateMetadata(photoRef, photoMetadata);
+              });
+              await Promise.all(photoMetadataPromises);
+
+              navigate(`/listing/${listingId}`);
+              setIsSubmitting(false);
+              toast.update(toastId, {
+                render: "Your listing is live!",
+                type: "success",
+                autoClose: 3000,
+                isLoading: false,
+                closeButton: true,
+                theme: "colored",
               });
             })}
             onKeyDown={(e) => checkKeyDown(e)}

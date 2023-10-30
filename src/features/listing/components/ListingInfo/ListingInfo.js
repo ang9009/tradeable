@@ -5,8 +5,6 @@ function ListingInfo({ listingData }) {
     return `https://maps.google.com?q=${coords.lat},${coords.lng}`;
   }
 
-  console.log(listingData.meetUpLocations);
-
   return (
     <div className={ListingInfoCSS["info-container"]}>
       <h1 className={ListingInfoCSS.title}>{listingData?.name}</h1>

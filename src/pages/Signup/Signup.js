@@ -50,6 +50,7 @@ function Signup() {
           photoUrl: "",
           reviews: 0,
           avgRating: 0,
+          about: "Hey there, I'm new to tradeable!",
         };
 
         setDoc(doc(db, "userChats", result.user.uid), {});
