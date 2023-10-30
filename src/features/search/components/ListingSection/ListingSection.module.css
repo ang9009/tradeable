@@ -21,6 +21,7 @@
 
 .no-listings-msg > * {
   color: var(--secondary-text-color);
+  text-align: center;
 }
 
 .no-listings-msg h1 {
