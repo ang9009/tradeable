@@ -11,6 +11,11 @@
   margin-top: 20px;
 }
 
+.load-more-btn {
+  margin: auto;
+  margin-top: 50px;
+}
+
 @media (max-width: 1000px) {
   .page-container {
     padding: 50px 20px;

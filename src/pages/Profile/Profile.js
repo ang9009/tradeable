@@ -12,6 +12,7 @@ import {
 import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useNavigate, useParams } from "react-router-dom";
+import Button from "../../components/ui/Button/Button";
 import {
   ProfileButtons,
   ProfileNav,
@@ -91,15 +92,6 @@ function Profile() {
     });
   }
 
-  // Paginate on scroll
-  function handleScroll(e) {
-    let triggerHeight = e.target.scrollTop + e.target.offsetHeight;
-    if (triggerHeight >= e.target.scrollHeight) {
-      console.log("bruh");
-      getNewListings();
-    }
-  }
-
   return (
     <div className={ProfileCSS["page-container"]}>
       <div className={ProfileCSS["profile-top-section"]}>
@@ -129,7 +121,16 @@ function Profile() {
           <ProfileReviewsSection />
         )}
       </div>
-      <button onClick={() => getNewListings()}> load more</button>
+      {isListings && (
+        <Button
+          options={{
+            text: "Load more",
+            type: "gray-outline",
+            className: ProfileCSS["load-more-btn"],
+          }}
+          onClick={() => getNewListings()}
+        />
+      )}
     </div>
   );
 }
