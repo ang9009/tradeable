@@ -53,12 +53,6 @@
   border: var(--primary-border);
 }
 
-.gray-outline:hover,
-.gray-outline-blue:hover,
-.gray-outline-red:hover {
-  border: 1px solid #000;
-}
-
 .black-filled {
   background: #000;
   color: #fff;
@@ -90,11 +84,6 @@
   background: none;
   color: var(--warning-red);
   border: 1px solid var(--warning-red);
-}
-
-.red-outline:hover {
-  background: var(--warning-red);
-  color: #fff;
 }
 
 .red-filled {
