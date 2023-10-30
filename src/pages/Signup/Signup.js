@@ -33,10 +33,10 @@ function Signup() {
     e.preventDefault();
 
     // !TODO: uncomment this later
-    // if (!isValidEmail(data.studentEmail)) {
-    //   setError("Please use your student email");
-    //   return;
-    // }
+    if (!isValidEmail(data.studentEmail)) {
+      setError("Please use your student email");
+      return;
+    }
 
     createUserWithEmailAndPassword(auth, data.studentEmail, data.password)
       .then((result) => {

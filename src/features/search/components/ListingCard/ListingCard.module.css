@@ -1,5 +1,6 @@
 .card-container {
   cursor: pointer;
+  min-width: 0;
 }
 
 .img-container {
@@ -18,8 +19,8 @@
 .status-tag {
   color: #fff;
   display: inline;
-  border-radius: 5px;
-  padding: 8px 15px;
+  border-radius: 3px;
+  padding: 5px 10px;
   font-weight: bold;
   text-transform: capitalize;
   z-index: 2;
@@ -47,6 +48,9 @@
 
 .text-container h1 {
   font-size: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .condition {
