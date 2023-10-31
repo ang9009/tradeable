@@ -40,7 +40,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/profile/:userId" element={<Profile />} />
+            <Route path="/profile/:userId/:page" element={<Profile />} />
             <Route element={<ListingRoute />}>
               <Route path="/listing/:listingId" element={<Listing />} />
             </Route>

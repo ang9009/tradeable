@@ -24,7 +24,7 @@ import { db } from "../../lib/firebase";
 import ProfileCSS from "./Profile.module.css";
 
 function Profile() {
-  const userId = useParams().userId;
+  const { userId, page } = useParams();
   const [isFetchingUser, setIsFetchingUser] = useState(true);
   const [isFetchingListing, setIsFetchingListing] = useState(true);
   const [latestListing, setLatestListing] = useState(null);
@@ -32,6 +32,16 @@ function Profile() {
   const [isListings, setIsListings] = useState(true);
   const [listings, setListings] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (page === "listings") {
+      setIsListings(true);
+    } else if (page === "reviews") {
+      setIsListings(false);
+    } else {
+      navigate("/404");
+    }
+  }, [page]);
 
   useEffect(() => {
     const userRef = doc(db, "users", userId);
@@ -45,8 +55,7 @@ function Profile() {
     });
 
     const listingsRef = collection(db, "listings");
-    let listingsQuery = null;
-    listingsQuery = query(
+    const listingsQuery = query(
       listingsRef,
       orderBy("timestamp", "desc"),
       limit(8),
@@ -65,7 +74,7 @@ function Profile() {
     });
   }, [userId]);
 
-  // Used for first fetch + pagination
+  // Used for pagination
   async function getNewListings() {
     const listingsRef = collection(db, "listings");
     let listingsQuery = query(
@@ -110,7 +119,7 @@ function Profile() {
         <ProfileButtons />
       </div>
       <div className={ProfileCSS["profile-bottom-section"]}>
-        <ProfileNav setIsListings={setIsListings} isListings={isListings} />
+        <ProfileNav userId={userId} isListings={isListings} />
         {isListings ? (
           <ListingSection
             listings={listings}
@@ -118,10 +127,10 @@ function Profile() {
             isProfile
           />
         ) : (
-          <ProfileReviewsSection />
+          <ProfileReviewsSection userId={userId} />
         )}
       </div>
-      {isListings && (
+      {isListings && listings.length !== 0 && !(listings.length < 8) && (
         <Button
           options={{
             text: "Load more",

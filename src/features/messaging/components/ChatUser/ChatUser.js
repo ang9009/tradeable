@@ -20,7 +20,9 @@ function ChatUser({ selectedChat }) {
         />
         <div
           className={ChatUserCSS["user-info"]}
-          onClick={() => navigate(`/profile/${selectedChat[1].userInfo.id}`)}
+          onClick={() =>
+            navigate(`/profile/${selectedChat[1].userInfo.id}/listings`)
+          }
         >
           <img
             src={selectedChat[1].userInfo.photoUrl || placeholderImg}
@@ -43,7 +45,7 @@ function ChatUser({ selectedChat }) {
       <ReportModal
         reportModalIsOpen={reportModalIsOpen}
         setReportModalIsOpen={setReportModalIsOpen}
-        selectedChat={selectedChat}
+        reportedUserId={selectedChat[1].userInfo.id}
       />
     </div>
   );

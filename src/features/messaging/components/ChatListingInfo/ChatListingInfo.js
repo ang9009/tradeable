@@ -132,6 +132,7 @@ function ChatListingInfo({ listing, isFetchingListing, selectedChat }) {
         setReviewModalIsOpen={setReviewModalIsOpen}
         reviewModalIsOpen={reviewModalIsOpen}
         selectedChat={selectedChat}
+        listing={listing}
       />
     </div>
   );

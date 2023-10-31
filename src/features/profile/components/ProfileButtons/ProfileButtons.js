@@ -73,6 +73,7 @@ function ProfileButtons() {
       <ReportModal
         reportModalIsOpen={reportModalIsOpen}
         setReportModalIsOpen={setReportModalIsOpen}
+        reportedUserId={userId}
       />
     </div>
   );

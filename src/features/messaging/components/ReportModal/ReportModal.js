@@ -11,7 +11,7 @@ import ReportModalCSS from "./ReportModal.module.css";
 function ReportModal({
   reportModalIsOpen,
   setReportModalIsOpen,
-  selectedChat,
+  reportedUserId,
 }) {
   const {
     register,
@@ -38,7 +38,7 @@ function ReportModal({
           onSubmit={handleSubmit((data, e) => {
             e.preventDefault();
 
-            submitReport(data, selectedChat[1].userInfo.id, user.id);
+            submitReport(data, reportedUserId, user.id);
             setReportModalIsOpen(false);
             toast.success("Report submitted", {
               autoClose: 3000,

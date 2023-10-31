@@ -14,6 +14,7 @@ function ReviewModal({
   reviewModalIsOpen,
   setReviewModalIsOpen,
   selectedChat,
+  listing,
 }) {
   const {
     register,
@@ -27,9 +28,9 @@ function ReviewModal({
   const navigate = useNavigate();
 
   async function handleSubmitReview(data, e) {
-    await submitReview(data, e, selectedChat, user);
+    await submitReview(data, e, selectedChat, user, listing);
     setReviewModalIsOpen(false);
-    navigate(`/profile/${selectedChat[1].userInfo.id}`);
+    navigate(`/profile/${selectedChat[1].userInfo.id}/reviews`);
     toast.success("Review submitted", {
       autoClose: 3000,
       theme: "colored",

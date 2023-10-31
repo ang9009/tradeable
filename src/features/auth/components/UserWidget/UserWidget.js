@@ -54,7 +54,7 @@ function UserWidget() {
         >
           <DropdownMenu.Item
             className={UserWidgetCSS["select-item"]}
-            onClick={() => goToPage(`/profile/${user.id}`)}
+            onClick={() => goToPage(`/profile/${user.id}/listings`)}
           >
             Profile
           </DropdownMenu.Item>

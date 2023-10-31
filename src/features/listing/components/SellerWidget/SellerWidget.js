@@ -15,7 +15,7 @@ function SellerWidget({ seller }) {
   return (
     <div
       className={SellerWidgetCSS["widget-container"]}
-      onClick={() => navigate(`/profile/${seller.id}`)}
+      onClick={() => navigate(`/profile/${seller.id}/listings`)}
     >
       <img
         src={

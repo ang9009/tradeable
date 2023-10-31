@@ -9,7 +9,6 @@ import TextInput from "../../components/form/TextInput/TextInput";
 import Button from "../../components/ui/Button/Button";
 import Error from "../../components/ui/Error/Error";
 import { useUser } from "../../context/UserContext";
-import SignInButton from "../../features/auth/components/SignInButton/SignInButton";
 import { auth, db, doc, setDoc } from "../../lib/firebase";
 import SignupCSS from "./Signup.module.css";
 
@@ -32,11 +31,10 @@ function Signup() {
   function submitSignup(data, e) {
     e.preventDefault();
 
-    // !TODO: uncomment this later
-    if (!isValidEmail(data.studentEmail)) {
-      setError("Please use your student email");
-      return;
-    }
+    // if (!isValidEmail(data.studentEmail)) {
+    //   setError("Please use your student email");
+    //   return;
+    // }
 
     createUserWithEmailAndPassword(auth, data.studentEmail, data.password)
       .then((result) => {
@@ -99,8 +97,6 @@ function Signup() {
           }}
         />
       </form>
-      <div className={SignupCSS["divider"]}></div>
-      <SignInButton setError={setError} />
       <Error
         message={error}
         show={error !== ""}
@@ -111,7 +107,7 @@ function Signup() {
         <span onClick={() => navigate("/login")}>Log in</span> instead
       </p>
       <p className={SignupCSS["terms-text"]}>
-        By signing up with email or via Google above, you agree to tradeable's{" "}
+        By signing up with email above, you agree to tradeable's{" "}
         <span>Terms & Conditions</span>
       </p>
     </div>

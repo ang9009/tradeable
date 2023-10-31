@@ -22,7 +22,7 @@ function ListingSection({ listings, isProfile, isFetchingListing }) {
               {isProfile ? (
                 <>
                   <h1>This user doesn't have any listings yet!</h1>
-                  <p>Come back when they have posted something.</p>
+                  <p>Come back when they have posted something</p>
                 </>
               ) : (
                 <>

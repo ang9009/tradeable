@@ -1,7 +1,31 @@
 .reviews-section {
   margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .title {
   font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.reviews-container {
+  width: 100%;
+  margin-left: 90px;
+}
+
+.load-more-btn {
+  margin: auto;
+  margin-top: 50px;
+}
+
+@media (max-width: 700px) {
+  .title {
+    display: none;
+  }
+
+  .reviews-container {
+    margin: 0;
+  }
 }

@@ -33,7 +33,9 @@ function SidebarUserWidget({ className, setOpenSidebar }) {
           </div>
           {showDropdown && (
             <ul className={`${SidebarUserWidgetCSS["dropdown"]}`}>
-              <li onClick={() => goToPage(`/profile/${user.id}`)}>Profile</li>
+              <li onClick={() => goToPage(`/profile/${user.id}/listings`)}>
+                Profile
+              </li>
               <li>Settings</li>
               <li onClick={() => goToPage("/create-listing")}>
                 Create listing

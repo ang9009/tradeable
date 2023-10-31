@@ -10,7 +10,6 @@ import TextInput from "../../components/form/TextInput/TextInput";
 import Button from "../../components/ui/Button/Button";
 import Error from "../../components/ui/Error/Error";
 import { useUser } from "../../context/UserContext";
-import SignInButton from "../../features/auth/components/SignInButton/SignInButton";
 import { auth } from "../../lib/firebase";
 import LoginCSS from "./Login.module.css";
 
@@ -99,8 +98,6 @@ function Login() {
               }}
             />
           </form>
-          <div className={LoginCSS["divider"]}></div>
-          <SignInButton setError={setError} />
           <Error
             message={error}
             show={error !== ""}

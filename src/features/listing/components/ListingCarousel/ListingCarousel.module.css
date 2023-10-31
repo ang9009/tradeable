@@ -94,6 +94,7 @@ swiper-container::part(button-next) {
   cursor: pointer;
   display: flex;
   align-items: center;
+  color: black;
 }
 
 .share-btn span {

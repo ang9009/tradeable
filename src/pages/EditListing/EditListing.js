@@ -167,7 +167,7 @@ function EditListing() {
                 Promise.all(promises);
               });
               await deleteDoc(doc(db, "listings", listingId));
-              navigate(`/profile/${user.id}`);
+              navigate(`/profile/${user.id}/listings`);
               toast.success("Listing successfully deleted", {
                 autoClose: 3000,
                 theme: "colored",

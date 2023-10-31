@@ -32,14 +32,19 @@ function SignInButton({ setError }) {
             name: name,
             email: result.user.email,
             id: result.user.uid,
-            isVerified: false,
+            isVerified: true,
+            photoUrl: "",
+            reviews: 0,
+            avgRating: 0,
+            about: "Hey there, I'm new to tradeable!",
           };
 
+          setDoc(doc(db, "userChats", result.user.uid), {});
           setDoc(userRef, user).then(() => {
-            navigate("/*");
+            navigate("/");
           });
         } else {
-          setError("An account already exists with this email");
+          navigate("/");
         }
       })
       .catch((err) => {
