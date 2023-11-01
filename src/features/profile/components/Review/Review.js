@@ -23,12 +23,16 @@ function Review({ review }) {
       if (userPhotoExists) {
         console.log("exists");
         setUserPhoto(userPhotoUrl);
+      } else {
+        setUserPhoto(require("../../../../assets/profile_placeholder.png"));
       }
     });
 
     checkImage(listingPhotoUrl).then((listingPhotoExists) => {
       if (listingPhotoExists) {
         setListingPhoto(listingPhotoUrl);
+      } else {
+        require("../../../../assets/placeholder_img.jpg");
       }
     });
   }, []);

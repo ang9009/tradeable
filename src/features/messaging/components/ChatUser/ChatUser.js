@@ -14,13 +14,16 @@ function ChatUser({ selectedChat }) {
   );
   useEffect(() => {
     const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${selectedChat[1].userInfo.id}`;
+    console.log("wtf?");
 
     checkImage(userPhotoUrl).then((userPhotoExists) => {
       if (userPhotoExists) {
         setUserPhoto(userPhotoUrl);
+      } else {
+        setUserPhoto(require("../../../../assets/profile_placeholder.png"));
       }
     });
-  }, []);
+  }, [selectedChat]);
 
   return (
     <div className={ChatUserCSS["component-container"]}>

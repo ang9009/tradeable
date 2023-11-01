@@ -18,6 +18,8 @@ function SellerWidget({ seller }) {
     checkImage(userPhotoUrl).then((userPhotoExists) => {
       if (userPhotoExists) {
         setUserPhoto(userPhotoUrl);
+      } else {
+        setUserPhoto(require("../../../../assets/profile_placeholder.png"));
       }
     });
   }, [seller.id]);
