@@ -8,6 +8,8 @@
   font-size: 0.93rem;
   background-clip: border-box;
   line-height: 20px;
+  /* For custom fonts to work on iOS */
+  text-rendering: optimizeLegibility;
 }
 
 :root {
