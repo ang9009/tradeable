@@ -68,7 +68,9 @@ function ProfileReviewsSection({ userId }) {
   return (
     <>
       <div className={ProfileReviewsSectionCSS["reviews-section"]}>
-        <h1 className={ProfileReviewsSectionCSS.title}>Reviews</h1>
+        {reviews.length !== 0 && (
+          <h1 className={ProfileReviewsSectionCSS.title}>Reviews</h1>
+        )}
         <div className={ProfileReviewsSectionCSS["reviews-container"]}>
           {reviews.map((review) => (
             <Review review={review} />
@@ -84,6 +86,15 @@ function ProfileReviewsSection({ userId }) {
           }}
           onClick={() => getNewReviews()}
         />
+      )}
+      {reviews.length == 0 && (
+        <div className={ProfileReviewsSectionCSS["no-listings-msg"]}>
+          <img
+            src={require("../../../../assets/empty_box.png")}
+            className={ProfileReviewsSectionCSS["empty-box"]}
+          ></img>
+          <h1>This user doesn't have any reviews yet!</h1>
+        </div>
       )}
     </>
   );

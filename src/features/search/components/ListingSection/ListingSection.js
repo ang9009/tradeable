@@ -33,7 +33,7 @@ function ListingSection({ listings, isProfile, isFetchingListing }) {
                 </>
               )}
             </div>
-          )}{" "}
+          )}
         </>
       ) : (
         <div className={ListingSectionCSS["listing-section"]}>
