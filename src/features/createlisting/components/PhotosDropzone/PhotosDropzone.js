@@ -44,7 +44,7 @@ const PhotosDropzone = forwardRef(function (
         </div>
         <div className={PhotosDropzoneCSS["phone-dropzone-content"]}>
           <FiCamera size={"17px"} />
-          <p>Tap to select images</p>
+          <p>Tap to select images, tap image to delete it</p>
         </div>
       </div>
       <PhotosGrid onChange={onChange} value={value} />

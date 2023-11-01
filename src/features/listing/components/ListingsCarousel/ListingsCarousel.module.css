@@ -1,0 +1,38 @@
+.carousel-container {
+  width: 100%;
+}
+
+.carousel {
+  height: 400px;
+  background: transparent;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  color: black;
+  height: 15px;
+  width: 15px;
+  padding: 15px;
+  border-radius: 9999px;
+  background: white;
+  box-shadow: var(--box-shadow);
+}
+
+swiper-container::part(button-prev) {
+  left: 20px;
+}
+
+swiper-container::part(button-next) {
+  right: 20px;
+}
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  height: 100%;
+}

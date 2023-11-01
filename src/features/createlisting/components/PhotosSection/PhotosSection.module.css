@@ -18,6 +18,6 @@
   }
 
   .photo-input-msg {
-    position: initial;
+    display: none;
   }
 }

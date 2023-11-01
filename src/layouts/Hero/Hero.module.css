@@ -1,10 +1,20 @@
 .hero-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   cursor: default;
   color: #000000;
-  padding: 0 70px;
+}
+
+.hero-container {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+  clear: both;
+  padding: 70px;
 }
 
 .hero-text > * {
@@ -12,26 +22,28 @@
 }
 
 .title {
-  font-family: "Space Grotesk", "sans-serif";
-  font-size: calc(2rem + 1.5vw);
+  font-size: calc(2.3rem + 1vw);
   font-weight: bold;
   line-height: calc(2.2rem + 2vw);
   width: 800px;
-  margin-top: 80px;
 }
 
 .desc {
   margin-top: 20px;
-  font-size: calc(0.8rem + 0.3vw);
-  line-height: calc(1rem + 0.8vw);
-  max-width: 550px;
-  width: 70vw;
+  font-size: calc(1.1rem + 0.3vw);
+  line-height: calc(1.4rem + 0.8vw);
+  max-width: 650px;
 }
 
 .how-it-works-btn,
 .explore-btn {
-  padding: 10px 20px !important;
-  margin-top: 20px;
+  padding: 12px 25px !important;
+  margin-top: 25px;
+}
+
+.how-it-works-btn > *,
+.explore-btn > * {
+  font-size: 1.2rem !important;
 }
 
 .explore-btn {
@@ -42,9 +54,12 @@
   display: flex;
 }
 
-.hero-img {
-  margin-top: 80px;
-  width: 800px;
+.lyla-img {
+  width: 650px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 500px) {
