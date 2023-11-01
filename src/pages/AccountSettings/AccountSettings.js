@@ -1,4 +1,4 @@
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { ref, updateMetadata, uploadBytes } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -28,6 +28,7 @@ function AccountSettings() {
   );
   const [photoFile, setPhotoFile] = useState(null);
   const { user } = useUser();
+  const [currUser, setCurrUser] = useState({});
   useEffect(() => {
     const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${user.id}`;
 
@@ -36,8 +37,14 @@ function AccountSettings() {
         setUserPhoto(userPhotoUrl);
       }
     });
+
+    const userRef = doc(db, "users", user?.id);
+    getDoc(userRef).then((res) => {
+      setCurrUser(res.data());
+    });
   }, []);
 
+  // Submission function
   async function handleSubmitAccountSettings(data, e) {
     e.preventDefault();
 
@@ -102,7 +109,7 @@ function AccountSettings() {
                 max: 300,
                 min: 20,
                 placeholder: "Tell us about yourself (but not too much)...",
-                defaultValue: user?.about,
+                defaultValue: currUser?.about,
               }}
               formData={{ register, errors }}
             />

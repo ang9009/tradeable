@@ -15,6 +15,7 @@ function Home() {
     const listingsQuery = query(
       listingsRef,
       orderBy("timestamp", "desc"),
+      orderBy("status", "desc"),
       limit(8)
     );
     getDocs(listingsQuery).then((res) => {
