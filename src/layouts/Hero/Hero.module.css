@@ -13,7 +13,6 @@
   position: relative;
   height: 520px;
   overflow: hidden;
-  clear: both;
   padding: 70px;
 }
 
@@ -22,16 +21,16 @@
 }
 
 .title {
-  font-size: calc(2.2rem + 1vw);
+  font-size: calc(1.5em + 2vw);
   font-weight: bold;
-  line-height: calc(2.2rem + 2vw);
-  width: 700px;
+  line-height: calc(2rem + 3vw);
+  max-width: 700px;
 }
 
 .desc {
   margin-top: 20px;
-  font-size: calc(1.1rem + 0.3vw);
-  line-height: calc(1.4rem + 0.8vw);
+  font-size: calc(1rem + 0.5vw);
+  line-height: calc(1.4rem + 1vw);
   max-width: 650px;
 }
 
@@ -52,6 +51,7 @@
 
 .btns-container {
   display: flex;
+  width: 100%;
 }
 
 .lyla-img {
@@ -62,13 +62,29 @@
   pointer-events: none;
 }
 
-@media (max-width: 500px) {
-  .hero-text {
-    padding: 0;
-    align-items: flex-start;
+@media (max-width: 1200px) {
+  .hero-text > * {
+    text-align: center;
+    justify-content: center;
   }
 
-  .hero-text > * {
-    text-align: left;
+  .hero-text {
+    position: initial;
+    transform: translateY(0);
+  }
+
+  .hero-container {
+    padding: 0 20px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+  }
+
+  .lyla-img {
+    width: 400px;
+    position: initial;
+    margin-top: 30px;
   }
 }

@@ -3,9 +3,6 @@
 }
 
 .carousel {
-  height: 400px;
-  background: transparent;
-  border-radius: 8px;
   z-index: 0;
 }
 
