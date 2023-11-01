@@ -42,7 +42,7 @@
 
 .how-it-works-btn > *,
 .explore-btn > * {
-  font-size: 1.2rem !important;
+  font-size: calc(0.8rem + 0.5vw) !important;
 }
 
 .explore-btn {
@@ -63,6 +63,11 @@
 }
 
 @media (max-width: 1200px) {
+  .how-it-works-btn,
+  .explore-btn {
+    padding: 8px 20px !important;
+  }
+
   .hero-text > * {
     text-align: center;
     justify-content: center;

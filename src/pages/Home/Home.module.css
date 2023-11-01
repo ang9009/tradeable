@@ -32,7 +32,7 @@
 
 .homepage-btn > *,
 .share-btn-content p {
-  font-size: 1.2rem !important;
+  font-size: calc(0.8rem + 0.5vw) !important;
 }
 
 .buy-section p {
@@ -76,6 +76,10 @@
 }
 
 @media (max-width: 1000px) {
+  .homepage-btn {
+    padding: 8px 20px !important;
+  }
+
   .sell-section,
   .buy-section,
   .interested-section {
