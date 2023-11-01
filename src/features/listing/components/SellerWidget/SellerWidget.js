@@ -1,11 +1,27 @@
+import { useEffect, useState } from "react";
 import { MdVerified } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
 import { Tooltip } from "react-tooltip";
+import checkImage from "../../../../utils/checkImage";
 import SellerWidgetCSS from "./SellerWidget.module.css";
 
 function SellerWidget({ seller }) {
   const navigate = useNavigate();
+  const [userPhoto, setUserPhoto] = useState(
+    require("../../../../assets/profile_placeholder.png")
+  );
+
+  useEffect(() => {
+    const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${seller.id}`;
+
+    checkImage(userPhotoUrl).then((userPhotoExists) => {
+      if (userPhotoExists) {
+        setUserPhoto(userPhotoUrl);
+      }
+    });
+  }, [seller.id]);
+
   function addS(reviews) {
     if (reviews !== 1) {
       return "s";
@@ -17,14 +33,7 @@ function SellerWidget({ seller }) {
       className={SellerWidgetCSS["widget-container"]}
       onClick={() => navigate(`/profile/${seller.id}/listings`)}
     >
-      <img
-        src={
-          seller.photoUrl ||
-          require("../../../../assets/profile_placeholder.png")
-        }
-        alt=""
-        className={SellerWidgetCSS["seller-img"]}
-      />
+      <img src={userPhoto} alt="" className={SellerWidgetCSS["seller-img"]} />
       <div>
         <div className={SellerWidgetCSS["name-container"]}>
           <h1 className={SellerWidgetCSS.name}>{seller.name}</h1>

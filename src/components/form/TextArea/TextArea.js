@@ -3,7 +3,7 @@ import InputMessage from "../InputMessage/InputMessage";
 import TextAreaCSS from "./TextArea.module.css";
 
 function TextArea({
-  options: { className, label, placeholder, max, min },
+  options: { className, label, placeholder, max, min, defaultValue },
   formData: { register, errors },
 }) {
   const registerSettings = {
@@ -34,6 +34,7 @@ function TextArea({
         style={{
           outline: errors[toCamelCase(label)] && "var(--input-warning-border)",
         }}
+        defaultValue={defaultValue}
       />
       {errors[toCamelCase(label)] && (
         <InputMessage message={errors[toCamelCase(label)]?.message} isError />

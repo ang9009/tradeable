@@ -1,7 +1,11 @@
 import Modal from "react-modal";
 import { Route, Routes } from "react-router";
 import "./App.css";
-import { PrivateRoutes, VerifyRoutes } from "./features/auth";
+import {
+  AccountSettingsRoute,
+  PrivateRoutes,
+  VerifyRoutes,
+} from "./features/auth";
 import Home from "./pages/Home/Home";
 
 // Library CSS files
@@ -16,6 +20,7 @@ import { ToastContainer } from "react-toastify";
 import { register } from "swiper/element/bundle";
 import EditListingRoute from "./features/auth/components/EditListingRoute/EditListingRoute";
 import ListingRoute from "./features/listing/components/ListingRoute/ListingRoute";
+import AccountSettings from "./pages/AccountSettings/AccountSettings";
 import CreateListing from "./pages/CreateListing/CreateListing";
 import EditListing from "./pages/EditListing/EditListing";
 import Login from "./pages/Login/Login";
@@ -55,6 +60,12 @@ function App() {
                 <Route
                   path="/edit-listing/:listingId"
                   element={<EditListing />}
+                />
+              </Route>
+              <Route element={<AccountSettingsRoute />}>
+                <Route
+                  path="/account-settings/:userId"
+                  element={<AccountSettings />}
                 />
               </Route>
             </Route>

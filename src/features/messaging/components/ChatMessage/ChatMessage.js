@@ -1,17 +1,37 @@
-import { useContext, useLayoutEffect, useRef } from "react";
+import {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { useUser } from "../../../../context/UserContext";
+import checkImage from "../../../../utils/checkImage";
 import { ChatContext } from "../../context/ChatContext";
 import ChatMessageCSS from "./ChatMessage.module.css";
 
 function ChatMessage({ message }) {
   const { user } = useUser();
   const { data } = useContext(ChatContext);
+  const [userPhoto, setUserPhoto] = useState(
+    require("../../../../assets/profile_placeholder.png")
+  );
 
   const ref = useRef();
 
   useLayoutEffect(() => {
     ref.current?.scrollIntoView();
   }, [message]);
+
+  useEffect(() => {
+    const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${data.user.id}`;
+
+    checkImage(userPhotoUrl).then((userPhotoExists) => {
+      if (userPhotoExists) {
+        setUserPhoto(userPhotoUrl);
+      }
+    });
+  }, []);
 
   return (
     <div
@@ -23,14 +43,7 @@ function ChatMessage({ message }) {
       ref={ref}
     >
       <div className={ChatMessageCSS["message-info"]}>
-        <img
-          src={
-            data.user.photoUrl === ""
-              ? require("../../../../assets/profile_placeholder.png")
-              : user?.photoUrl
-          }
-          alt=""
-        />
+        <img src={userPhoto} alt="" />
       </div>
       <div className={ChatMessageCSS["message-content"]}>
         <div className={ChatMessageCSS["message-text-container"]}>

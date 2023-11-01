@@ -1,6 +1,6 @@
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { FiImage } from "react-icons/fi";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -15,7 +15,6 @@ function ChatInput() {
   const { user } = useUser();
   const { chatId } = useParams();
   const { data } = useContext(ChatContext);
-  const imgInputRef = useRef();
 
   // Sends image
   async function handleSendImage(img) {
@@ -100,7 +99,6 @@ function ChatInput() {
           accept="image/png, image/jpeg"
           style={{ display: "none" }}
           id="file"
-          ref={imgInputRef}
           onInput={async (e) => {
             // Image input doesn't allow the same img to be uploaded again by default, so use onInput
             if (e.target.files[0] && e.target.files[0].size > 4194304) {

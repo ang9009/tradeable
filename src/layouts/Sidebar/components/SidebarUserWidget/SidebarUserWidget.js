@@ -36,12 +36,13 @@ function SidebarUserWidget({ className, setOpenSidebar }) {
               <li onClick={() => goToPage(`/profile/${user.id}/listings`)}>
                 Profile
               </li>
-              <li>Settings</li>
+              <li onClick={() => goToPage(`/account-settings/${user.id}`)}>
+                Settings
+              </li>
               <li onClick={() => goToPage("/create-listing")}>
                 Create listing
               </li>
               <li onClick={() => goToPage("/messages")}>Messages</li>
-              <li>Favorites</li>
               <li
                 onClick={() => {
                   auth.signOut();

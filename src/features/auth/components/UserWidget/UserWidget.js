@@ -1,16 +1,28 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useUser } from "../../../../context/UserContext";
 import { auth } from "../../../../lib/firebase";
+import checkImage from "../../../../utils/checkImage";
 import UserWidgetCSS from "./UserWidget.module.css";
 
 function UserWidget() {
   const [showMenu, setShowMenu] = useState(false);
   const { user, isFetchingUser } = useUser();
+  const [userPhoto, setUserPhoto] = useState(
+    require("../../../../assets/profile_placeholder.png")
+  );
   const navigate = useNavigate();
-  const location = useLocation();
+  useEffect(() => {
+    const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${user.id}`;
+
+    checkImage(userPhotoUrl).then((userPhotoExists) => {
+      if (userPhotoExists) {
+        setUserPhoto(userPhotoUrl);
+      }
+    });
+  }, []);
 
   function goToPage(page) {
     setShowMenu(false);
@@ -28,12 +40,9 @@ function UserWidget() {
         }}
       >
         <img
-          src={
-            user?.photoUrl === ""
-              ? require("../../../../assets/profile_placeholder.png")
-              : user?.photoUrl
-          }
+          src={userPhoto}
           alt={require("../../../../assets/placeholder_img.jpg")}
+          className={UserWidgetCSS["profile-image"]}
         />
         <div className={UserWidgetCSS.username}>{user.name}</div>
         <FiChevronDown
@@ -60,7 +69,7 @@ function UserWidget() {
           </DropdownMenu.Item>
           <DropdownMenu.Item
             className={UserWidgetCSS["select-item"]}
-            onClick={() => setShowMenu(false)}
+            onClick={() => goToPage(`/account-settings/${user.id}`)}
           >
             Settings
           </DropdownMenu.Item>

@@ -1,0 +1,52 @@
+.form-section > *:not(:first-child) {
+  margin-top: 10px;
+}
+
+.form-section {
+  width: 100%;
+}
+
+.username-and-email {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.user-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 9999px;
+  margin-top: 10px;
+  object-fit: cover;
+}
+
+.upload-photo-btn {
+  cursor: pointer;
+  background: #fff;
+  color: black;
+  border: var(--primary-border);
+  width: fit-content;
+  padding: 10px 17px;
+  border-radius: 9999px;
+  margin-left: 15px;
+}
+
+.user-photo-input {
+  display: flex;
+  align-items: center;
+}
+
+.submit-btn {
+  width: fit-content;
+  margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+  .username-and-email {
+    display: initial;
+  }
+
+  .username-and-email > *:not(:first-child) {
+    margin-top: 10px;
+  }
+}

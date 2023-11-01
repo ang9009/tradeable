@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiArrowLeft, FiFlag } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import placeholderImg from "../../../../assets/profile_placeholder.png";
+import checkImage from "../../../../utils/checkImage";
 import getMessageTime from "../../utils/getMessageTime";
 import ReportModal from "../ReportModal/ReportModal";
 import ChatUserCSS from "./ChatUser.module.css";
@@ -9,6 +9,18 @@ import ChatUserCSS from "./ChatUser.module.css";
 function ChatUser({ selectedChat }) {
   const navigate = useNavigate();
   const [reportModalIsOpen, setReportModalIsOpen] = useState(false);
+  const [userPhoto, setUserPhoto] = useState(
+    require("../../../../assets/profile_placeholder.png")
+  );
+  useEffect(() => {
+    const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${selectedChat[1].userInfo.id}`;
+
+    checkImage(userPhotoUrl).then((userPhotoExists) => {
+      if (userPhotoExists) {
+        setUserPhoto(userPhotoUrl);
+      }
+    });
+  }, []);
 
   return (
     <div className={ChatUserCSS["component-container"]}>
@@ -25,7 +37,7 @@ function ChatUser({ selectedChat }) {
           }
         >
           <img
-            src={selectedChat[1].userInfo.photoUrl || placeholderImg}
+            src={userPhoto}
             className={ChatUserCSS["profile-img"]}
             alt={""}
           />

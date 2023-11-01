@@ -10,6 +10,7 @@
   height: 40px;
   border-radius: 999999px;
   margin-right: 10px;
+  object-fit: cover;
 }
 
 .ratings-container {

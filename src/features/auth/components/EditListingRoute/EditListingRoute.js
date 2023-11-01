@@ -32,7 +32,7 @@ function EditListingRoute() {
   ) : listingExists && user.id === sellerId ? (
     <Outlet />
   ) : (
-    <Navigate to="*" />
+    <Navigate to="/404" />
   );
 }
 

@@ -48,6 +48,7 @@ function ProfileButtons() {
             type: "gray-outline",
             className: ProfileButtonsCSS["profile-btn"],
           }}
+          onClick={() => navigate(`/account-settings/${userId}`)}
         />
       ) : (
         <Button

@@ -16,7 +16,7 @@ function Review({ review }) {
   );
 
   useEffect(() => {
-    const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/users/${review.userId}`;
+    const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages${review.userId}`;
     const listingPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/listingImages/${review.listingId}/1`;
 
     checkImage(userPhotoUrl).then((userPhotoExists) => {
@@ -31,7 +31,7 @@ function Review({ review }) {
         setListingPhoto(listingPhotoUrl);
       }
     });
-  });
+  }, []);
 
   return (
     <div className={ReviewCSS["review-container"]}>

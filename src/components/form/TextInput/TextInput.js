@@ -2,14 +2,23 @@ import { toCamelCase } from "../../../utils/toCamelCase";
 import InputMessage from "../InputMessage/InputMessage";
 
 function TextInput({
-  options: { className, label, placeholder, max, isPassword },
+  options: {
+    className,
+    label,
+    placeholder,
+    max,
+    isPassword,
+    isDisabled,
+    defaultValue,
+    notRequired,
+  },
   formData: { register, errors },
 }) {
   // The "required" prop from Radix conflicts with the error object from react-hook-form so don't add it
 
   const registerSettings = {
     ...register(toCamelCase(label), {
-      required: "This input is required",
+      required: !notRequired && "This input is required",
       maxLength: {
         value: max,
         message: `Must be ${max} characters or less`,
@@ -32,6 +41,8 @@ function TextInput({
         style={{
           border: errors[toCamelCase(label)] && "var(--input-warning-border)",
         }}
+        defaultValue={defaultValue}
+        disabled={isDisabled}
       />
       <InputMessage message={errors[toCamelCase(label)]?.message} isError />
     </div>
