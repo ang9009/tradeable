@@ -57,12 +57,13 @@ function Verify() {
       />
       <div className={VerifyCSS["text-container"]}>
         <h1 className={VerifyCSS["page-title"]}>
-          Verify your email address, {user?.name}
+          Check your inbox and junk emails, {user?.name}
         </h1>
         <p className={VerifyCSS["text-content"]}>
           Please verify your email address using the link we sent to:{" "}
           <span className={VerifyCSS["user-email"]}>{userData?.email}</span>.
-          Don't see it? Check your spam folder!
+          This may take up to a few minutes. Don't see it? Check your junk
+          emails!
         </p>
         <Button
           options={{

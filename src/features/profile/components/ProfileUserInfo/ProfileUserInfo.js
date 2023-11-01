@@ -22,7 +22,7 @@ function ProfileUserInfo({ user }) {
         setUserPhoto(userPhotoUrl);
       }
     });
-  }, []);
+  }, [user]);
 
   return (
     <div>
