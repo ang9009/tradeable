@@ -1,6 +1,9 @@
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import CopyToClipboard from "react-copy-to-clipboard";
 import { FiShare } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Button from "../../components/ui/Button/Button";
 import { ListingsCarousel } from "../../features/listing";
 import Hero from "../../layouts/Hero/Hero";
@@ -9,13 +12,13 @@ import HomeCSS from "./Home.module.css";
 
 function Home() {
   const [recentlyPosted, setRecentlyPosted] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const listingsRef = collection(db, "listings");
     const listingsQuery = query(
       listingsRef,
       orderBy("timestamp", "desc"),
-      orderBy("status", "desc"),
       limit(8)
     );
     getDocs(listingsQuery).then((res) => {
@@ -63,19 +66,28 @@ function Home() {
                 text: "Sign up",
                 className: HomeCSS["homepage-btn"],
               }}
+              onClick={() => navigate("/signup")}
             />
-            <Button
-              options={{
-                type: "black-outline",
-                text: (
-                  <div className={HomeCSS["share-btn-content"]}>
-                    <FiShare size={"17px"} />
-                    <p>Share</p>
-                  </div>
-                ),
-                className: HomeCSS["homepage-btn"],
-              }}
-            />
+            <CopyToClipboard text={"http://tradeable.gg/"}>
+              <Button
+                options={{
+                  type: "black-outline",
+                  text: (
+                    <div className={HomeCSS["share-btn-content"]}>
+                      <FiShare size={"17px"} />
+                      <p>Share</p>
+                    </div>
+                  ),
+                  className: HomeCSS["homepage-btn"],
+                }}
+                onClick={() =>
+                  toast.success("Link copied to clipboard", {
+                    autoClose: 3000,
+                    theme: "colored",
+                  })
+                }
+              />
+            </CopyToClipboard>
           </div>
         </div>
         <img

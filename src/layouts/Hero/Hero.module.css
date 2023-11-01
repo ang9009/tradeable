@@ -22,10 +22,10 @@
 }
 
 .title {
-  font-size: calc(2.3rem + 1vw);
+  font-size: calc(2.2rem + 1vw);
   font-weight: bold;
   line-height: calc(2.2rem + 2vw);
-  width: 800px;
+  width: 700px;
 }
 
 .desc {
@@ -55,7 +55,7 @@
 }
 
 .lyla-img {
-  width: 650px;
+  width: 600px;
   position: absolute;
   bottom: 0;
   right: 0;

@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
 import HeroCSS from "./Hero.module.css";
 
 function Hero() {
+  const navigate = useNavigate();
+
   return (
     <div className={HeroCSS["hero-container"]}>
       <div className={HeroCSS["hero-text"]}>
@@ -19,6 +22,7 @@ function Hero() {
               text: "Start selling",
               className: HeroCSS["how-it-works-btn"],
             }}
+            onClick={() => navigate("/create-listing")}
           />
           <Button
             options={{
