@@ -116,7 +116,10 @@ async function createChat(user, sellerId, listingId) {
 
     // Creates a new chat between two users holding the messages in that chat
     if (!res.exists()) {
-      await setDoc(doc(db, "chats", chatId), { messages: [] });
+      await setDoc(doc(db, "chats", chatId), {
+        lastNotified: serverTimestamp(),
+        messages: [],
+      });
     }
 
     // userChats stores the list of chats for each user

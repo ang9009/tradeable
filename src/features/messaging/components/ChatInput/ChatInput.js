@@ -1,4 +1,9 @@
-import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import {
+  arrayUnion,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 import { getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useContext, useState } from "react";
 import { FiImage } from "react-icons/fi";
@@ -10,7 +15,7 @@ import { db, ref, storage } from "../../../../lib/firebase";
 import { ChatContext } from "../../context/ChatContext";
 import ChatInputCSS from "./ChatInput.module.css";
 
-function ChatInput() {
+function ChatInput({ messages }) {
   const [text, setText] = useState("");
   const { user } = useUser();
   const { chatId } = useParams();
