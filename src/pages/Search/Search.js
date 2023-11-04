@@ -6,10 +6,10 @@ import SearchCSS from "./Search.module.css";
 
 const typesenseInstantsearchAdapter = new TypesenseInstantsearchAdapter({
   server: {
-    apiKey: process.env.REACT_APP_TYPESENSE_API_KEY, // Be sure to use a Search API Key
+    apiKey: process.env.REACT_APP_TYPESENSE_API_KEY,
     nodes: [
       {
-        host: process.env.REACT_APP_TYPESENSE_HOST, // where xxx is the ClusterID of your Typesense Cloud cluster
+        host: process.env.REACT_APP_TYPESENSE_HOST,
         port: "443",
         protocol: "https",
       },
@@ -23,8 +23,6 @@ const searchClient = typesenseInstantsearchAdapter.searchClient;
 
 function Search() {
   const Hit = ({ hit }) => {
-    console.log(hit);
-
     return <ListingCard listing={hit} />;
   };
 
