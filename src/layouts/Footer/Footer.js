@@ -1,17 +1,25 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ReportErrorModal from "../../components/form/ReportErrorModal/ReportErrorModal";
 import Icon from "../../components/ui/Logo/Icon";
 import Logo from "../../components/ui/Logo/Logo";
+import { useUser } from "../../context/UserContext";
 import FooterCSS from "./Footer.module.css";
 
 function Footer() {
   const [reportErrorModalIsOpen, setReportErrorModalIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const { user } = useUser();
 
   return (
     <>
       <div className={FooterCSS["footer-container"]}>
         <ul>
-          <li onClick={() => setReportErrorModalIsOpen(true)}>
+          <li
+            onClick={() =>
+              user ? setReportErrorModalIsOpen(true) : navigate("/signup")
+            }
+          >
             Report an error
           </li>
           <li>About</li>
