@@ -35,6 +35,7 @@ export default function getSortbyStyles() {
     }),
     control: (_, state) => ({
       width: "fit-content",
+      fontWeight: "bold",
       padding: "10px 12px",
       borderRadius: "5px",
       height: "fit-content",

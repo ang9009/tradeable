@@ -3,6 +3,7 @@ import {
   InstantSearch,
   RefinementList,
 } from "react-instantsearch";
+import { useParams } from "react-router-dom";
 import TypesenseInstantsearchAdapter from "typesense-instantsearch-adapter";
 import {
   CustomInfiniteHits,
@@ -36,6 +37,8 @@ function Search() {
   const Hit = ({ hit }) => {
     return <ListingCard listing={hit} />;
   };
+
+  const { category } = useParams();
 
   // !Add no results visual + category parameter
   return (
