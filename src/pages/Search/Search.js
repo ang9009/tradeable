@@ -29,6 +29,7 @@ const typesenseInstantsearchAdapter = new TypesenseInstantsearchAdapter({
   },
   additionalSearchParameters: {
     queryBy: "name,description",
+    filterBy: "status:!=sold",
   },
 });
 const searchClient = typesenseInstantsearchAdapter.searchClient;

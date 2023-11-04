@@ -13,8 +13,6 @@ function ListingsCarousel({ listings }) {
     const params = {
       observer: true,
       breakpoints: {
-        // when window width is >= 320px
-        // when window width is >= 480px
         300: {
           slidesPerView: 2,
           spaceBetween: 15,
