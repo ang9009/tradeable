@@ -16,11 +16,11 @@ function CustomStats() {
   return (
     <p className={CustomStatsCSS["message"]}>
       {nbHits} results found{" "}
-      {query !== "*" && (
+      {/* {query !== "*" && (
         <span>
           for <span className={CustomStatsCSS["query"]}>{query}</span>
         </span>
-      )}
+      )} */}
     </p>
   );
 }

@@ -5,8 +5,16 @@
 .listings-and-category-container,
 .stats-and-sort-by-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-bottom: 15px;
+}
+
+.stats-and-sort-by-container > *:first-child {
+  margin-right: 15px;
+}
+
+.stats-and-sort-by-container {
+  align-items: center;
 }
 
 .categories-heading {
@@ -21,6 +29,10 @@
 @media (max-width: 700px) {
   .categories-heading {
     display: none;
+  }
+
+  .stats-and-sort-by-container {
+    justify-content: center;
   }
 
   .listings-and-category-container {
