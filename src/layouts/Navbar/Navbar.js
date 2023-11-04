@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FiMenu, FiSearch } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
 import categories from "../../data/categories";
@@ -25,12 +25,7 @@ const Navbar = () => {
           <Button
             options={{
               type: "gray-outline",
-              text: (
-                <div className={NavbarCSS["search-btn-content"]}>
-                  <FiSearch />
-                  <p>Search</p>
-                </div>
-              ),
+              text: "Explore",
               className: NavbarCSS["search-btn"],
             }}
             onClick={() => navigate("/search")}

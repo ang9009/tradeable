@@ -33,6 +33,7 @@
 .user-photo-input {
   display: flex;
   align-items: center;
+  margin-top: 5px;
 }
 
 .submit-btn {
