@@ -80,7 +80,7 @@ function ProfileReviewsSection({ userId }) {
       {reviews.length !== 0 && !(reviews.length < 5) && (
         <Button
           options={{
-            text: "Load more",
+            text: "Show more",
             type: "gray-outline",
             className: ProfileReviewsSectionCSS["load-more-btn"],
           }}
