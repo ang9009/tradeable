@@ -1,5 +1,5 @@
 .wide {
-  padding: 60px 111px;
+  padding: 60px 70px;
 }
 
 .centered {
@@ -16,6 +16,11 @@
 
 @media (max-width: 950px) {
   .centered {
+    width: 100%;
+    padding: 64px 5vw;
+  }
+
+  .wide {
     width: 100%;
     padding: 64px 5vw;
   }

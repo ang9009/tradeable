@@ -9,6 +9,7 @@
   margin-bottom: 15px;
 }
 
-.search-box {
-  margin-bottom: 15px;
+.categories-heading {
+  font-size: calc(1rem + 0.1vw);
+  margin-bottom: 20px;
 }

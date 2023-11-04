@@ -2,12 +2,15 @@ import {
   DynamicWidgets,
   InstantSearch,
   RefinementList,
-  SearchBox,
   SortBy,
-  Stats,
 } from "react-instantsearch";
 import TypesenseInstantsearchAdapter from "typesense-instantsearch-adapter";
-import { CustomInfiniteHits, ListingCard } from "../../features/search";
+import {
+  CustomInfiniteHits,
+  CustomSearchBox,
+  CustomStats,
+  ListingCard,
+} from "../../features/search";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import "./Search.css";
 import SearchCSS from "./Search.module.css";
@@ -38,9 +41,9 @@ function Search() {
   return (
     <PageContainer type={"wide"}>
       <InstantSearch searchClient={searchClient} indexName="listings">
-        <SearchBox className={SearchCSS["search-box"]} />
+        <CustomSearchBox />
         <div className={SearchCSS["stats-and-sort-by-container"]}>
-          <Stats />
+          <CustomStats />
           <SortBy
             items={[
               { label: "Sort: Default", value: "listings" },
@@ -56,12 +59,15 @@ function Search() {
           />
         </div>
         <div className={SearchCSS["listings-and-category-container"]}>
-          <DynamicWidgets>
-            <RefinementList
-              attribute="category"
-              sortBy={["count:desc", "name:asc"]}
-            />
-          </DynamicWidgets>
+          <div>
+            <h1 className={SearchCSS["categories-heading"]}>Category</h1>
+            <DynamicWidgets>
+              <RefinementList
+                attribute="category"
+                sortBy={["count:desc", "name:asc"]}
+              />
+            </DynamicWidgets>
+          </div>
           <CustomInfiniteHits />
         </div>
       </InstantSearch>

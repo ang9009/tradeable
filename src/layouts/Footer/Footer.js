@@ -14,7 +14,7 @@ function Footer() {
           <li onClick={() => setReportErrorModalIsOpen(true)}>
             Report an error
           </li>
-          <li>Help</li>
+          <li>About</li>
           <li>
             Terms
             <span className={FooterCSS["conditions-text"]}> & Conditions</span>
