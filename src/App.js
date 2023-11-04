@@ -27,6 +27,7 @@ import Login from "./pages/Login/Login";
 import Messages from "./pages/Messages/Messages";
 import NotFound from "./pages/NotFound/NotFound";
 import Profile from "./pages/Profile/Profile";
+import Search from "./pages/Search/Search";
 import Signup from "./pages/Signup/Signup";
 import Verify from "./pages/Verify/Verify";
 
@@ -45,6 +46,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/profile/:userId/:page" element={<Profile />} />
             <Route element={<ListingRoute />}>
               <Route path="/listing/:listingId" element={<Listing />} />

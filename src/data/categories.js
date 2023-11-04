@@ -5,6 +5,7 @@ const categories = [
   "Self-care",
   "Clothing",
   "Miscellaneous",
+  "NEU",
 ];
 
 export default categories;

@@ -9,9 +9,8 @@
 
 .delete-modal {
   background: #fff;
-  height: 40vh;
+  height: fit-content;
   width: 30vw;
-  line-height: 25px;
 }
 
 .modal-btns-container {

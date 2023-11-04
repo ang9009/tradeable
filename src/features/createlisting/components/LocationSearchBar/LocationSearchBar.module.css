@@ -2,6 +2,12 @@
   width: 50%;
 }
 
+.hint {
+  color: var(--secondary-text-color);
+  margin-top: 5px;
+  font-size: 0.8rem;
+}
+
 @media (max-width: 600px) {
   .input-container {
     width: 100%;

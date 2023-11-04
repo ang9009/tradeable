@@ -30,6 +30,7 @@ function Hero() {
               text: "Explore",
               className: HeroCSS["explore-btn"],
             }}
+            onClick={() => navigate("/search")}
           />
         </div>
       </div>

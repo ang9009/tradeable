@@ -35,7 +35,7 @@
   font-size: calc(0.8rem + 0.5vw) !important;
 }
 
-.buy-section p {
+.buy-section > p {
   max-width: 350px;
   margin-bottom: 20px;
 }

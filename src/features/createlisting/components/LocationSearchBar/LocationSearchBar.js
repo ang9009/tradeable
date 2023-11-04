@@ -115,6 +115,9 @@ export function LocationSearchBar({ formData: { control, errors } }) {
           />
         )}
       />
+      <p className={LocationSearchBarCSS["hint"]}>
+        For your safety, please select public spaces
+      </p>
     </div>
   );
 }

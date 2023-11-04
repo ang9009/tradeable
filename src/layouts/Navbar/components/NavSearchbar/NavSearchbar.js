@@ -1,54 +1,31 @@
-import { useRef, useState } from "react";
-import { BiSearch } from "react-icons/bi";
-import { FiX } from "react-icons/fi";
-import NavSearchbarCSS from "./NavSearchbar.module.css";
+import TypesenseInstantsearchAdapter from "typesense-instantsearch-adapter";
+import Button from "../../../../components/ui/Button/Button";
+
+const typesenseInstantsearchAdapter = new TypesenseInstantsearchAdapter({
+  server: {
+    apiKey: process.env.REACT_APP_TYPESENSE_API_KEY, // Be sure to use a Search API Key
+    nodes: [
+      {
+        host: process.env.REACT_APP_TYPESENSE_HOST, // where xxx is the ClusterID of your Typesense Cloud cluster
+        port: "443",
+        protocol: "https",
+      },
+    ],
+  },
+  additionalSearchParameters: {
+    queryBy: "name,description",
+  },
+});
+const searchClient = typesenseInstantsearchAdapter.searchClient;
 
 const NavSearchbar = () => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [searchText, setSearchText] = useState("");
-  const inputRef = useRef(null);
-
-  // Toggles between outline searchbar and default searchbar
-  return (
-    <div
-      className={NavSearchbarCSS.searchbar}
-      style={{ outline: isFocused && "var(--input-focus-border)" }}
-    >
-      <div
-        className={NavSearchbarCSS["placeholder-icon"]}
-        onClick={() => inputRef.current.focus()}
-        onMouseDown={(e) => {
-          if (isFocused) {
-            setSearchText("");
-            e.preventDefault();
-          }
-        }}
-      >
-        {isFocused ? (
-          <FiX size={"17px"} className={NavSearchbarCSS["clear-search-btn"]} />
-        ) : (
-          <BiSearch
-            size={"17px"}
-            className={NavSearchbarCSS["clear-search-btn"]}
-          />
-        )}
-      </div>
-      <input
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-        type="text"
-        className={`${NavSearchbarCSS["input"]} ${NavSearchbarCSS["default-search"]}`}
-        autoComplete="off"
-        placeholder={"Search..."}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => {
-          setIsFocused(false);
-          setSearchText("");
-        }}
-        ref={inputRef}
-      />
-    </div>
+  const Hit = ({ hit }) => (
+    <p>
+      {hit.title} - {hit.description}
+    </p>
   );
+
+  return <Button options={{ type: "black-outline", text: "Explore" }} />;
 };
 
 export default NavSearchbar;

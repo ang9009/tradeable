@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiSearch } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import Button from "../../components/ui/Button/Button";
 import categories from "../../data/categories";
 import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
 import Sidebar from "../Sidebar/Sidebar";
 import Logo from "./../../components/ui/Logo/Logo";
 import NavbarCSS from "./Navbar.module.css";
-import NavSearchbar from "./components/NavSearchbar/NavSearchbar";
 
 const Navbar = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -21,7 +23,19 @@ const Navbar = () => {
         <div className={NavbarCSS["nav-top"]}>
           <div className={NavbarCSS["nav-left"]}>
             <Logo color={"var(--tradeable-burgundy)"} />
-            <NavSearchbar />
+            <Button
+              options={{
+                type: "burgundy-filled",
+                text: (
+                  <div className={NavbarCSS["search-btn-content"]}>
+                    <FiSearch />
+                    <p>Search</p>
+                  </div>
+                ),
+                className: NavbarCSS["search-btn"],
+              }}
+              onClick={() => navigate("/search")}
+            />
           </div>
           <div className={NavbarCSS["nav-right"]}>
             <AuthWidget className={NavbarCSS["auth-widget"]} />

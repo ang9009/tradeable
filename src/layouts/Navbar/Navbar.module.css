@@ -2,6 +2,19 @@
   background: #fff;
 }
 
+.search-btn {
+  margin-left: 15px;
+}
+
+.search-btn-content {
+  display: flex;
+  align-items: center;
+}
+
+.search-btn-content p {
+  margin-left: 5px;
+}
+
 .nav-top {
   z-index: 4;
   height: var(--nav-top-height);
