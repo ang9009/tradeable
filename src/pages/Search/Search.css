@@ -46,12 +46,15 @@
   .ais-RefinementList-list {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
+    flex-wrap: wrap;
+    row-gap: 15px;
   }
 
   .ais-RefinementList-item:not(:first-child) {
     margin-top: 0;
+    margin-left: 10px;
   }
 
   .ais-RefinementList {

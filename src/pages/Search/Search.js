@@ -41,7 +41,6 @@ function Search() {
 
   const { category } = useParams();
 
-  // !Add no results visual + category parameter
   return (
     <PageContainer type={"wide"}>
       <InstantSearch searchClient={searchClient} indexName="listings">
@@ -51,7 +50,7 @@ function Search() {
           <CustomSortby />
         </div>
         <div className={SearchCSS["listings-and-category-container"]}>
-          <div>
+          <div className={SearchCSS["categories-container"]}>
             <h1 className={SearchCSS["categories-heading"]}>Category</h1>
             <DynamicWidgets>
               <RefinementList
