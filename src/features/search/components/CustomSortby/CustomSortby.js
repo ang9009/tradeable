@@ -15,7 +15,7 @@ function CustomSortby(props) {
   const { initialIndex, currentRefinement, options, refine, canRefine } =
     useSortBy({
       items: [
-        { label: "Sort: Default", value: "listings" },
+        { label: "Sort: None", value: "listings" },
         {
           label: "Sort: Price Ascending",
           value: "listings/sort/price:asc",

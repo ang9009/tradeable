@@ -8,7 +8,7 @@ export default function getConditionHint(condition) {
       return "Used, but well cared for and in great condition";
     case "good":
       return "Shows wear from use, but remains in good condition";
-    case "acceptable":
+    case "well worn":
       return "The item is fairly worn, but works perfectly";
   }
 }

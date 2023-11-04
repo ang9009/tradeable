@@ -42,6 +42,11 @@
   border-radius: 8px;
 }
 
+.text-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .text-container > * {
   margin-top: 5px;
 }

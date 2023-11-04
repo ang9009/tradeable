@@ -25,12 +25,16 @@
 /* Must be the same as ios-app-btn disappearing in Navbar/HeroNavbar */
 @media (max-width: 600px) {
   .sell-btn {
-    display: none;
+    margin-left: 15px;
   }
 }
 
 @media (max-width: 450px) {
   .log-in-btn {
+    display: none;
+  }
+
+  .sell-btn {
     display: none;
   }
 

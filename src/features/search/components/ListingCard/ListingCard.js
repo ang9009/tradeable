@@ -34,8 +34,10 @@ function ListingCard({ listing }) {
         )}
       </div>
       <div className={ListingCardCSS["text-container"]}>
-        <h1>{listing?.name}</h1>
-        <p className={ListingCardCSS.condition}>{listing?.condition}</p>
+        <div>
+          <h1>{listing?.name}</h1>
+          <p className={ListingCardCSS.condition}>{listing?.condition}</p>
+        </div>
         <h1>£{listing?.price}</h1>
       </div>
     </div>

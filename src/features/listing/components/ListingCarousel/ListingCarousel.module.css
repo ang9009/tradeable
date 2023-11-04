@@ -20,6 +20,7 @@ swiper-container::part(button-next) {
   padding: 15px;
   border-radius: 9999px;
   background: white;
+  border: var(--primary-border);
   box-shadow: var(--box-shadow);
 }
 swiper-container::part(button-prev) {
