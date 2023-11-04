@@ -2,12 +2,12 @@ import {
   DynamicWidgets,
   InstantSearch,
   RefinementList,
-  SortBy,
 } from "react-instantsearch";
 import TypesenseInstantsearchAdapter from "typesense-instantsearch-adapter";
 import {
   CustomInfiniteHits,
   CustomSearchBox,
+  CustomSortby,
   CustomStats,
   ListingCard,
 } from "../../features/search";
@@ -44,19 +44,7 @@ function Search() {
         <CustomSearchBox />
         <div className={SearchCSS["stats-and-sort-by-container"]}>
           <CustomStats />
-          <SortBy
-            items={[
-              { label: "Sort: Default", value: "listings" },
-              {
-                label: "Sort: Price Ascending",
-                value: "listings/sort/price:asc",
-              },
-              {
-                label: "Sort: Price Descending",
-                value: "listings/sort/price:desc",
-              },
-            ]}
-          />
+          <CustomSortby />
         </div>
         <div className={SearchCSS["listings-and-category-container"]}>
           <div>

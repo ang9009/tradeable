@@ -41,3 +41,11 @@
 .show-more-btn {
   margin-top: 50px;
 }
+
+@media (max-width: 600px) {
+  .hits-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
+}
