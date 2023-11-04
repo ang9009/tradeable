@@ -1,7 +1,7 @@
 .chat-container {
   width: 100%;
   position: relative;
-  height: calc(-webkit-fill-available - var(--nav-top-height));
+  height: calc(-webkit-fill-available - var(--navbar-height));
   overflow: hidden;
 }
 

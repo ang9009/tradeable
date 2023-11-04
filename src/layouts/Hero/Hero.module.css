@@ -11,7 +11,7 @@
 
 .hero-container {
   position: relative;
-  height: 520px;
+  height: 550px;
   overflow: hidden;
   padding: 70px;
 }
@@ -38,6 +38,7 @@
 .explore-btn {
   padding: 12px 25px !important;
   margin-top: 25px;
+  border-width: 2px;
 }
 
 .how-it-works-btn > *,

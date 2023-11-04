@@ -22,12 +22,13 @@
   line-height: calc(1.5rem + 0.5vw);
   max-width: 450px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .homepage-btn {
   padding: 12px 25px !important;
-  margin-top: 20px;
+  margin-top: 25px;
+  border-width: 2px;
 }
 
 .homepage-btn > *,
@@ -37,7 +38,7 @@
 
 .buy-section > p {
   max-width: 350px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .interested-section-btns {

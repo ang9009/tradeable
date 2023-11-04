@@ -13,9 +13,7 @@
 }
 
 :root {
-  --navbar-height: 135px;
-  --nav-top-height: 85px;
-  --nav-bottom-height: 50px;
+  --navbar-height: 85px;
   --banner-height: 33px;
   /* Colors */
   --tradeable-burgundy: #851d40;

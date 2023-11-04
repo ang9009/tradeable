@@ -18,6 +18,6 @@
   }
 
   .components-container {
-    min-height: calc(-webkit-fill-available - var(--nav-top-height));
+    min-height: calc(-webkit-fill-available - var(--navbar-height));
   }
 }

@@ -10,7 +10,7 @@
 
 @media (max-width: 1160px) {
   .all-containers {
-    margin-top: var(--nav-top-height);
+    margin-top: var(--navbar-height);
   }
 }
 

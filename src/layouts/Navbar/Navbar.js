@@ -13,48 +13,44 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className={NavbarCSS["component-container"]}>
       <Sidebar
         openSidebar={openSidebar}
         setOpenSidebar={setOpenSidebar}
         className={NavbarCSS["sidebar"]}
       />
       <nav className={NavbarCSS["nav-container"]}>
-        <div className={NavbarCSS["nav-top"]}>
-          <div className={NavbarCSS["nav-left"]}>
-            <Logo color={"var(--tradeable-burgundy)"} />
-            <Button
-              options={{
-                type: "burgundy-filled",
-                text: (
-                  <div className={NavbarCSS["search-btn-content"]}>
-                    <FiSearch />
-                    <p>Search</p>
-                  </div>
-                ),
-                className: NavbarCSS["search-btn"],
-              }}
-              onClick={() => navigate("/search")}
-            />
-          </div>
-          <div className={NavbarCSS["nav-right"]}>
-            <AuthWidget className={NavbarCSS["auth-widget"]} />
-          </div>
-          <FiMenu
-            className={NavbarCSS["hamburger-icon"]}
-            size={"25px"}
-            onClick={() => setOpenSidebar(true)}
+        <div className={NavbarCSS["nav-left"]}>
+          <Logo color={"var(--tradeable-burgundy)"} />
+          <Button
+            options={{
+              type: "gray-outline",
+              text: (
+                <div className={NavbarCSS["search-btn-content"]}>
+                  <FiSearch />
+                  <p>Search</p>
+                </div>
+              ),
+              className: NavbarCSS["search-btn"],
+            }}
+            onClick={() => navigate("/search")}
           />
-        </div>
-        <div className={NavbarCSS["nav-bottom"]}>
-          <ul>
+          <ul className={NavbarCSS["categories"]}>
             {categories.map((category) => (
               <li key={category}>{category}</li>
             ))}
           </ul>
         </div>
+        <div className={NavbarCSS["nav-right"]}>
+          <AuthWidget className={NavbarCSS["auth-widget"]} />
+        </div>
+        <FiMenu
+          className={NavbarCSS["hamburger-icon"]}
+          size={"25px"}
+          onClick={() => setOpenSidebar(true)}
+        />
       </nav>
-    </>
+    </div>
   );
 };
 

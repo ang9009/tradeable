@@ -4,7 +4,7 @@
   cursor: pointer;
   background: none;
   border: none;
-  height: var(--nav-top-height);
+  height: var(--navbar-height);
 }
 
 .widget-container:focus {
