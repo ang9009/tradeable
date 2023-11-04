@@ -16,7 +16,7 @@ const typesenseInstantsearchAdapter = new TypesenseInstantsearchAdapter({
     ],
   },
   additionalSearchParameters: {
-    queryBy: "name,description",
+    queryBy: "name,description,price",
   },
 });
 const searchClient = typesenseInstantsearchAdapter.searchClient;
