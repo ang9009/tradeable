@@ -126,6 +126,9 @@
   nav {
     padding: 0 20px;
   }
+  .categories {
+    display: none;
+  }
 
   .nav-bottom {
     display: none;
@@ -133,12 +136,6 @@
 
   .sidebar {
     display: initial;
-  }
-}
-
-@media (max-width: 1270px) {
-  .categories {
-    display: none;
   }
 }
 

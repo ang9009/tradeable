@@ -27,7 +27,9 @@
   .sell-btn {
     display: none;
   }
+}
 
+@media (max-width: 450px) {
   .log-in-btn {
     display: none;
   }
