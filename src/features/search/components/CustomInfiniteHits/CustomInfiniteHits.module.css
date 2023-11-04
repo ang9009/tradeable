@@ -40,12 +40,24 @@
 
 .show-more-btn {
   margin-top: 50px;
+  min-height: 45px;
+  margin-bottom: 50px;
 }
 
-@media (max-width: 600px) {
+.component-container {
+  overflow-y: auto;
+  height: calc(100vh - (40px + 15px + 89.76px + 15px + 60px + 85px));
+}
+
+@media (max-width: 650px) {
   .hits-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
+  }
+
+  .component-container {
+    overflow-y: auto;
+    height: calc(100vh - (40px + 15px + 89.76px + 15px + 60px + 85px + 50px));
   }
 }

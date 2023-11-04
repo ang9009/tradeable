@@ -1,5 +1,6 @@
 .wide {
   padding: 60px 70px;
+  padding-bottom: 0;
 }
 
 .centered {
@@ -17,11 +18,14 @@
 @media (max-width: 950px) {
   .centered {
     width: 100%;
-    padding: 64px 5vw;
+    padding: 60px 5vw;
+    padding-bottom: 0;
   }
 
   .wide {
     width: 100%;
-    padding: 64px 5vw;
+    padding: 60px 5vw;
+    max-height: calc(100vh - var(--navbar-height));
+    overflow-y: hidden;
   }
 }

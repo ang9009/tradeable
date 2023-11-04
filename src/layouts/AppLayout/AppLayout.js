@@ -13,7 +13,8 @@ function AppLayout() {
       <div className={AppLayoutCSS["page-content-container"]}>
         <Outlet />
       </div>
-      {location.pathname.includes("/messages") || <Footer />}
+      {location.pathname.includes("/messages") ||
+        location.pathname.includes("/search") || <Footer />}
     </>
   );
 }

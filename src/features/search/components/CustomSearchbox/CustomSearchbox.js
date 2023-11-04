@@ -6,7 +6,7 @@ function CustomSearchBox(props) {
   const { query, refine, clear } = useSearchBox(props);
 
   return (
-    <>
+    <div className={CustomSearchboxCSS["component-container"]}>
       <h1 className={`page-title ${CustomSearchboxCSS["query"]}`}>
         {query.trim() === "" ? "Search" : `Results for "${query}"`}
       </h1>
@@ -30,7 +30,7 @@ function CustomSearchBox(props) {
           placeholder="Start typing here..."
         />
       </div>
-    </>
+    </div>
   );
 }
 
