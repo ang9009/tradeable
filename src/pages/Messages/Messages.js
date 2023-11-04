@@ -11,6 +11,7 @@ import MessagesCSS from "./Messages.module.css";
 
 function Messages() {
   const [userChats, setUserChats] = useState([]);
+  const [messages, setMessages] = useState([]);
   const userChatsRef = useRef(userChats);
 
   function setUserChatsState(userChats) {
@@ -62,6 +63,18 @@ function Messages() {
     }
   }, [chatId, userChats]);
 
+  useEffect(() => {
+    function getMessages() {
+      const unsub = onSnapshot(doc(db, "chats", chatId), (doc) => {
+        doc.exists() && setMessages(doc.data().messages);
+      });
+
+      return () => unsub();
+    }
+
+    chatId && getMessages();
+  }, [chatId]);
+
   return (
     <ChatContextProvider>
       {/* Web chat components */}
@@ -76,6 +89,7 @@ function Messages() {
         <Chat
           selectedChat={selectedChat}
           listingData={{ listings, isFetchingListings }}
+          messages={messages}
         />
       </div>
       {/* Mobile chat components */}
@@ -86,6 +100,7 @@ function Messages() {
           <MobileChat
             selectedChat={selectedChat}
             listingData={{ listings, isFetchingListings }}
+            messages={messages}
           />
         ) : (
           <MobileChatsList
