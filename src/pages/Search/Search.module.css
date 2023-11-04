@@ -1,4 +1,14 @@
 .listings-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  width: 300px;
+}
+
+.listings-and-category-container,
+.stats-and-sort-by-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.search-box {
+  margin-bottom: 15px;
 }

@@ -1,0 +1,26 @@
+.ais-InfiniteHits-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.ais-RefinementList {
+  margin-right: 50px;
+}
+
+.ais-RefinementList-list {
+  width: fit-content;
+  list-style: none;
+}
+
+.ais-RefinementList-item {
+  white-space: nowrap;
+}
+
+.ais-InfiniteHits-item::marker {
+  content: none;
+}
+
+.ais-InfiniteHits-loadPrevious {
+  display: none;
+}
