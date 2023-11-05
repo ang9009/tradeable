@@ -1,6 +1,5 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { useEffect, useState } from "react";
-import { FiChevronDown } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../../../context/UserContext";
 import { auth } from "../../../../lib/firebase";
@@ -45,12 +44,6 @@ function UserWidget() {
           src={userPhoto}
           alt={require("../../../../assets/placeholder_img.jpg")}
           className={UserWidgetCSS["profile-image"]}
-        />
-        <div className={UserWidgetCSS.username}>{user.name}</div>
-        <FiChevronDown
-          className={`${UserWidgetCSS["down-chevron"]} ${
-            showMenu && UserWidgetCSS["down-chevron-flip"]
-          }`}
         />
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>

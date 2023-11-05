@@ -35,6 +35,12 @@
   background: #fff;
 }
 
+.icon {
+  color: black;
+  padding: 0;
+  background: none;
+}
+
 .gray-outline {
   background: #fff;
   color: black;

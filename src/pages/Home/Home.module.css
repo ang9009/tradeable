@@ -9,7 +9,7 @@
 
 .sell-section,
 .interested-section {
-  background: #fdebd2;
+  background: rgb(251, 234, 194);
 }
 
 .section-title {
@@ -29,11 +29,6 @@
   padding: 12px 25px !important;
   margin-top: 25px;
   border-width: 2px;
-}
-
-.homepage-btn > *,
-.share-btn-content p {
-  font-size: calc(0.8rem + 0.5vw) !important;
 }
 
 .buy-section > p {

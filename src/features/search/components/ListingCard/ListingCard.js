@@ -15,7 +15,7 @@ function ListingCard({ listing }) {
           alt={"Listing image"}
           className={ListingCardCSS["listing-img"]}
         />
-        {listing?.status !== "available" && (
+        {listing?.status !== "available" ? (
           <div>
             <div
               className={ListingCardCSS["status-tag"]}
@@ -31,6 +31,8 @@ function ListingCard({ listing }) {
             </div>
             <div className={ListingCardCSS["overlay"]}></div>
           </div>
+        ) : (
+          <div className={ListingCardCSS["gradient-overlay"]}></div>
         )}
       </div>
       <div className={ListingCardCSS["text-container"]}>
@@ -38,7 +40,7 @@ function ListingCard({ listing }) {
           <h1>{listing?.name}</h1>
           <p className={ListingCardCSS.condition}>{listing?.condition}</p>
         </div>
-        <h1>£{listing?.price}</h1>
+        <h1 className={ListingCardCSS["price"]}>£{listing?.price}</h1>
       </div>
     </div>
   );

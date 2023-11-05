@@ -17,16 +17,6 @@ function AuthWidget({ changeNav, className }) {
           <>
             {user ? (
               <>
-                <Button
-                  options={{
-                    type: "gray-outline",
-                    text: "Sell",
-                    className: AuthWidgetCSS["sell-btn"],
-                  }}
-                  onClick={() => {
-                    user ? navigate("/create-listing") : navigate("/login");
-                  }}
-                />
                 <div className={AuthWidgetCSS["buttons-container"]}>
                   <UserActionsWidget changeNav={changeNav} />
                   <UserWidget changeNav={changeNav} />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiSearch } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
 import categories from "../../data/categories";
@@ -21,14 +21,9 @@ const Navbar = () => {
       />
       <nav className={NavbarCSS["nav-container"]}>
         <div className={NavbarCSS["nav-left"]}>
-          <Logo color={"var(--tradeable-burgundy)"} />
-          <Button
-            options={{
-              type: "gray-outline",
-              text: "Explore",
-              className: NavbarCSS["search-btn"],
-            }}
-            onClick={() => navigate("/search")}
+          <Logo
+            color={"var(--tradeable-burgundy)"}
+            className={NavbarCSS["logo"]}
           />
           <ul className={NavbarCSS["categories"]}>
             {categories.map((category) => (
@@ -37,6 +32,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className={NavbarCSS["nav-right"]}>
+          <Button
+            options={{
+              type: "icon",
+              text: <FiSearch size="22px" />,
+              className: NavbarCSS["search-btn"],
+            }}
+            onClick={() => navigate("/search")}
+          />
           <AuthWidget className={NavbarCSS["auth-widget"]} />
         </div>
         <FiMenu

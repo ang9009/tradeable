@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   min-height: calc(-webkit-fill-available - var(--navbar-height));
+  border-top: var(--primary-border);
 }
 
 .mobile {

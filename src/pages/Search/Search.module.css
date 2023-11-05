@@ -6,7 +6,7 @@
 .stats-and-sort-by-container {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .stats-and-sort-by-container > *:first-child {
@@ -32,7 +32,7 @@
   }
 
   .stats-and-sort-by-container {
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .listings-and-category-container {
@@ -41,5 +41,8 @@
 
   .categories-container {
     width: 100%;
+    border-top: 1px solid #f3f3f3;
+    padding-top: 25px;
+    margin-bottom: 15px;
   }
 }

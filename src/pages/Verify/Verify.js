@@ -24,7 +24,7 @@ function Verify() {
             updateDoc(userRef, {
               isVerified: true,
             }).then(() => {
-              navigate("/");
+              navigate("/search");
             });
           }
         })();

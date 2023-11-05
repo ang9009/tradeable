@@ -14,6 +14,8 @@ export default function getSortbyStyles() {
       transform: "translateY(12px)",
       background: "#fff",
       boxShadow: "var(--box-shadow)",
+      width: "max-content",
+      left: 0,
     }),
     option: (_, state) => ({
       padding: "10px 12px",
@@ -21,6 +23,7 @@ export default function getSortbyStyles() {
       transition: "all 0.2s",
       cursor: "pointer",
       zIndex: 9999,
+      width: "100%",
 
       // The same as first-child, just using it to get rid of a console warning
       "&:first-of-type": {
@@ -34,7 +37,7 @@ export default function getSortbyStyles() {
       },
     }),
     control: (_, state) => ({
-      width: "fit-content",
+      width: "max-content",
       fontWeight: "bold",
       padding: "10px 12px",
       borderRadius: "5px",

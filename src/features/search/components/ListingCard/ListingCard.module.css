@@ -11,9 +11,8 @@
 .listing-img {
   width: 100%;
   object-fit: cover;
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/3;
   border-radius: 5px;
-  border: var(--primary-border);
 }
 
 .status-tag {
@@ -32,8 +31,27 @@
 
 .overlay {
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/3;
   background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 8px;
+}
+
+.gradient-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.02),
+    rgba(0, 0, 0, 0.07)
+  );
+  background-size: cover;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  aspect-ratio: 4/3;
   position: absolute;
   top: 0;
   left: 0;
@@ -60,4 +78,8 @@
 
 .condition {
   color: var(--secondary-text-color);
+}
+
+.price {
+  font-size: 1.1rem !important;
 }

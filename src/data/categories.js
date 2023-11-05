@@ -4,8 +4,7 @@ const categories = [
   "Electronics",
   "Self-care",
   "Clothing",
-  "Miscellaneous",
-  "NEU",
+  "Misc",
 ];
 
 export default categories;

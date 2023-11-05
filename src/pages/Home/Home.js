@@ -37,7 +37,7 @@ function Home() {
         </p>
         <Button
           options={{
-            type: "black-outline",
+            type: "black-filled",
             text: "Learn how it works",
             className: HomeCSS["homepage-btn"],
           }}
@@ -62,7 +62,7 @@ function Home() {
           <div className={HomeCSS["interested-section-btns"]}>
             <Button
               options={{
-                type: "burgundy-filled",
+                type: "white-filled",
                 text: "Sign up",
                 className: HomeCSS["homepage-btn"],
               }}
@@ -71,7 +71,7 @@ function Home() {
             <CopyToClipboard text={"http://tradeable.gg/"}>
               <Button
                 options={{
-                  type: "black-outline",
+                  type: "black-filled",
                   text: (
                     <div className={HomeCSS["share-btn-content"]}>
                       <FiShare size={"17px"} />

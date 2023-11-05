@@ -3,5 +3,5 @@ export const conditionOptions = [
   { value: "Like new", label: "Like new" },
   { value: "Very good", label: "Very good" },
   { value: "Good", label: "Good" },
-  { value: "Well worn", label: "well worn" },
+  { value: "Well worn", label: "Well worn" },
 ];
