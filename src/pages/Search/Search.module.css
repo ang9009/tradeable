@@ -33,11 +33,19 @@
 
 @media (max-width: 1000px) {
   .filter-and-sort-widgets {
-    flex-direction: column;
+    flex-direction: column-reverse;
     width: 100%;
+  }
+
+  .filter-and-sort-widgets > *:first-child {
     border-top: 1px solid #f3f3f3;
     padding-top: 25px;
-    margin-bottom: 15px;
+    margin-top: 25px;
+  }
+
+  .stats-and-sort-by-container {
+    width: 100%;
+    justify-content: space-between;
   }
 }
 

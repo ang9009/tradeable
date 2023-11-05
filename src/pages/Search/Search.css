@@ -45,12 +45,9 @@
 
 @media (max-width: 1000px) {
   .ais-RefinementList {
-    margin-bottom: 15px;
-    margin-right: 0;
+    width: 100%;
   }
-}
 
-@media (max-width: 700px) {
   .ais-RefinementList-list {
     display: flex;
     align-items: center;
@@ -62,6 +59,6 @@
 
   .ais-RefinementList-item:not(:first-child) {
     margin-top: 0;
-    margin-left: 10px;
+    margin-left: 30px;
   }
 }

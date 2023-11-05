@@ -1,8 +1,9 @@
 .chat-container {
   width: 100%;
   position: relative;
-  height: calc(-webkit-fill-available - var(--navbar-height));
+  height: calc(100dvh - var(--navbar-height) - 1px);
   overflow: hidden;
+  border-top: var(--primary-border);
 }
 
 .no-chats-msg-container {

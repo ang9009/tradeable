@@ -1,7 +1,8 @@
 .components-container {
   display: flex;
   justify-content: center;
-  min-height: calc(-webkit-fill-available - var(--navbar-height));
+  height: calc(100vh - var(--navbar-height) - 1px);
+  overflow: hidden;
   border-top: var(--primary-border);
 }
 

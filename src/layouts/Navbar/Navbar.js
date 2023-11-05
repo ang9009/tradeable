@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FiMenu, FiSearch } from "react-icons/fi";
+import { FiMenu, FiPlus, FiSearch } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
 import categories from "../../data/categories";
@@ -39,6 +39,14 @@ const Navbar = () => {
               className: NavbarCSS["search-btn"],
             }}
             onClick={() => navigate("/search")}
+          />
+          <Button
+            options={{
+              type: "icon",
+              text: <FiPlus size="25px" />,
+              className: NavbarCSS["sell-btn"],
+            }}
+            onClick={() => navigate("/create-listing")}
           />
           <AuthWidget className={NavbarCSS["auth-widget"]} />
         </div>
