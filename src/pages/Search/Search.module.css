@@ -45,7 +45,6 @@
 
   .stats-and-sort-by-container {
     width: 100%;
-    flex-direction: row-reverse;
     justify-content: space-between;
   }
 }

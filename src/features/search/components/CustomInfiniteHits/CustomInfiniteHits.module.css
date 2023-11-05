@@ -45,21 +45,11 @@
   margin-bottom: 50px;
 }
 
-.component-container {
-  overflow-y: auto;
-  height: calc(100dvh - (40px + 15px + 89.76px + 15px + 60px + 85px + 30px));
-}
-
 @media (max-width: 650px) {
   .hits-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
     grid-row-gap: 25px;
-  }
-
-  .component-container {
-    overflow-y: auto;
-    height: calc(100dvh - (40px + 15px + 89.76px + 15px + 60px + 85px + 50px));
   }
 }

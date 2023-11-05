@@ -46,16 +46,16 @@ function Search() {
       <InstantSearch searchClient={searchClient} indexName="listings">
         <CustomSearchBox />
         <div className={SearchCSS["filter-and-sort-widgets"]}>
+          <div className={SearchCSS["stats-and-sort-by-container"]}>
+            <CustomSortby />
+            <CustomStats />
+          </div>
           <DynamicWidgets>
             <RefinementList
               attribute="category"
               sortBy={["count:desc", "name:asc"]}
             />
           </DynamicWidgets>
-          <div className={SearchCSS["stats-and-sort-by-container"]}>
-            <CustomStats />
-            <CustomSortby />
-          </div>
         </div>
         <CustomInfiniteHits />
       </InstantSearch>
