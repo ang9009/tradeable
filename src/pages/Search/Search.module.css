@@ -45,6 +45,7 @@
 
   .stats-and-sort-by-container {
     width: 100%;
+    flex-direction: row-reverse;
     justify-content: space-between;
   }
 }
@@ -52,10 +53,6 @@
 @media (max-width: 700px) {
   .categories-heading {
     display: none;
-  }
-
-  .stats-and-sort-by-container {
-    justify-content: space-between;
   }
 
   .listings-and-category-container {
