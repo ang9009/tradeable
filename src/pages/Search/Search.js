@@ -45,22 +45,19 @@ function Search() {
     <PageContainer type={"wide"}>
       <InstantSearch searchClient={searchClient} indexName="listings">
         <CustomSearchBox />
-        <div className={SearchCSS["stats-and-sort-by-container"]}>
-          <CustomStats />
-          <CustomSortby />
-        </div>
-        <div className={SearchCSS["listings-and-category-container"]}>
-          <div className={SearchCSS["categories-container"]}>
-            <h1 className={SearchCSS["categories-heading"]}>Category</h1>
-            <DynamicWidgets>
-              <RefinementList
-                attribute="category"
-                sortBy={["count:desc", "name:asc"]}
-              />
-            </DynamicWidgets>
+        <div className={SearchCSS["filter-and-sort-widgets"]}>
+          <DynamicWidgets>
+            <RefinementList
+              attribute="category"
+              sortBy={["count:desc", "name:asc"]}
+            />
+          </DynamicWidgets>
+          <div className={SearchCSS["stats-and-sort-by-container"]}>
+            <CustomStats />
+            <CustomSortby />
           </div>
-          <CustomInfiniteHits />
         </div>
+        <CustomInfiniteHits />
       </InstantSearch>
     </PageContainer>
   );

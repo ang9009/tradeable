@@ -1,14 +1,16 @@
-.ais-RefinementList {
-  margin-right: 50px;
-}
-
 .ais-RefinementList-list {
   width: fit-content;
+  display: flex;
+  align-items: center;
   list-style: none;
 }
 
 .ais-RefinementList-item {
   white-space: nowrap;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
 }
 
 .ais-InfiniteHits-item::marker {
@@ -33,13 +35,16 @@
   align-items: center;
 }
 
-.ais-RefinementList-item:not(:first-child) {
-  margin-top: 10px;
-}
-
 .ais-RefinementList-checkbox {
   padding: 12px;
   margin-right: 5px;
+}
+
+@media (max-width: 1000px) {
+  .ais-RefinementList {
+    margin-bottom: 15px;
+    margin-right: 0;
+  }
 }
 
 @media (max-width: 700px) {
@@ -55,10 +60,5 @@
   .ais-RefinementList-item:not(:first-child) {
     margin-top: 0;
     margin-left: 10px;
-  }
-
-  .ais-RefinementList {
-    margin-bottom: 15px;
-    margin-right: 0;
   }
 }

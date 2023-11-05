@@ -62,7 +62,7 @@ function Home() {
           <div className={HomeCSS["interested-section-btns"]}>
             <Button
               options={{
-                type: "white-filled",
+                type: "gray-outline",
                 text: "Sign up",
                 className: HomeCSS["homepage-btn"],
               }}
