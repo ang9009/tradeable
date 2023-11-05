@@ -1,7 +1,7 @@
 .chat-list-container {
   min-width: 350px;
   overflow-y: auto;
-  height: calc(100vh - var(--navbar-height));
+  height: calc(dvh - var(--navbar-height));
   border-left: 1px solid var(--primary-border-color);
   border-right: 1px solid var(--primary-border-color);
 }

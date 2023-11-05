@@ -47,7 +47,7 @@
 
 .component-container {
   overflow-y: auto;
-  height: calc(100vh - (40px + 15px + 89.76px + 15px + 60px + 85px));
+  height: calc(dvh - (40px + 15px + 89.76px + 15px + 60px + 85px));
 }
 
 @media (max-width: 650px) {
@@ -60,6 +60,6 @@
 
   .component-container {
     overflow-y: auto;
-    height: calc(100vh - (40px + 15px + 89.76px + 15px + 60px + 85px + 50px));
+    height: calc(dvh - (40px + 15px + 89.76px + 15px + 60px + 85px + 50px));
   }
 }

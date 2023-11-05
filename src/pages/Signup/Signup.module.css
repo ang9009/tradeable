@@ -1,5 +1,5 @@
 .sign-up-page-container {
-  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(dvh - var(--navbar-height));
   max-width: 400px;
   padding-top: 64px;
   margin: auto;

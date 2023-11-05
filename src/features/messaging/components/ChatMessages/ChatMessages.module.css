@@ -1,5 +1,5 @@
 .messages-container {
-  height: calc(100vh - 81px - 86px - 60px - var(--navbar-height));
+  height: calc(100dvh - 81px - 86px - 60px - var(--navbar-height));
   padding: 20px;
   overflow-y: auto;
 }
@@ -7,6 +7,6 @@
 @media (max-width: 1160px) {
   /* ChatUser changes to 63px, ChatListingInfo changes to 71px*/
   .messages-container {
-    height: calc(100vh - 71px - 63px - 60px - 69.78px - var(--navbar-height));
+    height: calc(100dvh - 71px - 63px - 60px - 69.78px - var(--navbar-height));
   }
 }

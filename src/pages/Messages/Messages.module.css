@@ -1,7 +1,7 @@
 .components-container {
   display: flex;
   justify-content: center;
-  height: calc(100vh - var(--navbar-height) - 1px);
+  height: calc(100dvh - var(--navbar-height) - 1px);
   overflow: hidden;
   border-top: var(--primary-border);
 }
