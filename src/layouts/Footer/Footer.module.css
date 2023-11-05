@@ -1,6 +1,6 @@
 .footer-container {
-  background: #101010;
-  color: #fff;
+  background: #fff;
+  color: black;
   padding: 0 55px;
   height: var(--navbar-height);
   display: flex;

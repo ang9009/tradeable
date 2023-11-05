@@ -33,9 +33,7 @@ function UserWidget() {
     <DropdownMenu.Root modal={false} open={showMenu}>
       <DropdownMenu.Trigger
         className={UserWidgetCSS["widget-container"]}
-        onMouseEnter={() => setShowMenu(true)}
-        onMouseLeave={() => setShowMenu(false)}
-        onClick={() => setShowMenu(false)}
+        onClick={() => setShowMenu(true)}
         style={{
           color: "black",
         }}
