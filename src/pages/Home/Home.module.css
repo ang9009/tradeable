@@ -9,7 +9,11 @@
 
 .sell-section,
 .interested-section {
-  background: rgb(255, 245, 223);
+  background: var(--tradeable-beige);
+}
+
+.interested-section {
+  border-bottom: var(--primary-border);
 }
 
 .section-title {

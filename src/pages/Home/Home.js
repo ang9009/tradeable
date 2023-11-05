@@ -32,8 +32,7 @@ function Home() {
       <div className={HomeCSS["sell-section"]}>
         <h1 className={HomeCSS["section-title"]}>Make some extra cash</h1>
         <p className={HomeCSS["section-subtitle"]}>
-          Tradeable makes it easy for you to earn all that money you spent on
-          dorm essentials back.
+          Earn all that money you spent on dorm essentials back.
         </p>
         <Button
           options={{
@@ -48,7 +47,7 @@ function Home() {
           Find great deals for your dorm room
         </h1>
         <p className={HomeCSS["section-subtitle"]}>
-          Buy pre-loved items at great prices from other university students.
+          Buy second-hand items at great prices from other university students.
         </p>
         {recentlyPosted.length !== 0 && (
           <ListingsCarousel listings={recentlyPosted} />

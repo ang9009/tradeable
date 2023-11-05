@@ -28,14 +28,11 @@ function Footer() {
             <span className={FooterCSS["conditions-text"]}> & Conditions</span>
           </li>
         </ul>
-        <Logo
-          color={"var(--tradeable-burgundy)"}
-          className={FooterCSS["footer-top-logo"]}
-        />
+        <Logo color={"black"} className={FooterCSS["footer-top-logo"]} />
       </div>
       <div className={FooterCSS["footer-bottom-container"]}>
         <div className={FooterCSS["mobile-footer-logo"]}>
-          <Icon color={"var(--tradeable-burgundy)"} />
+          <Icon color={"black)"} />
           <div className={FooterCSS["name"]}>tradeable</div>
         </div>
       </div>

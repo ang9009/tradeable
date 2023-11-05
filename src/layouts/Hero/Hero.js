@@ -12,7 +12,7 @@ function Hero() {
           An online marketplace for university students in London
         </span>
         <p className={HeroCSS["desc"]}>
-          Make some extra cash, or save money by selling or buying pre-loved
+          Make some extra cash, or save money by selling or buying second-hand
           dorm room essentials. All within the safety of our student community.
         </p>
         <div className={HeroCSS["btns-container"]}>

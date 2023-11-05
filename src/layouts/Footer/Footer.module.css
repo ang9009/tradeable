@@ -1,5 +1,5 @@
 .footer-container {
-  background: #fff;
+  background: var(--tradeable-beige);
   color: black;
   padding: 0 55px;
   height: var(--navbar-height);
