@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(dvh - var(--navbar-height));
+  min-height: calc(100dvh - var(--navbar-height));
   padding: 60px 10px;
 }
 

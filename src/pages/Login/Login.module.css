@@ -1,5 +1,5 @@
 .login-page-container {
-  min-height: calc(dvh - var(--navbar-height));
+  min-height: calc(100dvh - var(--navbar-height));
   max-width: 400px;
   padding-top: 64px;
   margin: auto;

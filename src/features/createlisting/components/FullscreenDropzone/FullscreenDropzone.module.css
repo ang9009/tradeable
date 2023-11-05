@@ -1,7 +1,7 @@
 .dropzone-overlay {
   position: fixed;
   width: 100vw;
-  height: dvh;
+  height: 100dvh;
   background: rgba(0, 0, 0, 0.6);
   top: 0;
   left: 0;
