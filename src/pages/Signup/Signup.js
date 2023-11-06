@@ -28,7 +28,7 @@ function Signup() {
     return email.includes(".ac.uk") || email.includes(".edu");
   }
 
-  function submitSignup(data, e) {
+  async function submitSignup(data, e) {
     e.preventDefault();
 
     if (!isValidEmail(data.studentEmail)) {
@@ -37,7 +37,7 @@ function Signup() {
     }
 
     createUserWithEmailAndPassword(auth, data.studentEmail, data.password)
-      .then((result) => {
+      .then(async (result) => {
         const userRef = doc(db, "users", result.user.uid);
         const name = data.studentEmail.split("@")[0];
         const user = {
@@ -51,8 +51,8 @@ function Signup() {
           about: "Hey there, I'm new to tradeable!",
         };
 
-        setDoc(doc(db, "userChats", result.user.uid), {});
-        setDoc(userRef, user).then(() => {
+        await setDoc(doc(db, "userChats", result.user.uid), {});
+        await setDoc(userRef, user).then(() => {
           sendEmailVerification(result.user).then(() => {
             navigate("/verify");
           });
