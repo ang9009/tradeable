@@ -13,6 +13,12 @@ function Footer() {
 
   return (
     <>
+      <div className={FooterCSS["footer-bottom-container"]}>
+        <div className={FooterCSS["mobile-footer-logo"]}>
+          <Icon color={"var(--tradeable-burgundy)"} />
+          <div className={FooterCSS["name"]}>tradeable</div>
+        </div>
+      </div>
       <div className={FooterCSS["footer-container"]}>
         <ul>
           <li
@@ -33,12 +39,7 @@ function Footer() {
           className={FooterCSS["footer-top-logo"]}
         />
       </div>
-      <div className={FooterCSS["footer-bottom-container"]}>
-        <div className={FooterCSS["mobile-footer-logo"]}>
-          <Icon color={"var(--tradeable-burgundy)"} />
-          <div className={FooterCSS["name"]}>tradeable</div>
-        </div>
-      </div>
+
       <ReportErrorModal
         reportErrorModalIsOpen={reportErrorModalIsOpen}
         setReportErrorModalIsOpen={setReportErrorModalIsOpen}

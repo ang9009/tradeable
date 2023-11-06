@@ -25,7 +25,5 @@
   .wide {
     width: 100%;
     padding: 20px 5vw;
-    max-height: calc(100dvh - var(--navbar-height));
-    overflow-y: hidden;
   }
 }
