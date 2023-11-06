@@ -17,10 +17,10 @@
   --banner-height: 33px;
   /* Colors */
   --tradeable-burgundy: #851d40;
-  --tradeable-beige: #ffd979;
+  --tradeable-yellow: #ffe29a;
   --verified-color: #1c9bef;
   --warning-red: #e33e32;
-  --background-beige: #ebdccb;
+  --background-beige: #ffe8ce;
   /* Borders */
   --primary-border-color: #d8d8d8;
   --primary-border: 1px solid var(--primary-border-color);

@@ -54,7 +54,7 @@ function ListingButtons({ sellerId, listingId, status }) {
           <Button
             options={{
               text: "Report listing",
-              type: "red-outline",
+              type: "gray-outline",
               className: ListingButtonsCSS["msg-seller-btn"],
               notRounded: true,
             }}

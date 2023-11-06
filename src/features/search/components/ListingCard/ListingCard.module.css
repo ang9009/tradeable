@@ -83,3 +83,8 @@
 .price {
   font-size: 1.1rem !important;
 }
+
+.listing-name {
+  font-size: 1rem;
+  margin-bottom: 2px;
+}

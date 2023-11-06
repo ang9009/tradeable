@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FiMenu, FiPlus, FiSearch } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
+import { useUser } from "../../context/UserContext";
 import categories from "../../data/categories";
 import AuthWidget from "../../features/auth/components/AuthWidget/AuthWidget";
 import Sidebar from "../Sidebar/Sidebar";
@@ -11,6 +12,7 @@ import NavbarCSS from "./Navbar.module.css";
 const Navbar = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const navigate = useNavigate();
+  const { user } = useUser();
 
   return (
     <div className={NavbarCSS["component-container"]}>
@@ -40,14 +42,16 @@ const Navbar = () => {
             }}
             onClick={() => navigate("/search")}
           />
-          <Button
-            options={{
-              type: "icon",
-              text: <FiPlus size="25px" />,
-              className: NavbarCSS["sell-btn"],
-            }}
-            onClick={() => navigate("/create-listing")}
-          />
+          {user && (
+            <Button
+              options={{
+                type: "icon",
+                text: <FiPlus size="25px" />,
+                className: NavbarCSS["sell-btn"],
+              }}
+              onClick={() => navigate("/create-listing")}
+            />
+          )}
           <AuthWidget className={NavbarCSS["auth-widget"]} />
         </div>
         <FiMenu

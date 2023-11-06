@@ -7,9 +7,12 @@
   align-items: center;
 }
 
-.sell-section,
 .interested-section {
-  background: var(--tradeable-beige);
+  background: var(--tradeable-yellow);
+}
+
+.sell-section {
+  background: var(--background-beige);
 }
 
 .section-title {

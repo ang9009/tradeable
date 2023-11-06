@@ -30,19 +30,6 @@
   flex: 1;
 }
 
-/* Search btn */
-.searchbar button {
-  border-radius: 0 50px 50px 0;
-  border: none;
-  width: 42px;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  margin-left: auto;
-  background: var(--tradeable-beige);
-}
-
 .searchbar input:focus {
   outline: none;
 }

@@ -37,7 +37,7 @@ function ListingCard({ listing }) {
       </div>
       <div className={ListingCardCSS["text-container"]}>
         <div>
-          <h1>{listing?.name}</h1>
+          <p className={ListingCardCSS["listing-name"]}>{listing?.name}</p>
           <p className={ListingCardCSS.condition}>{listing?.condition}</p>
         </div>
         <h1 className={ListingCardCSS["price"]}>£{listing?.price}</h1>
