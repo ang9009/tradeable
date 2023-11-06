@@ -8,14 +8,14 @@ import AuthWidgetCSS from "./AuthWidget.module.css";
 
 function AuthWidget({ changeNav, className }) {
   const navigate = useNavigate();
-  const { user, isFetchingUser } = useUser();
+  const { userData, isFetchingUser } = useUser();
 
   return (
     <div className={className}>
       <div className={AuthWidgetCSS["auth-widget-container"]}>
         {!isFetchingUser ? (
           <>
-            {user ? (
+            {userData ? (
               <>
                 <div className={AuthWidgetCSS["buttons-container"]}>
                   <UserActionsWidget changeNav={changeNav} />

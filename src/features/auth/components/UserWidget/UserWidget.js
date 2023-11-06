@@ -8,13 +8,13 @@ import UserWidgetCSS from "./UserWidget.module.css";
 
 function UserWidget() {
   const [showMenu, setShowMenu] = useState(false);
-  const { user, isFetchingUser } = useUser();
+  const { userData, isFetchingUser } = useUser();
   const [userPhoto, setUserPhoto] = useState(
     require("../../../../assets/profile_placeholder.png")
   );
   const navigate = useNavigate();
   useEffect(() => {
-    const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${user?.id}`;
+    const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${userData?.uid}`;
 
     checkImage(userPhotoUrl).then((userPhotoExists) => {
       if (userPhotoExists) {
@@ -56,13 +56,13 @@ function UserWidget() {
         >
           <DropdownMenu.Item
             className={UserWidgetCSS["select-item"]}
-            onClick={() => goToPage(`/profile/${user?.id}/listings`)}
+            onClick={() => goToPage(`/profile/${userData?.uid}/listings`)}
           >
             Profile
           </DropdownMenu.Item>
           <DropdownMenu.Item
             className={UserWidgetCSS["select-item"]}
-            onClick={() => goToPage(`/account-settings/${user?.id}`)}
+            onClick={() => goToPage(`/account-settings/${userData?.uid}`)}
           >
             Settings
           </DropdownMenu.Item>
