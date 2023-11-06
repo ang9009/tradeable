@@ -14,7 +14,7 @@ function UserWidget() {
   );
   const navigate = useNavigate();
   useEffect(() => {
-    const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${user.id}`;
+    const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${user?.id}`;
 
     checkImage(userPhotoUrl).then((userPhotoExists) => {
       if (userPhotoExists) {
@@ -56,13 +56,13 @@ function UserWidget() {
         >
           <DropdownMenu.Item
             className={UserWidgetCSS["select-item"]}
-            onClick={() => goToPage(`/profile/${user.id}/listings`)}
+            onClick={() => goToPage(`/profile/${user?.id}/listings`)}
           >
             Profile
           </DropdownMenu.Item>
           <DropdownMenu.Item
             className={UserWidgetCSS["select-item"]}
-            onClick={() => goToPage(`/account-settings/${user.id}`)}
+            onClick={() => goToPage(`/account-settings/${user?.id}`)}
           >
             Settings
           </DropdownMenu.Item>

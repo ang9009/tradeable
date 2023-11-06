@@ -14,13 +14,21 @@
   object-fit: cover;
 }
 
+.message-img {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  /* Must be fixed height so that scrollIntoView works */
+  object-fit: contain;
+  background: var(--primary-border-color);
+}
+
 .message-img-container {
   position: relative;
   border-radius: 5px;
-}
-
-.img {
-  border-radius: 5px;
+  margin-bottom: 15px;
+  height: 200px;
+  max-width: 500px;
 }
 
 .message-img-overlay {
@@ -51,16 +59,6 @@
   line-break: anywhere;
   line-height: 30px;
   text-wrap: wrap;
-}
-
-.message-img {
-  margin-bottom: 15px;
-  border-radius: 5px;
-  /* Must be fixed height so that scrollIntoView works */
-  height: 200px;
-  max-width: 500px;
-  object-fit: contain;
-  background: var(--primary-border-color);
 }
 
 .message-info {
