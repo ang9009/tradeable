@@ -26,7 +26,7 @@ function AuthWidget({ changeNav, className }) {
               <>
                 <Button
                   options={{
-                    type: "no-outline",
+                    type: "icon",
                     text: "Log in",
                     className: AuthWidgetCSS["log-in-btn"],
                   }}

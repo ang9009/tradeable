@@ -15,11 +15,11 @@
 }
 
 .buttons-container > * {
-  margin-left: 30px;
+  margin-left: 25px;
 }
 
-.sell-btn {
-  margin-left: 15px;
+.log-in-btn {
+  margin: 0 25px;
 }
 
 /* Must be the same as ios-app-btn disappearing in Navbar/HeroNavbar */
