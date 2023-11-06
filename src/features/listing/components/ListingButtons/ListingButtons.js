@@ -59,7 +59,7 @@ function ListingButtons({ sellerId, listingId, status }) {
               notRounded: true,
             }}
             onClick={() => {
-              setReportModalIsOpen(true);
+              user ? setReportModalIsOpen(true) : navigate("/signup");
             }}
           />
         </>

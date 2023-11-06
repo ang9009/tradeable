@@ -50,11 +50,14 @@ function ChatMessage({ message }) {
       <div className={ChatMessageCSS["message-content"]}>
         <div className={ChatMessageCSS["message-text-container"]}>
           {message.img ? (
-            <img
-              src={message.img}
-              alt=""
-              className={ChatMessageCSS["message-img"]}
-            />
+            <div className={ChatMessageCSS["message-img-container"]}>
+              <img
+                src={message.img}
+                alt=""
+                className={ChatMessageCSS["message-img"]}
+              />
+              <div className={ChatMessageCSS["message-img-overlay"]}></div>
+            </div>
           ) : (
             <p className={ChatMessageCSS["message-text"]}>{message?.text}</p>
           )}
