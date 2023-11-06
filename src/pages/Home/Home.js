@@ -52,16 +52,22 @@ function Home() {
         {recentlyPosted.length !== 0 && (
           <ListingsCarousel listings={recentlyPosted} />
         )}
+        <Button
+          options={{
+            type: "black-outline",
+            text: "Browse more listings",
+            className: HomeCSS["homepage-btn"],
+          }}
+          onClick={() => navigate("/search")}
+        />
       </div>
       <div className={HomeCSS["interested-section"]}>
         <div className={HomeCSS["interested-section-left"]}>
-          <h1 className={HomeCSS["section-title"]}>
-            Interested? Get started today
-          </h1>
+          <h1 className={HomeCSS["section-title"]}>Get started today</h1>
           <div className={HomeCSS["interested-section-btns"]}>
             <Button
               options={{
-                type: "gray-outline",
+                type: "white-filled",
                 text: "Sign up",
                 className: HomeCSS["homepage-btn"],
               }}

@@ -26,7 +26,7 @@ function Hero() {
           />
           <Button
             options={{
-              type: "gray-outline",
+              type: "black-outline",
               text: "Explore",
               className: HeroCSS["explore-btn"],
             }}

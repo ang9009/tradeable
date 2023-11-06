@@ -12,10 +12,6 @@
   background: var(--tradeable-beige);
 }
 
-.interested-section {
-  border-bottom: var(--primary-border);
-}
-
 .section-title {
   font-size: calc(1.5rem + 0.5vw);
   text-align: center;
@@ -26,18 +22,18 @@
   line-height: calc(1.5rem + 0.5vw);
   max-width: 450px;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
 .homepage-btn {
   padding: 12px 25px !important;
-  margin-top: 25px;
+  margin-top: 30px;
   border-width: 2px;
 }
 
 .buy-section > p {
   max-width: 350px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .interested-section-btns {
