@@ -8,11 +8,11 @@
 }
 
 .interested-section {
-  background: var(--tradeable-yellow);
+  background: var(--background-beige);
 }
 
 .sell-section {
-  background: var(--background-beige);
+  background: #e9ecdb;
 }
 
 .section-title {

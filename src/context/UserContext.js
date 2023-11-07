@@ -27,8 +27,6 @@ function UserProvider({ children }) {
         if (user) {
           setCurrUserData(user);
 
-          // !If user does not exist, create the user and set it OR set current user as some temporary
-          // ! fake object
           const userRef = doc(db, "users", user.uid);
           getDoc(userRef).then((res) => {
             setCurrUser(res.data());

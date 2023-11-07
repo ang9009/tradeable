@@ -60,10 +60,14 @@ function Verify() {
           Check your inbox and junk emails, {userData?.email.split("@")[0]}
         </h1>
         <p className={VerifyCSS["text-content"]}>
-          Please verify your email address using the link we sent to:
-          <span className={VerifyCSS["user-email"]}>{userData?.email}</span>.
-          This may take up to a few minutes. Don't see it? Check your junk
-          emails!
+          Please verify your email address using the link we sent to:{" "}
+          {userData?.email}.
+        </p>
+        <p className={VerifyCSS["text-content"]}>
+          <span className={VerifyCSS["user-email"]}>
+            This may take up to a few minutes
+          </span>
+          . Don't see it? Check your junk emails!
         </p>
         <Button
           options={{
