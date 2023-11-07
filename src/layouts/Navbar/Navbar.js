@@ -14,6 +14,10 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user } = useUser();
 
+  function getCategoryUrl(category) {
+    return `search?listings%5BrefinementList%5D%5Bcategory%5D%5B0%5D=${category}`;
+  }
+
   return (
     <div className={NavbarCSS["component-container"]}>
       <Sidebar
@@ -29,7 +33,15 @@ const Navbar = () => {
           />
           <ul className={NavbarCSS["categories"]}>
             {categories.map((category) => (
-              <li key={category}>{category}</li>
+              <li
+                key={category}
+                onClick={() => {
+                  navigate(getCategoryUrl(category));
+                  window.location.reload();
+                }}
+              >
+                {category}
+              </li>
             ))}
           </ul>
         </div>

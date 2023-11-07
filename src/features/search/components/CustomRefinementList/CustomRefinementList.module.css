@@ -1,0 +1,57 @@
+.list-container {
+  display: flex;
+  overflow-y: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.refine-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 10px 15px;
+  border-radius: 9999px;
+  font-weight: bold;
+}
+
+.refine-item:hover {
+  color: #434343;
+}
+
+.refine-item:not(:first-child) {
+  margin-left: 15px;
+}
+
+.refine-item-label {
+  margin-left: 5px;
+}
+
+@media (max-width: 1000px) {
+  .list-container {
+    width: 100%;
+  }
+}
+
+/* Old checkbox styles */
+/* .checkbox-root {
+  background-color: white;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.checkbox-indicator {
+  display: grid;
+  place-items: center;
+}
+
+.checkbox-root:hover {
+  background-color: var(--violet-3);
+} */

@@ -1,9 +1,4 @@
-import {
-  DynamicWidgets,
-  InstantSearch,
-  RefinementList,
-} from "react-instantsearch";
-import { useParams } from "react-router-dom";
+import { DynamicWidgets, InstantSearch } from "react-instantsearch";
 import TypesenseInstantsearchAdapter from "typesense-instantsearch-adapter";
 import {
   CustomInfiniteHits,
@@ -12,6 +7,7 @@ import {
   CustomStats,
   ListingCard,
 } from "../../features/search";
+import CustomRefinementList from "../../features/search/components/CustomRefinementList/CustomRefinementList";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
 import "./Search.css";
 import SearchCSS from "./Search.module.css";
@@ -39,11 +35,13 @@ function Search() {
     return <ListingCard listing={hit} />;
   };
 
-  const { category } = useParams();
-
   return (
     <PageContainer type={"wide"}>
-      <InstantSearch searchClient={searchClient} indexName="listings">
+      <InstantSearch
+        searchClient={searchClient}
+        indexName="listings"
+        routing={true}
+      >
         <CustomSearchBox />
         <div className={SearchCSS["filter-and-sort-widgets"]}>
           <div className={SearchCSS["stats-and-sort-by-container"]}>
@@ -51,10 +49,8 @@ function Search() {
             <CustomStats />
           </div>
           <DynamicWidgets>
-            <RefinementList
-              attribute="category"
-              sortBy={["count:desc", "name:asc"]}
-            />
+            {/* DynamicWidgets only supports components with an attribute prop */}
+            <CustomRefinementList attribute={"category"} />
           </DynamicWidgets>
         </div>
         <CustomInfiniteHits />
