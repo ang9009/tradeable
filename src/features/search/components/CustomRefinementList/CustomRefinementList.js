@@ -1,6 +1,4 @@
-import { useLayoutEffect } from "react";
 import { useRefinementList } from "react-instantsearch";
-import { useParams } from "react-router-dom";
 import CustomRefinementListCSS from "./CustomRefinementList.module.css";
 
 function CustomRefinementList({ attribute }) {
@@ -20,12 +18,6 @@ function CustomRefinementList({ attribute }) {
     attribute: attribute,
     sortBy: ["count:desc", "name:asc"],
   });
-
-  const { category } = useParams();
-  useLayoutEffect(() => {
-    refine("Electronics");
-    console.log(items);
-  }, [category]);
 
   return (
     <div className={CustomRefinementListCSS["list-container"]}>
