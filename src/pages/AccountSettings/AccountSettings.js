@@ -109,6 +109,7 @@ function AccountSettings() {
                 max: 300,
                 min: 20,
                 placeholder: "Tell us about yourself (but not too much)...",
+                notRequired: true,
                 defaultValue: currUser?.about,
               }}
               formData={{ register, errors }}
