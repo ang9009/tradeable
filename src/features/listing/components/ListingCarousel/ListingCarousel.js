@@ -42,6 +42,8 @@ function ListingCarousel({ imagesNum, className, status, listingId }) {
                 <div className={ListingCarouselCSS["overlay"]}></div>
               </>
             )}
+            {/* For white photos */}
+            <div className={ListingCarouselCSS["visibility-overlay"]}></div>
             <swiper-container
               class={ListingCarouselCSS.carousel}
               thumbs-swiper=".thumbnail-carousel"
@@ -71,6 +73,7 @@ function ListingCarousel({ imagesNum, className, status, listingId }) {
                   alt=""
                   class={ListingCarouselCSS.img}
                 />
+                <div className={ListingCarouselCSS["visibility-overlay"]}></div>
               </swiper-slide>
             ))}
           </swiper-container>
