@@ -48,7 +48,11 @@ function AuthWidget({ changeNav, className }) {
             )}
           </>
         ) : (
-          <Skeleton width={"80px"} height={"30px"} />
+          <Skeleton
+            width={"80px"}
+            height={"30px"}
+            style={{ marginLeft: "30px" }}
+          />
         )}
       </div>
     </div>

@@ -1,6 +1,6 @@
 .footer-container {
-  background: #851d40;
-  color: #fff;
+  background: #fff;
+  color: black;
   padding: 0 55px;
   height: var(--navbar-height);
   display: flex;
@@ -34,7 +34,7 @@
   margin-left: 10px;
   font-size: 1rem;
   font-weight: bolder;
-  color: #fff;
+  color: var(--tradeable-burgundy);
 }
 
 @media (max-width: 600px) {
