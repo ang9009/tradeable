@@ -1,11 +1,10 @@
-import { DynamicWidgets, InstantSearch } from "react-instantsearch";
+import { Configure, DynamicWidgets, InstantSearch } from "react-instantsearch";
 import TypesenseInstantsearchAdapter from "typesense-instantsearch-adapter";
 import {
   CustomInfiniteHits,
   CustomSearchBox,
   CustomSortby,
   CustomStats,
-  ListingCard,
 } from "../../features/search";
 import CustomRefinementList from "../../features/search/components/CustomRefinementList/CustomRefinementList";
 import PageContainer from "../../layouts/PageContainer/PageContainer";
@@ -25,16 +24,11 @@ const typesenseInstantsearchAdapter = new TypesenseInstantsearchAdapter({
   },
   additionalSearchParameters: {
     queryBy: "name,description",
-    filterBy: "status:!=sold",
   },
 });
 const searchClient = typesenseInstantsearchAdapter.searchClient;
 
 function Search() {
-  const Hit = ({ hit }) => {
-    return <ListingCard listing={hit} />;
-  };
-
   return (
     <PageContainer type={"wide"}>
       <InstantSearch
@@ -54,6 +48,7 @@ function Search() {
           </DynamicWidgets>
         </div>
         <CustomInfiniteHits />
+        <Configure filters="status:!=sold" />
       </InstantSearch>
     </PageContainer>
   );

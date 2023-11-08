@@ -12,7 +12,7 @@
 }
 
 .sell-section {
-  background: #e9ecdb;
+  background: var(--background-beige);
 }
 
 .section-title {

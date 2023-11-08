@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import { initializeApp } from "firebase/app";
 import {
   GoogleAuthProvider,
@@ -114,13 +115,27 @@ async function createChat(user, sellerId, listingId) {
     const chatId = listingId + chatIdPrefix;
     const res = await getDoc(doc(db, "chats", chatId));
 
-    // Creates a new chat between two users holding the messages in that chat
-    if (!res.exists()) {
-      await setDoc(doc(db, "chats", chatId), {
-        lastNotified: serverTimestamp(),
-        messages: [],
-      });
+    if (res.exists()) {
+      console.log("exists");
+      return;
     }
+
+    // !Fix this
+    emailjs.send(
+      "service_syzjwtw",
+      "template_4fhopp4",
+      {
+        name: "James",
+        notes: "Check this out!",
+      },
+      "fM8cw4RpVk14DqFaQ"
+    );
+
+    // Creates a new chat between two users holding the messages in that chat
+    await setDoc(doc(db, "chats", chatId), {
+      lastNotified: serverTimestamp(),
+      messages: [],
+    });
 
     // userChats stores the list of chats for each user
     // Updates user chat for seller

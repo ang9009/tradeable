@@ -3,7 +3,7 @@
 }
 
 .btns-container {
-  margin-top: var(--form-section-margin-top);
+  margin: var(--form-section-margin-top) 0;
   display: flex;
 }
 
