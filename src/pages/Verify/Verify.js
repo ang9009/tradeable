@@ -65,7 +65,7 @@ function Verify() {
         </p>
         <p className={VerifyCSS["text-content"]}>
           <span className={VerifyCSS["user-email"]}>
-            This may take up to a few minutes
+            Please note that this may take up to a few minutes
           </span>
           . Don't see it? Check your junk emails!
         </p>
@@ -75,7 +75,7 @@ function Verify() {
             text: "Resend email",
             className: VerifyCSS["resend-btn"],
           }}
-          onClick={() => sendEmail}
+          onClick={() => sendEmail()}
         />
         <Error
           message={error}
