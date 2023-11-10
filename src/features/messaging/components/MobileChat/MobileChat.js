@@ -8,7 +8,7 @@ import MobileChatCSS from "./MobileChat.module.css";
 function MobileChat({
   selectedChat,
   listingData: { listings, isFetchingListings },
-  messages,
+  messagesData,
 }) {
   return (
     <div className={MobileChatCSS["chat-container"]}>
@@ -23,8 +23,11 @@ function MobileChat({
             isFetchingListing={isFetchingListings}
             selectedChat={selectedChat}
           />
-          <ChatMessages messages={messages} />
-          <ChatInput messages={messages} />
+          <ChatMessages messages={messagesData?.messages} />
+          <ChatInput
+            messages={messagesData?.messages}
+            chatData={messagesData?.chatData}
+          />
         </>
       ) : (
         <div className={MobileChatCSS["no-chats-msg-container"]}>

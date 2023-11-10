@@ -105,7 +105,7 @@ function getEditListingData(listingId, reset, setIsFetchingListing) {
   });
 }
 
-async function createChat(user, sellerId, listingId) {
+async function createChat(user, sellerId, listingId, listingName) {
   try {
     // Seller and buyer should be able to buy things from each other, so listingId is added to differentiate
     // However, we also need to be able to fetch the same chat for both users from the chats collection
@@ -115,27 +115,9 @@ async function createChat(user, sellerId, listingId) {
     const chatId = listingId + chatIdPrefix;
     const res = await getDoc(doc(db, "chats", chatId));
 
-    if (res.exists()) {
-      console.log("exists");
-      return;
-    }
-
-    // !Fix this
-    emailjs.send(
-      "service_syzjwtw",
-      "template_4fhopp4",
-      {
-        name: "James",
-        notes: "Check this out!",
-      },
-      "fM8cw4RpVk14DqFaQ"
-    );
-
-    // Creates a new chat between two users holding the messages in that chat
-    await setDoc(doc(db, "chats", chatId), {
-      lastNotified: serverTimestamp(),
-      messages: [],
-    });
+    // if (res.exists()) {
+    //   return;
+    // }
 
     // userChats stores the list of chats for each user
     // Updates user chat for seller
@@ -170,6 +152,38 @@ async function createChat(user, sellerId, listingId) {
       [chatId + ".type"]: "buying",
       [chatId + ".date"]: Date.now(),
     });
+
+    // Creates a new chat between two users holding the messages in that chat
+    await setDoc(doc(db, "chats", chatId), {
+      chatId: chatId,
+      chatData: {
+        sellerId: seller.id,
+        buyerId: user.id,
+      },
+      messages: [],
+    });
+
+    // Creates notification data object
+    await setDoc(doc(db, "chatNotifications", chatId), {
+      sellerLastNotified: serverTimestamp(),
+      buyerLastNotified: serverTimestamp(),
+      recipientName: seller.name,
+      recipientEmail: seller.email,
+      recipientId: seller.id,
+    });
+
+    // Send email notification
+    emailjs.send(
+      "service_syzjwtw",
+      "template_4fhopp4",
+      {
+        buyer_name: user.name,
+        seller_name: seller.name,
+        seller_email: seller.email,
+        listing_name: listingName,
+      },
+      "fM8cw4RpVk14DqFaQ"
+    );
   } catch (err) {
     console.log(err);
   }

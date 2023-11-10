@@ -15,11 +15,12 @@ import { db, ref, storage } from "../../../../lib/firebase";
 import { ChatContext } from "../../context/ChatContext";
 import ChatInputCSS from "./ChatInput.module.css";
 
-function ChatInput({ messages }) {
+function ChatInput({ messages, chatData }) {
   const [text, setText] = useState("");
   const { user } = useUser();
   const { chatId } = useParams();
   const { data } = useContext(ChatContext);
+  console.log(chatData);
 
   // Sends image
   async function handleSendImage(img) {
@@ -60,6 +61,7 @@ function ChatInput({ messages }) {
   }
 
   async function handleSendMsg() {
+    // Add message to chat object
     await updateDoc(doc(db, "chats", chatId), {
       messages: arrayUnion({
         id: uuid(),
@@ -69,8 +71,13 @@ function ChatInput({ messages }) {
       }),
     });
 
+    // Clear input
     setText("");
 
+    // Update notifications data
+    updateNotificationsData();
+
+    // Update userChats last messages
     await updateDoc(doc(db, "userChats", user.id), {
       [chatId + ".lastMessage"]: {
         text,
@@ -85,6 +92,19 @@ function ChatInput({ messages }) {
       [chatId + ".date"]: Date.now(),
     });
   }
+
+  async function updateNotificationsData() {
+    if (user.id === chatData.buyerId) {
+      await updateDoc(doc(db, "chatNotifications", chatId), {
+        ["buyerLastNotified"]: serverTimestamp(),
+      });
+    } else {
+      await updateDoc(doc(db, "chatNotifications", chatId), {
+        ["sellerLastNotified"]: serverTimestamp(),
+      });
+    }
+  }
+
   return (
     <div className={ChatInputCSS["component-container"]}>
       {/* Input */}

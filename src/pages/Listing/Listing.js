@@ -49,6 +49,7 @@ function Listing() {
               sellerId={listingData.sellerId}
               listingId={listingId}
               status={listingData.status}
+              listingName={listingData.name}
             />
           )}
         </div>

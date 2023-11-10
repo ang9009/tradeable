@@ -11,7 +11,7 @@ import MessagesCSS from "./Messages.module.css";
 
 function Messages() {
   const [userChats, setUserChats] = useState([]);
-  const [messages, setMessages] = useState([]);
+  const [messagesData, setMessagesData] = useState([]);
   const userChatsRef = useRef(userChats);
 
   function setUserChatsState(userChats) {
@@ -66,7 +66,7 @@ function Messages() {
   useEffect(() => {
     function getMessages() {
       const unsub = onSnapshot(doc(db, "chats", chatId), (doc) => {
-        doc.exists() && setMessages(doc.data().messages);
+        doc.exists() && setMessagesData(doc.data());
       });
 
       return () => unsub();
@@ -89,7 +89,7 @@ function Messages() {
         <Chat
           selectedChat={selectedChat}
           listingData={{ listings, isFetchingListings }}
-          messages={messages}
+          messagesData={messagesData}
         />
       </div>
       {/* Mobile chat components */}
@@ -100,7 +100,7 @@ function Messages() {
           <MobileChat
             selectedChat={selectedChat}
             listingData={{ listings, isFetchingListings }}
-            messages={messages}
+            messagesData={messagesData}
           />
         ) : (
           <MobileChatsList

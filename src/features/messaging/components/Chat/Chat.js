@@ -8,7 +8,7 @@ import ChatCSS from "./Chat.module.css";
 function Chat({
   selectedChat,
   listingData: { listings, isFetchingListings },
-  messages,
+  messagesData,
 }) {
   return (
     <div className={ChatCSS["chat-container"]}>
@@ -22,8 +22,11 @@ function Chat({
             selectedChat={selectedChat}
             isFetchingListing={isFetchingListings}
           />
-          <ChatMessages messages={messages} />
-          <ChatInput messages={messages} />
+          <ChatMessages messages={messagesData?.messages} />
+          <ChatInput
+            messages={messagesData?.messages}
+            chatData={messagesData?.chatData}
+          />
         </>
       ) : (
         <div className={ChatCSS["no-chats-msg-container"]}>

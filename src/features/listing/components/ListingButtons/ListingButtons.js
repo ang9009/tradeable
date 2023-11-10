@@ -10,7 +10,7 @@ import ReportModal from "../../../messaging/components/ReportModal/ReportModal";
 import SellerButtons from "../SellerButtons/SellerButtons";
 import ListingButtonsCSS from "./ListingButtons.module.css";
 
-function ListingButtons({ sellerId, listingId, status }) {
+function ListingButtons({ sellerId, listingId, status, listingName }) {
   const { user, isFetchingUser } = useUser();
   const [reportModalIsOpen, setReportModalIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ function ListingButtons({ sellerId, listingId, status }) {
               }
 
               if (status == "available") {
-                createChat(user, sellerId, listingId).then(() => {
+                createChat(user, sellerId, listingId, listingName).then(() => {
                   navigate(
                     `/messages/${getChatId(user.id, sellerId, listingId)}`
                   );

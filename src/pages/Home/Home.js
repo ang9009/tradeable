@@ -54,7 +54,7 @@ function Home() {
         )}
         <Button
           options={{
-            type: "black-outline",
+            type: "gray-outline",
             text: "Browse more listings",
             className: HomeCSS["homepage-btn"],
           }}
