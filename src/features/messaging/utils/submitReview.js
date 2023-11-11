@@ -1,6 +1,7 @@
 import {
   average,
   collection,
+  count,
   doc,
   getAggregateFromServer,
   getFirestore,
@@ -30,16 +31,20 @@ export default async function submitReview(
     where("reviewedUserId", "==", selectedChat[1].userInfo.id)
   );
   const snapshot = await getAggregateFromServer(q, {
-    avgRating: average("rating"),
+    sumRating: average("rating"),
+    ratingCount: count("rating"),
   });
 
   let totalAvgRating = 0;
 
-  // If user has no ratings, new review should be assigned to avgRating, otherwise take average of 2
+  // If user has no ratings, new review should be assigned to avgRating, otherwise take average
   if (!snapshot.data().avgRating) {
     totalAvgRating = data.rating;
   } else {
-    totalAvgRating = Math.round((snapshot.data().avgRating + data.rating) / 2);
+    totalAvgRating = Math.round(
+      (snapshot.data().sumRating + data.rating) /
+        (snapshot.data().ratingCount + 1)
+    );
   }
 
   await updateDoc(doc(db, "users", selectedChat[1].userInfo.id), {
