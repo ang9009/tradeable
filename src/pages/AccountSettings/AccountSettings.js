@@ -29,6 +29,8 @@ function AccountSettings() {
   const [photoFile, setPhotoFile] = useState(null);
   const { user } = useUser();
   const [currUser, setCurrUser] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${user.id}`;
 
@@ -47,6 +49,7 @@ function AccountSettings() {
   // Submission function
   async function handleSubmitAccountSettings(data, e) {
     e.preventDefault();
+    setIsSubmitting(true);
 
     if (photoFile) {
       // Upload file + metadata
@@ -154,6 +157,7 @@ function AccountSettings() {
                   text: "Submit",
                   className: AccountSettingsCSS["submit-btn"],
                 }}
+                disabled={isSubmitting}
               />
             </div>
           </div>
