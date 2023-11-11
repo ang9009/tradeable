@@ -115,9 +115,9 @@ async function createChat(user, sellerId, listingId, listingName) {
     const chatId = listingId + chatIdPrefix;
     const res = await getDoc(doc(db, "chats", chatId));
 
-    // if (res.exists()) {
-    //   return;
-    // }
+    if (res.exists()) {
+      return;
+    }
 
     // userChats stores the list of chats for each user
     // Updates user chat for seller
@@ -126,6 +126,7 @@ async function createChat(user, sellerId, listingId, listingName) {
         id: user.id,
         name: user.name,
         photoUrl: user.photoUrl,
+        email: user.email,
       },
       [chatId + ".listing"]: {
         id: listingId,
@@ -144,6 +145,7 @@ async function createChat(user, sellerId, listingId, listingName) {
         id: sellerId,
         name: seller.name,
         photoUrl: seller.photoUrl,
+        email: seller.email,
       },
       [chatId + ".listing"]: {
         id: listingId,

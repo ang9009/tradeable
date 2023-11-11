@@ -27,6 +27,7 @@ function MobileChat({
           <ChatInput
             messages={messagesData?.messages}
             chatData={messagesData?.chatData}
+            userInfo={selectedChat?.[1]?.userInfo}
           />
         </>
       ) : (

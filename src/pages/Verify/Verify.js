@@ -68,8 +68,8 @@ function Verify() {
           <span className={VerifyCSS["user-email"]}>
             Please note that this may take up to a few minutes
           </span>
-          . Don't see it? Check your junk emails! Once you have verified your
-          email, reload the page.
+          . Don't see it? Check your junk emails! If you are not redirected,
+          reload the page.
         </p>
         <Button
           options={{

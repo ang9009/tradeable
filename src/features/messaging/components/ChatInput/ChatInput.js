@@ -1,9 +1,4 @@
-import {
-  arrayUnion,
-  doc,
-  serverTimestamp,
-  updateDoc,
-} from "firebase/firestore";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useContext, useState } from "react";
 import { FiImage } from "react-icons/fi";
@@ -15,12 +10,11 @@ import { db, ref, storage } from "../../../../lib/firebase";
 import { ChatContext } from "../../context/ChatContext";
 import ChatInputCSS from "./ChatInput.module.css";
 
-function ChatInput({ messages, chatData }) {
+function ChatInput({ messages, chatData, userInfo }) {
   const [text, setText] = useState("");
   const { user } = useUser();
   const { chatId } = useParams();
   const { data } = useContext(ChatContext);
-  console.log(chatData);
 
   // Sends image
   async function handleSendImage(img) {
@@ -58,6 +52,8 @@ function ChatInput({ messages, chatData }) {
       },
       [chatId + ".date"]: Date.now(),
     });
+
+    await updateNotificationsData();
   }
 
   async function handleSendMsg() {
@@ -75,7 +71,7 @@ function ChatInput({ messages, chatData }) {
     setText("");
 
     // Update notifications data
-    updateNotificationsData();
+    await updateNotificationsData();
 
     // Update userChats last messages
     await updateDoc(doc(db, "userChats", user.id), {
@@ -93,16 +89,13 @@ function ChatInput({ messages, chatData }) {
     });
   }
 
+  // !THIS IS WRONG! SHOULD BE UPDATING THE RECIPIENT NAME/ID/EMAIL
   async function updateNotificationsData() {
-    if (user.id === chatData.buyerId) {
-      await updateDoc(doc(db, "chatNotifications", chatId), {
-        ["buyerLastNotified"]: serverTimestamp(),
-      });
-    } else {
-      await updateDoc(doc(db, "chatNotifications", chatId), {
-        ["sellerLastNotified"]: serverTimestamp(),
-      });
-    }
+    await updateDoc(doc(db, "chatNotifications", chatId), {
+      ["recipientName"]: userInfo.name,
+      ["recipientId"]: userInfo.id,
+      ["recipientEmail"]: userInfo.email,
+    });
   }
 
   return (
