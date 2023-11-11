@@ -16,13 +16,14 @@ export default function getSortbyStyles() {
       boxShadow: "var(--box-shadow)",
       width: "max-content",
       left: 0,
+      zIndex: 999999,
     }),
     option: (_, state) => ({
       padding: "10px 12px",
       background: state.isFocused && "#f6f6f6",
       transition: "all 0.2s",
       cursor: "pointer",
-      zIndex: 9999,
+      zIndex: 999999,
       width: "100%",
 
       // The same as first-child, just using it to get rid of a console warning

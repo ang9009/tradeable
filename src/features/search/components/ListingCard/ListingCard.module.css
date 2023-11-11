@@ -1,6 +1,7 @@
 .card-container {
   cursor: pointer;
   min-width: 0;
+  z-index: -2;
 }
 
 .img-container {
@@ -13,6 +14,7 @@
   object-fit: cover;
   aspect-ratio: 4/3;
   border-radius: 5px;
+  z-index: 1;
 }
 
 .status-tag {
@@ -22,11 +24,12 @@
   padding: 3px 8px;
   font-weight: bold;
   text-transform: capitalize;
-  z-index: 2;
   top: 15px;
+  z-index: 0;
   left: 15px;
   border: 1px solid #fff;
   position: absolute;
+  z-index: 1;
 }
 
 .overlay {
@@ -37,7 +40,7 @@
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   border-radius: 8px;
 }
 
