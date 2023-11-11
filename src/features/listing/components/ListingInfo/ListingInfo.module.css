@@ -13,6 +13,11 @@
 
 .location-link {
   color: var(--secondary-text-color);
+  text-decoration: none;
+}
+
+.location-link span {
+  text-decoration: underline;
 }
 
 .divider {

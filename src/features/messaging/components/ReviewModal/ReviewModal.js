@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
@@ -24,10 +25,12 @@ function ReviewModal({
   } = useForm({
     mode: "onChange",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { user } = useUser();
   const navigate = useNavigate();
 
   async function handleSubmitReview(data, e) {
+    setIsSubmitting(true);
     await submitReview(data, e, selectedChat, user, listing);
     setReviewModalIsOpen(false);
     navigate(`/profile/${selectedChat[1].userInfo.id}/reviews`);
@@ -87,6 +90,7 @@ function ReviewModal({
               type: "burgundy-filled",
               className: ReviewModalCSS["submit-btn"],
             }}
+            disabled={isSubmitting}
           />
         </form>
       </Modal>

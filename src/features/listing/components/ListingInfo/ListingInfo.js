@@ -30,7 +30,7 @@ function ListingInfo({ listingData }) {
                   key={locObj.value.location}
                   className={ListingInfoCSS["location-link"]}
                 >
-                  {locObj.value.location},{" "}
+                  <span>{locObj.value.location}</span>,{" "}
                 </a>
               ) : (
                 <a
@@ -39,7 +39,7 @@ function ListingInfo({ listingData }) {
                   key={locObj.location}
                   className={ListingInfoCSS["location-link"]}
                 >
-                  {locObj.value.location}
+                  <span>{locObj.value.location}</span>
                 </a>
               );
             })}

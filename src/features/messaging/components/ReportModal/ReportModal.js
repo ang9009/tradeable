@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import TextArea from "../../../../components/form/TextArea/TextArea";
 import Button from "../../../../components/ui/Button/Button";
@@ -22,7 +21,7 @@ function ReportModal({
     mode: "onChange",
   });
   const { user } = useUser();
-  const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
     <>
@@ -36,6 +35,7 @@ function ReportModal({
           action=""
           className={ReportModalCSS["report-form"]}
           onSubmit={handleSubmit((data, e) => {
+            setIsSubmitting(true);
             e.preventDefault();
 
             submitReport(data, reportedUserId, user.id);
@@ -63,6 +63,7 @@ function ReportModal({
               type: "burgundy-filled",
               className: ReportModalCSS["submit-btn"],
             }}
+            disabled={isSubmitting}
           />
         </form>
       </Modal>

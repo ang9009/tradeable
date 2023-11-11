@@ -12,6 +12,8 @@ function Verify() {
   const { userData } = useUser();
   const [error, setError] = useState("");
 
+  useEffect(() => {}, [userData]);
+
   useEffect(() => {
     const unsub = onIdTokenChanged(auth, (user) => {
       if (user) {
