@@ -20,6 +20,8 @@
 
 .stats-and-sort-by-container {
   align-items: center;
+  position: relative;
+  z-index: 9999;
 }
 
 .categories-heading {
