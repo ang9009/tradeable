@@ -20,17 +20,31 @@ function UserProvider({ children }) {
   const [currUserData, setCurrUserData] = useState(null);
   const [isFetchingUser, setIsFetchingUser] = useState(true);
 
+  // If user object doesn't exist (after verify), fetch it again until it exists
+  function getUserObject(userId) {
+    if (!userId) {
+      return;
+    }
+
+    console.log("Getting user object");
+    const userRef = doc(db, "users", userId);
+
+    getDoc(userRef).then((res) => {
+      if (!res.exists()) {
+        getUserObject();
+        return;
+      } else {
+        setCurrUser(res.data());
+      }
+    });
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(
       auth,
       (user) => {
         if (user) {
           setCurrUserData(user);
-
-          const userRef = doc(db, "users", user.uid);
-          getDoc(userRef).then((res) => {
-            setCurrUser(res.data());
-          });
         } else {
           setCurrUser(null);
           setCurrUserData(null);
@@ -43,6 +57,12 @@ function UserProvider({ children }) {
 
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (currUserData && Object.hasOwn(currUserData, "uid")) {
+      getUserObject(currUserData.uid);
+    }
+  }, [currUserData]);
 
   return (
     <UserDataContext.Provider value={currUserData}>

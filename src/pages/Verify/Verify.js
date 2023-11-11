@@ -19,12 +19,12 @@ function Verify() {
         (async () => {
           await user.reload();
 
-          if (user?.emailVerified) {
+          if (userData.emailVerified) {
             const userRef = doc(db, "users", user.uid);
             updateDoc(userRef, {
               isVerified: true,
             }).then(() => {
-              navigate("/search");
+              window.location.reload();
             });
           }
         })();
@@ -67,7 +67,8 @@ function Verify() {
           <span className={VerifyCSS["user-email"]}>
             Please note that this may take up to a few minutes
           </span>
-          . Don't see it? Check your junk emails!
+          . Don't see it? Check your junk emails! Once you have verified your
+          email, reload the page.
         </p>
         <Button
           options={{

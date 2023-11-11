@@ -3,7 +3,8 @@ import { useUser } from "../../../../context/UserContext";
 
 function AccountSettingsRoute() {
   const { userId } = useParams();
-  const { user, isFetchingUser } = useUser();
+  const { user, userData, isFetchingUser } = useUser();
+  console.log(userData);
 
   return isFetchingUser ? (
     <></>
