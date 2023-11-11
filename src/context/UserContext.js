@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth, db, doc, getDoc } from "../lib/firebase";
+import { auth, db, doc, getDoc, updateDoc } from "../lib/firebase";
 
 const UserContext = createContext();
 const UserDataContext = createContext();
@@ -35,6 +35,18 @@ function UserProvider({ children }) {
         return;
       } else {
         setCurrUser(res.data());
+
+        // If user verified not updated, update it here
+        // !Check if this works with Alan
+        if (currUserData?.emailVerified && !res.data().isVerified) {
+          console.log("Updating verified");
+          const userRef = doc(db, "users", res.data().id);
+          updateDoc(userRef, {
+            isVerified: true,
+          }).then(() => {
+            window.location.reload();
+          });
+        }
       }
     });
   }

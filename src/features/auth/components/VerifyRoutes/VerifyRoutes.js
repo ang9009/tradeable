@@ -5,8 +5,8 @@ import { useUser } from "../../../../context/UserContext";
 function VerifyRoutes() {
   const { user, userData, isFetchingUser } = useUser();
 
-  return user ? (
-    user?.isVerified ? (
+  return userData ? (
+    userData?.emailVerified ? (
       <Outlet />
     ) : (
       <Navigate to="/verify" />
