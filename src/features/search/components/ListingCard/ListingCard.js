@@ -36,7 +36,7 @@ function ListingCard({ listing }) {
         )}
       </div>
       <div className={ListingCardCSS["text-container"]}>
-        <div>
+        <div className={ListingCardCSS["name-and-condition"]}>
           <p className={ListingCardCSS["listing-name"]}>{listing?.name}</p>
           <p className={ListingCardCSS.condition}>{listing?.condition}</p>
         </div>

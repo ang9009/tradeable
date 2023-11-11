@@ -63,17 +63,11 @@
 .text-container {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .text-container > * {
   margin-top: 5px;
-}
-
-.text-container h1 {
-  font-size: 1rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 .condition {
@@ -82,9 +76,22 @@
 
 .price {
   font-size: 1.1rem !important;
+  margin-left: 15px;
 }
 
 .listing-name {
   font-size: 1rem;
   margin-bottom: 2px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px;
+  overflow: hidden;
+}
+
+.name-and-condition {
+  width: fit-content;
+}
+
+.condition {
+  width: fit-content;
 }
