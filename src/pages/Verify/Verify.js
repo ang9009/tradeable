@@ -1,6 +1,6 @@
 import { onIdTokenChanged, sendEmailVerification } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../../components/ui/Button/Button";
 import Error from "../../components/ui/Error/Error";
@@ -9,8 +9,7 @@ import { auth, db, doc, updateDoc } from "../../lib/firebase";
 import VerifyCSS from "./Verify.module.css";
 
 function Verify() {
-  const navigate = useNavigate();
-  const { userData, user } = useUser();
+  const { userData } = useUser();
   const [error, setError] = useState("");
 
   useEffect(() => {

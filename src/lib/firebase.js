@@ -182,7 +182,7 @@ async function createChat(user, sellerId, listingId, listingName) {
         seller_email: seller.email,
         listing_name: listingName,
       },
-      "fM8cw4RpVk14DqFaQ"
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY
     );
   } catch (err) {
     console.log(err);
