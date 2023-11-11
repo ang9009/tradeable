@@ -16,6 +16,7 @@ import {
   setDoc,
   updateDoc,
 } from "firebase/firestore";
+import { getFunctions } from "firebase/functions";
 import {
   deleteObject,
   getBlob,
@@ -37,6 +38,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const functions = getFunctions(app);
 const db = getFirestore();
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
@@ -228,12 +230,14 @@ async function getChatListings(userChats) {
 }
 
 export {
+  app,
   auth,
   createChat,
   db,
   deleteDoc,
   deleteObject,
   doc,
+  functions,
   getAdditionalUserInfo,
   getChatListings,
   getDoc,

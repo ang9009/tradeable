@@ -69,6 +69,10 @@
   color: #fff;
 }
 
+.burgundy-filled:disabled {
+  background: var(--secondary-text-color);
+}
+
 .white-filled {
   background: #fff;
   color: black;

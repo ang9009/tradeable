@@ -1,7 +1,4 @@
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +6,7 @@ import TextInput from "../../components/form/TextInput/TextInput";
 import Button from "../../components/ui/Button/Button";
 import Error from "../../components/ui/Error/Error";
 import { useUser } from "../../context/UserContext";
+import { sendVerifyEmail } from "../../features/auth";
 import { auth, db, doc, setDoc } from "../../lib/firebase";
 import SignupCSS from "./Signup.module.css";
 
@@ -53,7 +51,7 @@ function Signup() {
 
         await setDoc(doc(db, "userChats", result.user.uid), {});
         await setDoc(userRef, user).then(() => {
-          sendEmailVerification(result.user).then(() => {
+          sendVerifyEmail(name, data.studentEmail).then(() => {
             navigate("/verify");
           });
         });

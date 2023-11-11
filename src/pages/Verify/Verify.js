@@ -1,16 +1,19 @@
-import { onIdTokenChanged, sendEmailVerification } from "firebase/auth";
+import { onIdTokenChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
+import Countdown from "react-countdown";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../../components/ui/Button/Button";
 import Error from "../../components/ui/Error/Error";
 import { useUser } from "../../context/UserContext";
+import { sendVerifyEmail } from "../../features/auth";
 import { auth, db, doc, updateDoc } from "../../lib/firebase";
 import VerifyCSS from "./Verify.module.css";
 
 function Verify() {
   const { userData } = useUser();
   const [error, setError] = useState("");
+  const [countdownKey, setCountdownKey] = useState(0);
 
   useEffect(() => {}, [userData]);
 
@@ -37,17 +40,39 @@ function Verify() {
     };
   }, []);
 
-  function sendEmail() {
-    sendEmailVerification(userData)
-      .then(() => {
-        toast.success("Email sent!", {
-          autoClose: 2000,
-        });
-
-        setError("");
-      })
-      .catch((error) => setError(error.message));
-  }
+  const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      return (
+        <Button
+          options={{
+            type: "burgundy-filled",
+            text: "Resend email",
+            className: VerifyCSS["resend-btn"],
+          }}
+          onClick={() => {
+            sendVerifyEmail(userData?.email.split("@")[0], userData?.email);
+            toast.success("Verification email resent!");
+            setCountdownKey((prev) => prev + 1);
+          }}
+        />
+      );
+    } else {
+      // Render a countdown
+      return (
+        <div className={VerifyCSS["resend-msg"]}>
+          <Button
+            options={{
+              type: "burgundy-filled",
+              text: "Resend email",
+              className: VerifyCSS["resend-btn"],
+            }}
+            disabled
+          />
+          <p>({seconds})</p>
+        </div>
+      );
+    }
+  };
 
   return userData ? (
     <div className={VerifyCSS["page-container"]}>
@@ -62,23 +87,31 @@ function Verify() {
         </h1>
         <p className={VerifyCSS["text-content"]}>
           Please verify your email address using the link we sent to:{" "}
-          {userData?.email}.
+          {userData?.email}. Don't see it? Check your junk emails!
         </p>
         <p className={VerifyCSS["text-content"]}>
           <span className={VerifyCSS["user-email"]}>
             Please note that this may take up to a few minutes
           </span>
-          . Don't see it? Check your junk emails! If you are not redirected,
-          reload the page.
+          . If you are not automatically redirected,{" "}
+          <span
+            className={VerifyCSS["reload-page"]}
+            onClick={() => window.location.reload()}
+          >
+            reload the page
+          </span>
+          .
         </p>
-        <Button
-          options={{
-            type: "burgundy-filled",
-            text: "Resend email",
-            className: VerifyCSS["resend-btn"],
-          }}
-          onClick={() => sendEmail()}
-        />
+        {/* Delay before resend is available */}
+        <div className={VerifyCSS["verify-btn-countdown"]}>
+          <Countdown
+            key={countdownKey}
+            date={Date.now() + 30000}
+            intervalDelay={0}
+            precision={3}
+            renderer={renderer}
+          />
+        </div>
         <Error
           message={error}
           show={error !== ""}

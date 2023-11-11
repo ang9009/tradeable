@@ -28,10 +28,16 @@
   margin: 10px 0;
 }
 
-.text-container p {
+.text-container p,
+.reload-page {
   font-size: calc(1rem + 0.3vw);
   max-width: 550px;
   line-height: 2rem;
+}
+
+.reload-page {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .text-content {
@@ -43,7 +49,6 @@
 }
 
 .resend-btn {
-  margin-top: 20px;
   padding: 12px 30px;
 }
 
@@ -54,6 +59,21 @@
 .error {
   margin-top: 15px;
   width: fit-content;
+}
+
+.verify-btn-countdown {
+  margin-top: 25px;
+}
+
+.resend-msg {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+}
+
+.resend-msg p {
+  color: var(--secondary-text-color);
+  margin-left: 15px;
 }
 
 @media (max-width: 1000px) {
