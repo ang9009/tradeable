@@ -15,6 +15,21 @@ function ListingCard({ listing }) {
           alt={"Listing image"}
           className={ListingCardCSS["listing-img"]}
         />
+        <div>
+          <div
+            className={ListingCardCSS["status-tag"]}
+            style={{
+              background:
+                listing?.status === "reserved"
+                  ? "var(--reserved-blue)"
+                  : "#fff",
+              color: listing?.status === "reserved" ? "#fff" : "#000",
+            }}
+          >
+            {listing?.status}
+          </div>
+          <div className={ListingCardCSS["overlay"]}></div>
+        </div>
         {listing?.status !== "available" ? (
           <div>
             <div

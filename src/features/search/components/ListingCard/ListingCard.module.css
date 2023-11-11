@@ -1,7 +1,6 @@
 .card-container {
   cursor: pointer;
   min-width: 0;
-  z-index: -2;
 }
 
 .img-container {
