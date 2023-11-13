@@ -4,6 +4,7 @@ import ReportErrorModal from "../../components/form/ReportErrorModal/ReportError
 import Icon from "../../components/ui/Logo/Icon";
 import Logo from "../../components/ui/Logo/Logo";
 import { useUser } from "../../context/UserContext";
+import pdf from "../../files/terms.pdf";
 import FooterCSS from "./Footer.module.css";
 
 function Footer() {
@@ -30,8 +31,10 @@ function Footer() {
           </li>
           <li>About</li>
           <li>
-            Terms
-            <span className={FooterCSS["conditions-text"]}> & Conditions</span>
+            <a href={pdf} target="_blank" className={FooterCSS["terms-link"]}>
+              Terms{" "}
+              <span className={FooterCSS["conditions-text"]}>& Conditions</span>
+            </a>
           </li>
         </ul>
         <Logo

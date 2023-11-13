@@ -37,6 +37,11 @@
   color: var(--tradeable-burgundy);
 }
 
+.terms-link {
+  text-decoration: none;
+  color: black;
+}
+
 @media (max-width: 600px) {
   .conditions-text {
     display: none;
