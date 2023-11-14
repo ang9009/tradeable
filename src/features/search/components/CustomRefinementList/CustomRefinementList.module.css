@@ -1,6 +1,6 @@
 .list-container {
   display: flex;
-  overflow-y: hidden;
+  overflow-y: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -17,6 +17,7 @@
   padding: 10px 15px;
   border-radius: 9999px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .refine-item:hover {
@@ -33,7 +34,7 @@
 
 @media (max-width: 1000px) {
   .list-container {
-    width: 100%;
+    max-width: 100%;
   }
 }
 
