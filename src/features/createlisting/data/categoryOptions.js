@@ -5,5 +5,4 @@ export const categoryOptions = [
   { value: "Self-care", label: "Self-care" },
   { value: "Clothing", label: "Clothing" },
   { value: "Miscellaneous", label: "Miscellaneous" },
-  { value: "NEU", label: "NEU" },
 ];

@@ -68,6 +68,11 @@ const Navbar = () => {
                   {category}
                 </li>
               ))}
+              <li>
+                <Link to="/search?listings%5BrefinementList%5D%5BisExchange%5D%5B0%5D=true">
+                  NEU Exchange
+                </Link>
+              </li>
             </ul>
           </div>
           <div className={NavbarCSS["nav-right"]}>

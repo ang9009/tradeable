@@ -2,12 +2,6 @@
   display: flex;
 }
 
-@media (max-width: 1000px) {
-  .list-container {
-    max-width: 100%;
-  }
-}
-
 .refine-item {
   display: flex;
   align-items: center;

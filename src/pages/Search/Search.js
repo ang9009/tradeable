@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { Configure, DynamicWidgets, InstantSearch } from "react-instantsearch";
 import TypesenseInstantsearchAdapter from "typesense-instantsearch-adapter";
@@ -32,16 +32,17 @@ const searchClient = typesenseInstantsearchAdapter.searchClient;
 
 function scrollRight() {
   const refinementItems = document.getElementById("refinement-items");
-  refinementItems.scrollLeft += 200;
+  refinementItems.scrollLeft += 500;
 }
 
 function scrollLeft() {
   const refinementItems = document.getElementById("refinement-items");
-  refinementItems.scrollLeft -= 200;
+  refinementItems.scrollLeft -= 500;
 }
 
 function Search() {
-  const refinementItemsEnd = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const refinementItems = useRef(null);
 
   return (
     <PageContainer type={"wide"}>
@@ -63,17 +64,23 @@ function Search() {
               size={"30px"}
               className={SearchCSS["refinement-nav-btn"]}
             />
+
             <div
               className={SearchCSS["refinement-items"]}
               id="refinement-items"
+              ref={refinementItems}
             >
               <DynamicWidgets>
-                {/* DynamicWidgets only supports components with an attribute prop */}
                 <CustomRefinementList
                   attribute={"isExchange"}
                   className={SearchCSS["exchange-filter"]}
                 />
-                <CustomRefinementList attribute={"category"} />
+              </DynamicWidgets>
+              <DynamicWidgets>
+                <CustomRefinementList
+                  attribute={"category"}
+                  className={SearchCSS["other-filters"]}
+                />
               </DynamicWidgets>
             </div>
             <MdChevronLeft

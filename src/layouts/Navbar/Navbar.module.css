@@ -98,10 +98,12 @@
   display: grid;
   place-items: center;
   white-space: nowrap;
+  margin-left: 32px;
 }
 
-.categories li {
-  margin-left: 32px;
+.categories li > * {
+  text-decoration: none;
+  color: black;
 }
 
 .categories li:hover {

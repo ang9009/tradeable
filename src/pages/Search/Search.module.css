@@ -9,20 +9,16 @@
   min-width: 100%;
 }
 
-.refinement-items > * {
-  flex-shrink: 0;
-}
-
 .refinement-items-wrapper {
-  padding: 0 30px;
-
+  padding: 0 20px;
   position: relative;
   overflow-x: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   scroll-behavior: smooth;
-  max-width: 500px;
+  max-width: 600px;
   display: flex;
+  white-space: nowrap;
   align-items: center;
 }
 
@@ -37,9 +33,7 @@
 .refinement-nav-btn {
   cursor: pointer;
   position: absolute;
-  background: #fff;
-  width: 20px;
-  height: 30px;
+  width: 25px;
 }
 
 .refinement-nav-btn:first-child {
@@ -78,11 +72,14 @@
 
 .refinement-items {
   display: flex;
-  flex-direction: row-reverse;
 }
 
 .exchange-filter {
   margin-right: 15px;
+}
+
+.other-filters {
+  order: 2;
 }
 
 .stats-and-sort-by-container {
