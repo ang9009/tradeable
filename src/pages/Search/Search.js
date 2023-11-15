@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { Configure, DynamicWidgets, InstantSearch } from "react-instantsearch";
 import TypesenseInstantsearchAdapter from "typesense-instantsearch-adapter";
 import {
@@ -28,7 +30,19 @@ const typesenseInstantsearchAdapter = new TypesenseInstantsearchAdapter({
 });
 const searchClient = typesenseInstantsearchAdapter.searchClient;
 
+function scrollRight() {
+  const refinementItems = document.getElementById("refinement-items");
+  refinementItems.scrollLeft += 200;
+}
+
+function scrollLeft() {
+  const refinementItems = document.getElementById("refinement-items");
+  refinementItems.scrollLeft -= 200;
+}
+
 function Search() {
+  const refinementItemsEnd = useRef(null);
+
   return (
     <PageContainer type={"wide"}>
       <InstantSearch
@@ -42,15 +56,31 @@ function Search() {
             <CustomSortby />
             <CustomStats />
           </div>
-          <div className={SearchCSS["refinement-items"]}>
-            <DynamicWidgets>
-              {/* DynamicWidgets only supports components with an attribute prop */}
-              <CustomRefinementList
-                attribute={"isExchange"}
-                className={SearchCSS["exchange-filter"]}
-              />
-              <CustomRefinementList attribute={"category"} />
-            </DynamicWidgets>
+          {/* Wrapper is for positioning chevron nav */}
+          <div className={SearchCSS["refinement-items-wrapper"]}>
+            <MdChevronRight
+              onClick={() => scrollRight()}
+              size={"30px"}
+              className={SearchCSS["refinement-nav-btn"]}
+            />
+            <div
+              className={SearchCSS["refinement-items"]}
+              id="refinement-items"
+            >
+              <DynamicWidgets>
+                {/* DynamicWidgets only supports components with an attribute prop */}
+                <CustomRefinementList
+                  attribute={"isExchange"}
+                  className={SearchCSS["exchange-filter"]}
+                />
+                <CustomRefinementList attribute={"category"} />
+              </DynamicWidgets>
+            </div>
+            <MdChevronLeft
+              className={SearchCSS["refinement-nav-btn"]}
+              onClick={() => scrollLeft()}
+              size={"70px"}
+            />
           </div>
         </div>
         <CustomInfiniteHits />

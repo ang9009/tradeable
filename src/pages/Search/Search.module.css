@@ -1,3 +1,61 @@
+.refinement-items {
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+  min-width: 100%;
+}
+
+.refinement-items > * {
+  flex-shrink: 0;
+}
+
+.refinement-items-wrapper {
+  padding: 0 30px;
+
+  position: relative;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.refinement-items-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.refinement-items::-webkit-scrollbar {
+  display: none;
+}
+
+.refinement-nav-btn {
+  cursor: pointer;
+  position: absolute;
+  background: #fff;
+  width: 20px;
+  height: 30px;
+}
+
+.refinement-nav-btn:first-child {
+  right: 0;
+}
+
+.refinement-nav-btn:last-child {
+  left: 0;
+}
+
+@media (max-width: 1000px) {
+  .refinement-items {
+    max-width: 100%;
+  }
+}
+
 .listings-container {
   width: 300px;
 }
@@ -43,6 +101,10 @@
 }
 
 @media (max-width: 1000px) {
+  .refinement-items-wrapper {
+    width: 100%;
+  }
+
   .filter-and-sort-widgets {
     flex-direction: column-reverse;
     width: 100%;

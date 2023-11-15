@@ -1,12 +1,11 @@
 .list-container {
   display: flex;
-  overflow-y: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
-.list-container::-webkit-scrollbar {
-  display: none;
+@media (max-width: 1000px) {
+  .list-container {
+    max-width: 100%;
+  }
 }
 
 .refine-item {
@@ -30,12 +29,6 @@
 
 .refine-item-label {
   margin-left: 5px;
-}
-
-@media (max-width: 1000px) {
-  .list-container {
-    max-width: 100%;
-  }
 }
 
 /* Old checkbox styles */

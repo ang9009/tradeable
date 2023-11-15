@@ -22,7 +22,7 @@ function Hero() {
               text: "Learn how it works",
               className: HeroCSS["how-it-works-btn"],
             }}
-            onClick={() => navigate("/create-listing")}
+            onClick={() => navigate("/about")}
           />
           <Button
             options={{
