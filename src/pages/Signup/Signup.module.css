@@ -49,10 +49,11 @@
   font-size: 0.85rem;
 }
 
-.terms-text span {
+.terms-text a {
   text-decoration: underline;
   font-size: 0.85rem;
   cursor: pointer;
+  color: var(--secondary-text-color);
 }
 
 .error {

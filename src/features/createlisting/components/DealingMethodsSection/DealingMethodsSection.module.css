@@ -3,3 +3,13 @@
   color: var(--secondary-text-color);
   margin-top: var(--input-margin-top);
 }
+
+.exchange-input {
+  margin-bottom: 30px;
+}
+
+.hint {
+  color: var(--secondary-text-color);
+  font-size: 0.8rem;
+  margin-left: 28px;
+}

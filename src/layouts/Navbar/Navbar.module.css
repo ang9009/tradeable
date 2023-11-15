@@ -1,14 +1,36 @@
 .component-container {
-  margin-bottom: var(--navbar-height);
+  margin-bottom: calc(var(--navbar-height) + var(--banner-height));
+}
+
+.banner {
+  background: var(--tradeable-burgundy);
+  width: 100%;
+  z-index: 99;
+  top: 0;
+  height: var(--banner-height);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  position: fixed;
+}
+
+.banner-link {
+  color: #fff;
+}
+
+.close-btn {
+  cursor: pointer;
+  margin-left: 15px;
+  position: absolute;
+  right: 20px;
 }
 
 .nav-container {
-  position: relative;
   width: 100%;
-  z-index: 4;
+  z-index: 99;
   height: var(--navbar-height);
+  top: var(--banner-height);
   position: fixed;
-  top: 0;
   width: 100%;
   display: flex;
   align-items: center;
@@ -122,6 +144,15 @@
 }
 
 @media (max-width: 600px) {
+  :root {
+    --banner-height: 60px !important;
+  }
+
+  .banner p {
+    width: 70%;
+    text-align: center;
+  }
+
   .ios-app-btn {
     display: none;
   }

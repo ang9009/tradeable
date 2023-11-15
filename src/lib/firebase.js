@@ -61,6 +61,7 @@ async function onSubmitListing(data, listingId, userId) {
     price: data.price,
     description: data.description,
     meetUpLocations: data.meetUpLocations,
+    isExchange: data.isExchange,
     sellerId: userId,
     buyerId: "",
     postedDate: date,
@@ -85,6 +86,8 @@ function getEditListingData(listingId, reset, setIsFetchingListing) {
       imagePromises.push(getBlob(pathRef));
     }
 
+    console.log(listingData.isExchange);
+
     Promise.all(imagePromises).then(async (photos) => {
       reset({
         ...listingData,
@@ -96,6 +99,7 @@ function getEditListingData(listingId, reset, setIsFetchingListing) {
           value: listingData.category,
           label: listingData.category,
         },
+        isExchange: listingData.isExchange,
         meetUpLocations: listingData.meetUpLocations,
         photos: photos.map((blob, i) => {
           return { file: blob, url: URL.createObjectURL(blob) };

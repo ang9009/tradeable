@@ -34,7 +34,7 @@ function ItemDetailsSection() {
             formData={{ control, errors }}
           />
           <PriceInput
-            options={{ max: 99999 }}
+            options={{ max: 999 }}
             formData={{ register, watch, errors, setValue }}
           />
           <SelectInput

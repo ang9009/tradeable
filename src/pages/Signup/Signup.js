@@ -7,6 +7,7 @@ import Button from "../../components/ui/Button/Button";
 import Error from "../../components/ui/Error/Error";
 import { useUser } from "../../context/UserContext";
 import { sendVerifyEmail } from "../../features/auth";
+import pdf from "../../files/terms.pdf";
 import { auth, db, doc, setDoc } from "../../lib/firebase";
 import SignupCSS from "./Signup.module.css";
 
@@ -106,7 +107,9 @@ function Signup() {
       </p>
       <p className={SignupCSS["terms-text"]}>
         By signing up with email above, you agree to tradeable's{" "}
-        <span>Terms & Conditions</span>
+        <a target="_blank" href={pdf}>
+          Terms & Conditions
+        </a>
       </p>
     </div>
   );

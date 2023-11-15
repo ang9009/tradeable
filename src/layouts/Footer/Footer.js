@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ReportErrorModal from "../../components/form/ReportErrorModal/ReportErrorModal";
 import Icon from "../../components/ui/Logo/Icon";
 import Logo from "../../components/ui/Logo/Logo";
@@ -30,6 +30,9 @@ function Footer() {
             Report an error
           </li>
           <li>About</li>
+          <li>
+            <Link to="/neu-exchange">NEU Exchange</Link>
+          </li>
           <li>
             <a href={pdf} target="_blank" className={FooterCSS["terms-link"]}>
               Terms{" "}

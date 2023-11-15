@@ -19,7 +19,7 @@ function Hero() {
           <Button
             options={{
               type: "burgundy-filled",
-              text: "Start selling",
+              text: "Learn how it works",
               className: HeroCSS["how-it-works-btn"],
             }}
             onClick={() => navigate("/create-listing")}

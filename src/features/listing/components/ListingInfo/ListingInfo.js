@@ -49,6 +49,7 @@ function ListingInfo({ listingData }) {
           Category
           <span className={ListingInfoCSS.data}>{listingData.category}</span>
         </p>
+        {listingData.isExchange && <p>Available for NEU Oakland students</p>}
         <h1 className={ListingInfoCSS.price}>£{listingData.price}</h1>
       </div>
     </div>

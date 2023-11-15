@@ -13,6 +13,7 @@ function Listing() {
   const { listingId } = useParams();
   const [listingData, setListingData] = useState({});
   const [seller, setSeller] = useState({});
+  console.log(listingData);
 
   useEffect(() => {
     // Fetches listing data, seller object, and images
@@ -41,6 +42,7 @@ function Listing() {
       />
       <div className={ListingCSS["listing-details"]}>
         <ListingInfo listingData={listingData} />
+
         <div className={ListingCSS["divider"]}></div>
         <div className={ListingCSS["seller-section"]}>
           <SellerWidget seller={seller} />

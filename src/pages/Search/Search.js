@@ -42,10 +42,16 @@ function Search() {
             <CustomSortby />
             <CustomStats />
           </div>
-          <DynamicWidgets>
-            {/* DynamicWidgets only supports components with an attribute prop */}
-            <CustomRefinementList attribute={"category"} />
-          </DynamicWidgets>
+          <div className={SearchCSS["refinement-items"]}>
+            <DynamicWidgets>
+              {/* DynamicWidgets only supports components with an attribute prop */}
+              <CustomRefinementList
+                attribute={"isExchange"}
+                className={SearchCSS["exchange-filter"]}
+              />
+              <CustomRefinementList attribute={"category"} />
+            </DynamicWidgets>
+          </div>
         </div>
         <CustomInfiniteHits />
         <Configure filters="status:!=sold" />

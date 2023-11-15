@@ -18,10 +18,19 @@
   margin-right: 15px;
 }
 
+.refinement-items {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.exchange-filter {
+  margin-right: 15px;
+}
+
 .stats-and-sort-by-container {
   align-items: center;
   position: relative;
-  z-index: 9999;
+  z-index: 9;
 }
 
 .categories-heading {

@@ -11,9 +11,9 @@ function Checkbox({
   const {
     field: { onChange, value, ref },
   } = useController({
-    name,
+    name: name,
     control,
-    defaultValue: [],
+    defaultValue: false,
     rules: {
       validate: validate,
     },
@@ -26,13 +26,8 @@ function Checkbox({
         className={CheckboxCSS["checkbox"]}
         id={toCamelCase(label)}
         name={name}
-        onCheckedChange={(isChecked) =>
-          onChange(
-            isChecked
-              ? [...value, toCamelCase(label)]
-              : value?.filter((v) => v !== toCamelCase(label))
-          )
-        }
+        onCheckedChange={(isChecked) => onChange(isChecked)}
+        checked={value}
         value={value}
       >
         <RadixCheckbox.Indicator className={CheckboxCSS["check"]}>

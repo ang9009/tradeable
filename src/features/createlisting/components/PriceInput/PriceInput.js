@@ -8,7 +8,6 @@ function PriceInput({
   options: { max },
   formData: { register, watch, errors, setValue },
 }) {
-  const price = watch("price");
   const [isFocused, setIsFocused] = useState(false);
 
   const registerSettings = {
