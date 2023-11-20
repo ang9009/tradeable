@@ -9,7 +9,7 @@ function Hero() {
     <div className={HeroCSS["hero-container"]}>
       <div className={HeroCSS["hero-text"]}>
         <span className={HeroCSS["title"]}>
-          An online marketplace for university students in London
+          The online marketplace for university students
         </span>
         <p className={HeroCSS["desc"]}>
           Make some extra cash, or save money by selling or buying second-hand

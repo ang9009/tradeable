@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FiMenu, FiPlus, FiSearch } from "react-icons/fi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
@@ -11,14 +11,9 @@ import NavbarCSS from "./Navbar.module.css";
 
 const Navbar = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
-  const [isBannerOpen, setIsBannerOpen] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
   const { user } = useUser();
-
-  useEffect(() => {
-    setIsBannerOpen(location.pathname === "/");
-  }, [location]);
 
   function getCategoryUrl(category) {
     return `search?listings%5BrefinementList%5D%5Bcategory%5D%5B0%5D=${category}`;
@@ -29,7 +24,9 @@ const Navbar = () => {
       {/* Move up when banner closed */}
       <div
         className={NavbarCSS["component-container"]}
-        style={{ marginBottom: !isBannerOpen && "var(--navbar-height)" }}
+        style={{
+          marginBottom: location.pathname === "/" && "var(--navbar-height)",
+        }}
       >
         <Sidebar
           openSidebar={openSidebar}
@@ -37,7 +34,7 @@ const Navbar = () => {
           className={NavbarCSS["sidebar"]}
         />
 
-        {isBannerOpen && (
+        {location.pathname === "/" && (
           <div className={NavbarCSS["banner"]}>
             <p>
               NU London/Oakland students:{" "}
@@ -49,7 +46,7 @@ const Navbar = () => {
         )}
         <nav
           className={NavbarCSS["nav-container"]}
-          style={{ top: !isBannerOpen && 0 }}
+          style={{ top: location.pathname !== "/" && 0 }}
         >
           <div className={NavbarCSS["nav-left"]}>
             <Logo
@@ -68,10 +65,15 @@ const Navbar = () => {
                   {category}
                 </li>
               ))}
-              <li>
-                <Link to="/search?listings%5BrefinementList%5D%5BisExchange%5D%5B0%5D=true">
-                  NEU Exchange
-                </Link>
+              <li
+                onClick={() => {
+                  navigate(
+                    "/search?listings%5BrefinementList%5D%5BisExchange%5D%5B0%5D=true"
+                  );
+                  window.location.reload();
+                }}
+              >
+                NEU Exchange
               </li>
             </ul>
           </div>
