@@ -40,6 +40,7 @@ function Home() {
             text: "Learn how it works",
             className: HomeCSS["homepage-btn"],
           }}
+          onClick={() => navigate("/about")}
         />
       </div>
       <div className={HomeCSS["buy-section"]}>

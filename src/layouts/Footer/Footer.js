@@ -29,7 +29,9 @@ function Footer() {
           >
             Report an error
           </li>
-          <li>About</li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
           <li>
             <Link to="/neu">NEU Exchange</Link>
           </li>

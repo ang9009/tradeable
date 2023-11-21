@@ -1,25 +1,78 @@
-import { FiMessageSquare, FiShoppingBag } from "react-icons/fi";
+import CopyToClipboard from "react-copy-to-clipboard";
+import {
+  FiHelpCircle,
+  FiMessageSquare,
+  FiPackage,
+  FiPlus,
+  FiShare,
+  FiShoppingBag,
+} from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import Button from "../../components/ui/Button/Button";
 import NEUExchangeCSS from "./NEUExchange.module.css";
 
 function NEUExchange() {
+  const navigate = useNavigate();
+
   return (
     <div className={NEUExchangeCSS["page-container"]}>
+      <div className={NEUExchangeCSS["intro-section"]}>
+        <h1 className={NEUExchangeCSS["page-title"]}>
+          The NU Exchange Program
+        </h1>
+        <div className={NEUExchangeCSS["cards-container"]}>
+          <div className={NEUExchangeCSS["card"]}>
+            <div>
+              <FiHelpCircle size="20px" color="var(--tradeable-burgundy)" />
+              <h1>What is this?</h1>
+            </div>
+            <p>
+              tradeable’s NU Exchange program allows NU London students and
+              incoming students from NU Oakland to trade with each other between
+              cycles.
+            </p>
+            <p>
+              NU Oakland students should note that dorms do not provide some
+              items that may be considered as essential, including cooking
+              appliances such as kettles or rice cookers, electrical appliances
+              such as air conditioners or fans, and cleaning appliances such as
+              vacuum cleaners or mops.
+            </p>
+          </div>
+          <div className={NEUExchangeCSS["card"]}>
+            <div>
+              <FiHelpCircle size="20px" color="var(--tradeable-burgundy)" />
+              <h1>What are the benefits?</h1>
+            </div>
+            <p>
+              Through the program, NU London students can recoup money on dorm
+              purchases, and NU Oakland students get to save on dorm essentials.
+            </p>
+            <p>
+              This program also promotes the sustainable reuse of dorm items,
+              which aligns with Northeastern's sustainable values.
+            </p>
+          </div>
+        </div>
+      </div>
       <h1 className={NEUExchangeCSS["page-title"]}>How it works</h1>
       <div className={NEUExchangeCSS["step-container"]}>
         <div className={NEUExchangeCSS["step-text-container"]}>
           <div className={NEUExchangeCSS["step-title-container"]}>
             <FiShoppingBag size="25px" color="var(--tradeable-burgundy)" />
-            <h1>Buy or sell</h1>
+            <h1>Selling items</h1>
           </div>
           <p>
-            Post the listing you want to sell, or find a listing that you’re
-            interested in buying.
+            For NU London students: create a listing by clicking the <FiPlus />{" "}
+            button in the navbar. Indicate that you intend to sell to NU Oakland
+            students via the checkbox provided.
           </p>
         </div>
         <img
-          src={require("../../assets/rice-cooker-browser.png")}
-          alt="rice-cooker-browser"
-          className={NEUExchangeCSS["buy-or-sell-img"]}
+          src={require("../../assets/checkbox-browser.png")}
+          alt="checkbox-browser"
+          className={NEUExchangeCSS["browser-img"]}
         />
       </div>
       <div className={NEUExchangeCSS["step-container"]}>
@@ -35,27 +88,67 @@ function NEUExchange() {
           </p>
         </div>
         <img
-          src={require("../../assets/rice-cooker-browser.png")}
-          alt="rice-cooker-browser"
-          className={NEUExchangeCSS["buy-or-sell-img"]}
+          src={require("../../assets/chat-browser.png")}
+          alt="chat-browser"
+          className={NEUExchangeCSS["browser-img"]}
         />
       </div>
       <div className={NEUExchangeCSS["step-container"]}>
         <div className={NEUExchangeCSS["step-text-container"]}>
           <div className={NEUExchangeCSS["step-title-container"]}>
-            <FiShoppingBag size="25px" color="var(--tradeable-burgundy)" />
+            <FiPackage size="25px" color="var(--tradeable-burgundy)" />
             <h1>Trade and review</h1>
           </div>
           <p>
             Meet up and trade! Inspect before paying. Payments can be made
-            through cash or digital transfers like Paypal. Leave reviews for
-            each other after marking the listing as sold.
+            through cash or digital transfer methods such as Paypal. Leave
+            reviews for each other after marking the listing as sold.
           </p>
         </div>
         <img
-          src={require("../../assets/rice-cooker-browser.png")}
-          alt="rice-cooker-browser"
-          className={NEUExchangeCSS["buy-or-sell-img"]}
+          src={require("../../assets/review-browser.png")}
+          alt="review-browser"
+          className={NEUExchangeCSS["browser-img"]}
+        />
+      </div>
+      <div className={NEUExchangeCSS["interested-section"]}>
+        <div className={NEUExchangeCSS["interested-section-left"]}>
+          <h1 className={NEUExchangeCSS["section-title"]}>Get started today</h1>
+          <div className={NEUExchangeCSS["interested-section-btns"]}>
+            <Button
+              options={{
+                type: "white-filled",
+                text: "Sign up",
+                className: NEUExchangeCSS["homepage-btn"],
+              }}
+              onClick={() => navigate("/signup")}
+            />
+            <CopyToClipboard text={"http://tradeable.gg/"}>
+              <Button
+                options={{
+                  type: "black-filled",
+                  text: (
+                    <div className={NEUExchangeCSS["share-btn-content"]}>
+                      <FiShare size={"17px"} />
+                      <p>Share</p>
+                    </div>
+                  ),
+                  className: NEUExchangeCSS["homepage-btn"],
+                }}
+                onClick={() =>
+                  toast.success("Link copied to clipboard", {
+                    autoClose: 3000,
+                    theme: "colored",
+                  })
+                }
+              />
+            </CopyToClipboard>
+          </div>
+        </div>
+        <img
+          src={require("../../assets/verify_lyla_2.png")}
+          alt=""
+          className={NEUExchangeCSS["interested-lyla"]}
         />
       </div>
     </div>

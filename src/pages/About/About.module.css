@@ -6,7 +6,7 @@
 }
 
 .page-container > *:not(:first-child) {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .page-title {
@@ -27,6 +27,11 @@
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+.step-container:nth-child(even) .step-text-container {
+  left: initial;
+  right: 150px;
 }
 
 .step-text-container {

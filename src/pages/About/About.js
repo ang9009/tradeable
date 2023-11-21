@@ -2,6 +2,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import {
   FiMessageSquare,
   FiPackage,
+  FiPlus,
   FiShare,
   FiShoppingBag,
 } from "react-icons/fi";
@@ -24,7 +25,8 @@ function About() {
           </div>
           <p>
             Post the listing you want to sell, or find a listing that you’re
-            interested in buying.
+            interested in buying. Click the <FiPlus /> button in the navigation
+            bar to post a listing.
           </p>
         </div>
         <img
