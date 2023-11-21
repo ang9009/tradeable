@@ -25,7 +25,7 @@ const Navbar = () => {
       <div
         className={NavbarCSS["component-container"]}
         style={{
-          marginBottom: location.pathname === "/" && "var(--navbar-height)",
+          marginBottom: location.pathname !== "/" && "var(--navbar-height)",
         }}
       >
         <Sidebar
@@ -38,7 +38,7 @@ const Navbar = () => {
           <div className={NavbarCSS["banner"]}>
             <p>
               NU London/Oakland students:{" "}
-              <Link to="/northeastern" className={NavbarCSS["banner-link"]}>
+              <Link to="/neu" className={NavbarCSS["banner-link"]}>
                 learn how you can trade with each other
               </Link>
             </p>

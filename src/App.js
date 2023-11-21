@@ -20,11 +20,13 @@ import { ToastContainer } from "react-toastify";
 import { register } from "swiper/element/bundle";
 import EditListingRoute from "./features/auth/components/EditListingRoute/EditListingRoute";
 import ListingRoute from "./features/listing/components/ListingRoute/ListingRoute";
+import About from "./pages/About/About";
 import AccountSettings from "./pages/AccountSettings/AccountSettings";
 import CreateListing from "./pages/CreateListing/CreateListing";
 import EditListing from "./pages/EditListing/EditListing";
 import Login from "./pages/Login/Login";
 import Messages from "./pages/Messages/Messages";
+import NEUExchange from "./pages/NEUExchange/NEUExchange";
 import NotFound from "./pages/NotFound/NotFound";
 import Profile from "./pages/Profile/Profile";
 import Search from "./pages/Search/Search";
@@ -43,6 +45,8 @@ function App() {
         <Route element={<AppLayout />}>
           <Route path="/verify" element={<Verify />} />
           <Route element={<VerifyRoutes />}>
+            <Route path="/neu" element={<NEUExchange />} />
+            <Route path="/about" element={<About />} />
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

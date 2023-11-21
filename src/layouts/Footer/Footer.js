@@ -31,7 +31,7 @@ function Footer() {
           </li>
           <li>About</li>
           <li>
-            <Link to="/neu-exchange">NEU Exchange</Link>
+            <Link to="/neu">NEU Exchange</Link>
           </li>
           <li>
             <a href={pdf} target="_blank" className={FooterCSS["terms-link"]}>
