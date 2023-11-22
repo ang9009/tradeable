@@ -13,6 +13,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../../components/ui/Button/Button";
+import pdf from "../../files/terms.pdf";
 import NEUExchangeCSS from "./NEUExchange.module.css";
 
 function NEUExchange() {
@@ -162,8 +163,11 @@ function NEUExchange() {
           Items are stored at NU London from December 16th to January 14th
           (location TBC, update by November 29th). It should be noted that the
           university is only responsible for storage of items, and has no other
-          involvement in the program. For tradeable’s terms and conditions,
-          please see here.
+          involvement in the program. For tradeable’s terms and conditions,{" "}
+          <a target="_blank" href={pdf}>
+            please see here
+          </a>
+          .
         </p>
       </div>
       <div
