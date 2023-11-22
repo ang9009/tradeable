@@ -26,7 +26,11 @@ function DealingMethodsSection() {
               }}
               formData={{ control }}
             />
-            <Link to="/neu" className={DealingMethodsSectionCSS["hint"]}>
+            <Link
+              to="/neu"
+              target="_blank"
+              className={DealingMethodsSectionCSS["hint"]}
+            >
               What's this?
             </Link>
           </div>

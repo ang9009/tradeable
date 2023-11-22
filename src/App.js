@@ -30,6 +30,7 @@ import NEUExchange from "./pages/NEUExchange/NEUExchange";
 import NotFound from "./pages/NotFound/NotFound";
 import Profile from "./pages/Profile/Profile";
 import Search from "./pages/Search/Search";
+import Share from "./pages/Share/Share";
 import Signup from "./pages/Signup/Signup";
 import Verify from "./pages/Verify/Verify";
 
@@ -57,6 +58,7 @@ function App() {
             </Route>
             <Route path="*" element={<NotFound />} />
             <Route element={<PrivateRoutes />}>
+              <Route path="/share" element={<Share />} />
               <Route path="/create-listing" element={<CreateListing />} />
               <Route path="/messages">
                 <Route index element={<Messages />} />

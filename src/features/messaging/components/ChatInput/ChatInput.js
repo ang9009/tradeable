@@ -89,7 +89,6 @@ function ChatInput({ messages, chatData, userInfo }) {
     });
   }
 
-  // !THIS IS WRONG! SHOULD BE UPDATING THE RECIPIENT NAME/ID/EMAIL
   async function updateNotificationsData() {
     await updateDoc(doc(db, "chatNotifications", chatId), {
       ["recipientName"]: userInfo.name,

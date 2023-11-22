@@ -1,0 +1,99 @@
+.page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - var(--navbar-height));
+  padding: 60px 10px;
+}
+
+.lyla-img {
+  width: 550px;
+  margin-left: 30px;
+}
+
+.lyla-img-mobile {
+  width: 400px;
+  margin-bottom: 30px;
+}
+
+.page-title {
+  font-size: calc(2rem + 1.5vw);
+  line-height: calc(3rem + 1.2vw);
+  max-width: 650px;
+}
+
+.user-email {
+  font-weight: bold;
+  font-size: calc(1rem + 0.3vw);
+  margin: 10px 0;
+}
+
+.text-container p,
+.reload-page {
+  font-size: calc(1rem + 0.3vw);
+  max-width: 550px;
+  line-height: 2rem;
+}
+
+.reload-page {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.text-content {
+  margin-top: 20px;
+}
+
+.lyla-img-mobile {
+  display: none;
+}
+
+.resend-btn {
+  padding: 12px 30px;
+}
+
+.resend-btn > * {
+  font-size: calc(1rem + 0.1vw);
+}
+
+.error {
+  margin-top: 15px;
+  width: fit-content;
+}
+
+.verify-btn-countdown {
+  margin-top: 25px;
+}
+
+.resend-msg {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+}
+
+.resend-msg p {
+  color: var(--secondary-text-color);
+  margin-left: 15px;
+}
+
+@media (max-width: 1000px) {
+  .lyla-img {
+    display: none;
+  }
+
+  .lyla-img-mobile {
+    display: initial;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0px 40px;
+  }
+
+  .page-container {
+    flex-direction: column;
+  }
+}
