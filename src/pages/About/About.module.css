@@ -5,8 +5,16 @@
   padding-top: 50px;
 }
 
-.page-container > *:not(:first-child) {
-  margin-top: 50px;
+.step-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 30px;
+}
+
+.more-margin {
+  margin-top: 100px !important;
 }
 
 .page-title {
@@ -20,13 +28,7 @@
 .browser-img {
   width: 900px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.step-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  border-radius: 10px;
 }
 
 .step-container:nth-child(even) .step-text-container {
@@ -74,6 +76,7 @@
   justify-content: space-between;
   align-items: center;
   background: var(--background-beige);
+  margin-top: 100px;
 }
 
 .interested-section-btns {
@@ -93,13 +96,6 @@
 
 .interested-lyla {
   max-width: 500px;
-}
-
-.interested-section {
-  display: flex;
-  flex-direction: initial;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .share-btn-content {

@@ -35,16 +35,17 @@ function About() {
           className={AboutCSS["browser-img"]}
         />
       </div>
-      <div className={AboutCSS["step-container"]}>
+      <div
+        className={`${AboutCSS["step-container"]} ${AboutCSS["more-margin"]}`}
+      >
         <div className={AboutCSS["step-text-container"]}>
           <div className={AboutCSS["step-title-container"]}>
             <FiMessageSquare size="25px" color="var(--tradeable-burgundy)" />
             <h1>Negotiate</h1>
           </div>
           <p>
-            Through chat, talk about the details of the listing, and when and
-            where you can meet. Sellers can mark a listing as reserved for a
-            buyer.
+            Through chat, discuss the details of the listing, and when and where
+            you can meet. Sellers can mark a listing as reserved for a buyer.
           </p>
         </div>
         <img
@@ -53,7 +54,9 @@ function About() {
           className={AboutCSS["browser-img"]}
         />
       </div>
-      <div className={AboutCSS["step-container"]}>
+      <div
+        className={`${AboutCSS["step-container"]} ${AboutCSS["more-margin"]}`}
+      >
         <div className={AboutCSS["step-text-container"]}>
           <div className={AboutCSS["step-title-container"]}>
             <FiPackage size="25px" color="var(--tradeable-burgundy)" />

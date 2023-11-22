@@ -2,18 +2,30 @@
   display: flex;
   flex-direction: column;
   min-height: calc(100dvh - var(--navbar-height));
-  padding-top: 50px;
 }
 /* Intro section */
 
 .intro-section {
+  padding: 100px 70px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: var(--background-beige);
 }
 
-.intro-section p {
+.scroll-hint {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.scroll-hint p {
+  font-size: calc(1rem + 0.2vw);
+  margin-right: 5px;
+}
+
+.intro-section .card p {
   margin-top: 15px;
   max-width: 600px;
 }
@@ -29,10 +41,15 @@
   margin-left: 10px;
 }
 
+.cards-container {
+  max-width: 900px;
+  padding: 20px;
+}
+
 .card {
+  background: #fff;
   border: var(--primary-border);
   box-shadow: var(--darker-box-shadow);
-  max-width: 450px;
   border-radius: 10px;
   padding: 30px;
 }
@@ -50,11 +67,14 @@
   display: flex;
   flex-direction: column;
   min-height: calc(100dvh - var(--navbar-height));
-  padding-top: 50px;
 }
 
-.step-container:not(:first-child) {
+.step-container {
   margin-top: 50px;
+}
+
+.more-margin {
+  margin-top: 100px;
 }
 
 .page-title {
@@ -72,6 +92,7 @@
 .browser-img {
   width: 900px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
 }
 
 .step-container {
@@ -126,7 +147,7 @@
   justify-content: space-between;
   align-items: center;
   background: var(--background-beige);
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .interested-section-btns {
@@ -183,7 +204,46 @@
   border-width: 2px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
+  .card:first-child {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}
+
+/* Delivery and storage */
+.deliv-storage-step {
+  max-width: 900px;
+  background: #fff;
+  box-shadow: var(--darker-box-shadow);
+  padding: 40px 45px;
+  border: var(--primary-border);
+  border-radius: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.deliv-storage-step div {
+  display: flex;
+  align-items: center;
+}
+
+.deliv-storage-step div h1 {
+  margin-left: 10px;
+}
+
+@media (max-width: 1200px) {
   .page-container {
     padding-top: 30px;
   }
@@ -208,7 +268,6 @@
     border-radius: 0 0 10px 10px;
     border-top: none;
     transform: translateY(-7px);
-    background: #f3f3f3;
   }
 
   .browser-img {
@@ -225,8 +284,7 @@
     padding: 8px 20px !important;
   }
 
-  .sell-section,
-  .buy-section,
+  .intro-section,
   .interested-section {
     padding: 70px 20px;
     display: flex;

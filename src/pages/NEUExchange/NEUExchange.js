@@ -1,11 +1,14 @@
 import CopyToClipboard from "react-copy-to-clipboard";
 import {
+  FiArchive,
   FiHelpCircle,
   FiMessageSquare,
   FiPackage,
   FiPlus,
+  FiSearch,
   FiShare,
   FiShoppingBag,
+  FiTruck,
 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -19,7 +22,7 @@ function NEUExchange() {
     <div className={NEUExchangeCSS["page-container"]}>
       <div className={NEUExchangeCSS["intro-section"]}>
         <h1 className={NEUExchangeCSS["page-title"]}>
-          The NU Exchange Program
+          The NEU Exchange Program
         </h1>
         <div className={NEUExchangeCSS["cards-container"]}>
           <div className={NEUExchangeCSS["card"]}>
@@ -28,7 +31,7 @@ function NEUExchange() {
               <h1>What is this?</h1>
             </div>
             <p>
-              tradeable’s NU Exchange program allows NU London students and
+              tradeable’s NEU Exchange program allows NU London students and
               incoming students from NU Oakland to trade with each other between
               cycles.
             </p>
@@ -55,6 +58,9 @@ function NEUExchange() {
             </p>
           </div>
         </div>
+        <div className={NEUExchangeCSS["scroll-hint"]}>
+          <p>Scroll to learn more...</p>
+        </div>
       </div>
       <h1 className={NEUExchangeCSS["page-title"]}>How it works</h1>
       <div className={NEUExchangeCSS["step-container"]}>
@@ -75,16 +81,38 @@ function NEUExchange() {
           className={NEUExchangeCSS["browser-img"]}
         />
       </div>
-      <div className={NEUExchangeCSS["step-container"]}>
+      <div
+        className={`${NEUExchangeCSS["step-container"]} ${NEUExchangeCSS["more-margin"]}`}
+      >
+        <div className={NEUExchangeCSS["step-text-container"]}>
+          <div className={NEUExchangeCSS["step-title-container"]}>
+            <FiSearch size="25px" color="var(--tradeable-burgundy)" />
+            <h1>Explore</h1>
+          </div>
+          <p>
+            For NU Oakland students: search for items offered by NU London
+            students by filtering for items with the "NEU Exchange" tag, then
+            click "message seller" on the page to inquire.
+          </p>
+        </div>
+        <img
+          src={require("../../assets/explore_browser.png")}
+          alt="chat-browser"
+          className={NEUExchangeCSS["browser-img"]}
+        />
+      </div>
+      <div
+        className={`${NEUExchangeCSS["step-container"]} ${NEUExchangeCSS["more-margin"]}`}
+      >
         <div className={NEUExchangeCSS["step-text-container"]}>
           <div className={NEUExchangeCSS["step-title-container"]}>
             <FiMessageSquare size="25px" color="var(--tradeable-burgundy)" />
             <h1>Negotiate</h1>
           </div>
           <p>
-            Through chat, talk about the details of the listing, and when and
-            where you can meet. Sellers can mark a listing as reserved for a
-            buyer.
+            Through chat, discuss the details of the listing and the method of
+            payment (e.g. PayPal). Sellers can mark a listing as reserved for a
+            buyer. Payment should be made at this stage.
           </p>
         </div>
         <img
@@ -93,16 +121,63 @@ function NEUExchange() {
           className={NEUExchangeCSS["browser-img"]}
         />
       </div>
-      <div className={NEUExchangeCSS["step-container"]}>
+      <div
+        className={`${NEUExchangeCSS["step-container"]} ${NEUExchangeCSS["more-margin"]}`}
+      >
+        <div className={NEUExchangeCSS["step-text-container"]}>
+          <div className={NEUExchangeCSS["step-title-container"]}>
+            <FiTruck size="25px" color="var(--tradeable-burgundy)" />
+            <h1>Delivery</h1>
+          </div>
+          <p>
+            <strong>
+              NU London sellers must label the item with the buyer's name and
+              NUID.
+            </strong>{" "}
+            This will be used for proof of purchase. The item should be properly
+            packaged for storage using the item's original packaging or a
+            plastic bag.
+          </p>
+          <p>
+            Sellers should then bring the item to campus, where it will be
+            stored (location TBC, update by November 29th).{" "}
+            <strong>The deadline for storage is December 16th.</strong> Buyers
+            should request proof of delivery through chat.
+          </p>
+        </div>
+        <img
+          src={require("../../assets/delivery-browser.png")}
+          alt="chat-browser"
+          className={NEUExchangeCSS["browser-img"]}
+        />
+      </div>
+      <div
+        className={`${NEUExchangeCSS["step-container"]} ${NEUExchangeCSS["more-margin"]} ${NEUExchangeCSS["deliv-storage-step"]}`}
+      >
+        <div>
+          <FiArchive size="25px" color="var(--tradeable-burgundy)" />
+          <h1>Storage</h1>
+        </div>
+        <p>
+          Items are stored at NU London from December 16th to January 14th
+          (location TBC, update by November 29th). It should be noted that the
+          university is only responsible for storage of items, and has no other
+          involvement in the program. For tradeable’s terms and conditions,
+          please see here.
+        </p>
+      </div>
+      <div
+        className={`${NEUExchangeCSS["step-container"]} ${NEUExchangeCSS["more-margin"]}`}
+      >
         <div className={NEUExchangeCSS["step-text-container"]}>
           <div className={NEUExchangeCSS["step-title-container"]}>
             <FiPackage size="25px" color="var(--tradeable-burgundy)" />
-            <h1>Trade and review</h1>
+            <h1>Item pickup</h1>
           </div>
           <p>
-            Meet up and trade! Inspect before paying. Payments can be made
-            through cash or digital transfer methods such as Paypal. Leave
-            reviews for each other after marking the listing as sold.
+            NU Oakland students pick up items from campus on January 14th! NUID
+            and name should match with item label as proof of purchase. Don't
+            forget to leave a review!
           </p>
         </div>
         <img

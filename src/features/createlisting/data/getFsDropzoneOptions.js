@@ -20,7 +20,7 @@ function getFsDropzoneOptions({ setShowOverlay, getValues, setValue }) {
       const err = res[0].errors[0].code;
       const msg =
         err === "file-too-large"
-          ? "Please upload files that are under 4MB"
+          ? "Please upload files that are under 5MB"
           : "Only .jpg and .png files are supported";
       toast.error(msg, { theme: "colored", position: "bottom-right" });
     },

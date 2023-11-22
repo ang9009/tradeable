@@ -119,8 +119,8 @@ function ChatInput({ messages, chatData, userInfo }) {
           id="file"
           onInput={async (e) => {
             // Image input doesn't allow the same img to be uploaded again by default, so use onInput
-            if (e.target.files[0] && e.target.files[0].size > 4194304) {
-              toast.error("Please upload files that are under 4MB", {
+            if (e.target.files[0] && e.target.files[0].size > 5000000) {
+              toast.error("Please upload files that are under 5MB", {
                 theme: "colored",
                 autoClose: 3000,
               });
