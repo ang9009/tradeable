@@ -6,6 +6,10 @@
   padding: 60px 10px;
 }
 
+.browser-img {
+  width: 600px;
+}
+
 .lyla-img {
   width: 550px;
 }
@@ -80,9 +84,14 @@
   margin-left: 15px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
   .lyla-img {
     display: none;
+  }
+
+  .browser-img {
+    max-width: calc(50vw + 200px);
+    margin-bottom: 15px;
   }
 
   .lyla-img-mobile {
@@ -98,6 +107,6 @@
   }
 
   .page-container {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }

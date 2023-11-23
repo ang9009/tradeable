@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import Skeleton from "react-loading-skeleton";
 import { toast } from "react-toastify";
@@ -13,11 +13,6 @@ function Share() {
 
   return !isFetchingUser ? (
     <div className={ShareCSS["page-container"]}>
-      <img
-        src={require("../../assets/verify_lyla_2.png")}
-        className={ShareCSS["lyla-img-mobile"]}
-        alt=""
-      />
       <div className={ShareCSS["text-container"]}>
         <h1 className={ShareCSS["page-title"]}>
           Get on the front page through shares, {user?.name}
@@ -48,8 +43,8 @@ function Share() {
         />
       </div>
       <img
-        src={require("../../assets/verify_lyla_2.png")}
-        className={ShareCSS["lyla-img"]}
+        src={require("../../assets/share-browser.png")}
+        className={ShareCSS["browser-img"]}
         alt=""
       />
     </div>

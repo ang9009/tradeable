@@ -48,7 +48,7 @@ function UserCarouselItem({ user }) {
           <Tooltip id="verified-tooltip" />
         </div>
         <Rating
-          initialValue={5}
+          initialValue={user?.avgRating}
           readonly
           size="15px"
           fillColor="var(--tradeable-burgundy)"
