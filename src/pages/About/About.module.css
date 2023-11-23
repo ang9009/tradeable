@@ -5,6 +5,12 @@
   padding-top: 50px;
 }
 
+.neu {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+}
+
 .step-container {
   display: flex;
   justify-content: center;

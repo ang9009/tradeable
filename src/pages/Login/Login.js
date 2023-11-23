@@ -52,7 +52,7 @@ function Login() {
 
     sendPasswordResetEmail(auth, data.resetEmail)
       .then(() => {
-        toast.success("Email sent! Make sure to check your spam folder.", {
+        toast.success("Email sent! Be sure to check your spam folder.", {
           autoClose: 3000,
         });
         setShowForgotPassword(false);

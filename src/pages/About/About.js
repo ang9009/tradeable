@@ -6,7 +6,7 @@ import {
   FiShare,
   FiShoppingBag,
 } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../../components/ui/Button/Button";
 import AboutCSS from "./About.module.css";
@@ -17,6 +17,10 @@ function About() {
   return (
     <div className={AboutCSS["page-container"]}>
       <h1 className={AboutCSS["page-title"]}>How it works</h1>
+      <p className={AboutCSS["neu"]}>
+        <Link to="/neu">NEU Global Scholars students: click here</Link>
+      </p>
+
       <div className={AboutCSS["step-container"]}>
         <div className={AboutCSS["step-text-container"]}>
           <div className={AboutCSS["step-title-container"]}>
