@@ -30,10 +30,10 @@ function Signup() {
   async function submitSignup(data, e) {
     e.preventDefault();
 
-    // if (!isValidEmail(data.studentEmail)) {
-    //   setError("Please use your student email");
-    //   return;
-    // }
+    if (!isValidEmail(data.studentEmail)) {
+      setError("Please use your student email");
+      return;
+    }
 
     createUserWithEmailAndPassword(auth, data.studentEmail, data.password)
       .then(async (result) => {
@@ -45,7 +45,6 @@ function Signup() {
           id: result.user.uid,
           isVerified: false,
           photoUrl: "",
-          reviews: 0,
           avgRating: 0,
           about: "Hey there, I'm new to tradeable!",
         };
