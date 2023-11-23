@@ -1,13 +1,8 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ListingCardCSS from "./ListingCard.module.css";
 
 function ListingCard({ listing }) {
   const navigate = useNavigate();
-  const [photo, setPhoto] = useState(
-    `https://storage.googleapis.com/tradeable-6ed31.appspot.com/listingImages/${listing?.id}/1`
-  );
-
   return (
     <div
       className={ListingCardCSS["card-container"]}
@@ -15,7 +10,7 @@ function ListingCard({ listing }) {
     >
       <div className={ListingCardCSS["img-container"]}>
         <img
-          src={photo}
+          src={`https://storage.googleapis.com/tradeable-6ed31.appspot.com/listingImages/${listing?.id}/1`}
           alt={"Listing image"}
           className={ListingCardCSS["listing-img"]}
         />
