@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { FiShare } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import Button from "../../components/ui/Button/Button";
 import UsersCarousel from "../../components/ui/UsersCarousel/UsersCarousel";
 import { ListingsCarousel } from "../../features/listing";
@@ -107,12 +106,7 @@ function Home() {
                   ),
                   className: HomeCSS["homepage-btn"],
                 }}
-                onClick={() =>
-                  toast.success("Link copied to clipboard", {
-                    autoClose: 3000,
-                    theme: "colored",
-                  })
-                }
+                onClick={() => navigate("/share")}
               />
             </CopyToClipboard>
           </div>
