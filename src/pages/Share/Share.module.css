@@ -8,6 +8,8 @@
 
 .browser-img {
   width: 600px;
+  border-radius: 10px;
+  box-shadow: var(--darker-box-shadow);
 }
 
 .lyla-img {
