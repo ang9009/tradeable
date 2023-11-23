@@ -45,6 +45,7 @@ function Signup() {
           id: result.user.uid,
           isVerified: false,
           photoUrl: "",
+          reviews: 0,
           avgRating: 0,
           about: "Hey there, I'm new to tradeable!",
         };
