@@ -45,7 +45,7 @@ function ListingsCarousel({ listings }) {
       >
         {listings.map((listing) => {
           return (
-            <swiper-slide>
+            <swiper-slide key={listing}>
               <ListingCard listing={listing} />
             </swiper-slide>
           );

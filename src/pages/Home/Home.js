@@ -5,6 +5,7 @@ import { FiShare } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../../components/ui/Button/Button";
+import UsersCarousel from "../../components/ui/UsersCarousel/UsersCarousel";
 import { ListingsCarousel } from "../../features/listing";
 import Hero from "../../layouts/Hero/Hero";
 import { db } from "../../lib/firebase";
@@ -12,6 +13,7 @@ import HomeCSS from "./Home.module.css";
 
 function Home() {
   const [recentlyPosted, setRecentlyPosted] = useState([]);
+  const [featuredUsers, setFeaturedUsers] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,25 +26,18 @@ function Home() {
     getDocs(listingsQuery).then((res) => {
       setRecentlyPosted(res.docs.map((doc) => doc.data()));
     });
+
+    // Featured users
+    const usersRef = collection(db, "users");
+    const usersQuery = query(usersRef, orderBy("shares", "desc"), limit(5));
+    getDocs(usersQuery).then((res) => {
+      setFeaturedUsers(res.docs.map((doc) => doc.data()));
+    });
   }, []);
 
   return (
     <>
       <Hero />
-      <div className={HomeCSS["sell-section"]}>
-        <h1 className={HomeCSS["section-title"]}>Make some extra cash</h1>
-        <p className={HomeCSS["section-subtitle"]}>
-          Earn all that money you spent on dorm essentials back.
-        </p>
-        <Button
-          options={{
-            type: "black-filled",
-            text: "Learn how it works",
-            className: HomeCSS["homepage-btn"],
-          }}
-          onClick={() => navigate("/about")}
-        />
-      </div>
       <div className={HomeCSS["buy-section"]}>
         <h1 className={HomeCSS["section-title"]}>
           Find great deals for your dorm room
@@ -55,11 +50,37 @@ function Home() {
         )}
         <Button
           options={{
-            type: "gray-outline",
+            type: "black-filled",
             text: "Browse more listings",
             className: HomeCSS["homepage-btn"],
           }}
           onClick={() => navigate("/search")}
+        />
+      </div>
+      <div className={HomeCSS["sell-section"]}>
+        <h1 className={HomeCSS["section-title"]}>Make some extra cash</h1>
+        <p className={HomeCSS["section-subtitle"]}>
+          Earn all that money you spent on dorm essentials back.
+        </p>
+        <Button
+          options={{
+            type: "gray-outline",
+            text: "Learn how it works",
+            className: HomeCSS["homepage-btn"],
+          }}
+          onClick={() => navigate("/about")}
+        />
+      </div>
+      <div className={HomeCSS["buy-section"]}>
+        <h1 className={HomeCSS["section-title"]}>Featured sellers</h1>
+        <UsersCarousel users={featuredUsers} />
+        <Button
+          options={{
+            type: "black-filled",
+            text: "Get yourself featured",
+            className: HomeCSS["homepage-btn"],
+          }}
+          onClick={() => navigate("/share")}
         />
       </div>
       <div className={HomeCSS["interested-section"]}>
@@ -68,7 +89,7 @@ function Home() {
           <div className={HomeCSS["interested-section-btns"]}>
             <Button
               options={{
-                type: "white-filled",
+                type: "gray-outline",
                 text: "Sign up",
                 className: HomeCSS["homepage-btn"],
               }}

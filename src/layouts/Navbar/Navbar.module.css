@@ -18,6 +18,10 @@
   color: #fff;
 }
 
+.banner-link:active {
+  color: #fff;
+}
+
 .close-btn {
   cursor: pointer;
   margin-left: 15px;

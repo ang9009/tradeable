@@ -1,18 +1,18 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { increment } from "firebase/firestore";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import TextInput from "../../components/form/TextInput/TextInput";
 import Button from "../../components/ui/Button/Button";
 import Error from "../../components/ui/Error/Error";
-import { useUser } from "../../context/UserContext";
 import { sendVerifyEmail } from "../../features/auth";
 import pdf from "../../files/terms.pdf";
-import { auth, db, doc, setDoc } from "../../lib/firebase";
-import SignupCSS from "./Signup.module.css";
+import { auth, db, doc, setDoc, updateDoc } from "../../lib/firebase";
+import AffiliateSignupCSS from "./AffiliateSignup.module.css";
 
-function Signup() {
-  const { user, isFetchingUser } = useUser();
+function AffiliateSignup() {
+  const { userId } = useParams();
   const [error, setError] = useState("");
   const {
     register,
@@ -30,10 +30,10 @@ function Signup() {
   async function submitSignup(data, e) {
     e.preventDefault();
 
-    // if (!isValidEmail(data.studentEmail)) {
-    //   setError("Please use your student email");
-    //   return;
-    // }
+    if (!isValidEmail(data.studentEmail)) {
+      setError("Please use your student email");
+      return;
+    }
 
     createUserWithEmailAndPassword(auth, data.studentEmail, data.password)
       .then(async (result) => {
@@ -50,6 +50,13 @@ function Signup() {
           about: "Hey there, I'm new to tradeable!",
         };
 
+        // !Remmber to check if userId exists
+        const affiliateUserRef = doc(db, "users", userId);
+
+        await updateDoc(affiliateUserRef, {
+          shares: increment(1),
+        });
+
         await setDoc(doc(db, "userChats", result.user.uid), {});
         await setDoc(userRef, user).then(() => {
           sendVerifyEmail(name, data.studentEmail).then(() => {
@@ -63,18 +70,18 @@ function Signup() {
   }
 
   return (
-    <div className={SignupCSS["sign-up-page-container"]}>
+    <div className={AffiliateSignupCSS["sign-up-page-container"]}>
       <form
         action=""
         onSubmit={handleSubmit(submitSignup)}
-        className={SignupCSS["form-container"]}
+        className={AffiliateSignupCSS["form-container"]}
       >
-        <h1 className={`${SignupCSS["centered-title"]}`}>Sign up</h1>
+        <h1 className={`${AffiliateSignupCSS["centered-title"]}`}>Sign up</h1>
         <TextInput
           options={{
             label: "Student email",
             placeholder: "E.g. johndoe@ucl.ac.uk",
-            className: SignupCSS["input"],
+            className: AffiliateSignupCSS["input"],
           }}
           formData={{ register, errors }}
         />
@@ -82,7 +89,7 @@ function Signup() {
           options={{
             label: "Password",
             placeholder: "Enter your password...",
-            className: SignupCSS["input"],
+            className: AffiliateSignupCSS["input"],
             isPassword: true,
           }}
           formData={{ register, errors }}
@@ -91,7 +98,7 @@ function Signup() {
           options={{
             type: "black-filled",
             text: "Create account",
-            className: SignupCSS["create-account-btn"],
+            className: AffiliateSignupCSS["create-account-btn"],
             notRounded: true,
           }}
         />
@@ -99,13 +106,13 @@ function Signup() {
       <Error
         message={error}
         show={error !== ""}
-        className={SignupCSS["error"]}
+        className={AffiliateSignupCSS["error"]}
       />
-      <p className={SignupCSS["log-in-text"]}>
+      <p className={AffiliateSignupCSS["log-in-text"]}>
         Already have an account?{" "}
         <span onClick={() => navigate("/login")}>Log in</span> instead
       </p>
-      <p className={SignupCSS["terms-text"]}>
+      <p className={AffiliateSignupCSS["terms-text"]}>
         By signing up with email above, you agree to tradeable's{" "}
         <a target="_blank" href={pdf}>
           Terms & Conditions
@@ -115,4 +122,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default AffiliateSignup;

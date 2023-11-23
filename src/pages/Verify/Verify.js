@@ -1,7 +1,7 @@
 import { onIdTokenChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import Countdown from "react-countdown";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../../components/ui/Button/Button";
 import Error from "../../components/ui/Error/Error";
@@ -14,8 +14,7 @@ function Verify() {
   const { userData } = useUser();
   const [error, setError] = useState("");
   const [countdownKey, setCountdownKey] = useState(0);
-
-  useEffect(() => {}, [userData]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsub = onIdTokenChanged(auth, (user) => {
@@ -28,6 +27,7 @@ function Verify() {
             updateDoc(userRef, {
               isVerified: true,
             }).then(() => {
+              navigate("/share");
               window.location.reload();
             });
           }

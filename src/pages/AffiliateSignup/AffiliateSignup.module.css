@@ -1,0 +1,69 @@
+.sign-up-page-container {
+  min-height: calc(100dvh - var(--navbar-height));
+  max-width: 400px;
+  padding-top: 64px;
+  margin: auto;
+}
+
+.centered-title {
+  text-align: center;
+  font-size: calc(2rem + 0.5vw);
+}
+
+.divider {
+  width: 100%;
+  margin: 25px 0;
+  height: 1px;
+  background: var(--primary-border-color);
+}
+
+.input:not(:first-child) {
+  margin-top: 15px;
+}
+
+.input:first-of-type {
+  margin-top: 45px;
+}
+
+.create-account-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px 12px;
+}
+
+.log-in-text {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--secondary-text-color);
+}
+
+.log-in-text span {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.terms-text {
+  margin-top: 30px;
+  text-align: center;
+  color: var(--secondary-text-color);
+  font-size: 0.85rem;
+}
+
+.terms-text a {
+  text-decoration: underline;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--secondary-text-color);
+}
+
+.error {
+  margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+  .sign-up-page-container {
+    max-width: 100%;
+    padding: 0 32px;
+    padding-top: 64px;
+  }
+}

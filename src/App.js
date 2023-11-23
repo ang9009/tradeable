@@ -22,6 +22,7 @@ import EditListingRoute from "./features/auth/components/EditListingRoute/EditLi
 import ListingRoute from "./features/listing/components/ListingRoute/ListingRoute";
 import About from "./pages/About/About";
 import AccountSettings from "./pages/AccountSettings/AccountSettings";
+import AffiliateSignup from "./pages/AffiliateSignup/AffiliateSignup";
 import CreateListing from "./pages/CreateListing/CreateListing";
 import EditListing from "./pages/EditListing/EditListing";
 import Login from "./pages/Login/Login";
@@ -51,6 +52,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route
+              path="/affiliatesignup/:userId"
+              element={<AffiliateSignup />}
+            />
             <Route path="/search/:category?" element={<Search />} />
             <Route path="/profile/:userId/:page" element={<Profile />} />
             <Route element={<ListingRoute />}>

@@ -37,7 +37,7 @@ const Navbar = () => {
         {location.pathname === "/" && (
           <div className={NavbarCSS["banner"]}>
             <p>
-              NU London/Oakland students:{" "}
+              NEU Global Scholars students:{" "}
               <Link to="/neu" className={NavbarCSS["banner-link"]}>
                 learn how you can trade with each other
               </Link>

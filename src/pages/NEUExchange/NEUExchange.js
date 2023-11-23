@@ -23,7 +23,7 @@ function NEUExchange() {
     <div className={NEUExchangeCSS["page-container"]}>
       <div className={NEUExchangeCSS["intro-section"]}>
         <h1 className={NEUExchangeCSS["page-title"]}>
-          The NEU Exchange Program
+          The Global Scholars Exchange Program
         </h1>
         <div className={NEUExchangeCSS["cards-container"]}>
           <div className={NEUExchangeCSS["card"]}>
@@ -32,16 +32,16 @@ function NEUExchange() {
               <h1>What is this?</h1>
             </div>
             <p>
-              tradeable’s NEU Exchange program allows NU London students and
-              incoming students from NU Oakland to trade with each other between
-              cycles.
+              tradeable’s Global Scholars Exchange program allows NU London
+              students and incoming students from NU Oakland or Boston to trade
+              with each other between cycles.
             </p>
             <p>
-              NU Oakland students should note that dorms do not provide some
-              items that may be considered as essential, including cooking
-              appliances such as kettles or rice cookers, electrical appliances
-              such as air conditioners or fans, and cleaning appliances such as
-              vacuum cleaners or mops.
+              NU Oakland or Boston students should note that dorms do not
+              provide some items that may be considered as essential, including
+              cooking appliances such as kettles or rice cookers, electrical
+              appliances such as air conditioners or fans, cleaning appliances
+              such as vacuum cleaners or mops, or bedding.
             </p>
           </div>
           <div className={NEUExchangeCSS["card"]}>
@@ -51,7 +51,8 @@ function NEUExchange() {
             </div>
             <p>
               Through the program, NU London students can recoup money on dorm
-              purchases, and NU Oakland students get to save on dorm essentials.
+              purchases, and NU Oakland and Boston students get to save on dorm
+              essentials.
             </p>
             <p>
               This program also promotes the sustainable reuse of dorm items,
@@ -73,7 +74,7 @@ function NEUExchange() {
           <p>
             For NU London students: create a listing by clicking the <FiPlus />{" "}
             button in the navbar. Indicate that you intend to sell to NU Oakland
-            students via the checkbox provided.
+            or Boston students via the checkbox provided.
           </p>
         </div>
         <img
@@ -91,9 +92,11 @@ function NEUExchange() {
             <h1>Explore</h1>
           </div>
           <p>
-            For NU Oakland students: search for items offered by NU London
-            students by filtering for items with the "NEU Exchange" tag, then
-            click "message seller" on the page to inquire.
+            For NU Oakland or Boston students: search for items offered by NU
+            London students by filtering for items with the "NEU Exchange" tag,
+            then click "message seller" on the page to inquire. You may also
+            want to check if your housing provider has a policy on bringing
+            electrical items, though it is unlikely that they do.
           </p>
         </div>
         <img
@@ -140,8 +143,8 @@ function NEUExchange() {
             plastic bag.
           </p>
           <p>
-            Sellers should then bring the item to campus, where it will be
-            stored (location TBC, update by November 29th).{" "}
+            Sellers should then bring the item to campus to room 143 in Devon
+            House, where it will be stored.{" "}
             <strong>The deadline for storage is December 16th.</strong> Buyers
             should request proof of delivery through chat.
           </p>
@@ -160,10 +163,10 @@ function NEUExchange() {
           <h1>Storage</h1>
         </div>
         <p>
-          Items are stored at NU London from December 16th to January 14th
-          (location TBC, update by November 29th). It should be noted that the
-          university is only responsible for storage of items, and has no other
-          involvement in the program. For tradeable’s terms and conditions,{" "}
+          Items are stored at NU London from December 16th to January 14th at
+          Devon House in room 143. It should be noted that the university is
+          only responsible for storage of items, and has no other involvement in
+          the program. For tradeable’s terms and conditions,{" "}
           <a target="_blank" href={pdf}>
             please see here
           </a>
@@ -179,9 +182,9 @@ function NEUExchange() {
             <h1>Item pickup</h1>
           </div>
           <p>
-            NU Oakland students pick up items from campus on January 14th! NUID
-            and name should match with item label as proof of purchase. Don't
-            forget to leave a review!
+            NU Oakland and Boston students pick up items from campus on January
+            14th! NUID and name should match with item label as proof of
+            purchase. Don't forget to leave a review!
           </p>
         </div>
         <img
