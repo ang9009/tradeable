@@ -84,7 +84,6 @@
 .listing-name {
   font-size: 1rem;
   margin-bottom: 2px;
-  max-width: 200px;
   white-space: nowrap;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -93,6 +92,7 @@
 
 .name-and-condition {
   width: fit-content;
+  max-width: 70%;
 }
 
 .condition {
