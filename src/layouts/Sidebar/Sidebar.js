@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { FiX } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../components/ui/Logo/Logo";
 import { useUser } from "../../context/UserContext";
 import categories from "../../data/categories";
@@ -8,6 +9,10 @@ import SidebarUserWidget from "./components/SidebarUserWidget/SidebarUserWidget"
 
 function Sidebar({ openSidebar, setOpenSidebar, className }) {
   const { user } = useUser();
+  const navigate = useNavigate();
+  function getCategoryUrl(category) {
+    return `search?listings%5BrefinementList%5D%5Bcategory%5D%5B0%5D=${category}`;
+  }
 
   useEffect(() => {
     if (openSidebar) {
@@ -38,7 +43,16 @@ function Sidebar({ openSidebar, setOpenSidebar, className }) {
           </>
           <ul className={SidebarCSS["category-list"]}>
             {categories.map((category) => (
-              <li key={category}>{category}</li>
+              <li
+                key={category}
+                onClick={() => {
+                  setOpenSidebar(false);
+                  navigate(getCategoryUrl(category));
+                  window.location.reload();
+                }}
+              >
+                {category}
+              </li>
             ))}
           </ul>
           <Logo

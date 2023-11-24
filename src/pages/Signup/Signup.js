@@ -24,16 +24,16 @@ function Signup() {
   const navigate = useNavigate();
 
   function isValidEmail(email) {
-    return email.includes(".ac.uk") || email.includes(".edu");
+    return email.endsWith(".ac.uk") || email.endsWith(".edu");
   }
 
   async function submitSignup(data, e) {
     e.preventDefault();
 
-    // if (!isValidEmail(data.studentEmail)) {
-    //   setError("Please use your student email");
-    //   return;
-    // }
+    if (!isValidEmail(data.studentEmail)) {
+      setError("Please use your student email");
+      return;
+    }
 
     createUserWithEmailAndPassword(auth, data.studentEmail, data.password)
       .then(async (result) => {

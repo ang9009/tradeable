@@ -11,7 +11,7 @@ function useLogin() {
   const [error, setError] = useState("");
 
   function isValidEmail(email) {
-    return email.includes(".ac.uk") || email.includes(".edu");
+    return email.endsWith(".ac.uk") || email.endsWith(".edu");
   }
 
   // Checks if user is of valid domain (.edu or .ac.uk), checked by firebase security reles
