@@ -184,7 +184,8 @@ function NEUExchange() {
           <p>
             NU Oakland and Boston students pick up items from campus on January
             14th! NUID and name should match with item label as proof of
-            purchase. Don't forget to leave a review!
+            purchase. Don't forget to leave a review! Items that are not picked
+            up by the 29th will be donated to the British Heart Foundation.
           </p>
         </div>
         <img
