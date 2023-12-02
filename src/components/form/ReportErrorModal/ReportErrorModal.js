@@ -25,10 +25,9 @@ function ReportErrorModal({
   const { user } = useUser();
   const navigate = useNavigate();
 
-  async function submitReport(data, userId) {
+  async function submitReport(data) {
     const report = {
       reason: data.reason,
-      userId: userId,
     };
 
     await setDoc(doc(db, "errorReports", uuid()), report);
@@ -47,7 +46,7 @@ function ReportErrorModal({
           className={ReportErrorModalCSS["report-form"]}
           onSubmit={handleSubmit((data, e) => {
             e.preventDefault();
-            submitReport(data, user.id);
+            submitReport(data);
             setReportErrorModalIsOpen(false);
             toast.success("Report submitted", {
               autoClose: 3000,

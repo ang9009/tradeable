@@ -22,11 +22,7 @@ function Footer() {
       </div>
       <div className={FooterCSS["footer-container"]}>
         <ul>
-          <li
-            onClick={() =>
-              user ? setReportErrorModalIsOpen(true) : navigate("/signup")
-            }
-          >
+          <li onClick={() => setReportErrorModalIsOpen(true)}>
             Report an error
           </li>
           <li>
