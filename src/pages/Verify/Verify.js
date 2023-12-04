@@ -11,7 +11,7 @@ import { auth, db, doc, updateDoc } from "../../lib/firebase";
 import VerifyCSS from "./Verify.module.css";
 
 function Verify() {
-  const { userData } = useUser();
+  const { userData, user } = useUser();
   const [error, setError] = useState("");
   const [countdownKey, setCountdownKey] = useState(0);
   const navigate = useNavigate();

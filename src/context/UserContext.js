@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth, db, doc, getDoc, updateDoc } from "../lib/firebase";
+import { auth, db, doc, getDoc, setDoc, updateDoc } from "../lib/firebase";
 
 const UserContext = createContext();
 const UserDataContext = createContext();
@@ -31,6 +31,22 @@ function UserProvider({ children }) {
 
     getDoc(userRef).then((res) => {
       if (!res.exists()) {
+        const userRef = doc(db, "users", userId);
+        const name = currUserData.email.split("@")[0];
+        const user = {
+          name: name,
+          email: currUserData.email,
+          id: userId,
+          isVerified: false,
+          photoUrl: "",
+          reviews: 0,
+          avgRating: 0,
+          about: "Hey there, I'm new to tradeable!",
+        };
+
+        setDoc(doc(db, "userChats", userId), {});
+        setDoc(userRef, user);
+
         getUserObject();
         return;
       } else {
