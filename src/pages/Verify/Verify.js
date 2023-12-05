@@ -7,7 +7,7 @@ import Button from "../../components/ui/Button/Button";
 import Error from "../../components/ui/Error/Error";
 import { useUser } from "../../context/UserContext";
 import { sendVerifyEmail } from "../../features/auth";
-import { auth, db, doc, updateDoc } from "../../lib/firebase";
+import { auth, db, doc, getDoc, setDoc, updateDoc } from "../../lib/firebase";
 import VerifyCSS from "./Verify.module.css";
 
 function Verify() {
@@ -15,6 +15,35 @@ function Verify() {
   const [error, setError] = useState("");
   const [countdownKey, setCountdownKey] = useState(0);
   const navigate = useNavigate();
+
+  // If user doesn't exist
+  useEffect(() => {
+    if (userData && Object.hasOwn(userData, "uid")) {
+      const userRef = doc(db, "users", userData.uid);
+
+      getDoc(userRef).then(async (res) => {
+        if (!res.exists()) {
+          const userRef = doc(db, "users", userData.uid);
+          const name = userData.email.split("@")[0];
+          const user = {
+            name: name,
+            email: userData.email,
+            id: userData.uid,
+            isVerified: false,
+            photoUrl: "",
+            reviews: 0,
+            avgRating: 0,
+            about: "Hey there, I'm new to tradeable!",
+          };
+
+          await setDoc(doc(db, "userChats", userData.uid), {});
+          await setDoc(userRef, user);
+
+          window.location.reload();
+        }
+      });
+    }
+  }, [userData]);
 
   useEffect(() => {
     const unsub = onIdTokenChanged(auth, (user) => {
