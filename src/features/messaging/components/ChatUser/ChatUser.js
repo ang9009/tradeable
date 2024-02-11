@@ -12,6 +12,7 @@ function ChatUser({ selectedChat }) {
   const [userPhoto, setUserPhoto] = useState(
     require("../../../../assets/profile_placeholder.png")
   );
+
   useEffect(() => {
     const userPhotoUrl = `https://storage.googleapis.com/tradeable-6ed31.appspot.com/profileImages/${selectedChat[1].userInfo.id}`;
 
