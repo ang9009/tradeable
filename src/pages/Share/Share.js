@@ -10,6 +10,7 @@ import ShareCSS from "./Share.module.css";
 function Share() {
   const { isFetchingUser, user } = useUser();
   const [error, setError] = useState("");
+  const bruh = "bruh";
 
   return !isFetchingUser ? (
     <div className={ShareCSS["page-container"]}>
